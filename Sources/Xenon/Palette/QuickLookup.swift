@@ -45,27 +45,27 @@ enum QuickLookup {
         var out: [PaletteItem] = []
 
         for s in Screen.allCases {
-            let best = ([s.rawValue] + (screenAliases[s] ?? [])).map { q.isEmpty ? 30 : score($0, q) }.max() ?? 0
+            let best = ([s.rawValue, tr(s.rawValue)] + (screenAliases[s] ?? [])).map { q.isEmpty ? 30 : score($0, q) }.max() ?? 0
             if best > 0 { out.append(PaletteItem(title: s.rawValue, subtitle: "Go to screen", icon: s.icon, target: .screen(s), score: q.isEmpty ? 30 : best + 5)) }
         }
         guard !q.isEmpty else { return Array(out.prefix(limit)) }
 
         for e in ElementStore.all {
-            var best = max(score(e.name, q), score(e.symbol, q) == 100 ? 95 : 0)
+            var best = max(score(e.name, q), score(tr(e.name), q), score(e.symbol, q) == 100 ? 95 : 0)
             if String(e.z) == q { best = max(best, 95) }
-            if best > 0 { out.append(PaletteItem(title: "\(e.name) (\(e.symbol))", subtitle: "Element \(e.z)", icon: "square.grid.3x3", target: .element(e.z), score: best + 10)) }
+            if best > 0 { out.append(PaletteItem(title: "\(tr(e.name)) (\(e.symbol))", subtitle: tr("Element {z}", ["z": e.z]), icon: "square.grid.3x3", target: .element(e.z), score: best + 10)) }
         }
         for g in ReferenceStore.data?.glossary ?? [] {
-            let best = score(g.name, q)
-            if best > 0 { out.append(PaletteItem(title: g.name, subtitle: "Glossary", icon: "book", target: .glossary(g.name), score: best)) }
+            let best = max(score(g.name, q), score(tr(g.name), q))
+            if best > 0 { out.append(PaletteItem(title: tr(g.name), subtitle: tr("Glossary"), icon: "book", target: .glossary(g.name), score: best)) }
         }
         for t in ReferenceStore.data?.tools ?? [] {
-            let best = score(t.name, q)
-            if best > 0 { out.append(PaletteItem(title: t.name, subtitle: "Lab equipment", icon: "flask", target: .equipment(t.name), score: best - 5)) }
+            let best = max(score(t.name, q), score(tr(t.name), q))
+            if best > 0 { out.append(PaletteItem(title: tr(t.name), subtitle: tr("Lab equipment"), icon: "flask", target: .equipment(t.name), score: best - 5)) }
         }
         for m in MoleculeLibrary.bundled {
-            let best = max(score(m.name, q), score(m.formula, q))
-            if best > 0 { out.append(PaletteItem(title: m.name, subtitle: "Molecule · \(Markup.formulaText(m.formula))", icon: "atom", target: .molecule(m.id), score: best - 5)) }
+            let best = max(score(m.name, q), score(tr(m.name), q), score(m.formula, q))
+            if best > 0 { out.append(PaletteItem(title: tr(m.name), subtitle: "\(tr("Molecule")) · \(Markup.formulaText(m.formula))", icon: "atom", target: .molecule(m.id), score: best - 5)) }
         }
         return Array(out.sorted { ($0.score, $1.title) > ($1.score, $0.title) }.prefix(limit))
     }
@@ -126,7 +126,7 @@ struct PaletteView: View {
                             .onTapGesture { index = i; choose() }
                             .id(i)
                         }
-                        if results.isEmpty { Text("Nothing found for “\(query)”").foregroundStyle(.secondary).padding(20) }
+                        if results.isEmpty { Text(tr("Nothing found for “{q}”", ["q": query])).foregroundStyle(.secondary).padding(20) }
                     }.padding(8)
                 }
                 .onChange(of: index) { _, i in proxy.scrollTo(i) }

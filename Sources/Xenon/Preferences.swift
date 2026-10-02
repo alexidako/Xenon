@@ -71,9 +71,20 @@ final class Preferences: ObservableObject {
 
 struct SettingsView: View {
     @ObservedObject private var prefs = Preferences.shared
+    @State private var language = AppLanguage.chosen
+    @State private var needsRestart = false
 
     var body: some View {
         Form {
+            Section("Language") {
+                Picker("Language", selection: $language) { ForEach(AppLanguage.allCases) { Text($0.label).tag($0) } }
+                    .onChange(of: language) { _, new in new.save(); needsRestart = true }
+                if needsRestart {
+                    HStack { Text("Restart Xenon to change the language."); Spacer(); Button("Restart now") { AppLanguage.relaunch() } }
+                }
+                Text("Element names, the glossary and the lab equipment use the official KDE Kalzium translations. You can ask the periodic table search questions in any of these languages.")
+                    .font(.caption).foregroundStyle(.secondary)
+            }
             Section("Units") {
                 Picker("Temperature", selection: $prefs.temperature) { ForEach(TemperatureUnit.allCases) { Text($0.rawValue).tag($0) } }
                 Picker("Energy (ionization, electron affinity)", selection: $prefs.energy) { ForEach(EnergyUnit.allCases) { Text($0.rawValue).tag($0) } }
@@ -89,7 +100,7 @@ struct SettingsView: View {
             }
             Section { Button("Restore defaults") { prefs.resetToDefaults() } }
             Section("About") {
-                LabeledContent("Xenon") { Text("Version \(AppInfo.version)") }
+                LabeledContent { Text(tr("Version {version}", ["version": AppInfo.version])) } label: { Text(verbatim: "Xenon") }
                 LabeledContent("Built by") { Text(AppInfo.author).textSelection(.enabled) }
                 LabeledContent("Made with") { Text(AppInfo.builtWith.replacingOccurrences(of: "Developed with ", with: "").replacingOccurrences(of: ".", with: "")) }
                 Text("Element, isotope and spectrum data from the Blue Obelisk project (MIT). Glossary, lab equipment, hazard symbols, molecules, icons and the original application: KDE Kalzium (GPL-2.0-or-later).")

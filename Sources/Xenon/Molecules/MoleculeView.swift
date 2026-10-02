@@ -37,20 +37,19 @@ struct MoleculeView: View {
                     if isCustom(m) { Spacer(); Image(systemName: "person.crop.circle").foregroundStyle(.secondary).help("Made by you") }
                 }
                 .tag(m.id)
-                .contextMenu { if isCustom(m) { Button("Delete “\(m.name)”…", role: .destructive) { pendingDelete = m } } }
+                .contextMenu { if isCustom(m) { Button(tr("Delete “{name}”…", ["name": tr(m.name)]), role: .destructive) { pendingDelete = m } } }
             }
             .frame(minWidth: 190, idealWidth: 220, maxWidth: 300)
             .onDeleteCommand { if let m = current, isCustom(m) { pendingDelete = m } }
             VStack(spacing: 0) {
                 VStack(alignment: .leading, spacing: 8) {
-                    HStack(spacing: 14) {
+                    FlowLayout(spacing: 14) {
                         Picker("Style", selection: $style) { ForEach(Style.allCases) { Text($0.rawValue).tag($0) } }
-                            .pickerStyle(.segmented).frame(maxWidth: 320)
+                            .pickerStyle(.segmented).fixedSize()
                         Picker("Orbitals", selection: $orbitals) { ForEach(OrbitalOverlay.Mode.allCases) { Text($0.rawValue).tag($0) } }
                             .frame(maxWidth: 300).help("Show the σ bonds, lone pairs and π bonds as orbital lobes")
                         Toggle("Bond angles", isOn: $showAngles).toggleStyle(.checkbox).fixedSize()
                             .help("Draw an arc and the angle in degrees at every pair of bonds")
-                        Spacer()
                     }
                     HStack(spacing: 12) {
                         Button { resetToken += 1 } label: { Label("Reset view", systemImage: "arrow.counterclockwise") }
@@ -64,7 +63,7 @@ struct MoleculeView: View {
                         Button("Open file…") { importing = true }
                         Menu("Convert…") {
                             ForEach(MoleculeIO.Format.allCases, id: \.self) { f in
-                                Button("Save as .\(f.rawValue)") { if let m = current { save(m, f) } }
+                                Button(tr("Save as .{ext}", ["ext": f.rawValue])) { if let m = current { save(m, f) } }
                             }
                         }
                         .disabled(current == nil).fixedSize()
@@ -81,7 +80,7 @@ struct MoleculeView: View {
                         Text(m.name).font(.headline)
                         Text(Markup.formulaText(m.formula)).font(.body.monospaced())
                         Text("\(formatNumber(m.mass)) u")
-                        Text("\(m.atoms.count) atoms, \(m.bonds.count) bonds").foregroundStyle(.secondary)
+                        Text(tr("{atoms} atoms, {bonds} bonds", ["atoms": m.atoms.count, "bonds": m.bonds.count])).foregroundStyle(.secondary)
                         Spacer()
                         if !message.isEmpty { Text(message).font(.caption).foregroundStyle(.secondary) }
                     }
@@ -97,9 +96,9 @@ struct MoleculeView: View {
             let scoped = url.startAccessingSecurityScopedResource()
             defer { if scoped { url.stopAccessingSecurityScopedResource() } }
             if let m = MoleculeIO.load(url: url) { imported.append(m); selection = m.id; message = "" }
-            else { message = "Could not read \(url.lastPathComponent)" }
+            else { message = tr("Could not read {file}", ["file": url.lastPathComponent]) }
         }
-        .confirmationDialog(pendingDelete.map { "Delete “\($0.name)”?" } ?? "Delete molecule?",
+        .confirmationDialog(pendingDelete.map { tr("Delete “{name}”?", ["name": tr($0.name)]) } ?? tr("Delete molecule?"),
                             isPresented: Binding(get: { pendingDelete != nil }, set: { if !$0 { pendingDelete = nil } }), titleVisibility: .visible) {
             Button("Delete", role: .destructive) { if let m = pendingDelete { delete(m) }; pendingDelete = nil }
             Button("Cancel", role: .cancel) { pendingDelete = nil }
@@ -121,7 +120,7 @@ struct MoleculeView: View {
         optimized[m.id] = nil
         if selection == m.id || selection == nil { selection = neighbour }
         shownAtoms = []
-        message = "Deleted “\(m.name)”"
+        message = tr("Deleted “{name}”", ["name": tr(m.name)])
     }
 
     /// Chips for choosing which atoms show their orbitals.
@@ -179,8 +178,8 @@ struct MoleculeView: View {
         let panel = NSSavePanel()
         panel.nameFieldStringValue = m.name.replacingOccurrences(of: " ", with: "_") + "." + f.rawValue
         guard panel.runModal() == .OK, let url = panel.url else { return }
-        do { try MoleculeIO.export(m, as: f).write(to: url, atomically: true, encoding: .utf8); message = "Saved \(url.lastPathComponent)" }
-        catch { message = "Save failed: \(error.localizedDescription)" }
+        do { try MoleculeIO.export(m, as: f).write(to: url, atomically: true, encoding: .utf8); message = tr("Saved {file}", ["file": url.lastPathComponent]) }
+        catch { message = tr("Save failed: {error}", ["error": error.localizedDescription]) }
     }
 }
 

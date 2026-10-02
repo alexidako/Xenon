@@ -28,7 +28,7 @@ struct StoichiometryView: View {
         case .failure(let f):
             Form {
                 Section {
-                    Label(f == .notFound ? "This equation can't be balanced with whole numbers." : "Fix the equation on the Balance tab first.",
+                    Label(f == .notFound ? tr("This equation can't be balanced with whole numbers.") : tr("Fix the equation on the Balance tab first."),
                           systemImage: "exclamationmark.triangle").foregroundStyle(.orange)
                 }
             }.formStyle(.grouped)
@@ -57,13 +57,13 @@ struct StoichiometryView: View {
                             TextField("", text: Binding(get: { amounts[r.id] ?? "" }, set: { amounts[r.id] = $0 }), prompt: Text("amount"))
                                 .multilineTextAlignment(.trailing).frame(width: 110).textFieldStyle(.roundedBorder)
                             Picker("", selection: Binding(get: { units[r.id] ?? .g }, set: { units[r.id] = $0 })) {
-                                ForEach(Stoichiometry.Unit.allCases) { Text($0.rawValue).tag($0) }
+                                ForEach(Stoichiometry.Unit.allCases) { Text(trc("unit", $0.rawValue)).tag($0) }
                             }.labelsHidden().frame(width: 80)
                         }
                     } label: {
                         VStack(alignment: .leading) {
                             Text(Markup.formulaText(r.formula)).font(.body.monospaced())
-                            Text("\(formatNumber(r.molarMass)) g/mol").font(.caption).foregroundStyle(.secondary)
+                            Text(tr("{value} g/mol", ["value": formatNumber(r.molarMass)])).font(.caption).foregroundStyle(.secondary)
                         }
                     }
                 }
@@ -74,13 +74,13 @@ struct StoichiometryView: View {
                         Text(Markup.formulaText(o.limiting?.formula ?? "—")).font(.title3.monospaced().bold()).foregroundStyle(.orange)
                     }
                     ForEach(o.excess, id: \.species.id) { l in
-                        LabeledContent("Left over: \(Markup.formulaText(l.species.formula))") {
-                            Text("\(formatNumber(l.grams)) g  (\(formatNumber(l.moles)) mol)").monospacedDigit()
+                        LabeledContent(tr("Left over: {formula}", ["formula": Markup.formulaText(l.species.formula)])) {
+                            Text(tr("{g} g ({mol} mol)", ["g": formatNumber(l.grams), "mol": formatNumber(l.moles)])).monospacedDigit()
                         }
                     }
                     ForEach(o.products, id: \.species.id) { l in
-                        LabeledContent("Theoretical yield: \(Markup.formulaText(l.species.formula))") {
-                            Text("\(formatNumber(l.grams)) g  (\(formatNumber(l.moles)) mol)").monospacedDigit().fontWeight(.semibold)
+                        LabeledContent(tr("Theoretical yield: {formula}", ["formula": Markup.formulaText(l.species.formula)])) {
+                            Text(tr("{g} g ({mol} mol)", ["g": formatNumber(l.grams), "mol": formatNumber(l.moles)])).monospacedDigit().fontWeight(.semibold)
                         }
                     }
                 }
@@ -97,7 +97,7 @@ struct StoichiometryView: View {
                         LabeledContent("Percent yield") {
                             Text("\(formatNumber(actual / theory * 100)) %").font(.title3.monospacedDigit().bold())
                         }
-                        Text("\(formatNumber(actual)) g ÷ \(formatNumber(theory)) g × 100").font(.caption).foregroundStyle(.secondary)
+                        Text(tr("{actual} g ÷ {theory} g × 100", ["actual": formatNumber(actual), "theory": formatNumber(theory)])).font(.caption).foregroundStyle(.secondary)
                     }
                 }
                 Section {

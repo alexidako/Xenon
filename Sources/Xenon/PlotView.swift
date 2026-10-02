@@ -72,8 +72,8 @@ struct PlotView: View {
                 }
             }
             .chartXScale(domain: (points.map(\.x).min() ?? 0)...max((points.map(\.x).max() ?? 1), (points.map(\.x).min() ?? 0) + 1))
-            .chartXAxisLabel(xProp.rawValue)
-            .chartYAxisLabel(yProp.rawValue)
+            .chartXAxisLabel(tr(xProp.rawValue))
+            .chartYAxisLabel(tr(yProp.rawValue))
             .padding(20)
         }
         .navigationTitle("Plot Data")

@@ -19,6 +19,11 @@ struct ElectronFillingView: View {
         return 0..<min(Subshells.order.count, (used.max() ?? 0) + 2)
     }
 
+    /// "**Aufbau:** fill the lowest-energy ..." with both parts translated.
+    private func rule(_ name: String, _ text: String) -> Text {
+        Text(verbatim: tr(name)).bold() + Text(verbatim: " " + tr(text))
+    }
+
     var body: some View {
         HSplitView {
             ScrollView {
@@ -58,7 +63,7 @@ struct ElectronFillingView: View {
             .foregroundStyle(.black.opacity(0.85))
             VStack(alignment: .leading, spacing: 4) {
                 Text(element.name).font(.title.bold())
-                Text("\(state.total) of \(z) electrons placed").foregroundStyle(.secondary)
+                Text(tr("{n} of {z} electrons placed", ["n": state.total, "z": z])).foregroundStyle(.secondary)
                 ProgressView(value: Double(state.total), total: Double(z)).frame(width: 220)
             }
         }
@@ -82,7 +87,7 @@ struct ElectronFillingView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
                 Picker("Element", selection: $z) {
-                    ForEach(ElementStore.all) { Text("\($0.z)  \($0.name)").tag($0.z) }
+                    ForEach(ElementStore.all) { Text("\($0.z)  \(tr($0.name))").tag($0.z) }
                 }
                 .onChange(of: z) { _, _ in reset() }
                 HStack {
@@ -114,9 +119,9 @@ struct ElectronFillingView: View {
                 }
                 GroupBox("The three rules") {
                     VStack(alignment: .leading, spacing: 6) {
-                        Text("**Aufbau:** fill the lowest-energy subshell first (1s, 2s, 2p, 3s, 3p, 4s, 3d …).")
-                        Text("**Pauli:** an orbital holds at most 2 electrons, spinning opposite ways (↑ then ↓).")
-                        Text("**Hund:** in a subshell, give every orbital one electron before pairing any up.")
+                        rule("Aufbau:", "fill the lowest-energy subshell first (1s, 2s, 2p, 3s, 3p, 4s, 3d …).")
+                        rule("Pauli:", "an orbital holds at most 2 electrons, spinning opposite ways (↑ then ↓).")
+                        rule("Hund:", "in a subshell, give every orbital one electron before pairing any up.")
                     }.font(.callout).padding(6).frame(maxWidth: .infinity, alignment: .leading)
                 }
             }.padding(16)
@@ -159,6 +164,11 @@ struct ElectronFillingView: View {
 struct FillBox: View {
     let electrons: Int
     var highlighted = false
+
+    /// "**Aufbau:** fill the lowest-energy ..." with both parts translated.
+    private func rule(_ name: String, _ text: String) -> Text {
+        Text(verbatim: tr(name)).bold() + Text(verbatim: " " + tr(text))
+    }
 
     var body: some View {
         ZStack {

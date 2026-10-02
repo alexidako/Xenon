@@ -98,7 +98,7 @@ struct ConcView: View {
             if mode == .concentration {
                 Section("Concentration") {
                     ForEach(computed, id: \.0) { kind, v in
-                        LabeledContent(kind.rawValue) { Text(formatNumber(v)).monospacedDigit().fontWeight(.semibold) }
+                        LabeledContent(tr(kind.rawValue)) { Text(formatNumber(v)).monospacedDigit().fontWeight(.semibold) }
                     }
                     Text("Molarity and normality are per volume of solvent, as in Kalzium.")
                         .font(.caption).foregroundStyle(.secondary)

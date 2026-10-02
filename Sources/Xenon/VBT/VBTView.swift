@@ -50,20 +50,20 @@ private struct VBTPredictMode: View {
                     .foregroundStyle(.secondary)
                 HStack(spacing: 16) {
                     Picker("Atom", selection: $symbol) {
-                        ForEach(mainGroup) { Text("\($0.symbol) – \($0.name)").tag($0.symbol) }
+                        ForEach(mainGroup) { Text("\($0.symbol) – \(tr($0.name))").tag($0.symbol) }
                     }.frame(maxWidth: 240)
-                    Stepper("σ bonds: \(sigma)", value: $sigma, in: 0...7)
-                    Stepper("π bonds: \(pi)", value: $pi, in: 0...4)
+                    Stepper(tr("σ bonds: {n}", ["n": sigma]), value: $sigma, in: 0...7)
+                    Stepper(tr("π bonds: {n}", ["n": pi]), value: $pi, in: 0...4)
                     Menu("Examples") {
-                        ForEach(presets) { p in Button(p.name) { symbol = p.symbol; sigma = p.sigma; pi = p.pi } }
+                        ForEach(presets) { p in Button(tr(p.name)) { symbol = p.symbol; sigma = p.sigma; pi = p.pi } }
                     }.fixedSize()
                 }
                 if let h = result, h.hybridName != nil {
                     AtomDiagramView(h: h)
                 } else if let e = element, Hybridization.valenceElectrons(e) != nil {
                     Label(Hybridization.make(e, sigma: sigma, pi: pi) == nil
-                          ? "\(e.symbol) has \(Hybridization.valenceElectrons(e) ?? 0) valence electrons. \(sigma) σ + \(pi) π bonds use \(sigma + pi), and the rest must pair up as lone pairs, so this combination needs a formal charge or isn't possible for a neutral atom."
-                          : "At least two electron domains (bonds plus lone pairs) are needed to hybridize.",
+                          ? tr("{symbol} has {v} valence electrons. {sigma} σ + {pi} π bonds use {used}, and the rest must pair up as lone pairs, so this combination needs a formal charge or isn't possible for a neutral atom.", ["symbol": e.symbol, "v": Hybridization.valenceElectrons(e) ?? 0, "sigma": sigma, "pi": pi, "used": sigma + pi])
+                          : tr("At least two electron domains (bonds plus lone pairs) are needed to hybridize."),
                           systemImage: "exclamationmark.triangle").foregroundStyle(.orange)
                 }
             }
@@ -128,13 +128,13 @@ private struct VBTMoleculeMode: View {
                         if !c.measuredAngles.isEmpty {
                             GroupBox("Bond angles in this structure") {
                                 VStack(alignment: .leading, spacing: 4) {
-                                    Text("Predicted: \(h.shape?.angle ?? "—")").foregroundStyle(.secondary)
-                                    Text("Measured from the 3D file: " + c.measuredAngles.map { String(format: "%.1f°", $0) }.joined(separator: ", ")).monospacedDigit()
+                                    Text(tr("Predicted: {angle}", ["angle": tr(h.shape?.angle ?? "—")])).foregroundStyle(.secondary)
+                                    Text(tr("Measured from the 3D file: {angles}", ["angles": c.measuredAngles.map { String(format: "%.1f°", $0) }.joined(separator: ", ")])).monospacedDigit()
                                 }.padding(6).frame(maxWidth: .infinity, alignment: .leading)
                             }
                         }
                     } else {
-                        Label(c.note ?? "Hybridization isn't defined for this atom.", systemImage: "info.circle").foregroundStyle(.secondary)
+                        Label(tr(c.note ?? "Hybridization isn't defined for this atom."), systemImage: "info.circle").foregroundStyle(.secondary)
                     }
                 }
                 GroupBox("Every bond") {
@@ -162,17 +162,17 @@ struct AtomDiagramView: View {
         VStack(alignment: .leading, spacing: 16) {
             HStack(alignment: .top, spacing: 24) {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(title ?? h.element.name).font(.caption).foregroundStyle(.secondary)
+                    Text(title ?? tr(h.element.name)).font(.caption).foregroundStyle(.secondary)
                     Text(h.hybridName ?? "").font(.system(size: 44, weight: .bold, design: .rounded))
                     Text("hybridized").font(.callout).foregroundStyle(.secondary)
                 }
                 Grid(alignment: .leading, horizontalSpacing: 14, verticalSpacing: 5) {
-                    row("Electron domains", "\(h.steric) (\(h.sigma) σ bond\(h.sigma == 1 ? "" : "s") + \(h.lonePairs) lone pair\(h.lonePairs == 1 ? "" : "s"))")
-                    row("Electron geometry", h.electronGeometry ?? "—")
-                    row("Molecular shape", h.shape?.name ?? "—")
-                    row("Ideal bond angle", h.shape?.angle ?? "—")
+                    row("Electron domains", tr("{n} ({sigma} σ bonds + {lp} lone pairs)", ["n": h.steric, "sigma": h.sigma, "lp": h.lonePairs]))
+                    row("Electron geometry", tr(h.electronGeometry ?? "—"))
+                    row("Molecular shape", tr(h.shape?.name ?? "—"))
+                    row("Ideal bond angle", tr(h.shape?.angle ?? "—"))
                     row("π bonds", "\(h.pi)")
-                    row("Valence electrons", "\(h.valence)" + (h.charge == 0 ? "" : " (formal charge \(h.charge > 0 ? "+" : "−")\(abs(h.charge)))"))
+                    row("Valence electrons", h.charge == 0 ? "\(h.valence)" : tr("{n} (formal charge {charge})", ["n": h.valence, "charge": (h.charge > 0 ? "+" : "−") + "\(abs(h.charge))"]))
                 }
             }
             GroupBox("Orbital diagram") {
@@ -180,7 +180,7 @@ struct AtomDiagramView: View {
                     boxes("Ground state", h.groundState)
                     HStack(spacing: 8) {
                         Image(systemName: "arrow.down")
-                        Text(h.needsPromotion ? "promote electrons, then mix s, p" + (h.mix.d > 0 ? ", d" : "") + " orbitals" : "mix the s and p orbitals")
+                        Text(h.needsPromotion ? tr(h.mix.d > 0 ? "promote electrons, then mix s, p, d orbitals" : "promote electrons, then mix s, p orbitals") : tr("mix the s and p orbitals"))
                             .font(.callout).foregroundStyle(.secondary)
                     }
                     boxes("After hybridization", h.hybridized)
@@ -191,9 +191,9 @@ struct AtomDiagramView: View {
     }
 
     private var explanation: String {
-        var s = "Each σ bond is an end-to-end overlap of an \(h.hybridName ?? "hybrid") orbital with an orbital from the bonded atom."
-        if h.lonePairs > 0 { s += " Lone pairs sit in hybrid orbitals too, and because they take up more room than bonding pairs they squeeze the bond angles below the ideal value." }
-        if h.pi > 0 { s += h.pi == 1 ? " The π bond comes from side-on overlap of an unhybridized \(h.shell)p orbital." : " The \(h.pi) π bonds come from side-on overlap of unhybridized \(h.shell)p orbitals." }
+        var s = tr("Each σ bond is an end-to-end overlap of an {hybrid} orbital with an orbital from the bonded atom.", ["hybrid": h.hybridName ?? "hybrid"])
+        if h.lonePairs > 0 { s += " " + tr("Lone pairs sit in hybrid orbitals too, and because they take up more room than bonding pairs they squeeze the bond angles below the ideal value.") }
+        if h.pi > 0 { s += " " + (h.pi == 1 ? tr("The π bond comes from side-on overlap of an unhybridized {shell}p orbital.", ["shell": h.shell]) : tr("The {n} π bonds come from side-on overlap of unhybridized {shell}p orbitals.", ["n": h.pi, "shell": h.shell])) }
         return s
     }
 

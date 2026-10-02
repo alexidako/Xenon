@@ -106,7 +106,7 @@ enum ElementQuery {
     }
 
     static func run(_ raw: String, isStable: ((Element) -> Bool)? = ElementQuery.stable) -> Result? {
-        var t = Scan(s: " " + raw.lowercased().replacingOccurrences(of: "’", with: "'") + " ")
+        var t = Scan(s: " " + QueryVocab.normalize(raw).lowercased().replacingOccurrences(of: "’", with: "'") + " ")
         var filters: [(String, (Element) -> Bool)] = []
         var sort: (prop: Prop, descending: Bool, count: Int)?
         var recognised = false
@@ -115,7 +115,7 @@ enum ElementQuery {
         if let w = unsupportedWords.first(where: { t.has("\\b" + $0) }) {
             let known = Prop.allCases.contains { t.has("\\b(?:" + $0.pattern + ")\\b") }
             if !known {
-                return Result(matches: [], description: "This app has no “\(w)” data. Try mass, melting/boiling point, electronegativity, ionization energy, radius, family, block, period, group, state or discovery.", unsupported: true)
+                return Result(matches: [], description: tr("This app has no “{what}” data. Try mass, melting/boiling point, electronegativity, ionization energy, radius, family, block, period, group, state or discovery.", ["what": w]), unsupported: true)
             }
         }
 
@@ -148,7 +148,7 @@ enum ElementQuery {
         ]
         for (pat, fams, label) in families {
             if t.take("\\b(?:" + pat + ")\\b") != nil {
-                filters.append((label, { e in e.familyKind.map(fams.contains) ?? false })); recognised = true; break
+                filters.append((tr(label), { e in e.familyKind.map(fams.contains) ?? false })); recognised = true; break
             }
         }
 
@@ -160,7 +160,7 @@ enum ElementQuery {
                 T = g[4] == "°f" ? (v - 32) * 5 / 9 + 273.15 : kelvin(v, unit: g[4])
             }
             let want: MatterState = g[1] == "solid" ? .solid : g[1] == "liquid" ? .liquid : .gas
-            filters.append(("\(want == .gas ? "gases" : want.rawValue.lowercased() + "s") at \(formatNumber(T)) K", { $0.state(atKelvin: T) == want }))
+            filters.append((tr(want == .gas ? "gases at {T} K" : want == .solid ? "solids at {T} K" : "liquids at {T} K", ["T": formatNumber(T)]), { $0.state(atKelvin: T) == want }))
             recognised = true
         }
 
@@ -168,9 +168,9 @@ enum ElementQuery {
         func addCompare(_ p: Prop, _ op: String, _ v: Double, _ unit: String) {
             let x = p.isTemperature ? kelvin(v, unit: unit) : v
             if (above.split(separator: "|").map(String.init)).contains(op) {
-                filters.append(("\(p.label) > \(formatNumber(x)) \(p.unit)", { (p.value($0) ?? -.infinity) > x }))
+                filters.append((tr("{property} > {value} {unit}", ["property": tr(p.label), "value": formatNumber(x), "unit": p.unit]), { (p.value($0) ?? -.infinity) > x }))
             } else {
-                filters.append(("\(p.label) < \(formatNumber(x)) \(p.unit)", { (p.value($0) ?? .infinity) < x }))
+                filters.append((tr("{property} < {value} {unit}", ["property": tr(p.label), "value": formatNumber(x), "unit": p.unit]), { (p.value($0) ?? .infinity) < x }))
             }
             recognised = true
         }
@@ -184,7 +184,7 @@ enum ElementQuery {
             if let g = t.take("\\b(?:" + p.pattern + ")\\b (?:is |of )?between " + num + " ?" + unitPat + " and " + num + " ?" + unitPat) {
                 let lo = p.isTemperature ? kelvin(Double(g[1]) ?? 0, unit: g[2]) : Double(g[1]) ?? 0
                 let hi = p.isTemperature ? kelvin(Double(g[3]) ?? 0, unit: g[4].isEmpty ? g[2] : g[4]) : Double(g[3]) ?? 0
-                filters.append(("\(p.label) \(formatNumber(lo))–\(formatNumber(hi)) \(p.unit)", { e in
+                filters.append((tr("{property} {lo}–{hi} {unit}", ["property": tr(p.label), "lo": formatNumber(lo), "hi": formatNumber(hi), "unit": p.unit]), { e in
                     guard let v = p.value(e) else { return false }
                     return v >= min(lo, hi) && v <= max(lo, hi)
                 }))
@@ -193,15 +193,15 @@ enum ElementQuery {
         }
 
         if let g = t.take("\\b([spdf])[- ]?block\\b") {
-            filters.append(("\(g[1])-block", { $0.block == g[1] })); recognised = true
+            filters.append((tr("{b}-block", ["b": g[1]]), { $0.block == g[1] })); recognised = true
         }
         if let g = t.take("\\bperiod (\\d+)\\b") {
             let n = Int(g[1]) ?? 0
-            filters.append(("period \(n)", { $0.period == n })); recognised = true
+            filters.append((tr("period {n}", ["n": n]), { $0.period == n })); recognised = true
         }
         if let g = t.take("\\bgroup (\\d+)\\b") {
             let n = Int(g[1]) ?? 0
-            filters.append(("group \(n)", { e in
+            filters.append((tr("group {n}", ["n": n]), { e in
                 let p = e.gridPosition
                 return p.row < 8 && p.col + 1 == n
             })); recognised = true
@@ -211,41 +211,41 @@ enum ElementQuery {
         if let g = t.take("\\b(?:discovered|found|isolated|identified)? ?(before|prior to|after|since|until|by|in|during) (?:the year )?(\\d{3,4})\\b") {
             let y = Double(g[2]) ?? 0
             switch g[1] {
-            case "before", "prior to": filters.append(("discovered before \(Int(y))", { ($0.discoveryYear ?? 99999) < y && ($0.discoveryYear ?? 0) > 0 }))
-            case "after": filters.append(("discovered after \(Int(y))", { ($0.discoveryYear ?? 0) > y }))
-            case "since": filters.append(("discovered since \(Int(y))", { ($0.discoveryYear ?? 0) >= y }))
-            case "until", "by": filters.append(("discovered by \(Int(y))", { ($0.discoveryYear ?? 99999) <= y && ($0.discoveryYear ?? 0) > 0 }))
-            default: filters.append(("discovered in \(Int(y))", { $0.discoveryYear == y }))
+            case "before", "prior to": filters.append((tr("discovered before {y}", ["y": Int(y)]), { ($0.discoveryYear ?? 99999) < y && ($0.discoveryYear ?? 0) > 0 }))
+            case "after": filters.append((tr("discovered after {y}", ["y": Int(y)]), { ($0.discoveryYear ?? 0) > y }))
+            case "since": filters.append((tr("discovered since {y}", ["y": Int(y)]), { ($0.discoveryYear ?? 0) >= y }))
+            case "until", "by": filters.append((tr("discovered by {y}", ["y": Int(y)]), { ($0.discoveryYear ?? 99999) <= y && ($0.discoveryYear ?? 0) > 0 }))
+            default: filters.append((tr("discovered in {y}", ["y": Int(y)]), { $0.discoveryYear == y }))
             }
             recognised = true
         }
         if t.take("\\b(?:known since antiquity|ancient|prehistoric)\\b") != nil {
-            filters.append(("known since antiquity", { $0.discoveryYear == 0 || $0.discoveryCountry.contains("ancient") })); recognised = true
+            filters.append((tr("known since antiquity"), { $0.discoveryYear == 0 || $0.discoveryCountry.contains("ancient") })); recognised = true
         }
         if let g = t.take("\\b(?:discovered|found|isolated) (?:in|by|from) ([a-z.' ]+?)(?= and | with | that | which |$| in )") {
             let who = g[1].trimmingCharacters(in: .whitespaces)
             if let code = countries[who] {
-                filters.append(("discovered in \(who.capitalized)", { $0.discoveryCountry.contains(code) })); recognised = true
+                filters.append((tr("discovered in {place}", ["place": tr(who.capitalized)]), { $0.discoveryCountry.contains(code) })); recognised = true
             } else if who.count >= 3 {
-                filters.append(("discovered by \(who.capitalized)", { e in e.discoverers.contains { $0.lowercased().contains(who) } })); recognised = true
+                filters.append((tr("discovered by {who}", ["who": who.capitalized]), { e in e.discoverers.contains { $0.lowercased().contains(who) } })); recognised = true
             }
         }
 
         // oxidation state
         if let g = t.take("\\boxidation (?:state|number) ([+-]?\\d+)\\b") {
             let n = Int(g[1].replacingOccurrences(of: "+", with: "")) ?? 0
-            filters.append(("oxidation state \(n > 0 ? "+" : "")\(n)", { $0.oxidation.contains(n) })); recognised = true
+            filters.append((tr("oxidation state {n}", ["n": (n > 0 ? "+" : "") + "\(n)"]), { $0.oxidation.contains(n) })); recognised = true
         }
 
         // stability
         if let isStable {
-            if t.take("\\b(?:radioactive|unstable)\\b") != nil { filters.append(("radioactive (no stable isotope)", { !isStable($0) })); recognised = true }
-            else if t.take("\\b(?:stable|non-?radioactive)\\b") != nil { filters.append(("has a stable isotope", { isStable($0) })); recognised = true }
+            if t.take("\\b(?:radioactive|unstable)\\b") != nil { filters.append((tr("radioactive (no stable isotope)"), { !isStable($0) })); recognised = true }
+            else if t.take("\\b(?:stable|non-?radioactive)\\b") != nil { filters.append((tr("has a stable isotope"), { isStable($0) })); recognised = true }
         }
 
         // name starts with
         if let g = t.take("\\b(?:starting|starts|beginning|begins) with (?:the letter )?([a-z])\\b") {
-            filters.append(("name starts with \(g[1].uppercased())", { $0.name.lowercased().hasPrefix(g[1]) })); recognised = true
+            filters.append((tr("name starts with {letter}", ["letter": g[1].uppercased()]), { $0.name.lowercased().hasPrefix(g[1]) })); recognised = true
         }
 
         guard recognised else { return nil }
@@ -259,7 +259,7 @@ enum ElementQuery {
                 return s.descending ? x > y : x < y
             }
             list = Array(list.prefix(s.count))
-            parts.insert("\(s.descending ? "highest" : "lowest") \(s.prop.label) (top \(s.count))", at: 0)
+            parts.insert(tr(s.descending ? "highest {property} (top {n})" : "lowest {property} (top {n})", ["property": tr(s.prop.label), "n": s.count]), at: 0)
         }
         return Result(matches: list, description: parts.joined(separator: " · "))
     }

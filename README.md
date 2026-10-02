@@ -98,7 +98,7 @@ The app reopens on the screen you left. **Settings** also chooses display units:
 | Valence bond theory | Hybridization (sp to sp³d³), electron geometry and molecular shape, σ and π bonds, lone pairs, and the orbital-box diagram from ground state to hybridized. **Molecules** mode analyzes every bundled molecule and compares the predicted bond angles with the ones measured from its 3D coordinates. **Predict** mode takes any main-group atom plus its σ and π bond counts (e.g. XeF₄ → sp³d², square planar). Neutral main-group atoms only: ions and dative bonds such as CO need formal charges and are reported as unsupported. |
 | Stoichiometry | In Equation Solver: balance, enter grams or moles of each reactant, get the limiting reagent, leftover, theoretical yield, percent yield, and every step |
 | Spectrum matcher | Enter observed wavelengths (nm or Å) and get the elements that best explain them, with a line-by-line comparison; works for mixtures |
-| Languages | The web and desktop apps are available in **English, Русский, Українська, 简体中文, Español and Français**. The language follows your system by default; change it in **Settings → Language**. Element names, the glossary, lab equipment and R/S phrases reuse KDE Kalzium's official translations; the rest were written for Xenon. The question box on the periodic table understands questions in all six languages ("галогены, открытые до 1850", "卤素 1850年之前发现", "point de fusion supérieur à 3000 K"). |
+| Languages | The web, desktop and native Mac apps are available in **English, Русский, Українська, 简体中文, Español and Français**. The language follows your system by default; change it in **Settings → Language** (the Mac app asks you to restart). Element names, the glossary, lab equipment and R/S phrases reuse KDE Kalzium's official translations; the rest were written for Xenon. The question box on the periodic table understands questions in all six languages ("галогены, открытые до 1850", "卤素 1850年之前发现", "point de fusion supérieur à 3000 K"). |
 | Tools | Isotope chart, data plotter, 5 calculators (molecular mass, gas/van der Waals, concentration, nuclear decay, titration), equation solver, 3D molecule viewer, glossary, R/S phrases, reference tables, lab equipment, HTML/XML/CSV export |
 
 ## Windows and Linux
@@ -128,6 +128,18 @@ scripts/vrt.sh --only vbt       # only screens whose name contains "vbt"
 Run it after any UI change. A failure means something looks different; if the change is intended, review the diff
 image and run `--update`. Add a screen by adding a `Scenario` in `Sources/Xenon/VRT/VRT.swift`.
 Baselines are specific to this macOS version and display scale, so regenerate them on a new machine.
+
+## Translations
+
+The text lives in `web/src/i18n/locales/*.json` (English sentence → translation); `web/tools/i18n/manual_src/` holds the
+translations written for Xenon (the rest come from KDE Kalzium's). After editing, run these from `web/`:
+
+```bash
+python3 tools/i18n-merge.py && python3 tools/i18n-build.py     # web dictionaries
+node tools/export-query-vocab.mjs                              # question-box vocabulary for the Mac app
+cd .. && python3 scripts/make-localizations.py                 # Mac app Localizable.strings (scripts/package-app.sh runs it too)
+python3 scripts/check-localizations.py ru                      # lists Mac-app strings with no translation
+```
 
 ## Regenerating the data
 

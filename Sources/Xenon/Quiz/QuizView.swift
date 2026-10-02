@@ -43,7 +43,7 @@ struct QuizView: View {
                 GroupBox("Question types") {
                     VStack(alignment: .leading, spacing: 6) {
                         ForEach(QuizKind.allCases) { k in
-                            Toggle(k.rawValue, isOn: Binding(get: { kinds.contains(k) }, set: { on in if on { kinds.insert(k) } else if kinds.count > 1 { kinds.remove(k) } }))
+                            Toggle(tr(k.rawValue), isOn: Binding(get: { kinds.contains(k) }, set: { on in if on { kinds.insert(k) } else if kinds.count > 1 { kinds.remove(k) } }))
                         }
                     }.padding(8).frame(maxWidth: .infinity, alignment: .leading)
                 }
@@ -78,7 +78,7 @@ struct QuizView: View {
                             Text(e.symbol).font(.headline).frame(width: 36)
                             Text(e.name)
                             Spacer()
-                            Text("missed \(w.missed) of \(w.seen)").foregroundStyle(.secondary).font(.callout)
+                            Text(tr("missed {missed} of {seen}", ["missed": w.missed, "seen": w.seen])).foregroundStyle(.secondary).font(.callout)
                         }
                     }
                     Button("Clear history", role: .destructive) { stats.reset(); tick += 1 }.buttonStyle(.link)
@@ -94,7 +94,7 @@ struct QuizView: View {
         VStack(spacing: 0) {
             HStack {
                 ProgressView(value: Double(asked - (answered == nil ? 1 : 0)), total: Double(length)).frame(width: 220)
-                Text("Question \(asked) of \(length)").foregroundStyle(.secondary)
+                Text(tr("Question {n} of {total}", ["n": asked, "total": length])).foregroundStyle(.secondary)
                 Spacer()
                 Label("\(score)", systemImage: "checkmark.circle").foregroundStyle(.green)
                 Label("\(streak)", systemImage: "flame").foregroundStyle(.orange).help("Current streak")
@@ -165,7 +165,7 @@ struct QuizView: View {
     private func feedback(_ q: QuizQuestion, _ a: Int) -> some View {
         let right = q.kind == .findOnTable ? clickedZ == q.answerZ : a == q.correct
         return VStack(alignment: .leading, spacing: 12) {
-            Label(right ? "Correct" : "Not quite", systemImage: right ? "checkmark.seal.fill" : "xmark.octagon.fill")
+            Label(right ? tr("Correct") : tr("Not quite"), systemImage: right ? "checkmark.seal.fill" : "xmark.octagon.fill")
                 .font(.title2.bold()).foregroundStyle(right ? Color.green : Color.red)
             Text(q.explanation).font(.title3).foregroundStyle(.secondary).fixedSize(horizontal: false, vertical: true)
             Button { next() } label: { Text(asked >= length ? "See results" : "Next").frame(minWidth: 90) }
@@ -183,16 +183,16 @@ struct QuizView: View {
                 Text("Results").font(.largeTitle.bold())
                 HStack(alignment: .firstTextBaseline, spacing: 8) {
                     Text("\(score)").font(.system(size: 64, weight: .bold)).foregroundStyle(score * 10 >= asked * 8 ? Color.green : Color.primary)
-                    Text("out of \(max(asked - (answered == nil && phase == .results && question != nil && asked > score + missed.count ? 1 : 0), score + missed.count))").font(.title2).foregroundStyle(.secondary)
+                    Text(tr("out of {total}", ["total": max(asked - (answered == nil && phase == .results && question != nil && asked > score + missed.count ? 1 : 0), score + missed.count)])).font(.title2).foregroundStyle(.secondary)
                 }
-                Text("Best streak: \(bestStreak)").foregroundStyle(.secondary)
+                Text(tr("Best streak: {n}", ["n": bestStreak])).foregroundStyle(.secondary)
                 if !missed.isEmpty {
                     GroupBox("Review what you missed") {
                         VStack(alignment: .leading, spacing: 12) {
                             ForEach(Array(missed.enumerated()), id: \.offset) { _, m in
                                 VStack(alignment: .leading, spacing: 3) {
                                     Text(m.q.prompt).font(.headline)
-                                    Text("You answered: \(m.given)").foregroundStyle(.red)
+                                    Text(tr("You answered: {given}", ["given": tr(m.given)])).foregroundStyle(.red)
                                     Text(m.q.explanation).foregroundStyle(.secondary)
                                 }
                             }

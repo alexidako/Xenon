@@ -67,7 +67,7 @@ struct ExportView: View {
             HStack {
                 Picker("Format", selection: $format) { ForEach(Format.allCases) { Text($0.rawValue).tag($0) } }
                     .pickerStyle(.segmented).frame(width: 220)
-                Text("\(elements.count) elements, \(props.count) properties").foregroundStyle(.secondary)
+                Text(tr("{e} elements, {p} properties", ["e": elements.count, "p": props.count])).foregroundStyle(.secondary)
                 Spacer()
                 if !message.isEmpty { Text(message).font(.caption).foregroundStyle(.secondary) }
                 Button("Export…", action: export).disabled(elements.isEmpty || props.isEmpty).keyboardShortcut(.defaultAction)
@@ -89,8 +89,8 @@ struct ExportView: View {
         let panel = NSSavePanel()
         panel.nameFieldStringValue = "elements." + format.rawValue.lowercased()
         guard panel.runModal() == .OK, let url = panel.url else { return }
-        do { try text.write(to: url, atomically: true, encoding: .utf8); message = "Saved \(url.lastPathComponent)" }
-        catch { message = "Save failed: \(error.localizedDescription)" }
+        do { try text.write(to: url, atomically: true, encoding: .utf8); message = tr("Saved {file}", ["file": url.lastPathComponent]) }
+        catch { message = tr("Save failed: {error}", ["error": error.localizedDescription]) }
     }
 
     private func esc(_ s: String) -> String {

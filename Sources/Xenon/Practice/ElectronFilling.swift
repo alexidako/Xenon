@@ -71,15 +71,15 @@ struct FillState: Equatable {
     /// Tries to add one electron to a box.
     mutating func place(sub: Int, box: Int, electrons z: Int, strictAufbau: Bool) -> Outcome {
         let s = Subshells.order[sub]
-        if total >= z { return .refused("All \(z) electrons are already placed. Remove one first.") }
+        if total >= z { return .refused(tr("All {z} electrons are already placed. Remove one first.", ["z": z])) }
         if boxes[sub][box] >= 2 {
-            return .refused("Pauli exclusion principle: an orbital holds at most two electrons, with opposite spins.")
+            return .refused(tr("Pauli exclusion principle: an orbital holds at most two electrons, with opposite spins."))
         }
         if strictAufbau, let lower = (0..<sub).first(where: { !isFull($0) }) {
-            return .refused("Aufbau principle: electrons fill the lowest-energy subshell first. \(Subshells.order[lower].name) is not full yet.")
+            return .refused(tr("Aufbau principle: electrons fill the lowest-energy subshell first. {sub} is not full yet.", ["sub": Subshells.order[lower].name]))
         }
         if boxes[sub][box] == 1, boxes[sub].contains(0) {
-            return .refused("Hund's rule: in \(s.name), put one electron in each orbital (all spinning the same way) before pairing any up.")
+            return .refused(tr("Hund's rule: in {sub}, put one electron in each orbital (all spinning the same way) before pairing any up.", ["sub": s.name]))
         }
         boxes[sub][box] += 1
         return .ok
@@ -109,28 +109,28 @@ struct FillState: Equatable {
     func verdict(for e: Element) -> Verdict {
         guard total == e.z else {
             return Verdict(complete: false, matchesAufbau: false, matchesActual: false,
-                           message: "\(total) of \(e.z) electrons placed.")
+                           message: tr("{n} of {z} electrons placed.", ["n": total, "z": e.z]))
         }
         let mine = configuration, predicted = Subshells.aufbau(e.z), real = Subshells.actual(e)
         let a = mine == predicted, r = mine == real
         var msg: String
         if r && a {
-            msg = "Correct. \(e.name) is \(Subshells.format(real)), exactly what the Aufbau order predicts."
+            msg = tr("Correct. {name} is {config}, exactly what the Aufbau order predicts.", ["name": tr(e.name), "config": Subshells.format(real)])
         } else if r {
-            msg = "Correct! This is the real configuration of \(e.name): \(Subshells.format(real)). It breaks the simple Aufbau order (which predicts \(Subshells.format(predicted))) because \(FillState.reason(for: e))."
+            msg = tr("Correct! This is the real configuration of {name}: {config}. It breaks the simple Aufbau order (which predicts {predicted}) because {reason}.", ["name": tr(e.name), "config": Subshells.format(real), "predicted": Subshells.format(predicted), "reason": FillState.reason(for: e)])
         } else if a {
-            msg = "This follows the Aufbau order, but real \(e.name) is an exception: \(Subshells.format(real)), because \(FillState.reason(for: e)). Turn off “Strict Aufbau” to build it."
+            msg = tr("This follows the Aufbau order, but real {name} is an exception: {config}, because {reason}. Turn off “Strict Aufbau” to build it.", ["name": tr(e.name), "config": Subshells.format(real), "reason": FillState.reason(for: e)])
         } else {
-            msg = "Not quite. \(e.name) is \(Subshells.format(real))."
+            msg = tr("Not quite. {name} is {config}.", ["name": tr(e.name), "config": Subshells.format(real)])
         }
         return Verdict(complete: true, matchesAufbau: a, matchesActual: r, message: msg)
     }
 
     static func reason(for e: Element) -> String {
         let real = Subshells.actual(e)
-        if real["3d"] == 5 || real["4d"] == 5 || real["5d"] == 5 { return "a half-filled d subshell is especially stable" }
-        if real["3d"] == 10 || real["4d"] == 10 || real["5d"] == 10 { return "a completely filled d subshell is especially stable" }
-        return "the s, d and f subshells are so close in energy that electrons shift between them"
+        if real["3d"] == 5 || real["4d"] == 5 || real["5d"] == 5 { return tr("a half-filled d subshell is especially stable") }
+        if real["3d"] == 10 || real["4d"] == 10 || real["5d"] == 10 { return tr("a completely filled d subshell is especially stable") }
+        return tr("the s, d and f subshells are so close in energy that electrons shift between them")
     }
 }
 

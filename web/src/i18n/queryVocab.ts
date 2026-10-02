@@ -1,4 +1,4 @@
-import { Lang } from './index'
+import type { Lang } from './index'
 
 /** The question box on the periodic table is parsed in English. For the other languages the question is first rewritten into
  *  the English phrasing the parser knows (stems and phrases per language, in the order they are applied), so "галогены,
@@ -160,6 +160,8 @@ const fr: Rule[] = [
 ]
 
 const rules: Record<Lang, Rule[]> = { en: common, ru, uk, zh, es, fr }
+/** The same rules as plain data (the Mac app reads them from queryvocab.json; see tools/export-query-vocab.mjs). */
+export const queryRules = rules
 const compiled = new Map<Lang, [RegExp, string][]>()
 function compile(lang: Lang) {
   let c = compiled.get(lang)

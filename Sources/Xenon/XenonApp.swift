@@ -24,7 +24,7 @@ struct XenonApp: App {
             CommandGroup(after: .textEditing) { Button("Quick Lookup…") { Jump.shared.paletteOpen = true }.keyboardShortcut("k", modifiers: .command) }
             CommandMenu("Go") {
                 ForEach(Array(Screen.shortcutOrder.enumerated()), id: \.element) { i, s in
-                    Button(s.rawValue) { Navigation.shared.target = s }.keyboardShortcut(KeyEquivalent(Character(String(i + 1 == 10 ? 0 : i + 1))), modifiers: .command)
+                    Button(tr(s.rawValue)) { Navigation.shared.target = s }.keyboardShortcut(KeyEquivalent(Character(String(i + 1 == 10 ? 0 : i + 1))), modifiers: .command)
                 }
             }
             CommandGroup(replacing: .help) {
@@ -106,13 +106,13 @@ struct RootView: View {
         NavigationSplitView {
             List(selection: $section) {
                 ForEach(Screen.groups, id: \.title) { group in
-                    Section(group.title) {
-                        ForEach(group.items) { s in Label(s.rawValue, systemImage: s.icon).tag(s) }
+                    Section(tr(group.title)) {
+                        ForEach(group.items) { s in Label(tr(s.rawValue), systemImage: s.icon).tag(s) }
                     }
                 }
-                Section { Label(Screen.settings.rawValue, systemImage: Screen.settings.icon).tag(Screen.settings) }
+                Section { Label(tr(Screen.settings.rawValue), systemImage: Screen.settings.icon).tag(Screen.settings) }
             }
-            .navigationSplitViewColumnWidth(min: 210, ideal: 235, max: 290)
+            .navigationSplitViewColumnWidth(min: 220, ideal: 255, max: 300)
         } detail: {
             switch section ?? .table {
             case .table: TableScreen()

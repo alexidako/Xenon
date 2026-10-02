@@ -12,6 +12,9 @@ mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources"
 cp "$BIN_DIR/Xenon" "$APP/Contents/MacOS/Xenon"
 # SwiftPM resources (element data, icons, molecules, ...) live in this bundle; Bundle.module finds it in Resources.
 cp -R "$BIN_DIR/Xenon_Xenon.bundle" "$APP/Contents/Resources/"
+# Translations: SwiftUI finds <lang>.lproj in the app bundle. Regenerate with scripts/make-localizations.py.
+python3 scripts/make-localizations.py >/dev/null
+cp -R packaging/localization/*.lproj "$APP/Contents/Resources/"
 
 # App icon: 3D N≡N render (regenerate with: swiftc tools/make_logo.swift -o /tmp/make_logo && /tmp/make_logo packaging/AppIcon.png)
 ICONSET="$(mktemp -d)/AppIcon.iconset"
@@ -32,6 +35,8 @@ cat > "$APP/Contents/Info.plist" <<PLIST
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0"><dict>
+  <key>CFBundleDevelopmentRegion</key><string>en</string>
+  <key>CFBundleLocalizations</key><array><string>en</string><string>ru</string><string>uk</string><string>zh-Hans</string><string>es</string><string>fr</string></array>
   <key>CFBundleName</key><string>Xenon</string>
   <key>CFBundleDisplayName</key><string>Xenon</string>
   <key>CFBundleIdentifier</key><string>local.xenon</string>

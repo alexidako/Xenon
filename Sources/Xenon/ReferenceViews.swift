@@ -15,7 +15,7 @@ struct GlossaryView: View {
     private var filtered: [GlossaryEntry] {
         let q = query.lowercased()
         return q.isEmpty ? entries : entries.filter {
-            $0.name.lowercased().contains(q) || Markup.plain($0.desc).lowercased().contains(q)
+            $0.name.lowercased().contains(q) || tr($0.name).lowercased().contains(q) || Markup.plain($0.desc).lowercased().contains(q) || Markup.plain(tr($0.desc)).lowercased().contains(q)
         }
     }
 
@@ -27,12 +27,12 @@ struct GlossaryView: View {
                 if let e = entries.first(where: { $0.id == selection }) {
                     ScrollView {
                         VStack(alignment: .leading, spacing: 12) {
-                            Text(Markup.attributed(e.name)).font(.largeTitle.bold())
-                            Text(Markup.attributed(e.desc)).font(.title3)
+                            Text(Markup.attributed(tr(e.name))).font(.largeTitle.bold())
+                            Text(Markup.attributed(tr(e.desc))).font(.title3)
                             if !e.refs.isEmpty {
                                 Text("See also").font(.headline).padding(.top, 8)
                                 ForEach(e.refs, id: \.self) { ref in
-                                    Button(ref) { selection = ref; query = "" }.buttonStyle(.link)
+                                    Button(tr(ref)) { selection = ref; query = "" }.buttonStyle(.link)
                                 }
                             }
                         }
@@ -100,13 +100,19 @@ struct RSPhrasesView: View {
         .navigationTitle("Risk & Safety Phrases")
     }
 
+    /// A safety phrase in the current language (the translations are stored as "R11: Highly flammable").
+    private func phrase(_ prefix: String, _ n: Int, _ text: String) -> String {
+        let full = tr("\(prefix)\(n): \(text)")
+        return full.replacingOccurrences(of: "^\(prefix)\(n):\\s*", with: "", options: .regularExpression)
+    }
+
     @ViewBuilder private func section(_ title: String, prefix: String, numbers: [Int], table: [String: String]) -> some View {
         if !numbers.isEmpty {
             Text(title).font(.title2.bold())
             ForEach(Array(numbers.enumerated()), id: \.offset) { _, n in
                 HStack(alignment: .firstTextBaseline) {
                     Text("\(prefix)\(n)").font(.body.monospaced().bold()).frame(width: 46, alignment: .leading)
-                    Text(table[String(n)] ?? "No phrase with this number.")
+                    Text(table[String(n)].map { phrase(prefix, n, $0) } ?? tr("No phrase with this number."))
                         .foregroundStyle(table[String(n)] == nil ? .secondary : .primary)
                 }
             }
@@ -146,7 +152,7 @@ struct TablesView: View {
             .tabItem { Text("Greek alphabet") }
             Table(data?.numbers ?? []) {
                 TableColumn("Number", value: \.number)
-                TableColumn("Prefix", value: \.prefix)
+                TableColumn("Prefix") { Text($0.prefix) }
                 TableColumn("Roman numeral", value: \.roman)
             }
             .tabItem { Text("Numeric prefixes & Roman numerals") }
@@ -169,7 +175,7 @@ struct EquipmentView: View {
     @ObservedObject private var jump = Jump.shared
 
     private var filtered: [LabTool] {
-        query.isEmpty ? tools : tools.filter { $0.name.localizedCaseInsensitiveContains(query) }
+        query.isEmpty ? tools : tools.filter { $0.name.localizedCaseInsensitiveContains(query) || tr($0.name).localizedCaseInsensitiveContains(query) }
     }
 
     var body: some View {
@@ -180,12 +186,12 @@ struct EquipmentView: View {
                 if let t = tools.first(where: { $0.id == selection }) {
                     ScrollView {
                         VStack(alignment: .leading, spacing: 14) {
-                            Text(t.name).font(.largeTitle.bold())
+                            Text(tr(t.name)).font(.largeTitle.bold())
                             if let img = ReferenceStore.image(t.picture, in: "toolpics") {
                                 Image(nsImage: img).resizable().scaledToFit().frame(maxHeight: 280)
                                     .clipShape(RoundedRectangle(cornerRadius: 8))
                             }
-                            Text(Markup.attributed(t.desc)).font(.title3)
+                            Text(Markup.attributed(tr(t.desc))).font(.title3)
                         }
                         .padding(24).frame(maxWidth: .infinity, alignment: .leading)
                     }

@@ -19,21 +19,21 @@ struct ResonanceView: View {
         let ss = structures
         VStack(alignment: .leading, spacing: 18) {
             HStack(alignment: .firstTextBaseline, spacing: 10) {
-                Text(input.name).font(.largeTitle.bold())
+                Text(tr(input.name)).font(.largeTitle.bold())
                 Text(input.formula).font(.title2).foregroundStyle(.secondary)
             }
             if ss.isEmpty {
                 Label("No valid Lewis structure found.", systemImage: "exclamationmark.triangle").foregroundStyle(.orange)
             } else {
                 Text(summary(ss)).font(.callout).foregroundStyle(.secondary).fixedSize(horizontal: false, vertical: true)
-                Text(ss.count == 1 ? "Lewis structure" : "\(ss.count) resonance structures").font(.headline)
+                Text(ss.count == 1 ? tr("Lewis structure") : tr("{n} resonance structures", ["n": ss.count])).font(.headline)
                 FlowLayout(spacing: 14) {
                     ForEach(Array(ss.enumerated()), id: \.element.id) { i, s in
                         VStack(spacing: 4) {
                             LewisCanvas(input: input, orders: s.orders.map(Double.init), lonePairs: s.lonePairs, charges: s.charges.map(Double.init), showLonePairs: true)
                                 .frame(width: 190, height: 170)
                                 .background(Color.secondary.opacity(0.08), in: RoundedRectangle(cornerRadius: 10))
-                            if ss.count > 1 { Text("Structure \(i + 1)").font(.caption).foregroundStyle(.secondary) }
+                            if ss.count > 1 { Text(tr("Structure {n}", ["n": i + 1])).font(.caption).foregroundStyle(.secondary) }
                         }
                     }
                 }
@@ -51,9 +51,9 @@ struct ResonanceView: View {
     }
 
     private func summary(_ ss: [LewisStructure]) -> String {
-        let chargeText = input.charge == 0 ? "neutral" : "charge \(input.charge > 0 ? "+" : "−")\(abs(input.charge))"
+        let chargeText = input.charge == 0 ? tr("neutral") : tr("charge {c}", ["c": (input.charge > 0 ? "+" : "−") + "\(abs(input.charge))"])
         let electrons = input.atoms.compactMap { a in ElementStore.all.first { $0.symbol == a.symbol }.flatMap(Resonance.valence) }.reduce(0, +) - input.charge
-        return "\(electrons) valence electrons in total (\(chargeText)). The structures shown are all the ways to place the bonds and lone pairs that keep formal charges as small as possible while giving each second-period atom a full octet."
+        return tr("{n} valence electrons in total ({charge}). The structures shown are all the ways to place the bonds and lone pairs that keep formal charges as small as possible while giving each second-period atom a full octet.", ["n": electrons, "charge": chargeText])
     }
 
     private func atomTable(_ ss: [LewisStructure]) -> some View {
@@ -73,8 +73,8 @@ struct ResonanceView: View {
                     GridRow {
                         Text("\(input.atoms[i].symbol)\(i + 1)").fontWeight(.semibold)
                         Text("\(neighbours[i].count)")
-                        Text(lpRange.sorted().map(String.init).joined(separator: " or "))
-                        Text(delocalized ? "sp² (one p orbital is part of the π system shared by the structures)" : (h?.hybridName.map { $0 + (h!.charge == 0 ? "" : " (formal charge \(h!.charge > 0 ? "+" : "−")\(abs(h!.charge)))") } ?? "—"))
+                        Text(lpRange.sorted().map(String.init).joined(separator: tr(" or ")))
+                        Text(delocalized ? tr("sp² (one p orbital is part of the π system shared by the structures)") : (h?.hybridName.map { $0 + (h!.charge == 0 ? "" : " " + tr("(formal charge {charge})", ["charge": (h!.charge > 0 ? "+" : "−") + "\(abs(h!.charge))"])) } ?? "—"))
                     }.font(.callout)
                 }
             }.padding(8).frame(maxWidth: .infinity, alignment: .leading)

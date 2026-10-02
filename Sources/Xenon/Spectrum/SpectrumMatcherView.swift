@@ -28,9 +28,9 @@ struct SpectrumMatcherView: View {
                 HStack {
                     Picker("Unit", selection: $angstrom) { Text("nm").tag(false); Text("Å").tag(true) }
                         .pickerStyle(.segmented).frame(width: 130)
-                    Menu("Examples") { ForEach(examples) { ex in Button(ex.name) { text = ex.text; angstrom = false; selected = nil } } }.fixedSize()
+                    Menu("Examples") { ForEach(examples) { ex in Button(tr(ex.name)) { text = ex.text; angstrom = false; selected = nil } } }.fixedSize()
                     Spacer()
-                    Text("\(observed.count) line\(observed.count == 1 ? "" : "s")").foregroundStyle(.secondary)
+                    Text(tr("{n} lines observed", ["n": observed.count])).foregroundStyle(.secondary)
                 }
                 HStack {
                     Text("Tolerance"); Slider(value: $tolerance, in: 0.1...5, step: 0.1).frame(width: 160)
@@ -49,7 +49,7 @@ struct SpectrumMatcherView: View {
                                 Text(c.element.symbol).font(.title3.bold()).frame(width: 36)
                                 VStack(alignment: .leading) {
                                     Text(c.element.name)
-                                    Text("explains \(c.matches.count) of \(observed.count) lines").font(.caption).foregroundStyle(.secondary)
+                                    Text(tr("explains {n} of {total} lines", ["n": c.matches.count, "total": observed.count])).font(.caption).foregroundStyle(.secondary)
                                 }
                                 Spacer()
                                 ScoreBar(score: c.score)

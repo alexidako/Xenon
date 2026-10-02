@@ -40,7 +40,7 @@ struct PeriodicTableView: View {
                 }
                 ForEach(elements) { e in
                     let pos = e.gridPosition
-                    let matches = matchSet.map { $0.contains(e.z) } ?? (q.isEmpty || e.name.lowercased().contains(q)
+                    let matches = matchSet.map { $0.contains(e.z) } ?? (q.isEmpty || e.name.lowercased().contains(q) || tr(e.name).lowercased().contains(q)
                         || e.symbol.lowercased().contains(q) || String(e.z) == q)
                         && (yearLimit == nil || overlay != .discovery || (e.discoveryYear ?? 0) <= yearLimit!)
                     Tile(cell: cell, element: e,

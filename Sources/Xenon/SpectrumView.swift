@@ -23,7 +23,7 @@ struct SpectrumView: View {
         let lines = (SpectrumStore.byElement[element.z] ?? []).sorted { $0.wavelength < $1.wavelength }
         VStack(alignment: .leading, spacing: 14) {
             if lines.isEmpty {
-                Text("No spectrum is available for \(element.name).").foregroundStyle(.secondary)
+                Text(tr("No spectrum is available for {name}.", ["name": tr(element.name)])).foregroundStyle(.secondary)
             } else {
                 HStack {
                     Picker("Type", selection: $type) { ForEach(SpectrumType.allCases) { Text($0.rawValue).tag($0) } }
@@ -50,7 +50,7 @@ struct SpectrumView: View {
                 }.font(.caption).foregroundStyle(.secondary)
 
                 let shown = lines.filter { $0.nanometers >= min(lo, hi) && $0.nanometers <= max(lo, hi) }
-                Text("\(shown.count) of \(lines.count) lines in range").font(.caption).foregroundStyle(.secondary)
+                Text(tr("{n} of {total} lines in range", ["n": shown.count, "total": lines.count])).font(.caption).foregroundStyle(.secondary)
 
                 Grid(alignment: .leading, horizontalSpacing: 18, verticalSpacing: 4) {
                     GridRow { Text(""); Text("Wavelength"); Text("Intensity"); Text("Region") }

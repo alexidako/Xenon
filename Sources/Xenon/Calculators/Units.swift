@@ -41,7 +41,7 @@ struct QuantityRow: View {
     var computed: Double? = nil   // when set, the row shows this instead of an editor
 
     var body: some View {
-        LabeledContent(title) {
+        LabeledContent(tr(title)) {
             HStack {
                 if let c = computed {
                     Text(formatNumber(c)).monospacedDigit().fontWeight(.semibold).textSelection(.enabled)
@@ -53,7 +53,7 @@ struct QuantityRow: View {
                 }
                 if let unit, !units.isEmpty {
                     Picker("", selection: unit) {
-                        ForEach(units.indices, id: \.self) { Text(units[$0].name).tag($0) }
+                        ForEach(units.indices, id: \.self) { Text(trc("unit", units[$0].name)).tag($0) }
                     }
                     .labelsHidden().frame(width: 92)
                 }

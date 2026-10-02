@@ -16,7 +16,7 @@ struct TableScreen: View {
 
     private var queryResult: ElementQuery.Result? {
         let q = query.trimmingCharacters(in: .whitespaces)
-        return q.count >= 3 ? ElementQuery.run(q) : nil
+        return q.count >= (QueryVocab.language == "zh" ? 2 : 3) ? ElementQuery.run(q) : nil
     }
 
     private var yearRange: ClosedRange<Double> { Overlay.discovery.range(in: ElementStore.all) }
@@ -138,7 +138,7 @@ struct QueryBanner: View {
             HStack(spacing: 6) {
                 Image(systemName: result.unsupported ? "exclamationmark.circle" : "sparkle.magnifyingglass")
                 Text(result.description).font(.callout.weight(.medium))
-                if !result.unsupported { Text("· \(result.matches.count) found").font(.callout).foregroundStyle(.secondary) }
+                if !result.unsupported { Text("· " + tr("{n} found", ["n": result.matches.count])).font(.callout).foregroundStyle(.secondary) }
             }
             .foregroundStyle(result.unsupported ? .orange : .primary)
             if !result.matches.isEmpty {
@@ -151,7 +151,7 @@ struct QueryBanner: View {
                                 .foregroundStyle(.black.opacity(0.85))
                         }
                         .buttonStyle(.plain)
-                        .help(e.name)
+                        .help(tr(e.name))
                     }
                 }
             } else if !result.unsupported {

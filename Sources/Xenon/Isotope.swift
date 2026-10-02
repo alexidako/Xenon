@@ -17,7 +17,7 @@ struct Decay: Decodable, Hashable {
             var count = ""
             while let c = rest.first, c.isNumber { count.append(c); rest = rest.dropFirst() }
             for (key, symbol) in tokens where rest.hasPrefix(key) {
-                parts.append(count + symbol)
+                parts.append(count + (symbol == "fission" ? tr("Fission") : symbol))
                 rest = rest.dropFirst(key.count)
                 continue outer
             }

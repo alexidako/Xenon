@@ -38,7 +38,7 @@ struct EditorView: View {
     private var toolbar: some View {
         HStack(spacing: 14) {
             Picker("Tool", selection: $model.tool) {
-                ForEach(EditorModel.Tool.allCases) { Label($0.rawValue, systemImage: $0.icon).tag($0) }
+                ForEach(EditorModel.Tool.allCases) { Label(tr($0.rawValue), systemImage: $0.icon).tag($0) }
             }.pickerStyle(.segmented).labelsHidden().frame(width: 230)
 
             HStack(spacing: 4) {
@@ -72,7 +72,7 @@ struct EditorView: View {
                     VStack(alignment: .leading, spacing: 2) {
                         Text(Markup.attributed(formulaMarkup(s.formula))).font(.system(size: 30, weight: .bold))
                         Text("\(formatNumber(s.mass)) u").font(.title3).foregroundStyle(.secondary)
-                        Text("\(s.atoms.count) atoms, \(s.bonds.count) bonds").font(.callout).foregroundStyle(.secondary)
+                        Text(tr("{atoms} atoms, {bonds} bonds", ["atoms": s.atoms.count, "bonds": s.bonds.count])).font(.callout).foregroundStyle(.secondary)
                     }
                     ForEach(Array(s.problems.enumerated()), id: \.offset) { _, p in
                         Label(p.message, systemImage: "exclamationmark.triangle.fill").font(.callout).foregroundStyle(.orange)
@@ -92,7 +92,7 @@ struct EditorView: View {
                             Button("Clear", role: .destructive) { model.clear() }.disabled(s.atoms.isEmpty)
                         }
                         Menu("Start from a template") {
-                            ForEach(SketchTemplates.names, id: \.self) { t in Button(t) { model.load(template: t) } }
+                            ForEach(SketchTemplates.names, id: \.self) { t in Button(tr(t)) { model.load(template: t) } }
                         }
                     }.padding(6).frame(maxWidth: .infinity, alignment: .leading)
                 }
@@ -102,7 +102,7 @@ struct EditorView: View {
                         Button { send(to: .molecules) } label: { Label("View in 3D", systemImage: "cube") }
                         Button { send(to: .vbt) } label: { Label("Analyze with valence bond theory", systemImage: "link") }
                         Menu {
-                            ForEach(MoleculeIO.Format.allCases, id: \.self) { f in Button("Save as .\(f.rawValue)") { save(f) } }
+                            ForEach(MoleculeIO.Format.allCases, id: \.self) { f in Button(tr("Save as .{ext}", ["ext": f.rawValue])) { save(f) } }
                         } label: { Label("Save…", systemImage: "square.and.arrow.down") }
                     }
                     .disabled(s.atoms.isEmpty).padding(6).frame(maxWidth: .infinity, alignment: .leading)

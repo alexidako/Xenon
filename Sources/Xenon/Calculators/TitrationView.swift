@@ -137,11 +137,11 @@ struct TitrationView: View {
                 .chartYScale(domain: yMin...max(yMax, yMin + 1))
                 .frame(minHeight: 280)
 
-                if let t = theory { Text("Theoretical curve: \(t.formula)").font(.callout) }
+                if let t = theory { Text(tr("Theoretical curve: {formula}", ["formula": t.formula])).font(.callout) }
                 if let f = fit {
-                    Text("Approximated curve: \(formatNumber(f.a))·tanh(\(formatNumber(f.b))·(x + \(formatNumber(f.c)))) + \(formatNumber(f.d))")
+                    Text(tr("Approximated curve: {a}·tanh({b}·(x + {c})) + {d}", ["a": formatNumber(f.a), "b": formatNumber(f.b), "c": formatNumber(f.c), "d": formatNumber(f.d)]))
                         .font(.callout)
-                    Text("Equivalence point: x = \(formatNumber(f.equivalence))").font(.headline)
+                    Text(tr("Equivalence point: x = {x}", ["x": formatNumber(f.equivalence)])).font(.headline)
                 } else if experimental.count > 0 {
                     Text("Enter at least three experimental points, in increasing x order, to fit a curve.")
                         .font(.callout).foregroundStyle(.secondary)

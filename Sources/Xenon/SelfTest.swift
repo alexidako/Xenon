@@ -67,7 +67,8 @@ enum SelfTest {
         // ---- quick lookup ----
         MainActor.assumeIsolated { PaletteSelfTest.run() }
         // ---- settings ----
-        MainActor.assumeIsolated { PreferencesSelfTest.run() }
+        MainActor.assumeIsolated { PreferencesSelfTest.run()
+        L10nSelfTest.run() }
         // ---- 3D viewer controls ----
         MainActor.assumeIsolated { TrackballSelfTest.run() }
         // ---- quiz ----

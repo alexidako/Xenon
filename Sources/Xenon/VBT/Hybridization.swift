@@ -152,7 +152,7 @@ struct Hybridization {
     }
 
     var summary: String {
-        "\(element.symbol)\(Hybridization.chargeText(charge)): \(sigma) σ, \(pi) π, \(lonePairs) lone pair\(lonePairs == 1 ? "" : "s")"
+        "\(element.symbol)\(Hybridization.chargeText(charge)): " + tr("{sigma} σ, {pi} π, {lp} lone pairs", ["sigma": sigma, "pi": pi, "lp": lonePairs])
     }
 
     static func chargeText(_ c: Int) -> String {
@@ -201,9 +201,9 @@ enum VBT {
             var note: String?
             if let e, e.symbol != "H" {
                 hyb = Hybridization.makeAllowingCharge(e, sigma: neighbors[i].count, pi: pi[i])
-                if hyb == nil { note = "These bonds cannot be explained for a main-group atom, even with a formal charge." }
-                else if let c = hyb?.charge, c != 0 { note = "Formal charge \(c > 0 ? "+" : "−")\(abs(c))." }
-                else if hyb?.hybridName == nil { note = "Too few electron domains to hybridize." }
+                if hyb == nil { note = tr("These bonds cannot be explained for a main-group atom, even with a formal charge.") }
+                else if let c = hyb?.charge, c != 0 { note = tr("Formal charge {charge}.", ["charge": (c > 0 ? "+" : "−") + "\(abs(c))"]) }
+                else if hyb?.hybridName == nil { note = tr("Too few electron domains to hybridize.") }
             }
             return AtomAnalysis(index: i, label: labels[i], element: e, neighbors: neighbors[i], hybrid: hyb, note: note,
                                 measuredAngles: angles(at: i, in: m, neighbors: neighbors[i]))

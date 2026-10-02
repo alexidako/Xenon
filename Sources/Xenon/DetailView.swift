@@ -123,7 +123,7 @@ struct DetailView: View {
         let slug = element.name.lowercased()
         let jlab = String(format: "https://education.jlab.org/itselemental/ele%03d.html", element.z)
         return VStack(alignment: .leading, spacing: 10) {
-            Text("Look up \(element.name) online").foregroundStyle(.secondary)
+            Text(tr("Look up {name} online", ["name": tr(element.name)])).foregroundStyle(.secondary)
             Link("Wikipedia", destination: URL(string: "https://en.wikipedia.org/wiki/\(element.name)")!)
             Link("Jefferson Lab – It's Elemental", destination: URL(string: jlab)!)
             Link("WebElements", destination: URL(string: "https://www.webelements.com/\(slug)/")!)

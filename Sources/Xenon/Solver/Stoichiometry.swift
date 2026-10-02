@@ -59,21 +59,21 @@ enum Stoichiometry {
             ratios.append((r, n, n / Double(r.coefficient)))
             let fmt = { (x: Double) in formatNumber(x) }
             if u == .mol || u == .mmol {
-                steps.append("\(r.formula): \(fmt(v)) \(u.rawValue) = \(fmt(n)) mol; \(fmt(n)) ÷ \(r.coefficient) = \(fmt(n / Double(r.coefficient)))")
+                steps.append(tr("{formula}: {v} {u} = {n} mol; {n} ÷ {c} = {ratio}", ["formula": r.formula, "v": fmt(v), "u": trc("unit", u.rawValue), "n": fmt(n), "c": r.coefficient, "ratio": fmt(n / Double(r.coefficient))]))
             } else {
-                steps.append("\(r.formula): \(fmt(v)) \(u.rawValue) ÷ \(fmt(r.molarMass)) g/mol = \(fmt(n)) mol; ÷ \(r.coefficient) = \(fmt(n / Double(r.coefficient)))")
+                steps.append(tr("{formula}: {v} {u} ÷ {mm} g/mol = {n} mol; ÷ {c} = {ratio}", ["formula": r.formula, "v": fmt(v), "u": trc("unit", u.rawValue), "mm": fmt(r.molarMass), "n": fmt(n), "c": r.coefficient, "ratio": fmt(n / Double(r.coefficient))]))
             }
         }
         guard let limit = ratios.min(by: { $0.2 < $1.2 }) else { return nil }
         let extent = limit.2     // moles of "reaction"
-        steps.append("Limiting reagent: \(limit.0.formula) (smallest moles ÷ coefficient = \(formatNumber(extent)))")
+        steps.append(tr("Limiting reagent: {formula} (smallest moles ÷ coefficient = {extent})", ["formula": limit.0.formula, "extent": formatNumber(extent)]))
 
         func line(_ s: Species, _ n: Double, _ note: String) -> Line { Line(species: s, moles: n, grams: n * s.molarMass, note: note) }
         let used = ratios.map { line($0.0, extent * Double($0.0.coefficient), "consumed") }
         let excess = ratios.filter { $0.0.id != limit.0.id }.map { line($0.0, $0.1 - extent * Double($0.0.coefficient), "left over") }
         let prod = products.map { line($0, extent * Double($0.coefficient), "theoretical") }
         for p in prod {
-            steps.append("\(p.species.formula): \(formatNumber(extent)) × \(p.species.coefficient) = \(formatNumber(p.moles)) mol × \(formatNumber(p.species.molarMass)) g/mol = \(formatNumber(p.grams)) g")
+            steps.append(tr("{formula}: {extent} × {c} = {mol} mol × {mm} g/mol = {g} g", ["formula": p.species.formula, "extent": formatNumber(extent), "c": p.species.coefficient, "mol": formatNumber(p.moles), "mm": formatNumber(p.species.molarMass), "g": formatNumber(p.grams)]))
         }
         return Outcome(limiting: limit.0, reactants: used, excess: excess, products: prod, steps: steps)
     }

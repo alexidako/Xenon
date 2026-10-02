@@ -46,7 +46,7 @@ struct Sketch: Equatable {
     var problems: [(atom: SketchAtom, message: String)] {
         atoms.compactMap { a in
             implicitHydrogens(a.id) == nil
-                ? (a, "\(a.symbol) has \(bondOrderSum(a.id)) bonds; at most \(Sketch.valences[a.symbol]?.max() ?? 0) are allowed.") : nil
+                ? (a, tr("{symbol} has {n} bonds; at most {max} are allowed.", ["symbol": a.symbol, "n": bondOrderSum(a.id), "max": Sketch.valences[a.symbol]?.max() ?? 0])) : nil
         }
     }
 

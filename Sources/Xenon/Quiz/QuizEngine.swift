@@ -126,31 +126,31 @@ struct QuizEngine {
         switch kind {
         case .symbolToName:
             let (opts, c) = shuffled(correct: e.name, distractors: o.map(\.name), using: &rng)
-            return QuizQuestion(kind: kind, prompt: "Which element has the symbol \(e.symbol)?", options: opts, correct: c, z: e.z, answerZ: e.z,
-                                explanation: "\(e.symbol) is \(e.name)\(e.nameOrigin.map { ". " + $0 } ?? "").")
+            return QuizQuestion(kind: kind, prompt: tr("Which element has the symbol {symbol}?", ["symbol": e.symbol]), options: opts, correct: c, z: e.z, answerZ: e.z,
+                                explanation: e.nameOrigin.map { tr("{symbol} is {name}. {origin}", ["symbol": e.symbol, "name": tr(e.name), "origin": tr($0)]) } ?? tr("{symbol} is {name}.", ["symbol": e.symbol, "name": tr(e.name)]))
         case .nameToSymbol:
             let (opts, c) = shuffled(correct: e.symbol, distractors: o.map(\.symbol), using: &rng)
-            return QuizQuestion(kind: kind, prompt: "What is the symbol for \(e.name)?", options: opts, correct: c, z: e.z, answerZ: e.z,
-                                explanation: "\(e.name) is \(e.symbol), atomic number \(e.z).")
+            return QuizQuestion(kind: kind, prompt: tr("What is the symbol for {name}?", ["name": tr(e.name)]), options: opts, correct: c, z: e.z, answerZ: e.z,
+                                explanation: tr("{name} is {symbol}, atomic number {z}.", ["name": tr(e.name), "symbol": e.symbol, "z": e.z]))
         case .numberToName:
             let (opts, c) = shuffled(correct: e.name, distractors: o.map(\.name), using: &rng)
-            return QuizQuestion(kind: kind, prompt: "Which element has atomic number \(e.z)?", options: opts, correct: c, z: e.z, answerZ: e.z,
-                                explanation: "Atomic number \(e.z) is \(e.name) (\(e.symbol)).")
+            return QuizQuestion(kind: kind, prompt: tr("Which element has atomic number {z}?", ["z": e.z]), options: opts, correct: c, z: e.z, answerZ: e.z,
+                                explanation: tr("Atomic number {z} is {name} ({symbol}).", ["z": e.z, "name": tr(e.name), "symbol": e.symbol]))
         case .nameToNumber:
             let valid = Set(pool.map(\.z))
             let near = (-4...4).filter { $0 != 0 }.map { e.z + $0 }.filter { valid.contains($0) }.map(String.init)
             let (opts, c) = shuffled(correct: String(e.z), distractors: near, using: &rng)
-            return QuizQuestion(kind: kind, prompt: "What is the atomic number of \(e.name)?", options: opts, correct: c, z: e.z, answerZ: e.z,
-                                explanation: "\(e.name) has \(e.z) protons, so its atomic number is \(e.z).")
+            return QuizQuestion(kind: kind, prompt: tr("What is the atomic number of {name}?", ["name": tr(e.name)]), options: opts, correct: c, z: e.z, answerZ: e.z,
+                                explanation: tr("{name} has {z} protons, so its atomic number is {z}.", ["name": tr(e.name), "z": e.z]))
         case .findOnTable:
-            return QuizQuestion(kind: kind, prompt: "Click \(e.name) (\(e.symbol)) on the periodic table.", options: [], correct: 0, z: e.z, answerZ: e.z,
-                                explanation: "\(e.name) is in \(e.iupacGroup.map { "group \($0)" } ?? "the f-block"), period \(e.period.map(String.init) ?? "—").")
+            return QuizQuestion(kind: kind, prompt: tr("Click {name} ({symbol}) on the periodic table.", ["name": tr(e.name), "symbol": e.symbol]), options: [], correct: 0, z: e.z, answerZ: e.z,
+                                explanation: e.iupacGroup.map { tr("{name} is in group {group}, period {period}.", ["name": tr(e.name), "group": $0, "period": e.period.map(String.init) ?? "—"]) } ?? tr("{name} is in the f-block, period {period}.", ["name": tr(e.name), "period": e.period.map(String.init) ?? "—"]))
         case .family:
             guard let fam = e.familyKind else { return nil }
             let others = Family.allCases.filter { $0 != fam }.map(\.label)
             let (opts, c) = shuffled(correct: fam.label, distractors: others, using: &rng)
-            return QuizQuestion(kind: kind, prompt: "What kind of element is \(e.name)?", options: opts, correct: c, z: e.z, answerZ: e.z,
-                                explanation: "\(e.name) is one of the \(fam.label.lowercased()).")
+            return QuizQuestion(kind: kind, prompt: tr("What kind of element is {name}?", ["name": tr(e.name)]), options: opts, correct: c, z: e.z, answerZ: e.z,
+                                explanation: tr("{name} is one of the {family}.", ["name": tr(e.name), "family": tr(fam.label).lowercased()]))
         case .trend:
             let props: [(String, (Element) -> Double?, String)] = [
                 ("electronegativity", { $0.electronegativity }, ""), ("first ionization energy", { $0.ionization }, " eV"),
@@ -166,17 +166,17 @@ struct QuizEngine {
             let ask = lowerFirst ? "lower" : "higher"
             let answer = lowerFirst ? (a > b ? p : e) : higher
             let opts = [e.name, p.name].shuffled(using: &rng)
-            return QuizQuestion(kind: kind, prompt: "Which has the \(ask) \(name): \(opts[0]) or \(opts[1])?", options: opts,
+            return QuizQuestion(kind: kind, prompt: tr(lowerFirst ? "Which has the lower {property}: {a} or {b}?" : "Which has the higher {property}: {a} or {b}?", ["property": tr(name), "a": tr(opts[0]), "b": tr(opts[1])]), options: opts,
                                 correct: opts.firstIndex(of: answer.name)!, z: e.z, answerZ: answer.z,
-                                explanation: "\(e.name) \(formatNumber(a))\(unit), \(p.name) \(formatNumber(b))\(unit), so \(answer.name) has the \(ask) \(name).")
+                                explanation: tr(lowerFirst ? "{a} {va}{unit}, {b} {vb}{unit}, so {winner} has the lower {property}." : "{a} {va}{unit}, {b} {vb}{unit}, so {winner} has the higher {property}.", ["a": tr(e.name), "va": formatNumber(a), "b": tr(p.name), "vb": formatNumber(b), "unit": unit, "winner": tr(answer.name), "property": tr(name)]))
         case .configuration:
             guard let cfg = e.configuration else { return nil }
             let shown = QuizEngine.pretty(cfg)
             let sameConfig = pool.filter { $0.configuration == cfg && $0.z != e.z }
             guard sameConfig.isEmpty else { return nil }
             let (opts, c) = shuffled(correct: e.name, distractors: o.map(\.name), using: &rng)
-            return QuizQuestion(kind: kind, prompt: "Which element has the electron configuration \(shown)?", options: opts, correct: c, z: e.z, answerZ: e.z,
-                                explanation: "\(e.name) (\(e.symbol)) is \(shown).")
+            return QuizQuestion(kind: kind, prompt: tr("Which element has the electron configuration {config}?", ["config": shown]), options: opts, correct: c, z: e.z, answerZ: e.z,
+                                explanation: tr("{name} ({symbol}) is {config}.", ["name": tr(e.name), "symbol": e.symbol, "config": shown]))
         }
     }
 

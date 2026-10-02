@@ -77,8 +77,8 @@ struct EquationView: View {
         let known = Set(ElementStore.all.map(\.symbol))
         switch EquationSolver.solve(equation, isElement: { known.contains($0) }) {
         case .success(let s): answer = s; error = nil
-        case .failure(.notFound): answer = nil; error = "Not found: no whole-number solution exists for this equation."
-        case .failure(.parse(let why)): answer = nil; error = "Parse error: \(why)."
+        case .failure(.notFound): answer = nil; error = tr("Not found: no whole-number solution exists for this equation.")
+        case .failure(.parse(let why)): answer = nil; error = tr("Parse error: {why}.", ["why": why])
         }
     }
 }

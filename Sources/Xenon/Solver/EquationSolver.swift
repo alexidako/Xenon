@@ -31,11 +31,11 @@ enum EquationSolver {
     static func solveStructured(_ input: String, isElement: (String) -> Bool) -> Result<Balanced, Failure> {
         let cleaned = input.replacingOccurrences(of: "→", with: "->").replacingOccurrences(of: " ", with: "")
         let sides = cleaned.components(separatedBy: "->")
-        guard sides.count == 2 else { return .failure(.parse("missing or duplicate arrow")) }
+        guard sides.count == 2 else { return .failure(.parse(tr("missing or duplicate arrow"))) }
         do {
             let left = try sides[0].isEmpty ? [] : splitTerms(sides[0]).map { try parseTerm($0, isElement: isElement) }
             let right = try sides[1].isEmpty ? [] : splitTerms(sides[1]).map { try parseTerm($0, isElement: isElement) }
-            guard !left.isEmpty, !right.isEmpty else { return .failure(.parse("both sides need at least one molecule")) }
+            guard !left.isEmpty, !right.isEmpty else { return .failure(.parse(tr("both sides need at least one molecule"))) }
 
             // unknowns: one per distinct variable letter
             let letters = Array(Set((left + right).compactMap { t -> Character? in if case .variable(let c) = t.coefficient { return c }; return nil })).sorted()
@@ -83,12 +83,12 @@ enum EquationSolver {
         var out: [String] = [], cur = "", depth = 0
         for ch in s {
             if ch == "[" { depth += 1 } else if ch == "]" { depth -= 1 }
-            if depth < 0 { throw Failure.parse("unbalanced brackets") }
+            if depth < 0 { throw Failure.parse(tr("unbalanced brackets")) }
             if ch == "+" && depth == 0 { out.append(cur); cur = "" } else { cur.append(ch) }
         }
-        if depth != 0 { throw Failure.parse("unbalanced brackets") }
+        if depth != 0 { throw Failure.parse(tr("unbalanced brackets")) }
         out.append(cur)
-        if out.contains(where: \.isEmpty) { throw Failure.parse("empty molecule") }
+        if out.contains(where: \.isEmpty) { throw Failure.parse(tr("empty molecule")) }
         return out
     }
 
@@ -106,18 +106,18 @@ enum EquationSolver {
         var charge = 0
         var formulaChars = chars
         if let open = chars.firstIndex(of: "[") {
-            guard chars.last == "]" else { throw Failure.parse("bad charge in \(s)") }
+            guard chars.last == "]" else { throw Failure.parse(tr("bad charge in {s}", ["s": s])) }
             let inner = String(chars[(open + 1)..<(chars.count - 1)])
             let sign = inner.contains("-") ? -1 : 1
-            guard inner.contains("+") != inner.contains("-") else { throw Failure.parse("bad charge in \(s)") }
+            guard inner.contains("+") != inner.contains("-") else { throw Failure.parse(tr("bad charge in {s}", ["s": s])) }
             let digits = inner.filter(\.isNumber)
             charge = sign * (digits.isEmpty ? 1 : Int(digits) ?? 1)
             formulaChars = Array(chars[..<open])
         }
-        guard !formulaChars.isEmpty else { throw Failure.parse("missing formula in \(s)") }
+        guard !formulaChars.isEmpty else { throw Failure.parse(tr("missing formula in {s}", ["s": s])) }
         var pos = 0
         let atoms = try parseGroup(formulaChars, &pos, isElement: isElement, top: true)
-        guard pos == formulaChars.count else { throw Failure.parse("unexpected character in \(s)") }
+        guard pos == formulaChars.count else { throw Failure.parse(tr("unexpected character in {s}", ["s": s])) }
         return Term(coefficient: coefficient, atoms: atoms, charge: charge, text: String(chars))
     }
 
@@ -128,23 +128,23 @@ enum EquationSolver {
             if c[pos].isUppercase {
                 var sym = String(c[pos]); pos += 1
                 while pos < c.count, c[pos].isLowercase { sym.append(c[pos]); pos += 1 }
-                guard isElement(sym) else { throw Failure.parse("unknown element \(sym)") }
+                guard isElement(sym) else { throw Failure.parse(tr("unknown element {sym}", ["sym": sym])) }
                 group = [sym: 1]
             } else if c[pos] == "(" {
                 pos += 1
                 group = try parseGroup(c, &pos, isElement: isElement, top: false)
-                guard pos < c.count, c[pos] == ")" else { throw Failure.parse("missing )") }
+                guard pos < c.count, c[pos] == ")" else { throw Failure.parse(tr("missing )")) }
                 pos += 1
             } else if c[pos] == ")" {
-                if top { throw Failure.parse("unexpected )") }
+                if top { throw Failure.parse(tr("unexpected )")) }
                 return atoms
-            } else { throw Failure.parse("unexpected '\(c[pos])'") }
+            } else { throw Failure.parse(tr("unexpected '{ch}'", ["ch": String(c[pos])])) }
             var digits = ""
             while pos < c.count, c[pos].isNumber { digits.append(c[pos]); pos += 1 }
             let mult = Int(digits) ?? 1
             for (k, v) in group { atoms[k, default: 0] += v * mult }
         }
-        if !top { throw Failure.parse("missing )") }
+        if !top { throw Failure.parse(tr("missing )")) }
         return atoms
     }
 

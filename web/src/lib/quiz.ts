@@ -1,6 +1,7 @@
 import { Element, elements, families, familyInfo, iupacGroup } from './element'
 import { formatNumber } from './format'
 import { superscript } from './config'
+import { t } from '../i18n'
 
 /** Small seeded RNG (mulberry32) so quiz tests are repeatable. */
 export class RNG {
@@ -109,31 +110,31 @@ export class QuizEngine {
     const base = { kind, z: e.z, answerZ: e.z }
     switch (kind) {
       case 'Symbol → name': {
-        const s = this.shuffled(e.name, o.map(x => x.name), rng)
-        return { ...base, prompt: `Which element has the symbol ${e.symbol}?`, ...s, explanation: `${e.symbol} is ${e.name}${e.nameOrigin ? '. ' + e.nameOrigin : ''}.` }
+        const s = this.shuffled(t(e.name), o.map(x => t(x.name)), rng)
+        return { ...base, prompt: t('Which element has the symbol {symbol}?', { symbol: e.symbol }), ...s, explanation: e.nameOrigin ? t('{symbol} is {name}. {origin}', { symbol: e.symbol, name: t(e.name), origin: t(e.nameOrigin) }) : t('{symbol} is {name}.', { symbol: e.symbol, name: t(e.name) }) }
       }
       case 'Name → symbol': {
         const s = this.shuffled(e.symbol, o.map(x => x.symbol), rng)
-        return { ...base, prompt: `What is the symbol for ${e.name}?`, ...s, explanation: `${e.name} is ${e.symbol}, atomic number ${e.z}.` }
+        return { ...base, prompt: t('What is the symbol for {name}?', { name: t(e.name) }), ...s, explanation: t('{name} is {symbol}, atomic number {z}.', { name: t(e.name), symbol: e.symbol, z: e.z }) }
       }
       case 'Atomic number → name': {
-        const s = this.shuffled(e.name, o.map(x => x.name), rng)
-        return { ...base, prompt: `Which element has atomic number ${e.z}?`, ...s, explanation: `Atomic number ${e.z} is ${e.name} (${e.symbol}).` }
+        const s = this.shuffled(t(e.name), o.map(x => t(x.name)), rng)
+        return { ...base, prompt: t('Which element has atomic number {z}?', { z: e.z }), ...s, explanation: t('Atomic number {z} is {name} ({symbol}).', { z: e.z, name: t(e.name), symbol: e.symbol }) }
       }
       case 'Name → atomic number': {
         const valid = new Set(this.pool.map(x => x.z))
         const near = [-4, -3, -2, -1, 1, 2, 3, 4].map(d => e.z + d).filter(z => valid.has(z)).map(String)
         const s = this.shuffled(String(e.z), near, rng)
-        return { ...base, prompt: `What is the atomic number of ${e.name}?`, ...s, explanation: `${e.name} has ${e.z} protons, so its atomic number is ${e.z}.` }
+        return { ...base, prompt: t('What is the atomic number of {name}?', { name: t(e.name) }), ...s, explanation: t('{name} has {z} protons, so its atomic number is {z}.', { name: t(e.name), z: e.z }) }
       }
       case 'Find it on the table': {
         const g = iupacGroup(e.z)
-        return { ...base, prompt: `Click ${e.name} (${e.symbol}) on the periodic table.`, options: [], correct: 0, explanation: `${e.name} is in ${g != null ? `group ${g}` : 'the f-block'}, period ${e.period ?? '—'}.` }
+        return { ...base, prompt: t('Click {name} ({symbol}) on the periodic table.', { name: t(e.name), symbol: e.symbol }), options: [], correct: 0, explanation: g != null ? t('{name} is in group {group}, period {period}.', { name: t(e.name), group: g, period: e.period ?? '—' }) : t('{name} is in the f-block, period {period}.', { name: t(e.name), period: e.period ?? '—' }) }
       }
       case 'Element families': {
         const fam = familyInfo(e); if (!fam) return null
-        const s = this.shuffled(fam.label, families.filter(f => f !== fam).map(f => f.label), rng)
-        return { ...base, prompt: `What kind of element is ${e.name}?`, ...s, explanation: `${e.name} is one of the ${fam.label.toLowerCase()}.` }
+        const s = this.shuffled(t(fam.label), families.filter(f => f !== fam).map(f => t(f.label)), rng)
+        return { ...base, prompt: t('What kind of element is {name}?', { name: t(e.name) }), ...s, explanation: t('{name} is one of the {family}.', { name: t(e.name), family: t(fam.label).toLowerCase() }) }
       }
       case 'Periodic trends': {
         const [name, f, unit] = rng.pick(trendProps)
@@ -143,18 +144,17 @@ export class QuizEngine {
         const b = f(p)!
         const higher = a > b ? e : p
         const lowerFirst = rng.bool()
-        const ask = lowerFirst ? 'lower' : 'higher'
         const answer = lowerFirst ? (a > b ? p : e) : higher
-        const opts = rng.shuffle([e.name, p.name])
-        return { ...base, prompt: `Which has the ${ask} ${name}: ${opts[0]} or ${opts[1]}?`, options: opts, correct: opts.indexOf(answer.name), answerZ: answer.z,
-          explanation: `${e.name} ${formatNumber(a)}${unit}, ${p.name} ${formatNumber(b)}${unit}, so ${answer.name} has the ${ask} ${name}.` }
+        const opts = rng.shuffle([t(e.name), t(p.name)])
+        return { ...base, prompt: t(lowerFirst ? 'Which has the lower {property}: {a} or {b}?' : 'Which has the higher {property}: {a} or {b}?', { property: t(name), a: opts[0], b: opts[1] }), options: opts, correct: opts.indexOf(t(answer.name)), answerZ: answer.z,
+          explanation: t(lowerFirst ? '{a} {va}{unit}, {b} {vb}{unit}, so {winner} has the lower {property}.' : '{a} {va}{unit}, {b} {vb}{unit}, so {winner} has the higher {property}.', { a: t(e.name), va: formatNumber(a), b: t(p.name), vb: formatNumber(b), unit, winner: t(answer.name), property: t(name) }) }
       }
       case 'Electron configurations': {
         const cfg = e.configuration; if (!cfg) return null
         if (this.pool.some(x => x.configuration === cfg && x.z !== e.z)) return null
         const shown = prettyConfig(cfg)
-        const s = this.shuffled(e.name, o.map(x => x.name), rng)
-        return { ...base, prompt: `Which element has the electron configuration ${shown}?`, ...s, explanation: `${e.name} (${e.symbol}) is ${shown}.` }
+        const s = this.shuffled(t(e.name), o.map(x => t(x.name)), rng)
+        return { ...base, prompt: t('Which element has the electron configuration {config}?', { config: shown }), ...s, explanation: t('{name} ({symbol}) is {config}.', { name: t(e.name), symbol: e.symbol, config: shown }) }
       }
     }
   }

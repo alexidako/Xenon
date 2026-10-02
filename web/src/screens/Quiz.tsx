@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'preact/hooks'
 import { elements, elementByZ, gridPosition, familyInfo } from '../lib/element'
 import { QuizEngine, QuizKind, quizKinds, QuizQuestion, QuizStats, RNG } from '../lib/quiz'
 import { Card, Check, Page, Segmented } from '../ui/kit'
+import { t } from '../i18n'
 
 const stats = new QuizStats()
 type Phase = 'setup' | 'question' | 'results'
@@ -34,51 +35,51 @@ export function QuizScreen() {
     addEventListener('keydown', onKey); return () => removeEventListener('keydown', onKey)
   })
 
-  if (phase === 'setup') return <Page title="Quiz"><div class="scroll pad col" style={{ maxWidth: 560, margin: '0 auto', width: '100%' }}>
-    <h1>Quiz</h1>
-    <Card title="Question types"><div class="col gap4">{quizKinds.map(k => <Check key={k} checked={kinds.has(k)} onChange={on => { const n = new Set(kinds); if (on) n.add(k); else if (n.size > 1) n.delete(k); setKinds(n) }}>{k}</Check>)}</div></Card>
-    <Card title="Which elements?"><Segmented value={String(range)} options={ranges.map(r => String(r[0]))} onChange={v => setRange(Number(v))} label="Elements" /><div class="small dim" style={{ marginTop: 6 }}>{ranges.find(r => r[0] === range)![1]}</div></Card>
-    <div class="row wrap gap16"><label class="row gap8">Questions <select aria-label="Number of questions" value={length} onChange={e => setLength(Number((e.target as HTMLSelectElement).value))}>{[5, 10, 20].map(n => <option key={n}>{n}</option>)}</select></label>
-      <span title="Elements you miss come up more often"><Check checked={weak} onChange={setWeak}>Practise my weak spots</Check></span></div>
-    <div><button class="btn primary" style={{ padding: '8px 24px', fontSize: 16 }} onClick={start}>Start quiz</button></div>
-    <Card title="Your weak spots">{stats.weakSpots.length === 0 ? <div class="dim">Nothing yet. Elements you get wrong will show up here.</div> : <div class="col gap4">
-      {stats.weakSpots.slice(0, 6).map(w => <div key={w.z} class="row"><b style={{ width: 36 }}>{elementByZ.get(w.z)!.symbol}</b><span>{elementByZ.get(w.z)!.name}</span><span class="grow" /><span class="dim small">missed {w.missed} of {w.seen}</span></div>)}
-      <div><button class="link danger" onClick={() => { stats.reset(); tick(n => n + 1) }}>Clear history</button></div></div>}</Card>
+  if (phase === 'setup') return <Page title={t("Quiz")}><div class="scroll pad col" style={{ maxWidth: 560, margin: '0 auto', width: '100%' }}>
+    <h1>{t("Quiz")}</h1>
+    <Card title={t("Question types")}><div class="col gap4">{quizKinds.map(k => <Check key={k} checked={kinds.has(k)} onChange={on => { const n = new Set(kinds); if (on) n.add(k); else if (n.size > 1) n.delete(k); setKinds(n) }}>{t(k)}</Check>)}</div></Card>
+    <Card title={t("Which elements?")}><Segmented value={String(range)} options={ranges.map(r => String(r[0]))} onChange={v => setRange(Number(v))} label={t("Elements")} /><div class="small dim" style={{ marginTop: 6 }}>{t(ranges.find(r => r[0] === range)![1])}</div></Card>
+    <div class="row wrap gap16"><label class="row gap8">{t("Questions")} <select aria-label={t("Number of questions")} value={length} onChange={e => setLength(Number((e.target as HTMLSelectElement).value))}>{[5, 10, 20].map(n => <option key={n}>{n}</option>)}</select></label>
+      <span title={t("Elements you miss come up more often")}><Check checked={weak} onChange={setWeak}>{t("Practise my weak spots")}</Check></span></div>
+    <div><button class="btn primary" style={{ padding: '8px 24px', fontSize: 16 }} onClick={start}>{t("Start quiz")}</button></div>
+    <Card title={t("Your weak spots")}>{stats.weakSpots.length === 0 ? <div class="dim">{t("Nothing yet. Elements you get wrong will show up here.")}</div> : <div class="col gap4">
+      {stats.weakSpots.slice(0, 6).map(w => <div key={w.z} class="row"><b style={{ width: 36 }}>{elementByZ.get(w.z)!.symbol}</b><span>{t(elementByZ.get(w.z)!.name)}</span><span class="grow" /><span class="dim small">{t('missed {missed} of {seen}', { missed: w.missed, seen: w.seen })}</span></div>)}
+      <div><button class="link danger" onClick={() => { stats.reset(); tick(n => n + 1) }}>{t("Clear history")}</button></div></div>}</Card>
   </div></Page>
 
-  if (phase === 'results') return <Page title="Quiz results"><div class="scroll pad col" style={{ maxWidth: 620, margin: '0 auto', width: '100%' }}>
-    <h1>Results</h1>
-    <div class="row" style={{ alignItems: 'baseline', gap: 10 }}><span style={{ fontSize: 64, fontWeight: 700 }} class={score * 10 >= (score + missed.length) * 8 && score + missed.length > 0 ? 'ok' : ''}>{score}</span><span class="dim" style={{ fontSize: 20 }}>out of {score + missed.length}</span></div>
-    <div class="dim">Best streak: {best}</div>
-    {missed.length ? <Card title="Review what you missed"><div class="col">{missed.map((m, i) => <div key={i} class="col gap4"><b>{m.q.prompt}</b><span class="err">You answered: {m.given}</span><span class="dim">{m.q.explanation}</span></div>)}</div></Card> : <div style={{ color: '#d9a400', fontSize: 17 }}>★ Perfect round</div>}
-    <div class="row gap8"><button class="btn primary" onClick={start}>Play again</button><button class="btn" onClick={() => setPhase('setup')}>Change settings</button></div>
+  if (phase === 'results') return <Page title={t("Quiz results")}><div class="scroll pad col" style={{ maxWidth: 620, margin: '0 auto', width: '100%' }}>
+    <h1>{t("Results")}</h1>
+    <div class="row" style={{ alignItems: 'baseline', gap: 10 }}><span style={{ fontSize: 64, fontWeight: 700 }} class={score * 10 >= (score + missed.length) * 8 && score + missed.length > 0 ? 'ok' : ''}>{score}</span><span class="dim" style={{ fontSize: 20 }}>{t('out of {total}', { total: score + missed.length })}</span></div>
+    <div class="dim">{t('Best streak: {n}', { n: best })}</div>
+    {missed.length ? <Card title={t("Review what you missed")}><div class="col">{missed.map((m, i) => <div key={i} class="col gap4"><b>{m.q.prompt}</b><span class="err">{t('You answered: {given}', { given: m.given })}</span><span class="dim">{m.q.explanation}</span></div>)}</div></Card> : <div style={{ color: '#d9a400', fontSize: 17 }}>{t("★ Perfect round")}</div>}
+    <div class="row gap8"><button class="btn primary" onClick={start}>{t("Play again")}</button><button class="btn" onClick={() => setPhase('setup')}>{t("Change settings")}</button></div>
   </div></Page>
 
-  return <Page title="Quiz question">
-    <div class="toolbar"><span class="bar" style={{ width: 220 }}><i style={{ width: `${(asked - (answered == null ? 1 : 0)) / length * 100}%` }} /></span><span class="dim">Question {asked} of {length}</span><span class="grow" />
-      <span class="ok" title="Score">✓ {score}</span><span class="warn" title="Current streak">🔥 {streak}</span><button class="link" onClick={() => setPhase('results')}>Quit</button></div>
+  return <Page title={t("Quiz question")}>
+    <div class="toolbar"><span class="bar" style={{ width: 220 }}><i style={{ width: `${(asked - (answered == null ? 1 : 0)) / length * 100}%` }} /></span><span class="dim">{t('Question {n} of {total}', { n: asked, total: length })}</span><span class="grow" />
+      <span class="ok" title={t("Score")}>✓ {score}</span><span class="warn" title={t("Current streak")}>🔥 {streak}</span><button class="link" onClick={() => setPhase('results')}>{t("Quit")}</button></div>
     {q && <div class="scroll pad col" style={{ maxWidth: 820, margin: '0 auto', width: '100%', gap: 22 }}>
       <div style={{ fontSize: 26, fontWeight: 600 }}>{q.prompt}</div>
-      {q.kind === 'Find it on the table' ? <TableChooser q={q} range={range} answered={answered != null} clickedZ={clickedZ} onPick={z => { setClickedZ(z); answer(z === q.answerZ ? 0 : 1, elementByZ.get(z)!.name, z === q.answerZ) }} />
-        : <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>{q.options.map((t, i) => {
+      {q.kind === 'Find it on the table' ? <TableChooser q={q} range={range} answered={answered != null} clickedZ={clickedZ} onPick={z => { setClickedZ(z); answer(z === q.answerZ ? 0 : 1, t(elementByZ.get(z)!.name), z === q.answerZ) }} />
+        : <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>{q.options.map((opt, i) => {
           const done = answered != null, isRight = i === q.correct, isPicked = i === answered
           return <button key={i} class="btn" disabled={done} style={{ padding: 14, display: 'flex', gap: 10, alignItems: 'center', textAlign: 'left', fontSize: 18, opacity: 1,
-            background: !done ? 'var(--bg2)' : isRight ? 'rgba(48,164,108,.25)' : isPicked ? 'rgba(229,72,77,.25)' : 'var(--bg2)' }} onClick={() => answer(i, t, isRight)}>
-            <span class="mono dim small">{i + 1}</span><span style={{ flex: 1 }}>{t}</span>{done && (isRight ? <span class="ok">✔</span> : isPicked ? <span class="err">✖</span> : null)}</button> })}</div>}
+            background: !done ? 'var(--bg2)' : isRight ? 'rgba(48,164,108,.25)' : isPicked ? 'rgba(229,72,77,.25)' : 'var(--bg2)' }} onClick={() => answer(i, opt, isRight)}>
+            <span class="mono dim small">{i + 1}</span><span style={{ flex: 1 }}>{opt}</span>{done && (isRight ? <span class="ok">✔</span> : isPicked ? <span class="err">✖</span> : null)}</button> })}</div>}
       {answered != null && (() => { const right = q.kind === 'Find it on the table' ? clickedZ === q.answerZ : answered === q.correct
-        return <div class="card col" style={{ background: right ? 'rgba(48,164,108,.12)' : 'rgba(229,72,77,.12)' }} role="status"><b class={right ? 'ok' : 'err'} style={{ fontSize: 20 }}>{right ? '✔ Correct' : '✖ Not quite'}</b>
-          <div class="dim" style={{ fontSize: 17 }}>{q.explanation}</div><div><button class="btn primary" autoFocus onClick={() => next()}>{asked >= length ? 'See results' : 'Next'}</button></div></div> })()}
+        return <div class="card col" style={{ background: right ? 'rgba(48,164,108,.12)' : 'rgba(229,72,77,.12)' }} role="status"><b class={right ? 'ok' : 'err'} style={{ fontSize: 20 }}>{right ? t('✔ Correct') : t('✖ Not quite')}</b>
+          <div class="dim" style={{ fontSize: 17 }}>{q.explanation}</div><div><button class="btn primary" autoFocus onClick={() => next()}>{asked >= length ? t('See results') : t('Next')}</button></div></div> })()}
     </div>}
   </Page>
 }
 
 function TableChooser({ q, range, answered, clickedZ, onPick }: { q: QuizQuestion; range: number; answered: boolean; clickedZ: number | null; onPick: (z: number) => void }) {
   const cell = 36, gap = 3, shown = elements.filter(e => e.z <= range), rows = Math.max(...shown.map(e => gridPosition(e.z).row)) + 1, extra = rows > 8 ? 12 : 0
-  return <div style={{ position: 'relative', width: 18 * (cell + gap), height: rows * (cell + gap) + extra, marginTop: 24 }} role="grid" aria-label="Periodic table">
-    {!answered && <div class="dim" style={{ position: 'absolute', top: -24 }}>Click the element</div>}
+  return <div style={{ position: 'relative', width: 18 * (cell + gap), height: rows * (cell + gap) + extra, marginTop: 24 }} role="grid" aria-label={t("Periodic table")}>
+    {!answered && <div class="dim" style={{ position: 'absolute', top: -24 }}>{t("Click the element")}</div>}
     {shown.map(e => { const p = gridPosition(e.z)
       const bg = !answered ? 'var(--bg3)' : e.z === q.answerZ ? 'rgba(48,164,108,.7)' : e.z === clickedZ ? 'rgba(229,72,77,.7)' : 'var(--bg2)'
-      return <button key={e.z} role="gridcell" aria-label={answered ? e.name : `Element ${p.row + 1}-${p.col + 1}`} disabled={answered} onClick={() => onPick(e.z)}
+      return <button key={e.z} role="gridcell" aria-label={answered ? t(e.name) : t('Element {row}-{col}', { row: p.row + 1, col: p.col + 1 })} disabled={answered} onClick={() => onPick(e.z)}
         style={{ position: 'absolute', left: p.col * (cell + gap), top: p.row * (cell + gap) + (p.row >= 8 ? 12 : 0), width: cell, height: cell, border: 0, borderRadius: 4, background: bg, fontWeight: 600, fontSize: 12, cursor: answered ? 'default' : 'pointer', color: 'var(--text)' }}>{answered ? e.symbol : ''}</button> })}
   </div>
 }

@@ -1,6 +1,7 @@
 import { useEffect } from 'preact/hooks'
 import { ComponentType } from 'preact'
 import { useStore } from './lib/store'
+import { language } from './i18n'
 import { screen, jump, go } from './lib/nav'
 import { screens, screenGroups, shortcutOrder, ScreenId } from './lib/screens'
 import { prefs, applyTheme } from './lib/prefs'
@@ -21,6 +22,7 @@ import { MoleculesScreen } from './screens/Molecules'
 import { EditorScreen } from './screens/Editor'
 import { OrbitalsScreen } from './screens/Orbitals'
 import { VBTScreen } from './screens/VBT'
+import { t } from './i18n'
 
 const views: Record<ScreenId, ComponentType> = {
   table: TableScreen, glossary: GlossaryScreen, rs: RSScreen, tables: TablesScreen, equipment: EquipmentScreen, editor: EditorScreen,
@@ -32,7 +34,7 @@ const isMac = /Mac|iPhone|iPad/.test(navigator.platform)
 export const modKey = isMac ? '⌘' : 'Ctrl+'
 
 export function App() {
-  const current = useStore(screen), j = useStore(jump), p = useStore(prefs)
+  const current = useStore(screen), j = useStore(jump), p = useStore(prefs), lang = useStore(language)
   useEffect(() => applyTheme(p.theme), [p.theme])
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -44,20 +46,20 @@ export function App() {
     }
     addEventListener('keydown', onKey); return () => removeEventListener('keydown', onKey)
   }, [])
-  useEffect(() => { document.title = `${screens[current].title} · Xenon` }, [current])
+  useEffect(() => { document.title = `${t(screens[current].title)} · Xenon` }, [current, lang])
   const View = views[current]
   return <div class="shell">
-    <nav class="sidebar" aria-label="Screens">
-      <div class="brand"><img src="icon.png" alt="" />Xenon</div>
-      <button class="nav-item" onClick={() => jump.set(x => ({ ...x, paletteOpen: true }))}><Icon name="search" />Quick lookup<span class="kbd">{modKey}K</span></button>
+    <nav class="sidebar" aria-label={t("Screens")}>
+      <div class="brand"><img src="icon.png" alt="" />{t("Xenon")}</div>
+      <button class="nav-item" onClick={() => jump.set(x => ({ ...x, paletteOpen: true }))}><Icon name="search" />{t("Quick lookup")}<span class="kbd">{modKey}K</span></button>
       {screenGroups.map(g => <div class="nav-group" key={g.title}>
-        <div class="nav-title">{g.title}</div>
+        <div class="nav-title">{t(g.title)}</div>
         {g.items.map(id => <button key={id} class={'nav-item' + (id === current ? ' active' : '')} aria-current={id === current ? 'page' : undefined} onClick={() => go(id)}>
-          <Icon name={screens[id].icon} />{screens[id].title}{shortcutOrder.includes(id) && <span class="kbd">{modKey}{(shortcutOrder.indexOf(id) + 1) % 10}</span>}
+          <Icon name={screens[id].icon} />{t(screens[id].title)}{shortcutOrder.includes(id) && <span class="kbd">{modKey}{(shortcutOrder.indexOf(id) + 1) % 10}</span>}
         </button>)}
       </div>)}
       <div class="nav-spacer" />
-      <button class={'nav-item' + (current === 'settings' ? ' active' : '')} onClick={() => go('settings')}><Icon name="gear" />Settings</button>
+      <button class={'nav-item' + (current === 'settings' ? ' active' : '')} onClick={() => go('settings')}><Icon name="gear" />{t("Settings")}</button>
     </nav>
     <main class="main"><View key={current} /></main>
     {j.paletteOpen && <Palette />}

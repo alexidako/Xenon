@@ -1,5 +1,6 @@
 import { Element } from './element'
 import { subshellsOf, superscript } from './config'
+import { t } from '../i18n'
 
 export interface Sub { n: number; l: number; letter: string; name: string; orbitals: number; capacity: number }
 const mk = (n: number, l: number): Sub => ({ n, l, letter: 'spdf'[l], name: `${n}${'spdf'[l]}`, orbitals: 2 * l + 1, capacity: 2 * (2 * l + 1) })
@@ -57,14 +58,14 @@ export class FillState {
 
   place(sub: number, box: number, z: number, strictAufbau: boolean): Placement {
     const s = order[sub]
-    if (this.total >= z) return { ok: false, why: `All ${z} electrons are already placed. Remove one first.` }
-    if (this.boxes[sub][box] >= 2) return { ok: false, why: 'Pauli exclusion principle: an orbital holds at most two electrons, with opposite spins.' }
+    if (this.total >= z) return { ok: false, why: t('All {z} electrons are already placed. Remove one first.', { z }) }
+    if (this.boxes[sub][box] >= 2) return { ok: false, why: t('Pauli exclusion principle: an orbital holds at most two electrons, with opposite spins.') }
     if (strictAufbau) {
       const lower = order.findIndex((_, i) => i < sub && !this.isFull(i))
-      if (lower >= 0) return { ok: false, why: `Aufbau principle: electrons fill the lowest-energy subshell first. ${order[lower].name} is not full yet.` }
+      if (lower >= 0) return { ok: false, why: t('Aufbau principle: electrons fill the lowest-energy subshell first. {sub} is not full yet.', { sub: order[lower].name }) }
     }
     if (this.boxes[sub][box] === 1 && this.boxes[sub].includes(0)) {
-      return { ok: false, why: `Hund's rule: in ${s.name}, put one electron in each orbital (all spinning the same way) before pairing any up.` }
+      return { ok: false, why: t("Hund's rule: in {sub}, put one electron in each orbital (all spinning the same way) before pairing any up.", { sub: s.name }) }
     }
     this.boxes[sub][box]++
     return { ok: true }
@@ -88,21 +89,21 @@ export class FillState {
   }
 
   verdict(e: Element): Verdict {
-    if (this.total !== e.z) return { complete: false, matchesAufbau: false, matchesActual: false, message: `${this.total} of ${e.z} electrons placed.` }
+    if (this.total !== e.z) return { complete: false, matchesAufbau: false, matchesActual: false, message: t('{n} of {z} electrons placed.', { n: this.total, z: e.z }) }
     const mine = this.configuration, predicted = aufbau(e.z), real = actualConfig(e)
     const a = sameConfig(mine, predicted), r = sameConfig(mine, real)
     let msg: string
-    if (r && a) msg = `Correct. ${e.name} is ${formatConfig(real)}, exactly what the Aufbau order predicts.`
-    else if (r) msg = `Correct! This is the real configuration of ${e.name}: ${formatConfig(real)}. It breaks the simple Aufbau order (which predicts ${formatConfig(predicted)}) because ${reasonFor(e)}.`
-    else if (a) msg = `This follows the Aufbau order, but real ${e.name} is an exception: ${formatConfig(real)}, because ${reasonFor(e)}. Turn off “Strict Aufbau” to build it.`
-    else msg = `Not quite. ${e.name} is ${formatConfig(real)}.`
+    if (r && a) msg = t('Correct. {name} is {config}, exactly what the Aufbau order predicts.', { name: t(e.name), config: formatConfig(real) })
+    else if (r) msg = t('Correct! This is the real configuration of {name}: {config}. It breaks the simple Aufbau order (which predicts {predicted}) because {reason}.', { name: t(e.name), config: formatConfig(real), predicted: formatConfig(predicted), reason: reasonFor(e) })
+    else if (a) msg = t('This follows the Aufbau order, but real {name} is an exception: {config}, because {reason}. Turn off “Strict Aufbau” to build it.', { name: t(e.name), config: formatConfig(real), reason: reasonFor(e) })
+    else msg = t('Not quite. {name} is {config}.', { name: t(e.name), config: formatConfig(real) })
     return { complete: true, matchesAufbau: a, matchesActual: r, message: msg }
   }
 }
 
 export function reasonFor(e: Element): string {
   const real = actualConfig(e)
-  if (real['3d'] === 5 || real['4d'] === 5 || real['5d'] === 5) return 'a half-filled d subshell is especially stable'
-  if (real['3d'] === 10 || real['4d'] === 10 || real['5d'] === 10) return 'a completely filled d subshell is especially stable'
-  return 'the s, d and f subshells are so close in energy that electrons shift between them'
+  if (real['3d'] === 5 || real['4d'] === 5 || real['5d'] === 5) return t('a half-filled d subshell is especially stable')
+  if (real['3d'] === 10 || real['4d'] === 10 || real['5d'] === 10) return t('a completely filled d subshell is especially stable')
+  return t('the s, d and f subshells are so close in energy that electrons shift between them')
 }

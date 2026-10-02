@@ -4,6 +4,7 @@ import { gradientColor } from '../lib/overlay'
 import { formatNumber } from '../lib/format'
 import { Canvas, cssVar } from '../ui/canvas'
 import { Check, KV, Page, Segmented, Slider, useElementSize } from '../ui/kit'
+import { t } from '../i18n'
 
 const modes = ['Decay type', 'Half-life', 'Natural abundance'] as const
 type Mode = typeof modes[number]
@@ -39,16 +40,16 @@ export function IsotopeScreen() {
   const W = margin + (maxN + 2) * c, H = margin + (maxZ + 2) * c
   const el = sel ? elementByZ.get(sel.z) : undefined
   const rect = (n: number, z: number) => ({ x: margin + n * c, y: (maxZ - z + 1) * c, w: c - 0.5, h: c - 0.5 })
-  return <Page title="Isotope Chart" toolbar={<>
-    <label class="row gap8">Color by <Segmented small value={mode} options={modes} onChange={setMode} label="Color by" /></label>
-    <Check checked={fit} onChange={setFit}>Fit window</Check>
-    <label class="row gap8">Zoom <Slider label="Zoom" value={cellSize} min={4} max={22} onChange={setCellSize} width={120} /></label>
-    <Check checked={showMagic} onChange={setMagic}>Magic numbers</Check></>}>
-    <div class="legend">{mode === 'Decay type' ? classes.map(([n, col]) => <span key={n}><span class="swatch" style={{ background: col }} />{n}</span>)
+  return <Page title={t("Isotope Chart")} toolbar={<>
+    <label class="row gap8">{t("Color by")} <Segmented small value={mode} options={modes} onChange={setMode} label={t("Color by")} /></label>
+    <Check checked={fit} onChange={setFit}>{t("Fit window")}</Check>
+    <label class="row gap8">{t("Zoom")} <Slider label={t("Zoom")} value={cellSize} min={4} max={22} onChange={setCellSize} width={120} /></label>
+    <Check checked={showMagic} onChange={setMagic}>{t("Magic numbers")}</Check></>}>
+    <div class="legend">{mode === 'Decay type' ? classes.map(([n, col]) => <span key={n}><span class="swatch" style={{ background: col }} />{t(n)}</span>)
       : <><span class="mono">{mode === 'Half-life' ? '10⁻²² s' : '0 %'}</span><div class="gradbar" style={{ background: `linear-gradient(90deg, ${Array.from({ length: 11 }, (_, i) => gradientColor(i / 10)).join(',')})` }} /><span class="mono">{mode === 'Half-life' ? '10³⁰ s' : '100 %'}</span></>}</div>
     <div class="split" style={{ gridTemplateColumns: 'minmax(0,1fr) 300px' }}>
       <div class="scroll" style={{ background: 'var(--bg)' }} ref={boxRef as never}>
-        <Canvas style={{ width: W, height: H, cursor: 'crosshair' }} label="Chart of the nuclides: neutrons on the x axis, protons on the y axis" deps={[mode, c, showMagic, sel]} onRef={cv => {
+        <Canvas style={{ width: W, height: H, cursor: 'crosshair' }} label={t("Chart of the nuclides: neutrons on the x axis, protons on the y axis")} deps={[mode, c, showMagic, sel]} onRef={cv => {
           if (cv) cv.onclick = e => { const r = cv.getBoundingClientRect(); const n = Math.floor((e.clientX - r.left - margin) / c), z = maxZ + 1 - Math.floor((e.clientY - r.top) / c); setSel(lookup.get(n * 1000 + z) ?? null) }
         }} draw={(ctx, w, h) => {
           const dim = cssVar('--text2') || '#888', accent = cssVar('--accent') || '#2f6bff'
@@ -65,13 +66,13 @@ export function IsotopeScreen() {
           ctx.font = 'bold 11px system-ui'; ctx.fillText('Z', 10, 8); ctx.fillText('N', w - 10, h - margin + 12)
         }} />
       </div>
-      <aside class="inspector pad" aria-label="Isotope details">{sel && el ? <div class="col">
-        <h1><sup>{sel.a}</sup>{el.symbol}</h1><div class="dim">{el.name}-{sel.a}</div>
+      <aside class="inspector pad" aria-label={t("Isotope details")}>{sel && el ? <div class="col">
+        <h1><sup>{sel.a}</sup>{el.symbol}</h1><div class="dim">{t(el.name)}-{sel.a}</div>
         <KV rows={[['Protons', String(sel.z)], ['Neutrons', String(sel.a - sel.z)], ['Nucleons', String(sel.a)], ['Exact mass', sel.mass != null ? formatNumber(sel.mass) + ' u' : '—'],
-          ['Half-life', sel.halfLife == null ? (sel.abundance != null ? 'stable' : 'unknown') : halfLifeText(sel)], ['Abundance', sel.abundance != null ? formatNumber(sel.abundance) + ' %' : '—'],
+          ['Half-life', sel.halfLife == null ? (sel.abundance != null ? t('stable') : t('unknown')) : halfLifeText(sel)], ['Abundance', sel.abundance != null ? formatNumber(sel.abundance) + ' %' : '—'],
           ['Spin', sel.spin ?? 'Unknown'], ['Magnetic moment', sel.magneticMoment != null ? formatNumber(sel.magneticMoment) : 'Unknown']]} />
-        {sel.decays.length > 0 && <><h3>Decay</h3>{sel.decays.map((d, i) => <div key={i}>{decayLabel(d.mode)}{d.percent != null ? `  ${formatNumber(d.percent)} %` : ''}{d.energy != null ? `  (${formatNumber(d.energy)} MeV)` : ''}</div>)}</>}
-      </div> : <div class="dim">Click an isotope for details</div>}</aside>
+        {sel.decays.length > 0 && <><h3>{t("Decay")}</h3>{sel.decays.map((d, i) => <div key={i}>{decayLabel(d.mode)}{d.percent != null ? `  ${formatNumber(d.percent)} %` : ''}{d.energy != null ? `  (${formatNumber(d.energy)} MeV)` : ''}</div>)}</>}
+      </div> : <div class="dim">{t("Click an isotope for details")}</div>}</aside>
     </div>
   </Page>
 }

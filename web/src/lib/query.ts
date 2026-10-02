@@ -1,5 +1,6 @@
 import { Element, elements, familyInfo, gridPosition, isotopesByElement, stateAt, discoveryYear, MatterState } from './element'
 import { formatNumber } from './format'
+import { t } from '../i18n'
 
 /** Plain-language element search ("liquid at room temperature", "halogens discovered before 1850" …). Rule-based, offline. */
 export interface QueryResult { matches: Element[]; description: string; unsupported?: boolean }
@@ -49,26 +50,26 @@ const cap = (s: string) => s.replace(/\b\w/g, c => c.toUpperCase())
 export const hasStableIsotope = (e: Element) => (isotopesByElement.get(e.z) ?? []).some(i => i.halfLife == null && i.abundance != null)
 
 export function runQuery(raw: string, isStable: ((e: Element) => boolean) | null = hasStableIsotope): QueryResult | null {
-  const t = new Scan(' ' + raw.toLowerCase().replaceAll('’', "'") + ' ')
+  const scan = new Scan(' ' + raw.toLowerCase().replaceAll('’', "'") + ' ')
   const filters: [string, (e: Element) => boolean][] = []
   let sort: { prop: Prop; descending: boolean; count: number } | null = null
   let recognised = false
 
-  const w = unsupportedWords.find(x => t.has('\\b' + x))
-  if (w && !props.some(p => t.has('\\b(?:' + p.pattern + ')\\b'))) {
-    return { matches: [], unsupported: true, description: `This app has no “${w}” data. Try mass, melting/boiling point, electronegativity, ionization energy, radius, family, block, period, group, state or discovery.` }
+  const w = unsupportedWords.find(x => scan.has('\\b' + x))
+  if (w && !props.some(p => scan.has('\\b(?:' + p.pattern + ')\\b'))) {
+    return { matches: [], unsupported: true, description: t('This app has no “{what}” data. Try mass, melting/boiling point, electronegativity, ionization energy, radius, family, block, period, group, state or discovery.', { what: w }) }
   }
 
   // superlatives
-  let g = t.take('\\b(?:the )?(?:top (\\d+) )?(highest|largest|biggest|greatest|most|heaviest|lowest|smallest|least|lightest)\\b(?: (\\d+))?')
+  let g = scan.take('\\b(?:the )?(?:top (\\d+) )?(highest|largest|biggest|greatest|most|heaviest|lowest|smallest|least|lightest)\\b(?: (\\d+))?')
   if (g) {
     const adj = g[2]
     const desc = ['highest', 'largest', 'biggest', 'greatest', 'most', 'heaviest'].includes(adj)
     const n = Number(g[1]) || Number(g[3]) || 3
     let prop: Prop | null = null
     if (adj === 'heaviest' || adj === 'lightest') prop = byKey('mass')
-    for (const p of props) if (!prop && t.take('\\b(?:' + p.pattern + ')\\b')) prop = p
-    if (!prop && ['largest', 'smallest', 'biggest'].includes(adj)) { prop = byKey('vdw'); t.take('\\b(?:atoms?|elements?)\\b') }
+    for (const p of props) if (!prop && scan.take('\\b(?:' + p.pattern + ')\\b')) prop = p
+    if (!prop && ['largest', 'smallest', 'biggest'].includes(adj)) { prop = byKey('vdw'); scan.take('\\b(?:atoms?|elements?)\\b') }
     if (prop) { sort = { prop, descending: desc, count: n }; recognised = true }
   }
 
@@ -86,80 +87,80 @@ export function runQuery(raw: string, isStable: ((e: Element) => boolean) | null
     ['metals?', ['Alkali_Earth', 'Alkaline_Earth', 'Transition', 'Other_Metal', 'Rare_Earth'], 'metals'],
   ]
   for (const [pat, keys, label] of fams) {
-    if (t.take('\\b(?:' + pat + ')\\b')) { filters.push([label, e => keys.includes(familyInfo(e)?.key ?? '')]); recognised = true; break }
+    if (scan.take('\\b(?:' + pat + ')\\b')) { filters.push([t(label), e => keys.includes(familyInfo(e)?.key ?? '')]); recognised = true; break }
   }
 
   // states of matter
-  g = t.take('\\b(solid|liquid|gas|gaseous)(?:e?s)?\\b(?: at (?:(?:room temp(?:erature)?)|(stp|standard (?:conditions|temperature))|' + num + ' ?' + unitPat + '))?')
+  g = scan.take('\\b(solid|liquid|gas|gaseous)(?:e?s)?\\b(?: at (?:(?:room temp(?:erature)?)|(stp|standard (?:conditions|temperature))|' + num + ' ?' + unitPat + '))?')
   if (g) {
     let T = 298.15
     if (g[2]) T = 273.15
     else if (g[3]) { const v = Number(g[3]); T = g[4] === '°f' ? (v - 32) * 5 / 9 + 273.15 : kelvin(v, g[4]) }
     const want: MatterState = g[1] === 'solid' ? 'Solid' : g[1] === 'liquid' ? 'Liquid' : 'Gas'
-    filters.push([`${want === 'Gas' ? 'gases' : want.toLowerCase() + 's'} at ${formatNumber(T)} K`, e => stateAt(e, T) === want])
+    filters.push([t(want === 'Gas' ? 'gases at {T} K' : want === 'Solid' ? 'solids at {T} K' : 'liquids at {T} K', { T: formatNumber(T) }), e => stateAt(e, T) === want])
     recognised = true
   }
 
   const addCompare = (p: Prop, op: string, v: number, unit: string) => {
     const x = isTemperature(p) ? kelvin(v, unit) : v
-    if (aboveWords.includes(op)) filters.push([`${p.label} > ${formatNumber(x)} ${p.unit}`, e => (p.value(e) ?? -Infinity) > x])
-    else filters.push([`${p.label} < ${formatNumber(x)} ${p.unit}`, e => (p.value(e) ?? Infinity) < x])
+    if (aboveWords.includes(op)) filters.push([t('{property} > {value} {unit}', { property: t(p.label), value: formatNumber(x), unit: p.unit }), e => (p.value(e) ?? -Infinity) > x])
+    else filters.push([t('{property} < {value} {unit}', { property: t(p.label), value: formatNumber(x), unit: p.unit }), e => (p.value(e) ?? Infinity) < x])
     recognised = true
   }
-  g = t.take('\\b(heavier|lighter) than ' + num)
+  g = scan.take('\\b(heavier|lighter) than ' + num)
   if (g) addCompare(byKey('mass'), g[1] === 'heavier' ? '>' : '<', Number(g[2]), '')
   for (const p of props) {
-    for (let m; (m = t.take('\\b(?:' + p.pattern + ')\\b(?: is| of| at)? ?(' + above + '|' + below + ') ?' + num + ' ?' + unitPat));) addCompare(p, m[1], Number(m[2]), m[3])
-    const b = t.take('\\b(?:' + p.pattern + ')\\b (?:is |of )?between ' + num + ' ?' + unitPat + ' and ' + num + ' ?' + unitPat)
+    for (let m; (m = scan.take('\\b(?:' + p.pattern + ')\\b(?: is| of| at)? ?(' + above + '|' + below + ') ?' + num + ' ?' + unitPat));) addCompare(p, m[1], Number(m[2]), m[3])
+    const b = scan.take('\\b(?:' + p.pattern + ')\\b (?:is |of )?between ' + num + ' ?' + unitPat + ' and ' + num + ' ?' + unitPat)
     if (b) {
       const lo = isTemperature(p) ? kelvin(Number(b[1]), b[2]) : Number(b[1])
       const hi = isTemperature(p) ? kelvin(Number(b[3]), b[4] || b[2]) : Number(b[3])
-      filters.push([`${p.label} ${formatNumber(lo)}–${formatNumber(hi)} ${p.unit}`, e => { const v = p.value(e); return v != null && v >= Math.min(lo, hi) && v <= Math.max(lo, hi) }])
+      filters.push([t('{property} {lo}–{hi} {unit}', { property: t(p.label), lo: formatNumber(lo), hi: formatNumber(hi), unit: p.unit }), e => { const v = p.value(e); return v != null && v >= Math.min(lo, hi) && v <= Math.max(lo, hi) }])
       recognised = true
     }
   }
 
-  g = t.take('\\b([spdf])[- ]?block\\b')
-  if (g) { const b = g[1]; filters.push([`${b}-block`, e => e.block === b]); recognised = true }
-  g = t.take('\\bperiod (\\d+)\\b')
-  if (g) { const n = Number(g[1]); filters.push([`period ${n}`, e => e.period === n]); recognised = true }
-  g = t.take('\\bgroup (\\d+)\\b')
-  if (g) { const n = Number(g[1]); filters.push([`group ${n}`, e => { const p = gridPosition(e.z); return p.row < 8 && p.col + 1 === n }]); recognised = true }
+  g = scan.take('\\b([spdf])[- ]?block\\b')
+  if (g) { const b = g[1]; filters.push([t('{b}-block', { b }), e => e.block === b]); recognised = true }
+  g = scan.take('\\bperiod (\\d+)\\b')
+  if (g) { const n = Number(g[1]); filters.push([t('period {n}', { n }), e => e.period === n]); recognised = true }
+  g = scan.take('\\bgroup (\\d+)\\b')
+  if (g) { const n = Number(g[1]); filters.push([t('group {n}', { n }), e => { const p = gridPosition(e.z); return p.row < 8 && p.col + 1 === n }]); recognised = true }
 
   // discovery
-  g = t.take('\\b(?:discovered|found|isolated|identified)? ?(before|prior to|after|since|until|by|in|during) (?:the year )?(\\d{3,4})\\b')
+  g = scan.take('\\b(?:discovered|found|isolated|identified)? ?(before|prior to|after|since|until|by|in|during) (?:the year )?(\\d{3,4})\\b')
   if (g) {
     const y = Number(g[2]), yr = (e: Element) => discoveryYear(e)
     switch (g[1]) {
-      case 'before': case 'prior to': filters.push([`discovered before ${y}`, e => (yr(e) ?? 99999) < y && (yr(e) ?? 0) > 0]); break
-      case 'after': filters.push([`discovered after ${y}`, e => (yr(e) ?? 0) > y]); break
-      case 'since': filters.push([`discovered since ${y}`, e => (yr(e) ?? 0) >= y]); break
-      case 'until': case 'by': filters.push([`discovered by ${y}`, e => (yr(e) ?? 99999) <= y && (yr(e) ?? 0) > 0]); break
-      default: filters.push([`discovered in ${y}`, e => yr(e) === y])
+      case 'before': case 'prior to': filters.push([t('discovered before {y}', { y }), e => (yr(e) ?? 99999) < y && (yr(e) ?? 0) > 0]); break
+      case 'after': filters.push([t('discovered after {y}', { y }), e => (yr(e) ?? 0) > y]); break
+      case 'since': filters.push([t('discovered since {y}', { y }), e => (yr(e) ?? 0) >= y]); break
+      case 'until': case 'by': filters.push([t('discovered by {y}', { y }), e => (yr(e) ?? 99999) <= y && (yr(e) ?? 0) > 0]); break
+      default: filters.push([t('discovered in {y}', { y }), e => yr(e) === y])
     }
     recognised = true
   }
-  if (t.take('\\b(?:known since antiquity|ancient|prehistoric)\\b')) {
-    filters.push(['known since antiquity', e => discoveryYear(e) === 0 || e.discoveryCountry.includes('ancient')]); recognised = true
+  if (scan.take('\\b(?:known since antiquity|ancient|prehistoric)\\b')) {
+    filters.push([t('known since antiquity'), e => discoveryYear(e) === 0 || e.discoveryCountry.includes('ancient')]); recognised = true
   }
-  g = t.take("\\b(?:discovered|found|isolated) (?:in|by|from) ([a-z.' ]+?)(?= and | with | that | which |$| in )")
+  g = scan.take("\\b(?:discovered|found|isolated) (?:in|by|from) ([a-z.' ]+?)(?= and | with | that | which |$| in )")
   if (g) {
     const who = g[1].trim()
     const code = Object.hasOwn(countries, who) ? countries[who] : undefined
-    if (code) { filters.push([`discovered in ${cap(who)}`, e => e.discoveryCountry.includes(code)]); recognised = true }
-    else if (who.length >= 3) { filters.push([`discovered by ${cap(who)}`, e => e.discoverers.some(d => d.toLowerCase().includes(who))]); recognised = true }
+    if (code) { filters.push([t('discovered in {place}', { place: cap(who) }), e => e.discoveryCountry.includes(code)]); recognised = true }
+    else if (who.length >= 3) { filters.push([t('discovered by {who}', { who: cap(who) }), e => e.discoverers.some(d => d.toLowerCase().includes(who))]); recognised = true }
   }
 
-  g = t.take('\\boxidation (?:state|number) ([+-]?\\d+)\\b')
-  if (g) { const n = Number(g[1].replace('+', '')); filters.push([`oxidation state ${n > 0 ? '+' : ''}${n}`, e => e.oxidation.includes(n)]); recognised = true }
+  g = scan.take('\\boxidation (?:state|number) ([+-]?\\d+)\\b')
+  if (g) { const n = Number(g[1].replace('+', '')); filters.push([t('oxidation state {n}', { n: (n > 0 ? '+' : '') + n }), e => e.oxidation.includes(n)]); recognised = true }
 
   if (isStable) {
-    if (t.take('\\b(?:radioactive|unstable)\\b')) { filters.push(['radioactive (no stable isotope)', e => !isStable(e)]); recognised = true }
-    else if (t.take('\\b(?:stable|non-?radioactive)\\b')) { filters.push(['has a stable isotope', e => isStable(e)]); recognised = true }
+    if (scan.take('\\b(?:radioactive|unstable)\\b')) { filters.push([t('radioactive (no stable isotope)'), e => !isStable(e)]); recognised = true }
+    else if (scan.take('\\b(?:stable|non-?radioactive)\\b')) { filters.push([t('has a stable isotope'), e => isStable(e)]); recognised = true }
   }
 
-  g = t.take('\\b(?:starting|starts|beginning|begins) with (?:the letter )?([a-z])\\b')
-  if (g) { const c = g[1]; filters.push([`name starts with ${c.toUpperCase()}`, e => e.name.toLowerCase().startsWith(c)]); recognised = true }
+  g = scan.take('\\b(?:starting|starts|beginning|begins) with (?:the letter )?([a-z])\\b')
+  if (g) { const c = g[1]; filters.push([t('name starts with {letter}', { letter: c.toUpperCase() }), e => e.name.toLowerCase().startsWith(c)]); recognised = true }
 
   if (!recognised) return null
 
@@ -172,7 +173,7 @@ export function runQuery(raw: string, isStable: ((e: Element) => boolean) | null
       if (x === y) return a.z - b.z
       return s.descending ? y - x : x - y
     }).slice(0, s.count)
-    parts.unshift(`${s.descending ? 'highest' : 'lowest'} ${s.prop.label} (top ${s.count})`)
+    parts.unshift(t(s.descending ? 'highest {property} (top {n})' : 'lowest {property} (top {n})', { property: t(s.prop.label), n: s.count }))
   }
   return { matches: list, description: parts.join(' · ') }
 }

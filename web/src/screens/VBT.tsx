@@ -8,36 +8,37 @@ import { userMolecules } from '../lib/usermol'
 import { useStore } from '../lib/store'
 import { Canvas, cssVar } from '../ui/canvas'
 import { Card, Page, Segmented } from '../ui/kit'
+import { t } from '../i18n'
 
 const modes = ['Molecules', 'Predict', 'Resonance'] as const
 type Mode = typeof modes[number]
 
 export function VBTScreen() {
   const [mode, setMode] = useState<Mode>('Molecules')
-  return <Page title="Valence Bond Theory" toolbar={<Segmented value={mode} options={modes} onChange={setMode} label="Mode" />}>
+  return <Page title={t("Valence Bond Theory")} toolbar={<Segmented value={mode} options={modes} onChange={setMode} label={t("Mode")} />}>
     {mode === 'Molecules' ? <MoleculeMode /> : mode === 'Predict' ? <PredictMode /> : <ResonanceMode />}</Page>
 }
 
 // MARK: shared diagram
 function BoxView({ box }: { box: Box }) {
   const col = box.kind === 'hybridLonePair' ? '#a64dd9' : box.kind === 'hybridBond' ? '#3b82f6' : box.kind === 'piP' || box.kind === 'piD' ? '#f59e0b' : 'var(--text2)'
-  return <div class="col gap4" style={{ alignItems: 'center' }}><div class="boxes"><div class="obox" aria-label={`${box.label}: ${box.electrons} electrons`} style={{ width: 44, height: 40, borderRadius: 4, border: `1.5px solid ${col}`, fontSize: 17, fontWeight: 700 }}>{box.electrons >= 1 ? '↑' : ''}{box.electrons >= 2 ? '↓' : ''}</div></div><span class="small dim" style={{ fontSize: 10 }}>{box.label}</span></div>
+  return <div class="col gap4" style={{ alignItems: 'center' }}><div class="boxes"><div class="obox" aria-label={t('{label}: {n} electrons', { label: box.label, n: box.electrons })} style={{ width: 44, height: 40, borderRadius: 4, border: `1.5px solid ${col}`, fontSize: 17, fontWeight: 700 }}>{box.electrons >= 1 ? '↑' : ''}{box.electrons >= 2 ? '↓' : ''}</div></div><span class="small dim" style={{ fontSize: 10 }}>{box.label}</span></div>
 }
 export function AtomDiagram({ h, title }: { h: Hybridization; title?: string }) {
   const rows: [string, string][] = [
-    ['Electron domains', `${h.steric} (${h.sigma} σ bond${h.sigma === 1 ? '' : 's'} + ${h.lonePairs} lone pair${h.lonePairs === 1 ? '' : 's'})`], ['Electron geometry', h.electronGeometry ?? '—'],
-    ['Molecular shape', h.shape?.name ?? '—'], ['Ideal bond angle', h.shape?.angle ?? '—'], ['π bonds', String(h.pi)],
-    ['Valence electrons', `${h.valence}${h.charge === 0 ? '' : ` (formal charge ${h.charge > 0 ? '+' : '−'}${Math.abs(h.charge)})`}`]]
-  let explanation = `Each σ bond is an end-to-end overlap of an ${h.hybridName ?? 'hybrid'} orbital with an orbital from the bonded atom.`
-  if (h.lonePairs > 0) explanation += ' Lone pairs sit in hybrid orbitals too, and because they take up more room than bonding pairs they squeeze the bond angles below the ideal value.'
-  if (h.pi > 0) explanation += h.pi === 1 ? ` The π bond comes from side-on overlap of an unhybridized ${h.shell}p orbital.` : ` The ${h.pi} π bonds come from side-on overlap of unhybridized ${h.shell}p orbitals.`
-  const boxes = (t: string, bs: Box[]) => <div class="col gap4"><span class="label">{t}</span><div class="row" style={{ alignItems: 'flex-start', gap: 6 }}>{bs.map((b, i) => <BoxView key={i} box={b} />)}</div></div>
+    ['Electron domains', t('{n} ({sigma} σ bonds + {lp} lone pairs)', { n: h.steric, sigma: h.sigma, lp: h.lonePairs })], ['Electron geometry', h.electronGeometry ? t(h.electronGeometry) : '—'],
+    ['Molecular shape', h.shape ? t(h.shape.name) : '—'], ['Ideal bond angle', h.shape ? t(h.shape.angle) : '—'], ['π bonds', String(h.pi)],
+    ['Valence electrons', h.charge === 0 ? String(h.valence) : t('{n} (formal charge {charge})', { n: h.valence, charge: (h.charge > 0 ? '+' : '−') + Math.abs(h.charge) })]]
+  let explanation = t('Each σ bond is an end-to-end overlap of an {hybrid} orbital with an orbital from the bonded atom.', { hybrid: h.hybridName ?? 'hybrid' })
+  if (h.lonePairs > 0) explanation += ' ' + t('Lone pairs sit in hybrid orbitals too, and because they take up more room than bonding pairs they squeeze the bond angles below the ideal value.')
+  if (h.pi > 0) explanation += ' ' + (h.pi === 1 ? t('The π bond comes from side-on overlap of an unhybridized {shell}p orbital.', { shell: h.shell }) : t('The {n} π bonds come from side-on overlap of unhybridized {shell}p orbitals.', { n: h.pi, shell: h.shell }))
+  const boxes = (title: string, bs: Box[]) => <div class="col gap4"><span class="label">{title}</span><div class="row" style={{ alignItems: 'flex-start', gap: 6 }}>{bs.map((b, i) => <BoxView key={i} box={b} />)}</div></div>
   return <div class="col" style={{ gap: 16 }}>
     <div class="row wrap gap16" style={{ alignItems: 'flex-start' }}>
-      <div class="col gap4"><span class="small dim">{title ?? h.element.name}</span><span style={{ fontSize: 44, fontWeight: 700 }}>{h.hybridName}</span><span class="dim">hybridized</span></div>
-      <div class="kv">{rows.flatMap(([k, v]) => [<div key={k}>{k}</div>, <b key={k + 'v'} style={{ fontWeight: 600, color: 'var(--text)' }}>{v}</b>])}</div></div>
-    <Card title="Orbital diagram"><div class="col" style={{ gap: 14 }}>{boxes('Ground state', h.groundState)}
-      <div class="row gap8 dim"><span>↓</span><span>{h.needsPromotion ? 'promote electrons, then mix s, p' + (h.mix.d > 0 ? ', d' : '') + ' orbitals' : 'mix the s and p orbitals'}</span></div>{boxes('After hybridization', h.hybridized)}</div></Card>
+      <div class="col gap4"><span class="small dim">{title ?? t(h.element.name)}</span><span style={{ fontSize: 44, fontWeight: 700 }}>{h.hybridName}</span><span class="dim">{t("hybridized")}</span></div>
+      <div class="kv">{rows.flatMap(([k, v]) => [<div key={k}>{t(k)}</div>, <b key={k + 'v'} style={{ fontWeight: 600, color: 'var(--text)' }}>{v}</b>])}</div></div>
+    <Card title={t("Orbital diagram")}><div class="col" style={{ gap: 14 }}>{boxes(t('Ground state'), h.groundState)}
+      <div class="row gap8 dim"><span>↓</span><span>{h.needsPromotion ? (h.mix.d > 0 ? t('promote electrons, then mix s, p, d orbitals') : t('promote electrons, then mix s, p orbitals')) : t('mix the s and p orbitals')}</span></div>{boxes(t('After hybridization'), h.hybridized)}</div></Card>
     <div class="dim">{explanation}</div></div>
 }
 
@@ -46,17 +47,17 @@ const presets: [string, string, number, number][] = [['CH₄ – carbon', 'C', 4
   ['CO₂ – carbon', 'C', 2, 2], ['SO₂ – sulfur', 'S', 2, 2], ['SF₄ – sulfur', 'S', 4, 0], ['ClF₃ – chlorine', 'Cl', 3, 0], ['PCl₅ – phosphorus', 'P', 5, 0], ['SF₆ – sulfur', 'S', 6, 0], ['XeF₄ – xenon', 'Xe', 4, 0]]
 const mainGroup = elements.filter(e => Hybridization.valenceElectrons(e) != null && e.z !== 1)
 function Stepper({ label, value, min, max, onChange }: { label: string; value: number; min: number; max: number; onChange: (v: number) => void }) {
-  return <span class="row gap8" role="group" aria-label={label}>{label}: <b>{value}</b><button class="btn small" aria-label={`Decrease ${label}`} disabled={value <= min} onClick={() => onChange(value - 1)}>−</button><button class="btn small" aria-label={`Increase ${label}`} disabled={value >= max} onClick={() => onChange(value + 1)}>+</button></span>
+  return <span class="row gap8" role="group" aria-label={label}>{label}: <b>{value}</b><button class="btn small" aria-label={t('Decrease {label}', { label })} disabled={value <= min} onClick={() => onChange(value - 1)}>−</button><button class="btn small" aria-label={t('Increase {label}', { label })} disabled={value >= max} onClick={() => onChange(value + 1)}>+</button></span>
 }
 function PredictMode() {
   const [symbol, setSymbol] = useState('C'), [sigma, setSigma] = useState(4), [pi, setPi] = useState(0)
   const e = elementBySymbol.get(symbol), r = e ? Hybridization.make(e, sigma, pi) : null
   return <div class="scroll pad col" style={{ maxWidth: 900 }}>
-    <div class="dim">Choose a central atom and how many bonds it makes. Theory works out the lone pairs, hybridization and shape.</div>
-    <div class="row wrap gap16"><select aria-label="Atom" value={symbol} onChange={ev => setSymbol((ev.target as HTMLSelectElement).value)}>{mainGroup.map(x => <option key={x.symbol} value={x.symbol}>{x.symbol} – {x.name}</option>)}</select>
-      <Stepper label="σ bonds" value={sigma} min={0} max={7} onChange={setSigma} /><Stepper label="π bonds" value={pi} min={0} max={4} onChange={setPi} />
-      <select aria-label="Examples" value="" onChange={ev => { const p = presets.find(x => x[0] === (ev.target as HTMLSelectElement).value); if (p) { setSymbol(p[1]); setSigma(p[2]); setPi(p[3]) } }}><option value="">Examples</option>{presets.map(p => <option key={p[0]}>{p[0]}</option>)}</select></div>
-    {r && r.hybridName ? <AtomDiagram h={r} /> : e && Hybridization.valenceElectrons(e) != null && <div class="warn" role="alert">⚠ {r == null ? `${e.symbol} has ${Hybridization.valenceElectrons(e)} valence electrons. ${sigma} σ + ${pi} π bonds use ${sigma + pi}, and the rest must pair up as lone pairs, so this bonding is not possible for a neutral atom.` : 'At least two electron domains (bonds plus lone pairs) are needed to hybridize.'}</div>}
+    <div class="dim">{t("Choose a central atom and how many bonds it makes. Theory works out the lone pairs, hybridization and shape.")}</div>
+    <div class="row wrap gap16"><select aria-label={t("Atom")} value={symbol} onChange={ev => setSymbol((ev.target as HTMLSelectElement).value)}>{mainGroup.map(x => <option key={x.symbol} value={x.symbol}>{x.symbol} – {t(x.name)}</option>)}</select>
+      <Stepper label={t("σ bonds")} value={sigma} min={0} max={7} onChange={setSigma} /><Stepper label={t("π bonds")} value={pi} min={0} max={4} onChange={setPi} />
+      <select aria-label={t("Examples")} value="" onChange={ev => { const p = presets.find(x => x[0] === (ev.target as HTMLSelectElement).value); if (p) { setSymbol(p[1]); setSigma(p[2]); setPi(p[3]) } }}><option value="">{t("Examples")}</option>{presets.map(p => <option key={p[0]} value={p[0]}>{t(p[0])}</option>)}</select></div>
+    {r && r.hybridName ? <AtomDiagram h={r} /> : e && Hybridization.valenceElectrons(e) != null && <div class="warn" role="alert">⚠ {r == null ? t('{symbol} has {v} valence electrons. {sigma} σ + {pi} π bonds use {used}, and the rest must pair up as lone pairs, so this bonding is not possible for a neutral atom.', { symbol: e.symbol, v: Hybridization.valenceElectrons(e)!, sigma, pi, used: sigma + pi }) : t('At least two electron domains (bonds plus lone pairs) are needed to hybridize.')}</div>}
   </div>
 }
 
@@ -67,28 +68,28 @@ function MoleculeMode() {
   useEffect(() => { if (user.focus) { setSel(user.focus); setAtom(null); userMolecules.set(s => ({ ...s, focus: null })) } }, [user.focus])
   const m: Molecule | undefined = all.find(x => x.name === sel) ?? all[0]
   return <div class="split" style={{ gridTemplateColumns: '210px 1fr' }}>
-    <div class="list" role="listbox" aria-label="Molecules">{all.map(x => <button key={x.name} role="option" aria-selected={x.name === sel} class={x.name === sel ? 'on' : ''} onClick={() => { setSel(x.name); setAtom(null) }}>{x.name}</button>)}</div>
-    <div class="scroll pad">{m ? <MoleculeDetail m={m} atom={atom} setAtom={setAtom} /> : <div class="dim">No molecule</div>}</div></div>
+    <div class="list" role="listbox" aria-label={t("Molecules")}>{all.map(x => <button key={x.name} role="option" aria-selected={x.name === sel} class={x.name === sel ? 'on' : ''} onClick={() => { setSel(x.name); setAtom(null) }}>{t(x.name)}</button>)}</div>
+    <div class="scroll pad">{m ? <MoleculeDetail m={m} atom={atom} setAtom={setAtom} /> : <div class="dim">{t("No molecule")}</div>}</div></div>
 }
 function MoleculeDetail({ m, atom, setAtom }: { m: Molecule; atom: number | null; setAtom: (i: number) => void }) {
   const a = useMemo(() => analyzeMolecule(m), [m]), heavy = a.atoms.filter(x => x.element?.symbol !== 'H')
   const chosen = heavy.find(x => x.index === atom) ?? heavy.find(x => x.hybrid?.hybridName != null) ?? heavy[0]
   return <div class="col" style={{ maxWidth: 900 }}>
-    <div class="row" style={{ alignItems: 'baseline', gap: 12 }}><h1>{m.name}</h1><span class="mono dim" style={{ fontSize: 17 }}>{formulaText(formulaOf(m))}</span></div>
-    <div class="dim">Pick an atom to see how its orbitals hybridize.</div>
+    <div class="row" style={{ alignItems: 'baseline', gap: 12 }}><h1>{t(m.name)}</h1><span class="mono dim" style={{ fontSize: 17 }}>{formulaText(formulaOf(m))}</span></div>
+    <div class="dim">{t("Pick an atom to see how its orbitals hybridize.")}</div>
     <div class="row wrap gap8">{heavy.map(x => <button key={x.index} class={'btn' + (x.index === chosen?.index ? ' primary' : '')} style={{ padding: '3px 10px', lineHeight: 1.2 }} onClick={() => setAtom(x.index)}><div class="bold">{x.label}</div><div style={{ fontSize: 10 }}>{(x.hybrid?.hybridName ?? '—') + (x.hybrid ? chargeText(x.hybrid.charge) : '')}</div></button>)}</div>
     {chosen && (chosen.hybrid?.hybridName ? <><AtomDiagram h={chosen.hybrid} title={chosen.label} />
-      {chosen.measuredAngles.length > 0 && <Card title="Bond angles in this structure"><div class="col gap4"><span class="dim">Predicted: {chosen.hybrid.shape?.angle ?? '—'}</span><span class="mono">Measured from the 3D file: {chosen.measuredAngles.map(x => x.toFixed(1) + '°').join(', ')}</span></div></Card>}</>
-      : <div class="dim">ⓘ {chosen.note ?? "Hybridization isn't defined for this atom."}</div>)}
-    <Card title="Every bond"><table class="t"><tbody>{a.bonds.map(b => <tr key={b.id}><td class="mono">{b.label}</td><td>{b.detail}</td></tr>)}</tbody></table></Card>
-    <div class="small dim">Terminal atoms are hybridized by counting their bonds plus lone pairs, the same rule used for central atoms.</div></div>
+      {chosen.measuredAngles.length > 0 && <Card title={t("Bond angles in this structure")}><div class="col gap4"><span class="dim">{t('Predicted: {angle}', { angle: chosen.hybrid.shape ? t(chosen.hybrid.shape.angle) : '—' })}</span><span class="mono">{t('Measured from the 3D file: {angles}', { angles: chosen.measuredAngles.map(x => x.toFixed(1) + '°').join(', ') })}</span></div></Card>}</>
+      : <div class="dim">ⓘ {chosen.note ?? t("Hybridization isn't defined for this atom.")}</div>)}
+    <Card title={t("Every bond")}><table class="t"><tbody>{a.bonds.map(b => <tr key={b.id}><td class="mono">{b.label}</td><td>{b.detail}</td></tr>)}</tbody></table></Card>
+    <div class="small dim">{t("Terminal atoms are hybridized by counting their bonds plus lone pairs, the same rule used for central atoms.")}</div></div>
 }
 
 // MARK: resonance
 const frac3 = (v: number) => Math.abs(v - 2 / 3) < 0.01 ? '⅔' : Math.abs(v - 1 / 3) < 0.01 ? '⅓' : Math.abs(v - 0.5) < 0.01 ? '½' : String(Number(v.toFixed(2)))
 
 export function LewisCanvas({ input, orders, lonePairs, charges, showLonePairs, width, height }: { input: ResonanceInput; orders: number[]; lonePairs: number[]; charges: number[]; showLonePairs: boolean; width: number; height: number }) {
-  return <Canvas class="lewis" style={{ width, height }} label={`Lewis structure of ${input.name}`} deps={[input, orders, lonePairs, charges, showLonePairs]} draw={(ctx, w, h) => {
+  return <Canvas class="lewis" style={{ width, height }} label={t('Lewis structure of {name}', { name: t(input.name) })} deps={[input, orders, lonePairs, charges, showLonePairs]} draw={(ctx, w, h) => {
     const text = cssVar('--text') || '#111', accent = cssVar('--accent') || '#2f6bff'
     const xs = input.atoms.map(a => a.x), ys = input.atoms.map(a => a.y), minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys)
     const span = Math.max(maxX - minX, maxY - minY, 0.5), scale = Math.min(w, h) * 0.62 / span, cx = (minX + maxX) / 2, cy = (minY + maxY) / 2
@@ -131,19 +132,19 @@ function ResonanceMode() {
   const nb: number[][] = input.atoms.map(() => []); for (const [a, b] of input.bonds) { nb[a].push(b); nb[b].push(a) }
   const electrons = input.atoms.reduce((s, a) => s + (Hybridization.valenceElectrons(elementBySymbol.get(a.symbol)!) ?? 0), 0) - input.charge
   return <div class="split" style={{ gridTemplateColumns: '250px 1fr' }}>
-    <div class="list" role="listbox" aria-label="Species">{resonancePresets.map(p => <button key={p.name} role="option" aria-selected={p.name === name} class={p.name === name ? 'on' : ''} onClick={() => setName(p.name)}>{p.name}<span class="grow" /><span class="dim">{p.formula}</span></button>)}</div>
+    <div class="list" role="listbox" aria-label={t("Species")}>{resonancePresets.map(p => <button key={p.name} role="option" aria-selected={p.name === name} class={p.name === name ? 'on' : ''} onClick={() => setName(p.name)}>{t(p.name)}<span class="grow" /><span class="dim">{p.formula}</span></button>)}</div>
     <div class="scroll pad col" style={{ maxWidth: 900 }}>
-      <div class="row" style={{ alignItems: 'baseline', gap: 10 }}><h1>{input.name}</h1><span class="dim" style={{ fontSize: 20 }}>{input.formula}</span></div>
-      {!ss.length ? <div class="warn">⚠ No valid Lewis structure found.</div> : <>
-        <div class="dim">{electrons} valence electrons in total ({input.charge === 0 ? 'neutral' : `charge ${input.charge > 0 ? '+' : '−'}${Math.abs(input.charge)}`}). The structures shown are all the ways to place the bonds and lone pairs that keep formal charges as small as possible while giving each second-period atom a full octet.</div>
-        <h3>{ss.length === 1 ? 'Lewis structure' : `${ss.length} resonance structures`}</h3>
-        <div class="row wrap gap16" style={{ alignItems: 'flex-start' }}>{ss.map((s, i) => <div key={i} class="col gap4" style={{ alignItems: 'center' }}><LewisCanvas input={input} orders={s.orders} lonePairs={s.lonePairs} charges={s.charges} showLonePairs width={190} height={170} />{ss.length > 1 && <span class="small dim">Structure {i + 1}</span>}</div>)}</div>
-        {ss.length > 1 && <><h3>The real molecule is a blend of all of them, a resonance hybrid:</h3><LewisCanvas input={input} orders={hybridOrders(ss)} lonePairs={[]} charges={averageCharges(ss)} showLonePairs={false} width={260} height={230} />
-          <div class="small dim">Numbers on the bonds are average bond orders; charges are averaged over the structures. Equal bond lengths in the real molecule show that the structures are not flipping back and forth.</div></>}
-        <Card title="Hybridization of each atom"><table class="t"><thead><tr><th>Atom</th><th>Bonds (σ)</th><th>Lone pairs</th><th>Hybridization</th></tr></thead><tbody>
+      <div class="row" style={{ alignItems: 'baseline', gap: 10 }}><h1>{t(input.name)}</h1><span class="dim" style={{ fontSize: 20 }}>{input.formula}</span></div>
+      {!ss.length ? <div class="warn">{t("⚠ No valid Lewis structure found.")}</div> : <>
+        <div class="dim">{t('{n} valence electrons in total ({charge}). The structures shown are all the ways to place the bonds and lone pairs that keep formal charges as small as possible while giving each second-period atom a full octet.', { n: electrons, charge: input.charge === 0 ? t('neutral') : t('charge {c}', { c: (input.charge > 0 ? '+' : '−') + Math.abs(input.charge) }) })}</div>
+        <h3>{ss.length === 1 ? t('Lewis structure') : t('{n} resonance structures', { n: ss.length })}</h3>
+        <div class="row wrap gap16" style={{ alignItems: 'flex-start' }}>{ss.map((s, i) => <div key={i} class="col gap4" style={{ alignItems: 'center' }}><LewisCanvas input={input} orders={s.orders} lonePairs={s.lonePairs} charges={s.charges} showLonePairs width={190} height={170} />{ss.length > 1 && <span class="small dim">{t('Structure {n}', { n: i + 1 })}</span>}</div>)}</div>
+        {ss.length > 1 && <><h3>{t("The real molecule is a blend of all of them, a resonance hybrid:")}</h3><LewisCanvas input={input} orders={hybridOrders(ss)} lonePairs={[]} charges={averageCharges(ss)} showLonePairs={false} width={260} height={230} />
+          <div class="small dim">{t("Numbers on the bonds are average bond orders; charges are averaged over the structures. Equal bond lengths in the real molecule show that the structures are not flipping back and forth.")}</div></>}
+        <Card title={t("Hybridization of each atom")}><table class="t"><thead><tr><th>{t("Atom")}</th><th>{t("Bonds (σ)")}</th><th>{t("Lone pairs")}</th><th>{t("Hybridization")}</th></tr></thead><tbody>
           {input.atoms.map((a, i) => ({ a, i })).filter(x => x.a.symbol !== 'H').map(({ a, i }) => {
             const pis = ss.map(s => input.bonds.reduce((t, b, k) => (b[0] === i || b[1] === i ? t + s.orders[k] - 1 : t), 0)), deloc = new Set(pis).size > 1
             const h = Hybridization.make(elementBySymbol.get(a.symbol)!, nb[i].length, pis[0], ss[0].charges[i]), lps = [...new Set(ss.map(s => s.lonePairs[i]))].sort()
-            return <tr key={i}><td class="bold">{a.symbol}{i + 1}</td><td>{nb[i].length}</td><td>{lps.join(' or ')}</td><td>{deloc ? 'sp² (one p orbital is part of the π system shared by the structures)' : h?.hybridName ? h.hybridName + (h.charge === 0 ? '' : ` (formal charge ${h.charge > 0 ? '+' : '−'}${Math.abs(h.charge)})`) : '—'}</td></tr> })}</tbody></table></Card></>}
+            return <tr key={i}><td class="bold">{a.symbol}{i + 1}</td><td>{nb[i].length}</td><td>{lps.join(' or ')}</td><td>{deloc ? t('sp² (one p orbital is part of the π system shared by the structures)') : h?.hybridName ? h.hybridName + (h.charge === 0 ? '' : ' ' + t('(formal charge {charge})', { charge: (h.charge > 0 ? '+' : '−') + Math.abs(h.charge) })) : '—'}</td></tr> })}</tbody></table></Card></>}
     </div></div>
 }

@@ -1,4 +1,5 @@
 /** Balances chemical equations such as `aCH3CH2OH + bO2 -> cH2O + dCO2` (port of Kalzium's "eqchem" solver). */
+import { t } from '../i18n'
 export class SolverError extends Error {
   constructor(readonly kind: 'parse' | 'notFound', message = '') { super(message || kind) }
 }
@@ -23,11 +24,11 @@ export function solve(input: string, isElement: (s: string) => boolean): Result<
 export function solveStructured(input: string, isElement: (s: string) => boolean): Result<Balanced> {
   const cleaned = input.replaceAll('→', '->').replaceAll(' ', '')
   const sides = cleaned.split('->')
-  if (sides.length !== 2) return { ok: false, error: new SolverError('parse', 'missing or duplicate arrow') }
+  if (sides.length !== 2) return { ok: false, error: new SolverError('parse', t('missing or duplicate arrow')) }
   try {
     const left = sides[0] === '' ? [] : splitTerms(sides[0]).map(t => parseTerm(t, isElement))
     const right = sides[1] === '' ? [] : splitTerms(sides[1]).map(t => parseTerm(t, isElement))
-    if (!left.length || !right.length) return { ok: false, error: new SolverError('parse', 'both sides need at least one molecule') }
+    if (!left.length || !right.length) return { ok: false, error: new SolverError('parse', t('both sides need at least one molecule')) }
 
     const letters = [...new Set([...left, ...right].flatMap(t => t.coefficient.k === 'variable' ? [t.coefficient.c] : []))].sort()
     const index = new Map(letters.map((c, i) => [c, i]))
@@ -63,12 +64,12 @@ export function splitTerms(s: string): string[] {
   const out: string[] = []; let cur = '', depth = 0
   for (const ch of s) {
     if (ch === '[') depth++; else if (ch === ']') depth--
-    if (depth < 0) throw new SolverError('parse', 'unbalanced brackets')
+    if (depth < 0) throw new SolverError('parse', t('unbalanced brackets'))
     if (ch === '+' && depth === 0) { out.push(cur); cur = '' } else cur += ch
   }
-  if (depth !== 0) throw new SolverError('parse', 'unbalanced brackets')
+  if (depth !== 0) throw new SolverError('parse', t('unbalanced brackets'))
   out.push(cur)
-  if (out.some(t => t === '')) throw new SolverError('parse', 'empty molecule')
+  if (out.some(t => t === '')) throw new SolverError('parse', t('empty molecule'))
   return out
 }
 
@@ -79,7 +80,7 @@ export function parseTerm(s: string, isElement: (s: string) => boolean): Term {
     let digits = ''
     while (chars.length && isDigit(chars[0])) { digits += chars.shift()! }
     const v = Number(digits)
-    if (!Number.isSafeInteger(v)) throw new SolverError('parse', 'coefficient too large')
+    if (!Number.isSafeInteger(v)) throw new SolverError('parse', t('coefficient too large'))
     coefficient = { k: 'number', v }
   } else if (chars.length >= 2 && isLower(chars[0]) && (isUpper(chars[1]) || chars[1] === '(')) {
     coefficient = { k: 'variable', c: chars.shift()! }
@@ -88,18 +89,18 @@ export function parseTerm(s: string, isElement: (s: string) => boolean): Term {
   let formulaChars = chars
   const open = chars.indexOf('[')
   if (open >= 0) {
-    if (chars[chars.length - 1] !== ']') throw new SolverError('parse', `bad charge in ${s}`)
+    if (chars[chars.length - 1] !== ']') throw new SolverError('parse', t('bad charge in {s}', { s }))
     const inner = chars.slice(open + 1, chars.length - 1).join('')
     const hasPlus = inner.includes('+'), hasMinus = inner.includes('-')
-    if (hasPlus === hasMinus) throw new SolverError('parse', `bad charge in ${s}`)
+    if (hasPlus === hasMinus) throw new SolverError('parse', t('bad charge in {s}', { s }))
     const digits = [...inner].filter(isDigit).join('')
     charge = (hasMinus ? -1 : 1) * (digits ? Number(digits) : 1)
     formulaChars = chars.slice(0, open)
   }
-  if (!formulaChars.length) throw new SolverError('parse', `missing formula in ${s}`)
+  if (!formulaChars.length) throw new SolverError('parse', t('missing formula in {s}', { s }))
   const pos = { i: 0 }
   const atoms = parseGroup(formulaChars, pos, isElement, true)
-  if (pos.i !== formulaChars.length) throw new SolverError('parse', `unexpected character in ${s}`)
+  if (pos.i !== formulaChars.length) throw new SolverError('parse', t('unexpected character in {s}', { s }))
   return { coefficient, atoms, charge, text: chars.join('') }
 }
 
@@ -110,24 +111,24 @@ function parseGroup(c: string[], pos: { i: number }, isElement: (s: string) => b
     if (isUpper(c[pos.i])) {
       let sym = c[pos.i]; pos.i++
       while (pos.i < c.length && isLower(c[pos.i])) { sym += c[pos.i]; pos.i++ }
-      if (!isElement(sym)) throw new SolverError('parse', `unknown element ${sym}`)
+      if (!isElement(sym)) throw new SolverError('parse', t('unknown element {sym}', { sym }))
       group = new Map([[sym, 1]])
     } else if (c[pos.i] === '(') {
       pos.i++
       group = parseGroup(c, pos, isElement, false)
-      if (pos.i >= c.length || c[pos.i] !== ')') throw new SolverError('parse', 'missing )')
+      if (pos.i >= c.length || c[pos.i] !== ')') throw new SolverError('parse', t('missing )'))
       pos.i++
     } else if (c[pos.i] === ')') {
-      if (top) throw new SolverError('parse', 'unexpected )')
+      if (top) throw new SolverError('parse', t('unexpected )'))
       return atoms
-    } else throw new SolverError('parse', `unexpected '${c[pos.i]}'`)
+    } else throw new SolverError('parse', t("unexpected '{ch}'", { ch: c[pos.i] }))
     let digits = ''
     while (pos.i < c.length && isDigit(c[pos.i])) { digits += c[pos.i]; pos.i++ }
     const mult = digits ? Number(digits) : 1
-    if (!Number.isSafeInteger(mult)) throw new SolverError('parse', 'count too large')
+    if (!Number.isSafeInteger(mult)) throw new SolverError('parse', t('count too large'))
     for (const [k, v] of group) atoms.set(k, (atoms.get(k) ?? 0) + v * mult)
   }
-  if (!top) throw new SolverError('parse', 'missing )')
+  if (!top) throw new SolverError('parse', t('missing )'))
   return atoms
 }
 

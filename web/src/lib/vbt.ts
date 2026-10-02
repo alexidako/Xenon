@@ -1,5 +1,6 @@
 import { Element, elementBySymbol, gridPosition } from './element'
 import { Molecule } from './molecule'
+import { t } from '../i18n'
 
 /** Valence bond theory for a single atom: lone pairs, hybridization, VSEPR geometry and orbital boxes. */
 export type BoxKind = 's' | 'p' | 'd' | 'hybridLonePair' | 'hybridBond' | 'piP' | 'piD'
@@ -132,9 +133,9 @@ export function analyzeMolecule(m: Molecule): { atoms: AtomAnalysis[]; bonds: Bo
     let hyb: Hybridization | null = null, note: string | null = null
     if (e && e.symbol !== 'H') {
       hyb = Hybridization.makeAllowingCharge(e, neighbors[i].length, pi[i])
-      if (!hyb) note = 'These bonds cannot be explained for a main-group atom, even with a formal charge.'
-      else if (hyb.charge !== 0) note = `Formal charge ${hyb.charge > 0 ? '+' : '−'}${Math.abs(hyb.charge)}.`
-      else if (hyb.hybridName == null) note = 'Too few electron domains to hybridize.'
+      if (!hyb) note = t('These bonds cannot be explained for a main-group atom, even with a formal charge.')
+      else if (hyb.charge !== 0) note = t('Formal charge {charge}.', { charge: (hyb.charge > 0 ? '+' : '−') + Math.abs(hyb.charge) })
+      else if (hyb.hybridName == null) note = t('Too few electron domains to hybridize.')
     }
     return { index: i, label: labels[i], element: e, neighbors: neighbors[i], hybrid: hyb, note, measuredAngles: bondAngles(i, m, neighbors[i]) }
   })

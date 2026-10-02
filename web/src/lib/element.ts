@@ -1,4 +1,5 @@
 import elementsJson from '../data/elements.json'
+import { t } from '../i18n'
 import isotopesJson from '../data/isotopes.json'
 import spectraJson from '../data/spectra.json'
 
@@ -112,7 +113,7 @@ export function decayLabel(mode: string): string {
 const signif = (v: number, n: number) => String(Number(v.toPrecision(n)))
 export function halfLifeText(i: Isotope): string {
   const s = i.halfLife
-  if (s == null) return i.abundance != null ? 'stable' : '—'
+  if (s == null) return i.abundance != null ? t('stable') : '—'
   const units: [string, number][] = [['y', 31_557_600], ['d', 86_400], ['h', 3_600], ['min', 60], ['s', 1], ['ms', 1e-3], ['µs', 1e-6], ['ns', 1e-9], ['ps', 1e-12]]
   for (const [name, size] of units) if (s >= size) return signif(s / size, 4) + ' ' + name
   return s.toExponential(2) + ' s'

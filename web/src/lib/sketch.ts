@@ -1,5 +1,6 @@
 import { elementBySymbol } from './element'
 import { Molecule } from './molecule'
+import { t } from '../i18n'
 
 export interface SketchAtom { id: number; symbol: string; x: number; y: number }
 export interface SketchBond { id: number; a: number; b: number; order: number }
@@ -35,7 +36,7 @@ export class Sketch {
 
   get problems(): { atom: SketchAtom; message: string }[] {
     return this.atoms.filter(a => this.implicitHydrogens(a.id) == null)
-      .map(atom => ({ atom, message: `${atom.symbol} has ${this.bondOrderSum(atom.id)} bonds; at most ${Math.max(...(valences[atom.symbol] ?? [0]))} are allowed.` }))
+      .map(atom => ({ atom, message: t('{symbol} has {n} bonds; at most {max} are allowed.', { symbol: atom.symbol, n: this.bondOrderSum(atom.id), max: Math.max(...(valences[atom.symbol] ?? [0])) }) }))
   }
 
   /** Element counts including implicit hydrogens. */

@@ -1,3 +1,4 @@
+import { t } from '../i18n'
 /** Small arithmetic language: numbers (`,` or `.` decimals), variables, + − * / ^, parentheses and a few functions. */
 export type Expr =
   | { k: 'num'; v: number } | { k: 'var'; n: string }
@@ -19,7 +20,7 @@ export function evalExpr(x: Expr, lookup: (name: string) => number): number {
         case 'sqrt': return Math.sqrt(v); case 'ln': return Math.log(v); case 'log': return Math.log10(v)
         case 'exp': return Math.exp(v); case 'abs': return Math.abs(v); case 'sin': return Math.sin(v)
         case 'cos': return Math.cos(v); case 'tan': return Math.tan(v); case 'tanh': return Math.tanh(v)
-        default: throw new Error('unknown function ' + x.f)
+        default: throw new Error(t('unknown function {f}', { f: x.f }))
       }
     }
   }

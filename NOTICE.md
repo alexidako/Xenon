@@ -12,6 +12,7 @@ its complete source code; this repository is that source.
 | Kalzium application logic, algorithms and text (equation solver, glossary, lab equipment, R/S phrases, tables) | ported to Swift and TypeScript | GPL-2.0-or-later, © the KDE Kalzium authors |
 | Element, isotope and spectrum data | `elements.json`, `isotopes.json`, `spectra.json` (converted from Kalzium's `libscience/data`) | Blue Obelisk Data Repository, MIT licence |
 | Molecule files (`*.cml`) | `Sources/Xenon/Resources/molecules`, `web/src/data/molecules` | © 2006 Jerome Pansanel, BSD-3-Clause (`LICENSES/BSD-3-Clause.txt`) |
+| Translations (Russian, Ukrainian, Simplified Chinese, Spanish, French) | `web/src/i18n/locales`, `web/tools/i18n` | Element names, glossary, lab equipment and R/S phrases are taken from the KDE Kalzium translations (GPL-2.0-or-later, © the KDE translation teams); the remaining strings were written for Xenon. |
 | Element icons, hazard symbols, lab-equipment pictures | `Sources/Xenon/Resources`, `web/public/data` | Taken from Kalzium; individual artists are credited in Kalzium's `data/iconsets/school/COPYRIGHT`. Licences vary by file upstream, so check them before redistributing these assets on their own. |
 
 ## Tools used to build the web version

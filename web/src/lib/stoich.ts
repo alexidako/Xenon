@@ -1,5 +1,6 @@
 import { Balanced } from './solver'
 import { formatNumber } from './format'
+import { t } from '../i18n'
 
 export interface Species { id: number; formula: string; coefficient: number; molarMass: number; isReactant: boolean }
 export interface Line { species: Species; moles: number; grams: number; note: string }
@@ -30,17 +31,17 @@ export function solveStoich(all: Species[], amounts: Map<number, [number, QUnit]
     const [v, u] = a
     const n = toMoles(u, v, r.molarMass)
     ratios.push([r, n, n / r.coefficient])
-    if (u === 'mol' || u === 'mmol') steps.push(`${r.formula}: ${fmt(v)} ${u} = ${fmt(n)} mol; ${fmt(n)} ÷ ${r.coefficient} = ${fmt(n / r.coefficient)}`)
-    else steps.push(`${r.formula}: ${fmt(v)} ${u} ÷ ${fmt(r.molarMass)} g/mol = ${fmt(n)} mol; ÷ ${r.coefficient} = ${fmt(n / r.coefficient)}`)
+    if (u === 'mol' || u === 'mmol') steps.push(t('{formula}: {v} {u} = {n} mol; {n} ÷ {c} = {ratio}', { formula: r.formula, v: fmt(v), u, n: fmt(n), c: r.coefficient, ratio: fmt(n / r.coefficient) }))
+    else steps.push(t('{formula}: {v} {u} ÷ {mm} g/mol = {n} mol; ÷ {c} = {ratio}', { formula: r.formula, v: fmt(v), u, mm: fmt(r.molarMass), n: fmt(n), c: r.coefficient, ratio: fmt(n / r.coefficient) }))
   }
   if (!ratios.length) return null
   const limit = ratios.reduce((a, b) => (b[2] < a[2] ? b : a))
   const extent = limit[2]
-  steps.push(`Limiting reagent: ${limit[0].formula} (smallest moles ÷ coefficient = ${fmt(extent)})`)
+  steps.push(t('Limiting reagent: {formula} (smallest moles ÷ coefficient = {extent})', { formula: limit[0].formula, extent: fmt(extent) }))
   const line = (s: Species, n: number, note: string): Line => ({ species: s, moles: n, grams: n * s.molarMass, note })
   const used = ratios.map(r => line(r[0], extent * r[0].coefficient, 'consumed'))
   const excess = ratios.filter(r => r[0].id !== limit[0].id).map(r => line(r[0], r[1] - extent * r[0].coefficient, 'left over'))
   const prod = products.map(p => line(p, extent * p.coefficient, 'theoretical'))
-  for (const p of prod) steps.push(`${p.species.formula}: ${fmt(extent)} × ${p.species.coefficient} = ${fmt(p.moles)} mol × ${fmt(p.species.molarMass)} g/mol = ${fmt(p.grams)} g`)
+  for (const p of prod) steps.push(t('{formula}: {extent} × {c} = {mol} mol × {mm} g/mol = {g} g', { formula: p.species.formula, extent: fmt(extent), c: p.species.coefficient, mol: fmt(p.moles), mm: fmt(p.species.molarMass), g: fmt(p.grams) }))
   return { limiting: limit[0], reactants: used, excess, products: prod, steps }
 }

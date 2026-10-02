@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'preact/hooks'
 import * as THREE from 'three'
 import { Trackball } from '../lib/trackball'
+import { t } from '../i18n'
 
 function disposeTree(o: THREE.Object3D, keep: Set<unknown>) {
   o.traverse(c => {
@@ -26,7 +27,7 @@ export function Scene3D({ build, distance, tilt = { x: 0, y: 0 }, resetToken = 0
     try { renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false }) } catch { el.textContent = '3D graphics are not available in this browser.'; return }
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2)); renderer.setClearColor(0x1a1a1a, 1)
     renderer.domElement.style.cssText = 'width:100%;height:100%;display:block;touch-action:none;cursor:grab'
-    renderer.domElement.setAttribute('role', 'img'); renderer.domElement.setAttribute('aria-label', label)
+    renderer.domElement.setAttribute('role', 'img'); renderer.domElement.setAttribute('aria-label', t(label))
     el.prepend(renderer.domElement)
     const scene = new THREE.Scene(), camera = new THREE.PerspectiveCamera(60, 1, 0.1, 500), pivot = new THREE.Group()
     scene.add(pivot); scene.add(new THREE.AmbientLight(0xffffff, 0.75))
@@ -76,5 +77,5 @@ export function Scene3D({ build, distance, tilt = { x: 0, y: 0 }, resetToken = 0
 
   useEffect(() => { const s = st.current; if (!s || s.token === resetToken) return; s.token = resetToken; s.ball.reset(); const q = s.ball.orientation; s.pivot.quaternion.set(q[0], q[1], q[2], q[3]); s.camera.position.set(0, 0, s.ball.distance); s.renderer.render(s.scene, s.camera) }, [resetToken])
 
-  return <div ref={host} class="canvasbox" style={{ height: height ?? '100%', minHeight: 240, background: '#1a1a1a', position: 'relative' }}><div class="hint">{hint}</div></div>
+  return <div ref={host} class="canvasbox" style={{ height: height ?? '100%', minHeight: 240, background: '#1a1a1a', position: 'relative' }}><div class="hint">{t(hint)}</div></div>
 }

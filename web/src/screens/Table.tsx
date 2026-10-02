@@ -3,6 +3,7 @@ import { Element, elements, gridPosition, discoveryYear, familyInfo } from '../l
 import { runQuery } from '../lib/query'
 import { Numeration, numerations, numerationItems, Overlay, schemeNames, gradientNames, isGradient, overlayRange, overlayColor, overlayLegend, overlayNote,
   overlayDisplay, gradientColor } from '../lib/overlay'
+import { t } from '../i18n'
 import { prefs, temperatureText } from '../lib/prefs'
 import { useStore } from '../lib/store'
 import { jump } from '../lib/nav'
@@ -26,14 +27,14 @@ export function TableScreen() {
   const yearRange = overlayRange('Discovery date')
   const [boxRef, box] = useElementSize<HTMLDivElement>()
 
-  return <Page title="Periodic Table" toolbar={<>
-    <label class="row gap8">Color by <Select<Overlay> label="Color by" value={overlay} options={[...schemeNames, ...gradientNames, 'State of matter']} onChange={setOverlay} /></label>
-    <label class="row gap8">Numeration <Select<Numeration> label="Numeration" value={numeration} options={numerations} onChange={setNumeration} /></label>
-    {overlay === 'State of matter' && <><Slider label="Temperature" value={temp} min={0} max={6000} onChange={setTemp} /><span class="mono nowrap">{temperatureText(temp)}</span></>}
-    {overlay === 'Discovery date' && <><Slider label="Discovery year" value={year} min={yearRange[0]} max={yearRange[1]} onChange={setYear} /><span class="mono nowrap">up to {Math.round(year)}</span></>}
+  return <Page title={t("Periodic Table")} toolbar={<>
+    <label class="row gap8">{t("Color by")} <Select<Overlay> label={t("Color by")} value={overlay} options={[...schemeNames, ...gradientNames, 'State of matter']} onChange={setOverlay} /></label>
+    <label class="row gap8">{t("Numeration")} <Select<Numeration> label={t("Numeration")} value={numeration} options={numerations} onChange={setNumeration} /></label>
+    {overlay === 'State of matter' && <><Slider label={t("Temperature")} value={temp} min={0} max={6000} onChange={setTemp} /><span class="mono nowrap">{temperatureText(temp)}</span></>}
+    {overlay === 'Discovery date' && <><Slider label={t("Discovery year")} value={year} min={yearRange[0]} max={yearRange[1]} onChange={setYear} /><span class="mono nowrap">{t('up to {year}', { year: Math.round(year) })}</span></>}
     <span class="grow" />
-    <input type="search" aria-label="Search" placeholder="Search or ask a question" value={query} onInput={e => setQuery((e.target as HTMLInputElement).value)} style={{ width: 240 }} />
-    <Check checked={legend} onChange={setLegend}>Legend</Check>
+    <input type="search" aria-label={t("Search")} placeholder={t("Search or ask a question")} value={query} onInput={e => setQuery((e.target as HTMLInputElement).value)} style={{ width: 240 }} />
+    <Check checked={legend} onChange={setLegend}>{t("Legend")}</Check>
   </>}>
     <div class="split" style={{ gridTemplateColumns: 'minmax(0,1fr) minmax(380px, 460px)' }}>
       <div class="col" style={{ gap: 0, minWidth: 0, minHeight: 0 }}>
@@ -44,7 +45,7 @@ export function TableScreen() {
             query={q} matchSet={matchSet} yearLimit={overlay === 'Discovery date' ? year : null} />
         </div>
       </div>
-      <aside class="inspector" aria-label="Element details"><ElementDetail element={selection} /></aside>
+      <aside class="inspector" aria-label={t("Element details")}><ElementDetail element={selection} /></aside>
     </div>
   </Page>
 }
@@ -56,17 +57,17 @@ function Legend({ overlay, range }: { overlay: Overlay; range: [number, number] 
     <div class="gradbar" style={{ background: `linear-gradient(90deg, ${Array.from({ length: 11 }, (_, i) => gradientColor(i / 10)).join(',')})` }} />
     <span class="mono">{overlayDisplay(overlay, range[1])}</span>
   </div>
-  if (note) return <div class="legend dim">{note}</div>
-  return <div class="legend">{overlayLegend(overlay).map(([name, color]) => <span key={name}><span class="swatch" style={{ background: color }} />{name}</span>)}</div>
+  if (note) return <div class="legend dim">{t(note)}</div>
+  return <div class="legend">{overlayLegend(overlay).map(([name, color]) => <span key={name}><span class="swatch" style={{ background: color }} />{t(name)}</span>)}</div>
 }
 
 function QueryBanner({ result, select }: { result: NonNullable<ReturnType<typeof runQuery>>; select: (e: Element) => void }) {
   return <div class="banner">
-    <div class={'bold ' + (result.unsupported ? 'warn' : '')}>{result.description}{!result.unsupported && <span class="dim"> · {result.matches.length} found</span>}</div>
+    <div class={'bold ' + (result.unsupported ? 'warn' : '')}>{result.description}{!result.unsupported && <span class="dim"> · {t('{n} found', { n: result.matches.length })}</span>}</div>
     {result.matches.length > 0 && <div class="row wrap gap4" style={{ marginTop: 6 }}>
-      {result.matches.map(e => <button key={e.z} class="chip mono bold" title={e.name} style={{ background: familyInfo(e)?.color, color: 'rgba(0,0,0,.85)', border: 0, cursor: 'pointer' }} onClick={() => select(e)}>{e.symbol}</button>)}
+      {result.matches.map(e => <button key={e.z} class="chip mono bold" title={t(e.name)} style={{ background: familyInfo(e)?.color, color: 'rgba(0,0,0,.85)', border: 0, cursor: 'pointer' }} onClick={() => select(e)}>{e.symbol}</button>)}
     </div>}
-    {!result.matches.length && !result.unsupported && <div class="dim">No element matches.</div>}
+    {!result.matches.length && !result.unsupported && <div class="dim">{t("No element matches.")}</div>}
   </div>
 }
 
@@ -79,7 +80,7 @@ function PeriodicTable({ box, selection, select, overlay, temp, range, numeratio
   const cell = box.w > 0 ? Math.max(18, Math.min((box.w - 34) / 18 - gap, (box.h - 34 - fGap - topInset) / 10 - gap, 72)) : 40
   const q = query.toLowerCase()
   const W = 18 * (cell + gap), H = 10 * (cell + gap) + fGap + topInset
-  return <div class="ptable" style={{ width: W, height: H, fontSize: cell }} role="grid" aria-label="Periodic table">
+  return <div class="ptable" style={{ width: W, height: H, fontSize: cell }} role="grid" aria-label={t("Periodic table")}>
     {numerationItems(numeration).map((l, i) => <div key={i} class="numer" style={{ left: i * (cell + gap), width: cell, top: 0, fontSize: Math.max(9, cell * 0.2) }}>{l}</div>)}
     {[[5, '57–71'], [6, '89–103']].map(([row, label]) => <div key={label} class="fplace" style={{ left: 2 * (cell + gap), top: topInset + (row as number) * (cell + gap), width: cell, height: cell, fontSize: Math.max(8, cell * 0.16) }}>{label}</div>)}
     {elements.map(e => {
@@ -88,11 +89,11 @@ function PeriodicTable({ box, selection, select, overlay, temp, range, numeratio
         && (yearLimit == null || (discoveryYear(e) ?? 0) <= yearLimit)
       const iconic = overlay === 'Iconic'
       return <button key={e.z} role="gridcell" class={'tile' + (selection === e ? ' sel' : '') + (matches ? '' : ' dim') + (iconic ? ' iconic' : '')}
-        aria-label={`${e.name}, ${e.symbol}, atomic number ${e.z}`} aria-selected={selection === e}
+        aria-label={t('{name}, {symbol}, atomic number {z}', { name: t(e.name), symbol: e.symbol, z: e.z })} aria-selected={selection === e}
         style={{ left: pos.col * (cell + gap), top: topInset + pos.row * (cell + gap) + (pos.row >= 8 ? fGap : 0), width: cell, height: cell,
           background: iconic ? `linear-gradient(rgba(230,230,230,.35), rgba(230,230,230,.35)), url(${elementIconUrl(e.z)}) center/cover` : overlayColor(overlay, e, temp, range) }}
         onClick={() => select(e)}>
-        <span class="z">{e.z}</span><span class="sym">{e.symbol}</span><span class="nm">{e.name}</span>
+        <span class="z">{e.z}</span><span class="sym">{e.symbol}</span><span class="nm">{t(e.name)}</span>
       </button>
     })}
   </div>

@@ -1,0 +1,5709 @@
+{
+ " active": {
+  "files": [
+   "App.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ " and ": {
+  "files": [
+   "query.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ " dim": {
+  "files": [
+   "Table.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ " eV": {
+  "files": [
+   "quiz.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ " iconic": {
+  "files": [
+   "Table.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ " nm": {
+  "files": [
+   "Matcher.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ " on": {
+  "files": [
+   "Molecules.tsx",
+   "Palette.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ " or ": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ " primary": {
+  "files": [
+   "Editor.tsx",
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ " sel": {
+  "files": [
+   "Table.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ " small": {
+  "files": [
+   "kit.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ " unit": {
+  "files": [
+   "kit.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "(formal charge {charge})": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "[Ar] 4s2 3d10 4p6": {
+  "files": [
+   "config.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "[He] 2s2 2p6": {
+  "files": [
+   "config.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "[Kr] 5s2 4d10 5p6": {
+  "files": [
+   "config.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "[Ne] 3s2 3p6": {
+  "files": [
+   "config.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "[Xe] 6s2 4f14 5d10 6p6": {
+  "files": [
+   "config.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "{actual} g ÷ {theory} g × 100": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{atoms} atoms, {bonds} bonds": {
+  "files": [
+   "Editor.tsx",
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{b}-block": {
+  "files": [
+   "query.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{e} elements, {p} properties": {
+  "files": [
+   "Export.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{formula}: {extent} × {c} = {mol} mol × {mm} g/mol = {g} g": {
+  "files": [
+   "stoich.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{formula}: {v} {u} ÷ {mm} g/mol = {n} mol; ÷ {c} = {ratio}": {
+  "files": [
+   "stoich.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{formula}: {v} {u} = {n} mol; {n} ÷ {c} = {ratio}": {
+  "files": [
+   "stoich.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{g} g ({mol} mol)": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{label}: {n} electrons": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{mode} orbital view": {
+  "files": [
+   "Orbitals.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{n} ({sigma} σ bonds + {lp} lone pairs)": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{n} (formal charge {charge})": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{n} elements plotted": {
+  "files": [
+   "Plot.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{n} found": {
+  "files": [
+   "Table.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{n} known isotopes": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{n} lines observed": {
+  "files": [
+   "Matcher.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{n} of {total} lines in range": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{n} of {z} electrons placed": {
+  "files": [
+   "Filling.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{n} of {z} electrons placed.": {
+  "files": [
+   "filling.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{n} resonance structures": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{n} valence electrons in total ({charge}). The structures shown are all the ways to place the bonds and lone pairs that keep formal charges as small as possible while giving each second-period atom a full octet.": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{name} ({symbol}) is {config}.": {
+  "files": [
+   "quiz.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{name} has {z} protons, so its atomic number is {z}.": {
+  "files": [
+   "quiz.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{name} is {symbol}, atomic number {z}.": {
+  "files": [
+   "quiz.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{name} is in group {group}, period {period}.": {
+  "files": [
+   "quiz.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{name} is in the f-block, period {period}.": {
+  "files": [
+   "quiz.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{name} is one of the {family}.": {
+  "files": [
+   "quiz.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{name} lines": {
+  "files": [
+   "Matcher.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{name} vs. your lines": {
+  "files": [
+   "Matcher.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{name}, {symbol}, atomic number {z}": {
+  "files": [
+   "Table.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{property} {lo}–{hi} {unit}": {
+  "files": [
+   "query.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{property} < {value} {unit}": {
+  "files": [
+   "query.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{property} > {value} {unit}": {
+  "files": [
+   "query.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{symbol} has {n} bonds; at most {max} are allowed.": {
+  "files": [
+   "sketch.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{symbol} has {v} valence electrons. {sigma} σ + {pi} π bonds use {used}, and the rest must pair up as lone pairs, so this bonding is not possible for a neutral atom.": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{symbol} is {name}.": {
+  "files": [
+   "quiz.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{symbol} is {name}. {origin}": {
+  "files": [
+   "quiz.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{value} g/mol": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "% (mass)": {
+  "files": [
+   "calc.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "% (moles)": {
+  "files": [
+   "calc.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "% (volume)": {
+  "files": [
+   "calc.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "↶ Undo": {
+  "files": [
+   "Editor.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "↷ Redo": {
+  "files": [
+   "Editor.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "↺ Reset view": {
+  "files": [
+   "Molecules.tsx",
+   "Orbitals.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "<90° and <120°": {
+  "files": [
+   "vbt.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "◇ View in 3D": {
+  "files": [
+   "Editor.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "● negative phase (−)": {
+  "files": [
+   "Orbitals.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "● positive phase (+)": {
+  "files": [
+   "Orbitals.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "● yours": {
+  "files": [
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "★ Perfect round": {
+  "files": [
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "⚠ Invalid input: use numbers separated by single dashes.": {
+  "files": [
+   "Reference.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "⚠ No valid Lewis structure found.": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "⚪ your lines": {
+  "files": [
+   "Matcher.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "✔ Correct": {
+  "files": [
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "✖ Not quite": {
+  "files": [
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "✦ Optimize geometry": {
+  "files": [
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "🔗 Analyze with valence bond theory": {
+  "files": [
+   "Editor.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "🗑 Delete": {
+  "files": [
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "3D coordinates are generated from your drawing, so angles and lengths are estimates.": {
+  "files": [
+   "Editor.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "3D model of {name}": {
+  "files": [
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "a (L²·atm/mol²)": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "A chemistry reference and learning app, built by pupper, 2026. Developed with Claude Code (Anthropic).": {
+  "files": [
+   "Settings.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "a completely filled d subshell is especially stable": {
+  "files": [
+   "filling.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "a half-filled d subshell is especially stable": {
+  "files": [
+   "filling.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "A symbol needs two or more letters.": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "aAl + bHCl -> cAlCl3 + dH2": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "About": {
+  "files": [
+   "Settings.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "above|over|greater than|more than|higher than|larger than|bigger than|at least|exceeding|>=|>": {
+  "files": [
+   "query.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Abundance": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Acetic acid": {
+  "files": [
+   "sketch.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "aCH3(CH2)3COOH + bO2 -> cH2O + dCO2": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "aCH3CH2OH + bO2 -> cH2O + dCO2": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Actual yield": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Actual yield (g)": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Add": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Add hydrogens": {
+  "files": [
+   "Editor.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Add row": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Added.": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Adds an electron": {
+  "files": [
+   "Filling.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "aFe[2+] + bMnO4[-] + cH3O[+] -> dMn[2+] + eH2O + fFe[3+]": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "After hybridization": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "aH + bO -> 5H2O": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "aH + bO -> 5H2O gives 10 H + 5 O -> 5 H2O": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Alias expansion": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Alias symbol": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Aliases": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Alkali metals": {
+  "files": [
+   "element.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Alkaline earth metals": {
+  "files": [
+   "element.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "All": {
+  "files": [
+   "ElementDetail.tsx",
+   "Export.tsx",
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "All {z} electrons are already placed. Remove one first.": {
+  "files": [
+   "filling.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "All 118": {
+  "files": [
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "All the elements": {
+  "files": [
+   "overlay.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Almost no overlap: no bond.": {
+  "files": [
+   "Orbitals.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "amount": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Amount": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Amount given as": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Amount of {formula}": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Amounts": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Amounts in": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Amounts you have (leave blank for “plenty”)": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "an orbital holds at most 2 electrons, spinning opposite ways (↑ then ↓).": {
+  "files": [
+   "Filling.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Antibonding (out of phase)": {
+  "files": [
+   "Orbitals.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Appearance": {
+  "files": [
+   "Settings.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Approximated curve: {a}·tanh({b}·(x + {c})) + {d}": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "At least two electron domains (bonds plus lone pairs) are needed to hybridize.": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Atom": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Atomic mass": {
+  "files": [
+   "overlay.ts",
+   "Calculators.tsx",
+   "ElementDetail.tsx",
+   "Plot.tsx"
+  ],
+  "kinds": [
+   "literal",
+   "call"
+  ]
+ },
+ "Atomic number": {
+  "files": [
+   "Plot.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Atomic Number": {
+  "files": [
+   "export.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Atomic number {z} is {name} ({symbol}).": {
+  "files": [
+   "quiz.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Atomic number → name": {
+  "files": [
+   "quiz.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Atomic orbital": {
+  "files": [
+   "Orbitals.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Aufbau principle: electrons fill the lowest-energy subshell first. {sub} is not full yet.": {
+  "files": [
+   "filling.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Aufbau:": {
+  "files": [
+   "Filling.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Axes": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "b (per mole)": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "bad charge in {s}": {
+  "files": [
+   "solver.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Balanced equation": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Ball & stick": {
+  "files": [
+   "molscene.ts",
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "BeCl₂ – beryllium": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "below|under|less than|lower than|smaller than|at most|<=|<": {
+  "files": [
+   "query.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Best matches": {
+  "files": [
+   "Matcher.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Best streak: {n}": {
+  "files": [
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "BF₃ – boron": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Bohr-style model of {name}: {shells} electrons per shell": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Boiling point": {
+  "files": [
+   "overlay.ts",
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Boiling Point": {
+  "files": [
+   "export.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Boiling point (K)": {
+  "files": [
+   "Plot.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "bold ": {
+  "files": [
+   "Table.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Bond angles": {
+  "files": [
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Bond angles in this structure": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Bond order": {
+  "files": [
+   "Editor.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Bonding (in phase)": {
+  "files": [
+   "Orbitals.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Bonds (σ)": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "both sides need at least one molecule": {
+  "files": [
+   "solver.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "C₂H₄ – carbon": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Ca(OH)2": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Calculator": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Calculators": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Cancel": {
+  "files": [
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Carbon dioxide": {
+  "files": [
+   "sketch.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Carbon monoxide": {
+  "files": [
+   "resonance.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "card ": {
+  "files": [
+   "kit.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "CH₃CO₂⁻": {
+  "files": [
+   "resonance.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "CH₄ – carbon": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Change settings": {
+  "files": [
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "charge {c}": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Chart of the nuclides: neutrons on the x axis, protons on the y axis": {
+  "files": [
+   "Isotopes.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Choose a central atom and how many bonds it makes. Theory works out the lone pairs, hybridization and shape.": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Classification": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Clear": {
+  "files": [
+   "Calculators.tsx",
+   "Editor.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Clear history": {
+  "files": [
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "ClF₃ – chlorine": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Click": {
+  "files": [
+   "Filling.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Click {name} ({symbol}) on the periodic table.": {
+  "files": [
+   "quiz.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Click an atom or bond to delete it": {
+  "files": [
+   "Editor.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Click an isotope for details": {
+  "files": [
+   "Isotopes.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Click the canvas to place an atom, then drag from it to draw a bond. Pick a template to start from a common molecule.": {
+  "files": [
+   "Editor.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Click the element": {
+  "files": [
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Click to place an atom, drag from an atom to make a bond, click a bond to change its order": {
+  "files": [
+   "Editor.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "CO₂ – carbon": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "CO₃²⁻": {
+  "files": [
+   "resonance.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "coefficient too large": {
+  "files": [
+   "solver.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Color by": {
+  "files": [
+   "Isotopes.tsx",
+   "Table.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Concentration": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Concentration unit": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Convert": {
+  "files": [
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Convert…": {
+  "files": [
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Copy": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Correct! This is the real configuration of {name}: {config}. It breaks the simple Aufbau order (which predicts {predicted}) because {reason}.": {
+  "files": [
+   "filling.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Correct. {name} is {config}, exactly what the Aufbau order predicts.": {
+  "files": [
+   "filling.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Could be": {
+  "files": [
+   "Matcher.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Could not read {name}": {
+  "files": [
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Count": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "count too large": {
+  "files": [
+   "solver.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Covalent radius": {
+  "files": [
+   "overlay.ts",
+   "ElementDetail.tsx",
+   "Settings.tsx"
+  ],
+  "kinds": [
+   "literal",
+   "call"
+  ]
+ },
+ "Covalent Radius": {
+  "files": [
+   "export.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Covalent radius (Å)": {
+  "files": [
+   "Plot.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Ctrl+": {
+  "files": [
+   "App.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Current streak": {
+  "files": [
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Czech Republic": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Dangerous for the environment": {
+  "files": [
+   "Reference.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Decay": {
+  "files": [
+   "ElementDetail.tsx",
+   "Isotopes.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Decay mode unknown": {
+  "files": [
+   "Isotopes.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Decay type": {
+  "files": [
+   "Isotopes.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Delete": {
+  "files": [
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Delete “{name}”?": {
+  "files": [
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Delete this molecule from the list. Molecules you made yourself can be deleted; the built-in ones cannot.": {
+  "files": [
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Density (g/mL)": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Detail section": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "discovered after {y}": {
+  "files": [
+   "query.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "discovered before {y}": {
+  "files": [
+   "query.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Discovered by": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "discovered by {who}": {
+  "files": [
+   "query.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "discovered by {y}": {
+  "files": [
+   "query.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "discovered in {place}": {
+  "files": [
+   "query.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "discovered in {y}": {
+  "files": [
+   "query.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "discovered since {y}": {
+  "files": [
+   "query.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Discovery": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Discovery date": {
+  "files": [
+   "overlay.ts",
+   "Table.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Discovery year": {
+  "files": [
+   "Table.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Distance": {
+  "files": [
+   "Orbitals.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Drag to rotate · scroll or pinch to zoom · double-click to reset": {
+  "files": [
+   "Molecules.tsx",
+   "Orbitals.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Drag to rotate · scroll to zoom · double-click to reset": {
+  "files": [
+   "Scene3D.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Draw an arc and the angle in degrees at every pair of bonds": {
+  "files": [
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "e.g. (C*D)/(B*K)": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "e.g. 11-23": {
+  "files": [
+   "Reference.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "e.g. 2-16": {
+  "files": [
+   "Reference.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "e.g. aH2 + bO2 -> cH2O": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "e.g. Ca(OH)2 or EtOH": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Each element is represented by an icon that shows what it is used for.": {
+  "files": [
+   "overlay.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Each lobe has a small opposite-phase lobe on the far side (barely visible here).": {
+  "files": [
+   "Orbitals.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Each lobe: ψ = {cs}·s + {cp}·p": {
+  "files": [
+   "Orbitals.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Each ring is an electron shell; each yellow dot an electron.": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Each σ bond is an end-to-end overlap of an {hybrid} orbital with an orbital from the bonded atom.": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Edit": {
+  "files": [
+   "Editor.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Elapsed time": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Electron affinity": {
+  "files": [
+   "overlay.ts",
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Electron Affinity": {
+  "files": [
+   "export.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Electron affinity (eV)": {
+  "files": [
+   "Plot.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Electron configuration": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Electron configurations": {
+  "files": [
+   "quiz.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Electron domains": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Electron Filling": {
+  "files": [
+   "screens.ts",
+   "Filling.tsx"
+  ],
+  "kinds": [
+   "literal",
+   "call"
+  ]
+ },
+ "Electron geometry": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Electronegativity (Pauling)": {
+  "files": [
+   "overlay.ts",
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Electrons": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Element": {
+  "files": [
+   "Calculators.tsx",
+   "Filling.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Element {row}-{col}": {
+  "files": [
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Element {z}": {
+  "files": [
+   "palette.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Element details": {
+  "files": [
+   "Table.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Element families": {
+  "files": [
+   "quiz.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Element names, the glossary and the lab equipment use the official KDE Kalzium translations. The natural-language search on the periodic table understands English only.": {
+  "files": [
+   "Settings.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Element, isotope and spectrum data: Blue Obelisk project (MIT). Glossary, lab equipment, hazard symbols, molecules, icons and the original application: KDE Kalzium (GPL-2.0-or-later).": {
+  "files": [
+   "Settings.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Elements": {
+  "files": [
+   "Export.tsx",
+   "Plot.tsx",
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Elements you miss come up more often": {
+  "files": [
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "empty molecule": {
+  "files": [
+   "solver.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Energies": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Energy (ionization, electron affinity)": {
+  "files": [
+   "Settings.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Enter an equation and press Solve.": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Enter at least three experimental points, in increasing x order, to fit a curve.": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Enter one or more wavelengths separated by commas or spaces.": {
+  "files": [
+   "Matcher.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Enter phrase numbers separated by dashes, for example R 11-23-36 and S 2-16.": {
+  "files": [
+   "Reference.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Enter positive amounts (final ≤ initial) and a non-zero half-life.": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Enter the amount of at least one reactant to see the limiting reagent and yields.": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Equation": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Equation Solver": {
+  "files": [
+   "screens.ts",
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "literal",
+   "call"
+  ]
+ },
+ "Equations (name = expression)": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Equations that need fractional coefficients, or cannot be balanced, report “Not found”.": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Equipment": {
+  "files": [
+   "Reference.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Equivalence point: x = {x}": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Equivalent mass (g/eq)": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Every bond": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Exact mass": {
+  "files": [
+   "ElementDetail.tsx",
+   "Isotopes.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Exact Mass": {
+  "files": [
+   "export.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Examples": {
+  "files": [
+   "Matcher.tsx",
+   "Solver.tsx",
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Expansion, e.g. C2H5": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Experiment": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Experimental points (y, x)": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "explains {n} of {total} lines": {
+  "files": [
+   "Matcher.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Export Data": {
+  "files": [
+   "screens.ts",
+   "Export.tsx"
+  ],
+  "kinds": [
+   "literal",
+   "call"
+  ]
+ },
+ "Export…": {
+  "files": [
+   "Export.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Fill for me": {
+  "files": [
+   "Filling.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "fill the lowest-energy subshell first (1s, 2s, 2p, 3s, 3p, 4s, 3d …).": {
+  "files": [
+   "Filling.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Final amount": {
+  "files": [
+   "calc.ts",
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "literal",
+   "call"
+  ]
+ },
+ "Find amount of solute": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Find concentration": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Find it on the table": {
+  "files": [
+   "quiz.ts",
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "First 20 (H–Ca)": {
+  "files": [
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "First 36 (H–Kr)": {
+  "files": [
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "First 54 (H–Xe)": {
+  "files": [
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "First element": {
+  "files": [
+   "Plot.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "First ionization energy": {
+  "files": [
+   "overlay.ts",
+   "ElementDetail.tsx",
+   "Settings.tsx"
+  ],
+  "kinds": [
+   "literal",
+   "call"
+  ]
+ },
+ "Fit": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Fit window": {
+  "files": [
+   "Isotopes.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Five hybrids: three in a plane at 120° and two axial. Drawn with the sp³ lobe shape; the d contribution is not rendered.": {
+  "files": [
+   "orbitals.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Fix the equation on the Balance tab first.": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Formal charge {charge}.": {
+  "files": [
+   "vbt.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Format": {
+  "files": [
+   "Export.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Formula": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Formula {formula}": {
+  "files": [
+   "Editor.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Fraction remaining": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "From": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "gal (US)": {
+  "files": [
+   "format.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Gas": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "gases at {T} K": {
+  "files": [
+   "query.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Glossary": {
+  "files": [
+   "palette.ts",
+   "Reference.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Go back to the geometry the file came with": {
+  "files": [
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Go to screen": {
+  "files": [
+   "palette.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Good overlap: a strong bond forms at this distance.": {
+  "files": [
+   "Orbitals.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "grams collected": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Greek alphabet": {
+  "files": [
+   "Reference.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Ground state": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "group {n}": {
+  "files": [
+   "query.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Group / period": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "H₂O – oxygen": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Half-life": {
+  "files": [
+   "Calculators.tsx",
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Harmful / irritant": {
+  "files": [
+   "Reference.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "has a stable isotope": {
+  "files": [
+   "query.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Hazard symbols": {
+  "files": [
+   "Reference.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "HCO₂⁻": {
+  "files": [
+   "resonance.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "highest {property} (top {n})": {
+  "files": [
+   "query.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Hint": {
+  "files": [
+   "Filling.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "How to write equations": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Hund:": {
+  "files": [
+   "Filling.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Hund's rule: in {sub}, put one electron in each orbital (all spinning the same way) before pairing any up.": {
+  "files": [
+   "filling.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Hybrid set": {
+  "files": [
+   "Orbitals.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Hybridization": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Hybridization isn't defined for this atom.": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Hybridization of each atom": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "hybridized": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Hydrogen (Balmer lines)": {
+  "files": [
+   "Matcher.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Ideal bond angle": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "in a subshell, give every orbital one electron before pairing any up.": {
+  "files": [
+   "Filling.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "In half-lives": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "In phase, the lobes add up between the nuclei, which is what holds the atoms together.": {
+  "files": [
+   "Orbitals.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Initial amount": {
+  "files": [
+   "calc.ts",
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "literal",
+   "call"
+  ]
+ },
+ "Intensity": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Invalid input": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Ionization energy (eV)": {
+  "files": [
+   "Plot.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Isotope": {
+  "files": [
+   "Calculators.tsx",
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Isotope Chart": {
+  "files": [
+   "screens.ts",
+   "Isotopes.tsx"
+  ],
+  "kinds": [
+   "literal",
+   "call"
+  ]
+ },
+ "Isotope details": {
+  "files": [
+   "Isotopes.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "It disappears from the Molecules and Valence Bond lists and can't be brought back. Use Convert… first if you want a file copy.": {
+  "files": [
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Jefferson Lab – It's Elemental": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Jump to a screen, element, term or molecule": {
+  "files": [
+   "Palette.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "known since antiquity": {
+  "files": [
+   "query.ts",
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Known since antiquity": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Lab equipment": {
+  "files": [
+   "palette.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Lab Equipment": {
+  "files": [
+   "screens.ts",
+   "Reference.tsx"
+  ],
+  "kinds": [
+   "literal",
+   "call"
+  ]
+ },
+ "Labels": {
+  "files": [
+   "Plot.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Language": {
+  "files": [
+   "Settings.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "lanthanides & actinides": {
+  "files": [
+   "query.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Lanthanides & actinides": {
+  "files": [
+   "element.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "lanthanides?|actinides?|rare[- ]earths?": {
+  "files": [
+   "query.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Last element": {
+  "files": [
+   "Plot.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Left over: {formula}": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Legend": {
+  "files": [
+   "Table.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Length (atomic radii)": {
+  "files": [
+   "Settings.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Lewis structure": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Lewis structure of {name}": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Limiting reagent": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Limiting reagent: {formula} (smallest moles ÷ coefficient = {extent})": {
+  "files": [
+   "stoich.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Line & points": {
+  "files": [
+   "Plot.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Line by line": {
+  "files": [
+   "Matcher.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "linear (two atoms)": {
+  "files": [
+   "vbt.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "liquids at {T} K": {
+  "files": [
+   "query.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Load example": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Lone pairs": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Lone pairs sit in hybrid orbitals too, and because they take up more room than bonding pairs they squeeze the bond angles below the ideal value.": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Look up {name} online": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Lowercase": {
+  "files": [
+   "Reference.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "lowest {property} (top {n})": {
+  "files": [
+   "query.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Lowest-energy shape: {before} → {after} kcal/mol ({n} starting shapes tried)": {
+  "files": [
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM20 20l-4-4": {
+  "files": [
+   "icons.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "M12 3a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM5 14a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM19 14a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM10.5 8.5l-4 6M13.5 8.5l4 6M8 17h8": {
+  "files": [
+   "icons.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "M12 3c3 0 3 7 0 9-3-2-3-9 0-9zM12 21c3 0 3-7 0-9-3 2-3 9 0 9zM3 12c0-3 7-3 9 0-2 3-9 3-9 0zM21 12c0 3-7 3-9 0 2-3 9-3 9 0z": {
+  "files": [
+   "icons.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "M12 3l10 18H2zM12 10v5M12 18v.5": {
+  "files": [
+   "icons.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2": {
+  "files": [
+   "icons.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "M3 3h5v5H3zM10 3h5v5h-5zM17 3h4v5h-4zM3 10h5v5H3zM10 10h5v5h-5zM17 10h4v5h-4zM3 17h5v4H3zM10 17h5v4h-5zM17 17h4v4h-4z": {
+  "files": [
+   "icons.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "M3 4h18v16H3zM3 10h18M3 15h18M9 4v16M15 4v16": {
+  "files": [
+   "icons.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "M3 6h18v12H3zM9 6v12M15 6v12": {
+  "files": [
+   "icons.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "M4 20l1-4L17 4l3 3L8 19zM14 7l3 3": {
+  "files": [
+   "icons.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "M4 4h16v12H9l-5 4zM9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .8-1 1.5M12 14.5v.5": {
+  "files": [
+   "icons.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 19V5M8 7h7": {
+  "files": [
+   "icons.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "made by you": {
+  "files": [
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Made by you": {
+  "files": [
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Magic numbers": {
+  "files": [
+   "Isotopes.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Magnetic moment": {
+  "files": [
+   "Isotopes.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Mass": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Mass (g)": {
+  "files": [
+   "calc.ts",
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "literal",
+   "call"
+  ]
+ },
+ "Mass & size": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Matches": {
+  "files": [
+   "Matcher.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Matches will appear here": {
+  "files": [
+   "Matcher.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Measured from the 3D file: {angles}": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Melting point": {
+  "files": [
+   "overlay.ts",
+   "ElementDetail.tsx",
+   "Settings.tsx"
+  ],
+  "kinds": [
+   "literal",
+   "call"
+  ]
+ },
+ "Melting Point": {
+  "files": [
+   "export.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Melting point (K)": {
+  "files": [
+   "Plot.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "missed {missed} of {seen}": {
+  "files": [
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "missing )": {
+  "files": [
+   "solver.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "missing formula in {s}": {
+  "files": [
+   "solver.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "missing or duplicate arrow": {
+  "files": [
+   "solver.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "mix the s and p orbitals": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Mode": {
+  "files": [
+   "Calculators.tsx",
+   "Orbitals.tsx",
+   "Solver.tsx",
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Molality (mol/kg)": {
+  "files": [
+   "calc.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Molar mass (g/mol)": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Molarity (mol/L)": {
+  "files": [
+   "calc.ts",
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Molarity and normality are per volume of solvent, as in Kalzium.": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Molecular mass": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "literal",
+   "call"
+  ]
+ },
+ "Molecular shape": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Molecule": {
+  "files": [
+   "palette.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Molecule drawing area": {
+  "files": [
+   "Editor.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Molecule Editor": {
+  "files": [
+   "screens.ts",
+   "Editor.tsx"
+  ],
+  "kinds": [
+   "literal",
+   "call"
+  ]
+ },
+ "Molecules": {
+  "files": [
+   "Molecules.tsx",
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Molecules & Bonding": {
+  "files": [
+   "screens.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Moles": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "More": {
+  "files": [
+   "Editor.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "More elements": {
+  "files": [
+   "Editor.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "My molecule": {
+  "files": [
+   "editormodel.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Mystery gas: hydrogen + helium": {
+  "files": [
+   "Matcher.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Name": {
+  "files": [
+   "Editor.tsx",
+   "ElementDetail.tsx",
+   "Reference.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Name → atomic number": {
+  "files": [
+   "quiz.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Name → symbol": {
+  "files": [
+   "quiz.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "name starts with {letter}": {
+  "files": [
+   "query.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Natural abundance": {
+  "files": [
+   "Isotopes.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "neutral": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Neutron emission": {
+  "files": [
+   "Isotopes.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Next": {
+  "files": [
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "NH₃ – nitrogen": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "NH₄⁺": {
+  "files": [
+   "resonance.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Nice colors without meaning (from the Open Babel project).": {
+  "files": [
+   "overlay.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "nm": {
+  "files": [
+   "Matcher.tsx"
+  ],
+  "kinds": [
+   "jsx"
+  ]
+ },
+ "No data": {
+  "files": [
+   "Isotopes.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "No element in the database has lines near these wavelengths. Try a wider tolerance.": {
+  "files": [
+   "Matcher.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "No element matches.": {
+  "files": [
+   "Table.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "No isotope data.": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "no match": {
+  "files": [
+   "Matcher.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "No molecule": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "No molecule loaded": {
+  "files": [
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "No numeration": {
+  "files": [
+   "overlay.ts",
+   "Table.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "No phrase with this number.": {
+  "files": [
+   "Reference.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "No spectrum is available for {name}.": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "NO₂⁻": {
+  "files": [
+   "resonance.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "NO₃⁻": {
+  "files": [
+   "resonance.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Noble gases": {
+  "files": [
+   "element.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "None": {
+  "files": [
+   "Export.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Normality (eq/L)": {
+  "files": [
+   "calc.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Not found: no whole-number solution exists for this equation.": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Not quite. {name} is {config}.": {
+  "files": [
+   "filling.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Not saved": {
+  "files": [
+   "Export.tsx",
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Not solvable with these values (check for zero or negative inputs).": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Nothing found for “{q}”": {
+  "files": [
+   "Palette.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Nothing to plot for this range.": {
+  "files": [
+   "Plot.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Nothing yet. Elements you get wrong will show up here.": {
+  "files": [
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Nuclear decay": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Number": {
+  "files": [
+   "Reference.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Number of questions": {
+  "files": [
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Numbers on the bonds are average bond orders; charges are averaged over the structures. Equal bond lengths in the real molecule show that the structures are not flipping back and forth.": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Numeration": {
+  "files": [
+   "Table.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Numeric prefixes & Roman numerals": {
+  "files": [
+   "Reference.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Observed": {
+  "files": [
+   "Matcher.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Observed lines": {
+  "files": [
+   "Matcher.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Observed lines compared with the element's lines": {
+  "files": [
+   "Matcher.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Observed wavelengths": {
+  "files": [
+   "Matcher.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Offset": {
+  "files": [
+   "Matcher.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Old IUPAC": {
+  "files": [
+   "overlay.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "One s and one p orbital mix into two hybrids 180° apart. Two p orbitals are left over for π bonds.": {
+  "files": [
+   "orbitals.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "One s and three p orbitals give four hybrids pointing to the corners of a tetrahedron (109.5°).": {
+  "files": [
+   "orbitals.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "One s and two p orbitals give three hybrids at 120° in a plane. The leftover p orbital stands perpendicular to that plane.": {
+  "files": [
+   "orbitals.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Open file…": {
+  "files": [
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Operators + − * / ^ and ( ). Functions: sqrt, ln, log, exp, abs, sin, cos, tan, tanh.": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "optimized": {
+  "files": [
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Optimizing…": {
+  "files": [
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Orbital diagram": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Orbitals": {
+  "files": [
+   "Molecules.tsx",
+   "Orbitals.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Order of newly drawn bonds. Click an existing bond to cycle it.": {
+  "files": [
+   "Editor.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Original geometry restored": {
+  "files": [
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Other metals": {
+  "files": [
+   "element.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "out of {total}": {
+  "files": [
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Out of phase, the lobes cancel between the nuclei and a node plane appears there (shown as a gray disc).": {
+  "files": [
+   "Orbitals.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Overlap": {
+  "files": [
+   "Orbitals.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "oxidation state {n}": {
+  "files": [
+   "query.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Oxidation states": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Parse error: {why}.": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Pauli exclusion principle: an orbital holds at most two electrons, with opposite spins.": {
+  "files": [
+   "filling.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Pauli:": {
+  "files": [
+   "Filling.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "PCl₅ – phosphorus": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Percent yield": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Percentages must be below 100 and values positive.": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "period {n}": {
+  "files": [
+   "query.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Periodic table": {
+  "files": [
+   "Quiz.tsx",
+   "Table.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Periodic Table": {
+  "files": [
+   "screens.ts",
+   "Table.tsx"
+  ],
+  "kinds": [
+   "literal",
+   "call"
+  ]
+ },
+ "Periodic trends": {
+  "files": [
+   "quiz.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Phase": {
+  "files": [
+   "Orbitals.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Phase changes": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Pick an atom to see how its orbitals hybridize.": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Play again": {
+  "files": [
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Plot Data": {
+  "files": [
+   "screens.ts",
+   "Plot.tsx"
+  ],
+  "kinds": [
+   "literal",
+   "call"
+  ]
+ },
+ "Practise my weak spots": {
+  "files": [
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Predicted: {angle}": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Prefix": {
+  "files": [
+   "Reference.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Pressure": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Preview: Iron": {
+  "files": [
+   "Settings.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Product": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "promote electrons, then mix s, p orbitals": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "promote electrons, then mix s, p, d orbitals": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Properties": {
+  "files": [
+   "Export.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Proton emission": {
+  "files": [
+   "Isotopes.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Protons / electrons": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Put a single lowercase letter in front of a molecule to leave its coefficient open, or a number to fix it. The solver finds the smallest whole numbers that balance every element and the electric charge.": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Question {n} of {total}": {
+  "files": [
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Question types": {
+  "files": [
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Questions": {
+  "files": [
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Quick lookup": {
+  "files": [
+   "App.tsx",
+   "Palette.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Quit": {
+  "files": [
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Quiz": {
+  "files": [
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Quiz question": {
+  "files": [
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Quiz results": {
+  "files": [
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "R-phrases (risks)": {
+  "files": [
+   "Reference.tsx"
+  ],
+  "kinds": [
+   "call",
+   "literal"
+  ]
+ },
+ "r/s phrases": {
+  "files": [
+   "screens.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "radioactive (no stable isotope)": {
+  "files": [
+   "query.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Random": {
+  "files": [
+   "Filling.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Range": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Rearrange the atoms into the most stable 3D shape: it tries many starting shapes (every rotatable bond, ring puckers) and keeps the lowest-energy one. Uses a simplified force field, not quantum chemistry.": {
+  "files": [
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Reference Tables": {
+  "files": [
+   "screens.ts",
+   "Reference.tsx"
+  ],
+  "kinds": [
+   "literal",
+   "call"
+  ]
+ },
+ "Region": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Remove": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Remove {name}": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Removes an electron": {
+  "files": [
+   "Filling.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Required solute": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Reset": {
+  "files": [
+   "Filling.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Restore defaults": {
+  "files": [
+   "Settings.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Result": {
+  "files": [
+   "Calculators.tsx",
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Results": {
+  "files": [
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Revert": {
+  "files": [
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Review what you missed": {
+  "files": [
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Risk & Safety": {
+  "files": [
+   "screens.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Risk & Safety Phrases": {
+  "files": [
+   "Reference.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Roman numeral": {
+  "files": [
+   "Reference.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "S-phrases (safety)": {
+  "files": [
+   "Reference.tsx"
+  ],
+  "kinds": [
+   "call",
+   "literal"
+  ]
+ },
+ "Save": {
+  "files": [
+   "Editor.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Save as .{ext}": {
+  "files": [
+   "Editor.tsx",
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Save…": {
+  "files": [
+   "Editor.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Saved {file}": {
+  "files": [
+   "Export.tsx",
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Score": {
+  "files": [
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Scores combine how many of your lines the element explains with how many of its strong visible lines you actually saw, so a gas that only shares one line scores low.": {
+  "files": [
+   "Matcher.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Screens": {
+  "files": [
+   "App.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Search": {
+  "files": [
+   "Table.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Search equipment": {
+  "files": [
+   "Reference.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Search or ask a question": {
+  "files": [
+   "Table.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Search the glossary": {
+  "files": [
+   "Reference.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Searching for the lowest-energy shape…": {
+  "files": [
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "See also": {
+  "files": [
+   "Reference.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "See results": {
+  "files": [
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Select a piece of equipment": {
+  "files": [
+   "Reference.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Select a term": {
+  "files": [
+   "Reference.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Settings": {
+  "files": [
+   "App.tsx",
+   "Settings.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "SF₄ – sulfur": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "SF₆ – sulfur": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Share": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Shell": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Show angles of": {
+  "files": [
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Show orbitals and angles of": {
+  "files": [
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Show orbitals of": {
+  "files": [
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Show the steps": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Show the σ bonds, lone pairs and π bonds as orbital lobes": {
+  "files": [
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Six hybrids to the corners of an octahedron (90°). Drawn with the sp³ lobe shape; the d contribution is not rendered.": {
+  "files": [
+   "orbitals.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "SO₂": {
+  "files": [
+   "resonance.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "SO₂ – sulfur": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "SO₄²⁻": {
+  "files": [
+   "resonance.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Sodium lamp (D doublet)": {
+  "files": [
+   "Matcher.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "solids at {T} K": {
+  "files": [
+   "query.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Solute": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Solve": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Solve for": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Solvent": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "sp² (one p orbital is part of the π system shared by the structures)": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "sp³d (schematic)": {
+  "files": [
+   "orbitals.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "sp³d² (schematic)": {
+  "files": [
+   "orbitals.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Space filling": {
+  "files": [
+   "molscene.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Species": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Spectrum": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Spectrum Matcher": {
+  "files": [
+   "screens.ts",
+   "Matcher.tsx"
+  ],
+  "kinds": [
+   "literal",
+   "call"
+  ]
+ },
+ "Spin": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "stable": {
+  "files": [
+   "element.ts",
+   "Isotopes.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Stable / natural": {
+  "files": [
+   "Isotopes.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Start from a template": {
+  "files": [
+   "Editor.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Start quiz": {
+  "files": [
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "State": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "State of matter": {
+  "files": [
+   "overlay.ts",
+   "Table.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Strict Aufbau order": {
+  "files": [
+   "Filling.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Structure {n}": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Style": {
+  "files": [
+   "Molecules.tsx",
+   "Plot.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Subshells": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Sulfur dioxide": {
+  "files": [
+   "resonance.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Symbol": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Symbol → name": {
+  "files": [
+   "quiz.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Target": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Temperature": {
+  "files": [
+   "Calculators.tsx",
+   "Settings.tsx",
+   "Table.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "terminal atom (one neighbour)": {
+  "files": [
+   "vbt.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Terminal atoms are hybridized by counting their bonds plus lone pairs, the same rule used for central atoms.": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Terms": {
+  "files": [
+   "Reference.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "That orbital is already empty.": {
+  "files": [
+   "Filling.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "That symbol is already used.": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "The {n} π bonds come from side-on overlap of unhybridized {shell}p orbitals.": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "The expansion is not a valid formula.": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "The real molecule is a blend of all of them, a resonance hybrid:": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "the s, d and f subshells are so close in energy that electrons shift between them": {
+  "files": [
+   "filling.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "The same letter used twice stands for the same quantity.": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "The three rules": {
+  "files": [
+   "Filling.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "The two colors are the two signs of the wave function. Surfaces show the angular probability |ψ|². Where the sign changes the surface closes up: that is a node, a place the electron is never found.": {
+  "files": [
+   "Orbitals.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "The π bond comes from side-on overlap of an unhybridized {shell}p orbital.": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Theme": {
+  "files": [
+   "Settings.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Theoretical curve: {formula}": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Theoretical yield: {formula}": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Theory": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "These bonds cannot be explained for a main-group atom, even with a formal charge.": {
+  "files": [
+   "vbt.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "These change how values are shown in the element details and the table legend. Calculators have their own unit menus.": {
+  "files": [
+   "Settings.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "This app has no “{what}” data. Try mass, melting/boiling point, electronegativity, ionization energy, radius, family, block, period, group, state or discovery.": {
+  "files": [
+   "query.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "This equation can't be balanced with whole numbers.": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "This follows the Aufbau order, but real {name} is an exception: {config}, because {reason}. Turn off “Strict Aufbau” to build it.": {
+  "files": [
+   "filling.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Titration plot": {
+  "files": [
+   "chart.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "to": {
+  "files": [
+   "Calculators.tsx",
+   "ElementDetail.tsx",
+   "Plot.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "To": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Tolerance": {
+  "files": [
+   "Matcher.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Too close: the nuclei would repel each other.": {
+  "files": [
+   "Orbitals.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Too few electron domains to hybridize.": {
+  "files": [
+   "vbt.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Tool": {
+  "files": [
+   "Editor.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Transition metals": {
+  "files": [
+   "element.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Turn off to build exceptions such as chromium and copper": {
+  "files": [
+   "Filling.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "unbalanced brackets": {
+  "files": [
+   "solver.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "unexpected '{ch}'": {
+  "files": [
+   "solver.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "unexpected )": {
+  "files": [
+   "solver.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "unexpected character in {s}": {
+  "files": [
+   "solver.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Unit": {
+  "files": [
+   "ElementDetail.tsx",
+   "Matcher.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Unit for {formula}": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "unit|u": {
+  "files": [
+   "Calculators.tsx",
+   "Editor.tsx",
+   "Molecules.tsx"
+  ],
+  "kinds": [
+   "ctx"
+  ]
+ },
+ "United Kingdom": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "United States": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Units": {
+  "files": [
+   "Settings.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "unknown": {
+  "files": [
+   "Isotopes.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "unknown ": {
+  "files": [
+   "calc.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "unknown element {sym}": {
+  "files": [
+   "solver.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "unknown function ": {
+  "files": [
+   "expr.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "up to {year}": {
+  "files": [
+   "Table.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Uppercase": {
+  "files": [
+   "Reference.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Use": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Use element symbols, parentheses and counts. Aliases such as Et, Me and Ph are expanded.": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Use square brackets for charges, for example Fe[2+] or OH[-]. Parentheses are allowed: CH3(CH2)3COOH.": {
+  "files": [
+   "Solver.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Use this molecule": {
+  "files": [
+   "Editor.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Valence Bond Theory": {
+  "files": [
+   "screens.ts",
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "literal",
+   "call"
+  ]
+ },
+ "Valence electrons": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Van der Waals constants (0 = ideal gas)": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Van der Waals radius": {
+  "files": [
+   "overlay.ts",
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Van der Waals Radius": {
+  "files": [
+   "export.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Van der Waals radius (Å)": {
+  "files": [
+   "Plot.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Var": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "visible": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Visible": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Volume": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Volume (L)": {
+  "files": [
+   "calc.ts",
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Wavelength": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Weak overlap.": {
+  "files": [
+   "Orbitals.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "WebElements": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "What is the atomic number of {name}?": {
+  "files": [
+   "quiz.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "What is the symbol for {name}?": {
+  "files": [
+   "quiz.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "What kind of element is {name}?": {
+  "files": [
+   "quiz.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Which element has atomic number {z}?": {
+  "files": [
+   "quiz.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Which element has the electron configuration {config}?": {
+  "files": [
+   "quiz.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Which element has the symbol {symbol}?": {
+  "files": [
+   "quiz.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Which elements?": {
+  "files": [
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Which has the higher {property}: {a} or {b}?": {
+  "files": [
+   "quiz.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Which has the lower {property}: {a} or {b}?": {
+  "files": [
+   "quiz.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Wikipedia": {
+  "files": [
+   "ElementDetail.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "x": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "X axis": {
+  "files": [
+   "Plot.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "X max": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "X min": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "X range": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "X variable": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "XeF₄ – xenon": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "Xenon": {
+  "files": [
+   "App.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Xenon {version}": {
+  "files": [
+   "Settings.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "y": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Y axis": {
+  "files": [
+   "Plot.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Y max": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Y min": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Y range": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Y variable": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "You answered: {given}": {
+  "files": [
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "You asked for no R/S-phrases.": {
+  "files": [
+   "Reference.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Your configuration": {
+  "files": [
+   "Filling.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Your weak spots": {
+  "files": [
+   "Quiz.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Zoom": {
+  "files": [
+   "Isotopes.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "α decay": {
+  "files": [
+   "Isotopes.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "β⁺ / electron capture": {
+  "files": [
+   "Isotopes.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "β⁻ decay": {
+  "files": [
+   "Isotopes.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "π  p + p (side-on)": {
+  "files": [
+   "Orbitals.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "π bonds": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "literal",
+   "call"
+  ]
+ },
+ "σ  p + p (end-on)": {
+  "files": [
+   "Orbitals.tsx"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "σ bonds": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "σ bonds & lone pairs": {
+  "files": [
+   "molorb.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ },
+ "σ, lone pairs & π": {
+  "files": [
+   "molorb.ts"
+  ],
+  "kinds": [
+   "literal"
+  ]
+ }
+}

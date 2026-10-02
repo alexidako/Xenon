@@ -1,5 +1,6 @@
 import { useState } from 'preact/hooks'
 import { Canvas, cssVar } from './canvas'
+import { t } from '../i18n'
 
 export interface Pt { x: number; y: number; label?: string }
 
@@ -58,7 +59,7 @@ export interface Series { name: string; color: string; points: { x: number; y: n
 export function SeriesChart({ series, xRange, yRange, height = 320 }: { series: Series[]; xRange: [number, number]; yRange: [number, number]; height?: number }) {
   const m = { l: 56, r: 16, t: 12, b: 36 }
   const [x0, x1] = [xRange[0], Math.max(xRange[1], xRange[0] + 1)], [y0, y1] = [yRange[0], Math.max(yRange[1], yRange[0] + 1)]
-  return <div class="col gap4"><Canvas style={{ width: '100%', height }} label="Titration plot" deps={[series, x0, x1, y0, y1]} draw={(ctx, w, h) => {
+  return <div class="col gap4"><Canvas style={{ width: '100%', height }} label={t("Titration plot")} deps={[series, x0, x1, y0, y1]} draw={(ctx, w, h) => {
     const text = cssVar('--text2') || '#888', grid = cssVar('--line') || '#ddd'
     const sx = (x: number) => m.l + (x - x0) / (x1 - x0) * (w - m.l - m.r), sy = (y: number) => h - m.b - (y - y0) / (y1 - y0) * (h - m.t - m.b)
     ctx.font = '11px system-ui'; ctx.strokeStyle = grid; ctx.fillStyle = text

@@ -1,0 +1,924 @@
+{
+ "uses": {
+  "1": "Hydrogen is used as a fuel for rockets.",
+  "2": "Helium is used in zeppelins, baloons etc. Its density is lower than the density of air so that is flies.",
+  "3": "Many modern batteries contain lithium-ions. It is also a medicine.",
+  "4": "Several high quality tools contain beryllium, so do musik intruments."
+ },
+ "rphrases": {
+  "1": "Explosive when dry",
+  "2": "Risk of explosion by shock, friction, fire or other sources of ignition",
+  "3": "Extreme risk of explosion by shock, friction, fire or other sources of ignition",
+  "4": "Forms very sensitive explosive metallic compounds",
+  "5": "Heating may cause an explosion",
+  "6": "Explosive with or without contact with air",
+  "7": "May cause fire",
+  "8": "Contact with combustible material may cause fire",
+  "9": "Explosive when mixed with combustible material",
+  "10": "Flammable",
+  "11": "Highly flammable",
+  "12": "Extremely flammable",
+  "14": "Reacts violently with water",
+  "15": "Contact with water liberates extremely flammable gases",
+  "16": "Explosive when mixed with oxidising substances",
+  "17": "Spontaneously flammable in air",
+  "18": "In use, may form flammable/explosive vapour-air mixture",
+  "19": "May form explosive peroxides",
+  "20": "Harmful by inhalation",
+  "21": "Harmful in contact with skin",
+  "22": "Harmful if swallowed",
+  "23": "Toxic by inhalation",
+  "24": "Toxic in contact with skin",
+  "25": "Toxic if swallowed",
+  "26": "Very toxic by inhalation",
+  "27": "Very toxic in contact with skin",
+  "28": "Very toxic if swallowed",
+  "29": "Contact with water liberates toxic gas.",
+  "30": "Can become highly flammable in use",
+  "31": "Contact with acids liberates toxic gas",
+  "32": "Contact with acids liberates very toxic gas",
+  "33": "Danger of cumulative effects",
+  "34": "Causes burns",
+  "35": "Causes severe burns",
+  "36": "Irritating to eyes",
+  "37": "Irritating to respiratory system",
+  "38": "Irritating to skin",
+  "39": "Danger of very serious irreversible effects",
+  "40": "Limited evidence of a carcinogenic effect",
+  "41": "Risk of serious damage to eyes",
+  "42": "May cause sensitisation by inhalation",
+  "43": "May cause sensitisation by skin contact",
+  "44": "Risk of explosion if heated under confinement",
+  "45": "May cause cancer",
+  "46": "May cause heritable genetic damage",
+  "48": "Danger of serious damage to health by prolonged exposure",
+  "49": "May cause cancer by inhalation",
+  "50": "Very toxic to aquatic organisms",
+  "51": "Toxic to aquatic organisms",
+  "52": "Harmful to aquatic organisms",
+  "53": "May cause long-term adverse effects in the aquatic environment",
+  "54": "Toxic to flora",
+  "55": "Toxic to fauna",
+  "56": "Toxic to soil organisms",
+  "57": "Toxic to bees",
+  "58": "May cause long-term adverse effects in the environment",
+  "59": "Dangerous for the ozone layer",
+  "60": "May impair fertility",
+  "61": "May cause harm to the unborn child",
+  "62": "Possible risk of impaired fertility",
+  "63": "Possible risk of harm to the unborn child",
+  "64": "May cause harm to breast-fed babies",
+  "65": "Harmful: may cause lung damage if swallowed",
+  "66": "Repeated exposure may cause skin dryness or cracking",
+  "67": "Vapours may cause drowsiness and dizziness",
+  "68": "Possible risk of irreversible effects"
+ },
+ "sphrases": {
+  "1": "Keep locked up",
+  "2": "Keep out of the reach of children",
+  "3": "Keep in a cool place",
+  "4": "Keep away from living quarters",
+  "5": "Keep contents under ... (appropriate liquid to be specified by the manufacturer)",
+  "6": "Keep under ... (inert gas to be specified by the manufacturer)",
+  "7": "Keep container tightly closed",
+  "8": "Keep container dry",
+  "9": "Keep container in a well-ventilated place",
+  "12": "Do not keep the container sealed",
+  "13": "Keep away from food, drink and animal feedingstuffs",
+  "14": "Keep away from ... ( incompatible materials to be indicated by the manufacturer )",
+  "15": "Keep away from heat",
+  "16": "Keep away from sources of ignition - No smoking",
+  "17": "Keep away from combustible material",
+  "18": "Handle and open container with care",
+  "20": "When using do not eat or drink",
+  "21": "When using do not smoke",
+  "22": "Do not breathe dust",
+  "23": "Do not breathe gas/fumes/vapour/spray ( appropriate wording to be specified by the manufacturer )",
+  "24": "Avoid contact with skin",
+  "25": "Avoid contact with eyes",
+  "26": "In case of contact with eyes, rinse immediately with plenty of water and seek medical advice",
+  "27": "Take off immediately all contaminated clothing",
+  "28": "After contact with skin, wash immediately with plenty of ... ( to be specified by the manufacturer )",
+  "29": "Do not empty into drains",
+  "30": "Never add water to this product",
+  "33": "Take precautionary measures against static discharges",
+  "35": "This material and its container must be disposed of in a safe way",
+  "36": "Wear suitable protective clothing",
+  "37": "Wear suitable gloves",
+  "38": "In case of insufficient ventilation wear suitable respiratory equipment",
+  "39": "Wear eye/face protection",
+  "40": "To clean the floor and all objects contaminated by this material use ... ( to be specified by the manufacturer )",
+  "41": "In case of fire and/or explosion do not breathe fumes",
+  "42": "During fumigation/spraying wear suitable respiratory equipment ( appropriate wording to be specified by the manufacturer )",
+  "43": "In case of fire use ... ( indicate in the space the precise type of fire-fighting equipment. If water increases the risk add - Never use water ",
+  "45": "In case of accident or if you feel unwell seek medical advice immediately ( show the label where possible )",
+  "46": "If swallowed, seek medical advice immediately and show this container or label",
+  "47": "Keep at temperature not exceeding ... °C ( to be specified by the manufacturer )",
+  "48": "Keep wet with ... ( appropriate material to be specified by the manufacturer )",
+  "49": "Keep only in the original container",
+  "50": "Do not mix with ... ( to be specified by the manufacturer )",
+  "51": "Use only in well-ventilated areas",
+  "52": "Not recommended for interior use on large surface areas",
+  "53": "Avoid exposure - obtain special instructions before use",
+  "56": "Dispose of this material and its container at hazardous or special waste collection point",
+  "57": "Use appropriate containment to avoid environmental contamination",
+  "59": "Refer to manufacturer/supplier for information on recovery/recycling",
+  "60": "This material and its container must be disposed of as hazardous waste",
+  "61": "Avoid release to the environment. Refer to special instructions/safety data sheet",
+  "62": "If swallowed, do not induce vomiting: seek medical advice immediately and show this container or label",
+  "63": "In case of accident by inhalation: remove casualty to fresh air and keep at rest",
+  "64": "If swallowed, rinse mouth with water ( only if the person is conscious )"
+ },
+ "greek": [
+  {
+   "upper": "Α",
+   "lower": "α",
+   "name": "alpha"
+  },
+  {
+   "upper": "Β",
+   "lower": "β",
+   "name": "beta"
+  },
+  {
+   "upper": "Γ",
+   "lower": "γ",
+   "name": "gamma"
+  },
+  {
+   "upper": "Δ",
+   "lower": "δ",
+   "name": "delta"
+  },
+  {
+   "upper": "Ε",
+   "lower": "ε",
+   "name": "epsilon"
+  },
+  {
+   "upper": "Ζ",
+   "lower": "ζ",
+   "name": "zeta"
+  },
+  {
+   "upper": "Η",
+   "lower": "η",
+   "name": "eta"
+  },
+  {
+   "upper": "Θ",
+   "lower": "θ",
+   "name": "theta"
+  },
+  {
+   "upper": "Ι",
+   "lower": "ι",
+   "name": "iota"
+  },
+  {
+   "upper": "Κ",
+   "lower": "κ",
+   "name": "kappa"
+  },
+  {
+   "upper": "Λ",
+   "lower": "λ",
+   "name": "lambda"
+  },
+  {
+   "upper": "Μ",
+   "lower": "μ",
+   "name": "mu"
+  },
+  {
+   "upper": "Ν",
+   "lower": "ν",
+   "name": "nu"
+  },
+  {
+   "upper": "Ξ",
+   "lower": "ξ",
+   "name": "xi"
+  },
+  {
+   "upper": "Ο",
+   "lower": "ο",
+   "name": "omicron"
+  },
+  {
+   "upper": "Π",
+   "lower": "π",
+   "name": "pi"
+  },
+  {
+   "upper": "Ρ",
+   "lower": "ρ",
+   "name": "rho"
+  },
+  {
+   "upper": "Σ",
+   "lower": "ς",
+   "name": "sigma"
+  },
+  {
+   "upper": "Τ",
+   "lower": "τ",
+   "name": "tau"
+  },
+  {
+   "upper": "Υ",
+   "lower": "υ",
+   "name": "upsilon"
+  },
+  {
+   "upper": "Φ",
+   "lower": "φ",
+   "name": "phi"
+  },
+  {
+   "upper": "Χ",
+   "lower": "χ",
+   "name": "chi"
+  },
+  {
+   "upper": "Ψ",
+   "lower": "ψ",
+   "name": "psi"
+  },
+  {
+   "upper": "Ω",
+   "lower": "ω",
+   "name": "omega"
+  }
+ ],
+ "numbers": [
+  {
+   "number": "0.5",
+   "prefix": "hemi",
+   "roman": ""
+  },
+  {
+   "number": "1",
+   "prefix": "mono",
+   "roman": "I"
+  },
+  {
+   "number": "1.5",
+   "prefix": "sesqui",
+   "roman": ""
+  },
+  {
+   "number": "2",
+   "prefix": "di, bi",
+   "roman": "II"
+  },
+  {
+   "number": "2.5",
+   "prefix": "hemipenta",
+   "roman": ""
+  },
+  {
+   "number": "3",
+   "prefix": "tri",
+   "roman": "III"
+  },
+  {
+   "number": "4",
+   "prefix": "tetra",
+   "roman": "IV"
+  },
+  {
+   "number": "5",
+   "prefix": "penta",
+   "roman": "V"
+  },
+  {
+   "number": "6",
+   "prefix": "hexa",
+   "roman": "VI"
+  },
+  {
+   "number": "7",
+   "prefix": "hepta",
+   "roman": "VII"
+  },
+  {
+   "number": "8",
+   "prefix": "octa",
+   "roman": "VIII"
+  },
+  {
+   "number": "9",
+   "prefix": "nona, ennea",
+   "roman": "IX"
+  },
+  {
+   "number": "10",
+   "prefix": "deca",
+   "roman": "X"
+  },
+  {
+   "number": "11",
+   "prefix": "hendeca, undeca",
+   "roman": "XI"
+  },
+  {
+   "number": "12",
+   "prefix": "dodeca",
+   "roman": "XII"
+  },
+  {
+   "number": "13",
+   "prefix": "trideca",
+   "roman": "XIII"
+  },
+  {
+   "number": "14",
+   "prefix": "tetradeca",
+   "roman": "XIV"
+  },
+  {
+   "number": "15",
+   "prefix": "pentadeca",
+   "roman": "XV"
+  },
+  {
+   "number": "16",
+   "prefix": "hexadeca",
+   "roman": "XVI"
+  },
+  {
+   "number": "17",
+   "prefix": "heptadeca",
+   "roman": "XVII"
+  },
+  {
+   "number": "18",
+   "prefix": "octadeca",
+   "roman": "XVIII"
+  },
+  {
+   "number": "19",
+   "prefix": "nonadeca",
+   "roman": "XIV"
+  },
+  {
+   "number": "20",
+   "prefix": "eicosa",
+   "roman": "XX"
+  },
+  {
+   "number": "40",
+   "prefix": "tetraconta",
+   "roman": "XL"
+  },
+  {
+   "number": "50",
+   "prefix": "pentaconta",
+   "roman": "L"
+  },
+  {
+   "number": "60",
+   "prefix": "hexaconta",
+   "roman": "LX"
+  },
+  {
+   "number": "90",
+   "prefix": "nonaconta",
+   "roman": "XC"
+  },
+  {
+   "number": "100",
+   "prefix": "hecta",
+   "roman": "C"
+  }
+ ],
+ "glossary": [
+  {
+   "name": "Accuracy",
+   "desc": "Consisting of accidental and systematic errors.",
+   "refs": []
+  },
+  {
+   "name": "Accuracy and precision",
+   "desc": "Expressed through standard deviation: Values given over accidental errors.",
+   "refs": []
+  },
+  {
+   "name": "Alloys",
+   "desc": "Pure matter consisting of multiple elements in a set ratio.",
+   "refs": []
+  },
+  {
+   "name": "Alpha rays",
+   "desc": "Rays consisting of alpha particles, consisting of two protons and two neutrons that are emitted from the Atoms of certain radioactive elements.",
+   "refs": []
+  },
+  {
+   "name": "Atom",
+   "desc": "Atoms are chemically inseparable and building blocks of matter. Atoms of one kind are called an Element.",
+   "refs": [
+    "Element",
+    "Electron",
+    "Proton",
+    "Neutron"
+   ]
+  },
+  {
+   "name": "Atomic Mass",
+   "desc": "Mass of an atom, taken on a scale where the mass of a carbon atom is 12u. In elements that consist of different isotopes the mid-range mass of the isotope mix is given.",
+   "refs": [
+    "Atom",
+    "Mass"
+   ]
+  },
+  {
+   "name": "Atomic nucleus",
+   "desc": "The small, positively-charged center of an Atom, in which Protons and Neutrons are found.",
+   "refs": [
+    "Atom"
+   ]
+  },
+  {
+   "name": "Atomic Radius",
+   "desc": "The atomic radius is the distance from the atomic nucleus to the outmost stable electron orbital in a atom that is at equilibrium.",
+   "refs": [
+    "Covalent Radius",
+    "Van der Waals Radius",
+    "Ionic Radius"
+   ]
+  },
+  {
+   "name": "Beta rays",
+   "desc": "Rays consisting of electrons that are emitted from Atoms of radioactive elements.",
+   "refs": []
+  },
+  {
+   "name": "Cathode Rays",
+   "desc": "Cathode rays are streams of electrons observed in vacuum tubes, i.e. evacuated glass tubes that are equipped with at least two electrodes, a cathode (negative electrode) and an anode (positive electrode) in a configuration known as a diode.",
+   "refs": [
+    "Electron"
+   ]
+  },
+  {
+   "name": "Chemical Symbol",
+   "desc": "One, two, or three letter abbreviation; set through international convention.",
+   "refs": [
+    "Element"
+   ]
+  },
+  {
+   "name": "Chromatography",
+   "desc": "Matter separation in a moving medium (mobile phase) through differentiated absorption on a static medium (stationary phase).",
+   "refs": []
+  },
+  {
+   "name": "Correctness",
+   "desc": "Values given over accidental errors.",
+   "refs": []
+  },
+  {
+   "name": "Covalent Radius",
+   "desc": "The covalent radius in chemistry corresponds to half of the distance between two identical atomic nuclei, bound by a covalent bond.",
+   "refs": [
+    "Atomic Radius",
+    "Ionic Radius",
+    "Van der Waals Radius"
+   ]
+  },
+  {
+   "name": "Crystallization",
+   "desc": "Separation of solid, crystalline matter from a solution, or the liquid or gaseous phases.",
+   "refs": []
+  },
+  {
+   "name": "Decay Energy",
+   "desc": "The decay energy is the energy released by a nuclear decay.",
+   "refs": [
+    "Isotope"
+   ]
+  },
+  {
+   "name": "Decay Mode",
+   "desc": "The decay mode describes a particular way a particle decays. For radioactive decay (the decay of nuclides) the decay modes are:[br] -> alpha decay (emission of a Helium-4 nucleus).[br] -> ß[sup]-[/sup] decay (emission of an electron)[br] -> ß[sup]+[/sup] decay (emission of a positron) [br] -> electron capture (EC) [br] -> proton emission [br] -> spontaneous fission [br] Typically one decay mode predominates for a particular nuclide.",
+   "refs": [
+    "Isotope"
+   ]
+  },
+  {
+   "name": "Distillation",
+   "desc": "Separation of a liquid solution (homogeneous mix) into its components through evaporation and condensation. In a fractionary distillation the process is repeated several times in a column.",
+   "refs": []
+  },
+  {
+   "name": "Electron",
+   "desc": "The electron is a subatomic particle with a mass of m[sub]e[/sub]=(9.1093897 ± 0.0000054)e-31 kg and a negative charge of [i]e[/i]=(1.60217733 ± 0.00000049)e-19 C",
+   "refs": [
+    "Atom"
+   ]
+  },
+  {
+   "name": "Element",
+   "desc": "Matter that cannot be broken down into simpler matter. Chemical elements are cornerstones of Materials. Elements consist of atoms that consist of a nucleus of positive protons, neutral neutrons, and a shell of electrons.",
+   "refs": []
+  },
+  {
+   "name": "Emulsion",
+   "desc": "Heterogeneous mix of two liquids.",
+   "refs": []
+  },
+  {
+   "name": "Extraction",
+   "desc": "Processing a homogeneous or heterogeneous mix to get pure matter.",
+   "refs": [
+    "Mix"
+   ]
+  },
+  {
+   "name": "Filtering",
+   "desc": "Separation of a solid matter from a liquid matter or gaseous matter with a filter (porous separation wall).",
+   "refs": []
+  },
+  {
+   "name": "Ionic Radius",
+   "desc": "The Ionic Radius is the radius of a charged atom, known as an ion. The ion can have a positive or a negative charge. The charge of the ion with the radius shown is also displayed in Kalzium. A positive ion has fewer electrons in its shell than the atom, a negative ion has more electrons. Therefore, a positive ion has a smaller radius than its atom and vice versa.",
+   "refs": [
+    "Covalent Radius",
+    "Atomic Radius",
+    "Van der Waals Radius"
+   ]
+  },
+  {
+   "name": "Isobars",
+   "desc": "Isobars are nuclides having the same mass number, i.e. sum of protons plus neutrons.",
+   "refs": [
+    "Isotope",
+    "Isotone",
+    "Nuclear Isomer"
+   ]
+  },
+  {
+   "name": "Isotone",
+   "desc": "Two nuclides are isotones if they have the same number N of neutrons.",
+   "refs": [
+    "Isotope",
+    "Nuclear Isomer",
+    "Isobars"
+   ]
+  },
+  {
+   "name": "Isotope",
+   "desc": "Isotopes are forms of a chemical element whose nuclei have the same atomic number, Z, but different atomic masses, A. The word isotope, meaning at the same place, comes from the fact that all isotopes of an element are located at the same place on the periodic table.",
+   "refs": [
+    "Atom"
+   ]
+  },
+  {
+   "name": "Law of Conservation of Mass",
+   "desc": "During a chemical reaction mass is neither lost nor gained. The sum mass of the material going into the reaction equals the sum of the mass of the products of the reaction.",
+   "refs": []
+  },
+  {
+   "name": "Law of multiple proportions",
+   "desc": "An alloy always contains the same elements in the same mass ratio. Should two or more elements bind together then the mass ratio is constant.",
+   "refs": []
+  },
+  {
+   "name": "Magnetic Moment",
+   "desc": "The magnetic moment of an object is a vector relating the aligning torque in a magnetic field experienced by the object to the field vector itself. It is measured in units of the nuclear magneton µ[sub]n[/sub]=(5.0507866 ± 0.0000017) 10[sup]-27[/sup] JT[sup]-1[/sup]",
+   "refs": [
+    "Isotope"
+   ]
+  },
+  {
+   "name": "Mass",
+   "desc": "Measurement of an amount of matter.",
+   "refs": []
+  },
+  {
+   "name": "Matter",
+   "desc": "All that takes up space and has mass.",
+   "refs": []
+  },
+  {
+   "name": "Mix",
+   "desc": "Matter consisting of differentiated matter, combined in non-set ratios. [i]Homogeneous mixes[/i] have a coherent look, [i]heterogeneous mixes[/i] consist of multiple phases.",
+   "refs": []
+  },
+  {
+   "name": "Neutron",
+   "desc": "The neutron is a subatomic particle with a mass of m[sub]e[/sub]=(1.6749286 ± 0.0000010) 10[sup]-27[/sup] kg which occurs in the nucleus of an atom.",
+   "refs": [
+    "Atom",
+    "Electron",
+    "Proton"
+   ]
+  },
+  {
+   "name": "Nuclear Isomer",
+   "desc": "A nuclear isomer is a metastable or isomeric state of an atom caused by the excitation of a proton or neutron in its nucleus so that it requires a change in spin before it can release its extra energy. They decay to lower energy states of the nuclide through two isomeric transitions:[br] -> γ- emission (emission of a high-energy photon)[br] -> internal conversion (the energy is used to ionize the atom)[br] Contrast this with the definition of a chemical isomer, the more common use of the word. Also contrast with the meaning of isotope, in which the difference is the number of neutrons in the nucleus. Metastable isomers of a particular atom are usually designated with an \"m\" (or, in the case of atoms with more than one isomer, 2m, 3m, and so on). This designation is usually placed after the atomic symbol and number of the atom (e.g., Co-58m), but is sometimes placed as a superscript before (e.g., [sup]m[/sup]Co-58 or [sup]58m[/sup]Co).",
+   "refs": [
+    "Isotope",
+    "Isobars",
+    "Isotone"
+   ]
+  },
+  {
+   "name": "Nuclides",
+   "desc": "[i]see isotopes[/i]",
+   "refs": [
+    "Isotope",
+    "Isotone",
+    "Nuclear Isomer",
+    "Isobars"
+   ]
+  },
+  {
+   "name": "Phase",
+   "desc": "Through chemical composition and physical attributes, homogeneous portion of matter that separated from its environment in its expansion through a surface.",
+   "refs": []
+  },
+  {
+   "name": "Proton",
+   "desc": "The proton is a subatomic particle with a mass of m[sub]e[/sub]=(1.6726231 ± 0.0000010) 10[sup]-27[/sup] kg and a positive charge of [i]e[/i]=(1.60217733 ± 0.00000049) 10[sup]-19[/sup] C which occurs in the nucleus of an atom.",
+   "refs": [
+    "Atom",
+    "Electron",
+    "Neutron"
+   ]
+  },
+  {
+   "name": "SI-Unit",
+   "desc": "Measurement unit using International Symbols.",
+   "refs": []
+  },
+  {
+   "name": "Significant figures",
+   "desc": "The number of digits which are meaningful in a number.",
+   "refs": []
+  },
+  {
+   "name": "Solution",
+   "desc": "Homogeneous mix of multiple pure materials",
+   "refs": []
+  },
+  {
+   "name": "Spin",
+   "desc": "The spin is an intrinsic angular momentum associated with microscopic particles. It is a purely quantum mechanical phenomenon without any analogy in classical mechanics. Whereas classical angular momentum arises from the rotation of an extended object, spin is not associated with any rotating internal masses, but is intrinsic to the particle itself.",
+   "refs": [
+    "Isotope"
+   ]
+  },
+  {
+   "name": "Standard deviation",
+   "desc": "An amount with which the precision of a measurement can be estimated.",
+   "refs": []
+  },
+  {
+   "name": "State of matter",
+   "desc": "Form of a substance; dependant on form stability and whether it takes up a definite volume: solid, liquid or gaseous.",
+   "refs": []
+  },
+  {
+   "name": "Suspension",
+   "desc": "Heterogeneous mix consisting of a liquid and solid matter.",
+   "refs": []
+  },
+  {
+   "name": "Van der Waals Radius",
+   "desc": "The van der Waals radius of an atom is the radius of an imaginary hard sphere which can be used to model the atom for many purposes. Van der Waals radii are determined from measurements of atomic spacing between pairs of unbonded atoms in crystals.",
+   "refs": [
+    "Covalent Radius",
+    "Atomic Radius",
+    "Ionic Radius"
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "picture": "watchglass.jpg",
+   "name": "Watchglass",
+   "desc": "Watchglasses are round glass panes with a diameter of around 5–10 cm, used in various experimental techniques. The border is bent upwards to allow the watchglass to hold small amounts of liquids in order to let them evaporate. The evaporation can be accelerated by heating the watchglass with a Bunsen burner. Watchglasses can also be used to cover Petri dishes or beakers, and are also suited to weighing small amounts of matter or drying them in an airing cupboard. The term watchglass is derived from the former pocket watches’ protection glass which was often domed."
+  },
+  {
+   "picture": "dehydrator.jpg",
+   "name": "Dehydrator",
+   "desc": "A dehydrator is often made of glass and serves to dry chemical matters; that is, to remove water or liquid from a sample. It is a glass bowl with a cap that has a planar grinding, so that the bowl is air-tight. The dehydrator’s lower part is ordinarily filled with a drying agent such as calcium chloride, silica gel, phosphoric anhydride or sulphuric acid. The sample to be dried is placed on a diaphanous cartridge of plastic or ceramic above the drying agent. The drying agent is hygroscopic, which means that it dehumidifies its environment by absorbing water vapor. The dry atmosphere then takes up water from the sample."
+  },
+  {
+   "picture": "spatula.jpg",
+   "name": "Spatula",
+   "desc": "The spatula is a laboratory tool to scrape off, grind, and transport chemicals. The material they are made of (e.g. iron, titanium, platinum) and their design (e.g. flat spatula or spoon spatula) varies."
+  },
+  {
+   "picture": "water-jet-pump.jpg",
+   "name": "Water Jet Pump",
+   "desc": "The water jet pump has two entry pipes and one exit, and consists, in principle, of two pipes one inside the other. At the water entry a water jet shoots under full pressure out of a nozzle into a slightly larger pipe. The water jet thereby carries away air or fluid from the second entry.\nThis is caused by the negative pressure in a drifting fluid, and thus it is an application of the hydrodynamic paradox (objects close to drifting fluids are aspirated instead of being pushed away)."
+  },
+  {
+   "picture": "refractometer.jpg",
+   "name": "Refractometer",
+   "desc": "With a refractometer, the refractive index of optical media is determined. If the refractive index of a chemical is known, it can be used after a synthesis to determine the sample’s purity or to audit whether the synthesis was successful."
+  },
+  {
+   "picture": "mortar.jpg",
+   "name": "Mortar",
+   "desc": "A mortar is used for manually grinding solids. It can also be used to homogenize a mixture of powders by grinding. A club-shaped tool called “pestle” is used to crush solids into fine powder."
+  },
+  {
+   "picture": "heating-plate.jpg",
+   "name": "Heating Plate",
+   "desc": "Heating plates are used to heat flasks and other containers. Some can generate a magnetic field in order to stir fluids with a magnetic stirrer. This homogenizes the fluid in terms of temperature and composition."
+  },
+  {
+   "picture": "cork-ring.jpg",
+   "name": "Cork Ring",
+   "desc": "Large containers like round-bottom flasks are placed on rings made of cork, a special soft and lightweight bark with good insulating qualities to protect fragile instruments."
+  },
+  {
+   "picture": "dropping-funnel.jpg",
+   "name": "Dropping Funnel",
+   "desc": "A dropping funnel can be used to drop precise amounts of fluid. The dropping speed can be controlled with a valve."
+  },
+  {
+   "picture": "separating-funnel.jpg",
+   "name": "Separating Funnel",
+   "desc": "A separating funnel can be used to separate a mixture of fluids of differing densities. A valve at the bottom allows the denser fluid to be drained for transfer to another container."
+  },
+  {
+   "picture": "test-tube-rack.jpg",
+   "name": "Test Tube Rack",
+   "desc": "This rack is useful when many small amounts of chemicals are to be tested in a row; or alternatively, to dry test tubes."
+  },
+  {
+   "picture": "",
+   "name": "Vortexer",
+   "desc": "A vortexer serves to homogenize reagents found in laboratories. The container containing liquid to be homogenized is put on a platform. The platform shakes by rotary agitation up to 3000 RPM, at which point a contact sensor is activated. This way, extremely small volumes of fluid can be homogenized quickly. It is the opposite of a centrifuge, which is used to separate fluids."
+  },
+  {
+   "picture": "wash-bottle.jpg",
+   "name": "Wash Bottle",
+   "desc": "These bottles are used for many purposes. In most laboratories, they are usually filled with water, salt, acid, or other commonly used fluids. They make it easy to apply the fluid if a precisely measured amount is not needed."
+  },
+  {
+   "picture": "rotary-evaporator.jpg",
+   "name": "Rotary Evaporator",
+   "desc": "A rotary evaporator consists of a round flask in a bath of hot water, and is designed to evaporate solvents. The flask is rotated and the solvent collects under a vacuum onto a condenser and drips into a condensate collecting flask. In this way solutions can be concentrated or purified. By attaching a vacuum pump, the air pressure and therefore the boiling point of the fluid can be decreased."
+  },
+  {
+   "picture": "reflux-condenser.jpg",
+   "name": "Reflux Condenser",
+   "desc": "A reflux condenser subjects fluid to a process where a gas produced by heating is collected on the reflux condenser. The fluid is cooled until it condenses and runs back into the original fluid. Usually, it is put on a round-bottom flask or several neck flasks."
+  },
+  {
+   "picture": "pipette-bulb.jpg",
+   "name": "Pipette Bulb",
+   "desc": "A pipette bulb is used to fill pipettes. Squeezing, then releasing the bulb produces a negative pressure, causing fluid to flow into the pipette; squeezing the bulb again causes the fluid to flow out of the pipette."
+  },
+  {
+   "picture": "test-tube.jpg",
+   "name": "Test Tube",
+   "desc": "In a test tube, small reactions or experiments can be performed. There are many different types of tubes. For example, some have connectors, some have etched markings for measurements, and some are hardened for durability."
+  },
+  {
+   "picture": "protective-goggles.jpg",
+   "name": "Protective Goggles",
+   "desc": "Most laboratories insist that protective goggles are worn. Without them, it would be too risky to work with most chemicals. Usually, the lens is a special type of plastic that provides protection from mechanical impacts and chemical substances."
+  },
+  {
+   "picture": "round-bottom-flask.jpg",
+   "name": "Round-Bottom Flask",
+   "desc": "A round-bottom flask is used for many reactions. Some can be connected to other items, as the frosting on the neck shows. With cork rings, they can be placed on a table."
+  },
+  {
+   "picture": "full-pipette.jpg",
+   "name": "Full Pipette",
+   "desc": "Unlike a regular pipette, a full pipette only has one marking for a specific volume."
+  },
+  {
+   "picture": "drying-tube.jpg",
+   "name": "Drying Tube",
+   "desc": "Some reactions need to be kept free of water: to make this possible, a drying tube can be used. Drying tubes contain a hygroscopic chemical that absorbs water from the atmosphere."
+  },
+  {
+   "picture": "test-tube-holder.jpg",
+   "name": "Test Tube Holder",
+   "desc": "Test tube holders make it easier to hold test tubes. By using a holder, there is a safe distance between one’s hand and the test tube, preventing injuries like burns or chemical exposure. Typically, test tube holders are used to hold test tubes over open flames."
+  },
+  {
+   "picture": "measuring-cylinder.jpg",
+   "name": "Measuring Cylinder",
+   "desc": "A measuring cylinder can be used to measure amounts of liquids. Due to its height and small diameter, it is also effective at separating solids suspended in liquid matter by decanting."
+  },
+  {
+   "picture": "thermometer.jpg",
+   "name": "Thermometer",
+   "desc": "A thermometer can be used to determine the temperature of a sample. In a laboratory, special thermometers are used which can also be used within acids or bases."
+  },
+  {
+   "picture": "magnetic-stir-bar.jpg",
+   "name": "Magnetic Stir Bar",
+   "desc": "Magnetic stir bars are highly chemically inert, small magnetic bars. Most heaters have a built-in magnet which can rotate: this causes the stir bar to rotate and the mixture to become homogenized."
+  },
+  {
+   "picture": "magnetic-stir-bar-retriever.jpg",
+   "name": "Magnetic Stir Bar Retriever",
+   "desc": "A magnetic stir bar retriever can be used to retrieve magnetic stir bars from containers. The retriever is a bar with a magnet at the end which attracts the stir bars."
+  },
+  {
+   "picture": "pipette.jpg",
+   "name": "Pipette",
+   "desc": "Pipettes are used to introduce small quantities of liquids in laboratories. A pipette has a volume scale and, as a rule, pipette bulbs are used as droppers for liquids. Both sorts of pipettes are calibrated for fluids with a temperature of 20 °C and for time of outflow (signified by “Ex.”). If needed, times of outflow are indicated on the pipettes."
+  },
+  {
+   "picture": "erlenmeyer-flask.jpg",
+   "name": "Erlenmeyer Flask",
+   "desc": "An Erlenmeyer flask, named after the chemist Emil Erlenmeyer (1825–1909), is different to a beaker in that it comes with an inverted conical base and a cylindrical neck. There are different types of Erlenmeyer flasks for laboratory applications: ones with narrow necks and wide necks. Depending on the application, the flask may have precision grinding to allow good connection to other containers.\nThe narrow neck reduces the risk of fluid escaping, especially when boiling or during reactions which agitate the contents.\nAn Erlenmeyer flask is useful for mixing fluids or accelerating reactions by stirring or shaking, for example. It is particularly suited for a magnetic stirrer, since it can be placed directly on the stirring platform. A round-bottom flask, by contrast, must be placed on a cork ring on the stirring platform."
+  },
+  {
+   "picture": "ultrasonic-bath.jpg",
+   "name": "Ultrasonic Bath",
+   "desc": "For some chemical reactions, it is important that the solvent is gas free. To achieve this, the reaction vessel is put in an ultrasonic bath for some time. Due to the high sound frequency, the vapor locks peel away and ascend out of the liquid. This procedure is called out-gassing."
+  },
+  {
+   "picture": "scale.jpg",
+   "name": "Scale",
+   "desc": "In a laboratory, quantities of reagents often have to be weighed out very precisely. High precision scales can measure masses down to 1/10000 gram. As such, they stand on granite blocks to avoid vibrations and are protected against changes in airflow by a dome."
+  },
+  {
+   "picture": "distillation-bridge.jpg",
+   "name": "Distillation Bridge",
+   "desc": "One means of separating a mixture is to use distillation. In this setting, a distillation bridge acts as a conduit between the two pots. One pot contains the mixture to be separated, and through heating, a gas forms which is led through the bridge. At the end of the bridge, the gas phase is condensed and drips into a round flask. Typically, the bridge is cooled by return flow. Also, there is often a thermometer for controlling the temperature of the distillation bridge."
+  },
+  {
+   "picture": "gas-syringe.png",
+   "name": "Gas Syringe",
+   "desc": "A gas syringe consists of two parts, a glass tube and a plunger, both normally made of glass. Gasses flow into the glass tube and, as the syringe is a closed system, the plunger moves outwards. This can be used to measure the volume of a reaction."
+  },
+  {
+   "picture": "separation-beaker.jpg",
+   "name": "Separation Beaker",
+   "desc": "First, four small caps are placed at the four ends of the separation beaker. Then, whilst distilling, the beaker is turned by 60 degrees after a certain temperature has been reached. In doing so, at the end of the distillation, all four caps contain a specific liquid, depending on the boiling point of the liquid distilled."
+  },
+  {
+   "picture": "burner.jpg",
+   "name": "Burner",
+   "desc": "There are several types of burners; this picture shows a Teclu burner. Each type of burner has specific uses, and they vary in peak temperature and overall heating capacity."
+  },
+  {
+   "picture": "fume-hood.jpg",
+   "name": "Fume Hood",
+   "desc": "Fume hoods are used to filter out gases from chemical reactions. The air, once cleaned, is pumped outside of the building."
+  },
+  {
+   "picture": "contact-thermometer.jpg",
+   "name": "Contact Thermometer",
+   "desc": "Contact thermometers differ from regular thermometers in that they are connected to a heating coil, and are hence able to both sense and control the current temperature. In doing so, they allow experiments to be performed under a constant temperature. Contact thermometers work using a negative feedback loop: once the desired temperature has been reached, the heating coil is deactivated; when the temperature falls, the heating coil is reactivated."
+  },
+  {
+   "picture": "clamp.jpg",
+   "name": "Clamp",
+   "desc": "Laboratory clamps make it easier to hold many kinds of tools."
+  },
+  {
+   "picture": "indicator-paper.jpg",
+   "name": "Indicator Paper",
+   "desc": "There are multiple ways of measuring the pH value of a solution, one of which is to use indicator paper. Indicator paper changes color depending on the pH of the solution applied to it, and by comparing to a chart a fairly accurate measure of the solution’s pH can be obtained. If a more accurate measure is needed, a glass electrode can be used, which works by measuring the conductivity of the solution."
+  },
+  {
+   "picture": "short-stem-funnel.jpg",
+   "name": "Short-Stem Funnel",
+   "desc": "A funnel can be used to fill a narrow-necked vessel with a liquid or fine powder."
+  },
+  {
+   "picture": "",
+   "name": "Buret",
+   "desc": "Burets are used to titrate liquids. A buret is filled with a specific volume of a liquid, and placed beneath it is a container such as an Erlenmeyer flask. By opening the valve on the buret, the liquid in the container will then be titrated. High-quality burets have a venting mechanism with which they can be very easily refilled with the exact volume for which the buret is calibrated."
+  },
+  {
+   "picture": "beaker.jpg",
+   "name": "Beaker",
+   "desc": "Beakers can be used for many tasks. For instance, they are used to store chemicals and to perform chemical reactions. They are often also used for titrations."
+  },
+  {
+   "picture": "differential-scanning-calorimeter.jpg",
+   "name": "Differential Scanning Calorimeter (DSC)",
+   "desc": "A DSC measures the heat flow volume of a compound. This value is very specific for every kind of matter, and thus a DSC can be used to identify chemicals or to describe them."
+  },
+  {
+   "picture": "dewar-vessel.jpg",
+   "name": "Dewar Vessel",
+   "desc": "A Dewar vessel (or Dewar flask), named after the physicist Sir James Dewar (1842–1923), is a double-walled vacuum flask, designed to provide good thermal insulation. As such, they are useful for keeping liquids cool or warm. One well-known example of a Dewar vessel is a Thermos flask."
+  },
+  {
+   "picture": "high-performance-liquid-chromatography.jpg",
+   "name": "High-Performance Liquid Chromatography (HPLC)",
+   "desc": "HPLC is used to separate, identify, and measure the components of a liquid mixture. A sample dissolved in a solvent is pumped through a tightly packed column under high pressure. Because different substances interact differently with the column material, they move through it at different speeds and exit separately. This makes HPLC useful for analyzing complex mixtures and checking purity in chemistry, biology, and pharmaceuticals."
+  },
+  {
+   "picture": "evaporating-dish.jpg",
+   "name": "Evaporating Dish",
+   "desc": "An evaporating dish is a small heat-resistant dish made from fired clay, used in the lab to heat, evaporate, dry, or collect substances. Because it tolerates high temperatures well, it can be placed directly over a flame or on a heating plate. Evaporating dishes are commonly used for evaporating solvents, drying precipitates, or carrying out small-scale heating experiments."
+  }
+ ]
+}

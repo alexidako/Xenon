@@ -1,0 +1,10 @@
+.build/
+Xenon.app/
+.DS_Store
+*.dSYM/
+web/node_modules/
+web/dist/
+vrt/current/
+vrt/diff/
+web/src-tauri/target/
+web/src-tauri/gen/

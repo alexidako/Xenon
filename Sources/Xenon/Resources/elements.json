@@ -1,0 +1,4069 @@
+[
+ {
+  "z": 1,
+  "symbol": "H",
+  "name": "Hydrogen",
+  "mass": 1.00794,
+  "exactMass": 1.007825032,
+  "ionization": 13.5984,
+  "electronAffinity": 0.75420375,
+  "electronegativity": 2.2,
+  "radiusCovalent": 0.37,
+  "radiusVDW": 1.2,
+  "boilingPoint": 20.28,
+  "meltingPoint": 14.01,
+  "block": "s",
+  "period": 1,
+  "group": 1,
+  "family": "Non-Metal",
+  "configuration": "1s1",
+  "nameOrigin": "Greek 'hydro' and 'gennao' for 'forms water'.",
+  "discoveryDate": "1766",
+  "discoveryCountry": [
+   "uk"
+  ],
+  "discoverers": [
+   "C. Cavendish"
+  ],
+  "oxidation": [
+   1,
+   -1
+  ],
+  "color": [
+   1.0,
+   1.0,
+   1.0
+  ]
+ },
+ {
+  "z": 2,
+  "symbol": "He",
+  "name": "Helium",
+  "mass": 4.002602,
+  "exactMass": 4.002603254,
+  "ionization": 24.5874,
+  "electronAffinity": 0.0,
+  "electronegativity": null,
+  "radiusCovalent": 0.32,
+  "radiusVDW": 1.4,
+  "boilingPoint": 4.216,
+  "meltingPoint": 0.95,
+  "block": "s",
+  "period": 1,
+  "group": 8,
+  "family": "Noblegas",
+  "configuration": "1s2",
+  "nameOrigin": "The Greek word for the sun was 'helios'.",
+  "discoveryDate": "1895",
+  "discoveryCountry": [
+   "se",
+   "uk"
+  ],
+  "discoverers": [
+   "P. J. Janssen",
+   "J. N. Lockyer"
+  ],
+  "oxidation": [],
+  "color": [
+   0.85,
+   1.0,
+   1.0
+  ]
+ },
+ {
+  "z": 3,
+  "symbol": "Li",
+  "name": "Lithium",
+  "mass": 6.941,
+  "exactMass": 7.01600455,
+  "ionization": 5.3917,
+  "electronAffinity": 0.618049,
+  "electronegativity": 0.98,
+  "radiusCovalent": 1.34,
+  "radiusVDW": 2.2,
+  "boilingPoint": 1615.0,
+  "meltingPoint": 453.7,
+  "block": "s",
+  "period": 2,
+  "group": 1,
+  "family": "Alkali_Earth",
+  "configuration": "[He] 2s1",
+  "nameOrigin": "Greek 'lithos' means 'stone'.",
+  "discoveryDate": "1817",
+  "discoveryCountry": [
+   "se"
+  ],
+  "discoverers": [
+   "A. Arfvedson"
+  ],
+  "oxidation": [
+   1
+  ],
+  "color": [
+   0.8,
+   0.5,
+   1.0
+  ]
+ },
+ {
+  "z": 4,
+  "symbol": "Be",
+  "name": "Beryllium",
+  "mass": 9.012182,
+  "exactMass": 9.0121822,
+  "ionization": 9.3227,
+  "electronAffinity": 0.0,
+  "electronegativity": 1.57,
+  "radiusCovalent": 0.9,
+  "radiusVDW": 1.9,
+  "boilingPoint": 3243.0,
+  "meltingPoint": 1560.0,
+  "block": "s",
+  "period": 2,
+  "group": 2,
+  "family": "Alkaline_Earth",
+  "configuration": "[He] 2s2",
+  "nameOrigin": "Greek 'beryllos' for 'light-green stone'.",
+  "discoveryDate": "1797",
+  "discoveryCountry": [
+   "fr"
+  ],
+  "discoverers": [
+   "Nicholas Louis Vauquelin"
+  ],
+  "oxidation": [
+   2
+  ],
+  "color": [
+   0.76,
+   1.0,
+   0.0
+  ]
+ },
+ {
+  "z": 5,
+  "symbol": "B",
+  "name": "Boron",
+  "mass": 10.811,
+  "exactMass": 11.0093054,
+  "ionization": 8.298,
+  "electronAffinity": 0.279723,
+  "electronegativity": 2.04,
+  "radiusCovalent": 0.82,
+  "radiusVDW": 1.8,
+  "boilingPoint": 4275.0,
+  "meltingPoint": 2365.0,
+  "block": "p",
+  "period": 2,
+  "group": 3,
+  "family": "Metalloids",
+  "configuration": "[He] 2s2 2p1",
+  "nameOrigin": "Boron means 'Bor(ax) + (carb)on'. It is found in borax and behaves a lot like carbon.",
+  "discoveryDate": "1808",
+  "discoveryCountry": [
+   "uk",
+   "fr"
+  ],
+  "discoverers": [
+   "Louis Joseph Gay-Lussac",
+   "Louis Jacques Thenard"
+  ],
+  "oxidation": [
+   3
+  ],
+  "color": [
+   1.0,
+   0.71,
+   0.71
+  ]
+ },
+ {
+  "z": 6,
+  "symbol": "C",
+  "name": "Carbon",
+  "mass": 12.0107,
+  "exactMass": 12.0,
+  "ionization": 11.2603,
+  "electronAffinity": 1.262118,
+  "electronegativity": 2.55,
+  "radiusCovalent": 0.77,
+  "radiusVDW": 1.7,
+  "boilingPoint": 5100.0,
+  "meltingPoint": 3825.0,
+  "block": "p",
+  "period": 2,
+  "group": 4,
+  "family": "Non-Metal",
+  "configuration": "[He] 2s2 2p2",
+  "nameOrigin": "Latin 'carboneum' for carbon.",
+  "discoveryDate": "0",
+  "discoveryCountry": [
+   "ancient"
+  ],
+  "discoverers": [],
+  "oxidation": [
+   4,
+   2,
+   -4
+  ],
+  "color": [
+   0.5,
+   0.5,
+   0.5
+  ]
+ },
+ {
+  "z": 7,
+  "symbol": "N",
+  "name": "Nitrogen",
+  "mass": 14.0067,
+  "exactMass": 14.003074,
+  "ionization": 14.5341,
+  "electronAffinity": -0.07,
+  "electronegativity": 3.04,
+  "radiusCovalent": 0.75,
+  "radiusVDW": 1.6,
+  "boilingPoint": 77.344,
+  "meltingPoint": 63.15,
+  "block": "p",
+  "period": 2,
+  "group": 5,
+  "family": "Non-Metal",
+  "configuration": "[He] 2s2 2p3",
+  "nameOrigin": "Latin 'nitrogenium' ('forms saltpeter').",
+  "discoveryDate": "1772",
+  "discoveryCountry": [
+   "uk"
+  ],
+  "discoverers": [
+   "D. Rutherford"
+  ],
+  "oxidation": [
+   5,
+   4,
+   3,
+   2,
+   -3
+  ],
+  "color": [
+   0.05,
+   0.05,
+   1.0
+  ]
+ },
+ {
+  "z": 8,
+  "symbol": "O",
+  "name": "Oxygen",
+  "mass": 15.9994,
+  "exactMass": 15.99491462,
+  "ionization": 13.6181,
+  "electronAffinity": 1.461112,
+  "electronegativity": 3.44,
+  "radiusCovalent": 0.73,
+  "radiusVDW": 1.55,
+  "boilingPoint": 90.188,
+  "meltingPoint": 54.8,
+  "block": "p",
+  "period": 2,
+  "group": 6,
+  "family": "Non-Metal",
+  "configuration": "[He] 2s2 2p4",
+  "nameOrigin": "Latin 'oxygenium' (forms acids).",
+  "discoveryDate": "1774",
+  "discoveryCountry": [
+   "se",
+   "uk"
+  ],
+  "discoverers": [
+   "J. Priestley"
+  ],
+  "oxidation": [
+   -2,
+   -1
+  ],
+  "color": [
+   1.0,
+   0.05,
+   0.05
+  ]
+ },
+ {
+  "z": 9,
+  "symbol": "F",
+  "name": "Fluorine",
+  "mass": 18.9984032,
+  "exactMass": 18.99840322,
+  "ionization": 17.4228,
+  "electronAffinity": 3.4011887,
+  "electronegativity": 3.98,
+  "radiusCovalent": 0.71,
+  "radiusVDW": 1.5,
+  "boilingPoint": 85.0,
+  "meltingPoint": 53.55,
+  "block": "p",
+  "period": 2,
+  "group": 7,
+  "family": "Halogen",
+  "configuration": "[He] 2s2 2p5",
+  "nameOrigin": "Latin 'fluere' ('floats').",
+  "discoveryDate": "1886",
+  "discoveryCountry": [
+   "fr"
+  ],
+  "discoverers": [
+   "H. F. Moissan"
+  ],
+  "oxidation": [
+   -1
+  ],
+  "color": [
+   0.7,
+   1.0,
+   1.0
+  ]
+ },
+ {
+  "z": 10,
+  "symbol": "Ne",
+  "name": "Neon",
+  "mass": 20.1797,
+  "exactMass": 19.99244018,
+  "ionization": 21.5645,
+  "electronAffinity": 0.0,
+  "electronegativity": null,
+  "radiusCovalent": 0.69,
+  "radiusVDW": 1.54,
+  "boilingPoint": 27.1,
+  "meltingPoint": 24.55,
+  "block": "p",
+  "period": 2,
+  "group": 8,
+  "family": "Noblegas",
+  "configuration": "[He] 2s2 2p6",
+  "nameOrigin": "Greek 'neo'. meaning 'new'.",
+  "discoveryDate": "1898",
+  "discoveryCountry": [
+   "uk"
+  ],
+  "discoverers": [
+   "W. Ramsay",
+   "M.W. Travers"
+  ],
+  "oxidation": [],
+  "color": [
+   0.7,
+   0.89,
+   0.96
+  ]
+ },
+ {
+  "z": 11,
+  "symbol": "Na",
+  "name": "Sodium",
+  "mass": 22.98976928,
+  "exactMass": 22.98976928,
+  "ionization": 5.1391,
+  "electronAffinity": 0.547926,
+  "electronegativity": 0.93,
+  "radiusCovalent": 1.54,
+  "radiusVDW": 2.4,
+  "boilingPoint": 1156.0,
+  "meltingPoint": 371.0,
+  "block": "s",
+  "period": 3,
+  "group": 1,
+  "family": "Alkali_Earth",
+  "configuration": "[Ne] 3s1",
+  "nameOrigin": "The name comes from Latin 'sodanum' which means 'headache remedy'. The symbol comes from Latin 'natrium' for Arabic 'natrun' or English 'soda'.",
+  "discoveryDate": "1807",
+  "discoveryCountry": [
+   "uk"
+  ],
+  "discoverers": [
+   "Sir Humphrey Davy"
+  ],
+  "oxidation": [
+   1
+  ],
+  "color": [
+   0.67,
+   0.36,
+   0.95
+  ]
+ },
+ {
+  "z": 12,
+  "symbol": "Mg",
+  "name": "Magnesium",
+  "mass": 24.305,
+  "exactMass": 23.9850417,
+  "ionization": 7.6462,
+  "electronAffinity": 0.0,
+  "electronegativity": 1.31,
+  "radiusCovalent": 1.3,
+  "radiusVDW": 2.2,
+  "boilingPoint": 1380.0,
+  "meltingPoint": 922.0,
+  "block": "s",
+  "period": 3,
+  "group": 2,
+  "family": "Alkaline_Earth",
+  "configuration": "[Ne] 3s2",
+  "nameOrigin": "Named after the city of Magnesia.",
+  "discoveryDate": "1808",
+  "discoveryCountry": [
+   "uk"
+  ],
+  "discoverers": [
+   "H. B. Davy"
+  ],
+  "oxidation": [
+   2
+  ],
+  "color": [
+   0.54,
+   1.0,
+   0.0
+  ]
+ },
+ {
+  "z": 13,
+  "symbol": "Al",
+  "name": "Aluminium",
+  "mass": 26.9815386,
+  "exactMass": 26.98153863,
+  "ionization": 5.9858,
+  "electronAffinity": 0.43283,
+  "electronegativity": 1.61,
+  "radiusCovalent": 1.18,
+  "radiusVDW": 2.1,
+  "boilingPoint": 2740.0,
+  "meltingPoint": 933.5,
+  "block": "p",
+  "period": 3,
+  "group": 3,
+  "family": "Other_Metal",
+  "configuration": "[Ne] 3s2 3p1",
+  "nameOrigin": "Latin 'alumen'.",
+  "discoveryDate": "1825",
+  "discoveryCountry": [
+   "dk"
+  ],
+  "discoverers": [
+   "H. Ch. Oersted"
+  ],
+  "oxidation": [
+   3
+  ],
+  "color": [
+   0.75,
+   0.65,
+   0.65
+  ]
+ },
+ {
+  "z": 14,
+  "symbol": "Si",
+  "name": "Silicon",
+  "mass": 28.0855,
+  "exactMass": 27.97692653,
+  "ionization": 8.1517,
+  "electronAffinity": 1.389521,
+  "electronegativity": 1.9,
+  "radiusCovalent": 1.11,
+  "radiusVDW": 2.1,
+  "boilingPoint": 2630.0,
+  "meltingPoint": 1683.0,
+  "block": "p",
+  "period": 3,
+  "group": 4,
+  "family": "Metalloids",
+  "configuration": "[Ne] 3s2 3p2",
+  "nameOrigin": "Latin 'silex'.",
+  "discoveryDate": "1823",
+  "discoveryCountry": [
+   "se"
+  ],
+  "discoverers": [
+   "J. J. Berzelius"
+  ],
+  "oxidation": [
+   4,
+   -4
+  ],
+  "color": [
+   0.5,
+   0.6,
+   0.6
+  ]
+ },
+ {
+  "z": 15,
+  "symbol": "P",
+  "name": "Phosphorus",
+  "mass": 30.973762,
+  "exactMass": 30.97376163,
+  "ionization": 10.4867,
+  "electronAffinity": 0.7465,
+  "electronegativity": 2.19,
+  "radiusCovalent": 1.06,
+  "radiusVDW": 1.95,
+  "boilingPoint": 553.0,
+  "meltingPoint": 317.3,
+  "block": "p",
+  "period": 3,
+  "group": 5,
+  "family": "Non-Metal",
+  "configuration": "[Ne] 3s2 3p3",
+  "nameOrigin": "Greek 'phosphoros' for 'carries light'.",
+  "discoveryDate": "1669",
+  "discoveryCountry": [
+   "de"
+  ],
+  "discoverers": [
+   "H. Brandt"
+  ],
+  "oxidation": [
+   5,
+   3,
+   -3
+  ],
+  "color": [
+   1.0,
+   0.5,
+   0.0
+  ]
+ },
+ {
+  "z": 16,
+  "symbol": "S",
+  "name": "Sulfur",
+  "mass": 32.065,
+  "exactMass": 31.972071,
+  "ionization": 10.36,
+  "electronAffinity": 2.0771029,
+  "electronegativity": 2.58,
+  "radiusCovalent": 1.02,
+  "radiusVDW": 1.8,
+  "boilingPoint": 717.82,
+  "meltingPoint": 392.2,
+  "block": "p",
+  "period": 3,
+  "group": 6,
+  "family": "Non-Metal",
+  "configuration": "[Ne] 3s2 3p4",
+  "nameOrigin": "In sanskrit 'sweb' means 'to sleep'.",
+  "discoveryDate": "0",
+  "discoveryCountry": [
+   "ancient"
+  ],
+  "discoverers": [],
+  "oxidation": [
+   6,
+   4,
+   2,
+   -2
+  ],
+  "color": [
+   1.0,
+   1.0,
+   0.19
+  ]
+ },
+ {
+  "z": 17,
+  "symbol": "Cl",
+  "name": "Chlorine",
+  "mass": 35.453,
+  "exactMass": 34.96885268,
+  "ionization": 12.9676,
+  "electronAffinity": 3.612724,
+  "electronegativity": 3.16,
+  "radiusCovalent": 0.99,
+  "radiusVDW": 1.8,
+  "boilingPoint": 239.18,
+  "meltingPoint": 172.17,
+  "block": "p",
+  "period": 3,
+  "group": 7,
+  "family": "Halogen",
+  "configuration": "[Ne] 3s2 3p5",
+  "nameOrigin": "Greek 'chloros' for 'yellow-green'.",
+  "discoveryDate": "1774",
+  "discoveryCountry": [
+   "se"
+  ],
+  "discoverers": [
+   "C. W. Scheele"
+  ],
+  "oxidation": [
+   7,
+   5,
+   3,
+   1,
+   -1
+  ],
+  "color": [
+   0.12,
+   0.94,
+   0.12
+  ]
+ },
+ {
+  "z": 18,
+  "symbol": "Ar",
+  "name": "Argon",
+  "mass": 39.948,
+  "exactMass": 39.96238312,
+  "ionization": 15.7596,
+  "electronAffinity": 0.0,
+  "electronegativity": null,
+  "radiusCovalent": 0.97,
+  "radiusVDW": 1.88,
+  "boilingPoint": 87.45,
+  "meltingPoint": 83.95,
+  "block": "p",
+  "period": 3,
+  "group": 8,
+  "family": "Noblegas",
+  "configuration": "[Ne] 3s2 3p6",
+  "nameOrigin": "Greek 'aergon' for 'inactive'.",
+  "discoveryDate": "1894",
+  "discoveryCountry": [
+   "uk"
+  ],
+  "discoverers": [
+   "W. Ramsay",
+   "J. Rayleigh"
+  ],
+  "oxidation": [],
+  "color": [
+   0.5,
+   0.82,
+   0.89
+  ]
+ },
+ {
+  "z": 19,
+  "symbol": "K",
+  "name": "Potassium",
+  "mass": 39.0983,
+  "exactMass": 38.96370668,
+  "ionization": 4.3407,
+  "electronAffinity": 0.501459,
+  "electronegativity": 0.82,
+  "radiusCovalent": 1.96,
+  "radiusVDW": 2.8,
+  "boilingPoint": 1033.0,
+  "meltingPoint": 336.8,
+  "block": "s",
+  "period": 4,
+  "group": 1,
+  "family": "Alkali_Earth",
+  "configuration": "[Ar] 4s1",
+  "nameOrigin": "The name comes from the English 'potash' ('pot ashes') because it is found in caustic potashes. The symbol comes from the Latin 'kalium' for the original Arabic 'al qaliy' which means alkali.",
+  "discoveryDate": "1807",
+  "discoveryCountry": [
+   "uk"
+  ],
+  "discoverers": [
+   "H. B. Davy"
+  ],
+  "oxidation": [
+   1
+  ],
+  "color": [
+   0.56,
+   0.25,
+   0.83
+  ]
+ },
+ {
+  "z": 20,
+  "symbol": "Ca",
+  "name": "Calcium",
+  "mass": 40.078,
+  "exactMass": 39.96259098,
+  "ionization": 6.1132,
+  "electronAffinity": 0.02455,
+  "electronegativity": 1.0,
+  "radiusCovalent": 1.74,
+  "radiusVDW": 2.4,
+  "boilingPoint": 1757.0,
+  "meltingPoint": 1112.0,
+  "block": "s",
+  "period": 4,
+  "group": 2,
+  "family": "Alkaline_Earth",
+  "configuration": "[Ar] 4s2",
+  "nameOrigin": "Latin 'calx' for 'lime'.",
+  "discoveryDate": "1808",
+  "discoveryCountry": [
+   "uk"
+  ],
+  "discoverers": [
+   "H. B. Davy"
+  ],
+  "oxidation": [
+   2
+  ],
+  "color": [
+   0.24,
+   1.0,
+   0.0
+  ]
+ },
+ {
+  "z": 21,
+  "symbol": "Sc",
+  "name": "Scandium",
+  "mass": 44.955912,
+  "exactMass": 44.9559119,
+  "ionization": 6.5615,
+  "electronAffinity": 0.188,
+  "electronegativity": 1.36,
+  "radiusCovalent": 1.44,
+  "radiusVDW": 2.3,
+  "boilingPoint": 3109.0,
+  "meltingPoint": 1814.0,
+  "block": "d",
+  "period": 4,
+  "group": 3,
+  "family": "Transition",
+  "configuration": "[Ar] 3d1 4s2",
+  "nameOrigin": "Named because it was found in Scandinavia.",
+  "discoveryDate": "1879",
+  "discoveryCountry": [
+   "se"
+  ],
+  "discoverers": [
+   "L. Nilson"
+  ],
+  "oxidation": [
+   3
+  ],
+  "color": [
+   0.9,
+   0.9,
+   0.9
+  ]
+ },
+ {
+  "z": 22,
+  "symbol": "Ti",
+  "name": "Titanium",
+  "mass": 47.867,
+  "exactMass": 47.9479463,
+  "ionization": 6.8281,
+  "electronAffinity": 0.084,
+  "electronegativity": 1.54,
+  "radiusCovalent": 1.36,
+  "radiusVDW": 2.15,
+  "boilingPoint": 3560.0,
+  "meltingPoint": 1935.0,
+  "block": "d",
+  "period": 4,
+  "group": 4,
+  "family": "Transition",
+  "configuration": "[Ar] 3d2 4s2",
+  "nameOrigin": "The Titans were giants in Greek mythology.",
+  "discoveryDate": "1791",
+  "discoveryCountry": [
+   "uk"
+  ],
+  "discoverers": [
+   "W. Gregor"
+  ],
+  "oxidation": [
+   4,
+   3
+  ],
+  "color": [
+   0.75,
+   0.76,
+   0.78
+  ]
+ },
+ {
+  "z": 23,
+  "symbol": "V",
+  "name": "Vanadium",
+  "mass": 50.9415,
+  "exactMass": 50.9439595,
+  "ionization": 6.7462,
+  "electronAffinity": 0.525,
+  "electronegativity": 1.63,
+  "radiusCovalent": 1.25,
+  "radiusVDW": 2.05,
+  "boilingPoint": 3650.0,
+  "meltingPoint": 2163.0,
+  "block": "d",
+  "period": 4,
+  "group": 5,
+  "family": "Transition",
+  "configuration": "[Ar] 3d3 4s2",
+  "nameOrigin": "'Vanadis' is another name for the Nordic goddess Freyja.",
+  "discoveryDate": "1830",
+  "discoveryCountry": [
+   "se"
+  ],
+  "discoverers": [
+   "N. Sefstr\u00f6m"
+  ],
+  "oxidation": [
+   5,
+   4,
+   3,
+   2,
+   0
+  ],
+  "color": [
+   0.65,
+   0.65,
+   0.67
+  ]
+ },
+ {
+  "z": 24,
+  "symbol": "Cr",
+  "name": "Chromium",
+  "mass": 51.9961,
+  "exactMass": 51.9405075,
+  "ionization": 6.7665,
+  "electronAffinity": 0.67584,
+  "electronegativity": 1.66,
+  "radiusCovalent": 1.27,
+  "radiusVDW": 2.05,
+  "boilingPoint": 2945.0,
+  "meltingPoint": 2130.0,
+  "block": "d",
+  "period": 4,
+  "group": 6,
+  "family": "Transition",
+  "configuration": "[Ar] 3d5 4s1",
+  "nameOrigin": "Greek 'chroma' means 'color'.",
+  "discoveryDate": "1797",
+  "discoveryCountry": [
+   "fr"
+  ],
+  "discoverers": [
+   "Nicholas Louis Vauquelin"
+  ],
+  "oxidation": [
+   6,
+   3,
+   2,
+   0
+  ],
+  "color": [
+   0.54,
+   0.6,
+   0.78
+  ]
+ },
+ {
+  "z": 25,
+  "symbol": "Mn",
+  "name": "Manganese",
+  "mass": 54.938045,
+  "exactMass": 54.9380451,
+  "ionization": 7.434,
+  "electronAffinity": 0.0,
+  "electronegativity": 1.55,
+  "radiusCovalent": 1.39,
+  "radiusVDW": 2.05,
+  "boilingPoint": 2235.0,
+  "meltingPoint": 1518.0,
+  "block": "d",
+  "period": 4,
+  "group": 7,
+  "family": "Transition",
+  "configuration": "[Ar] 3d5 4s2",
+  "nameOrigin": "It was discovered near a town named Magnesia in black earth. Thus, it was named 'magnesia nigra', or for short, Manganese.",
+  "discoveryDate": "1774",
+  "discoveryCountry": [
+   "se"
+  ],
+  "discoverers": [
+   "C. W. Scheele"
+  ],
+  "oxidation": [
+   7,
+   6,
+   4,
+   3,
+   2,
+   0,
+   -1
+  ],
+  "color": [
+   0.61,
+   0.48,
+   0.78
+  ]
+ },
+ {
+  "z": 26,
+  "symbol": "Fe",
+  "name": "Iron",
+  "mass": 55.845,
+  "exactMass": 55.9349375,
+  "ionization": 7.9024,
+  "electronAffinity": 0.151,
+  "electronegativity": 1.83,
+  "radiusCovalent": 1.25,
+  "radiusVDW": 2.05,
+  "boilingPoint": 3023.0,
+  "meltingPoint": 1808.0,
+  "block": "d",
+  "period": 4,
+  "group": 8,
+  "family": "Transition",
+  "configuration": "[Ar] 3d6 4s2",
+  "nameOrigin": "Latin 'ferrum'.",
+  "discoveryDate": "0",
+  "discoveryCountry": [
+   "ancient"
+  ],
+  "discoverers": [],
+  "oxidation": [
+   6,
+   3,
+   2,
+   0,
+   -2
+  ],
+  "color": [
+   0.5,
+   0.48,
+   0.78
+  ]
+ },
+ {
+  "z": 27,
+  "symbol": "Co",
+  "name": "Cobalt",
+  "mass": 58.933195,
+  "exactMass": 58.933195,
+  "ionization": 7.881,
+  "electronAffinity": 0.6633,
+  "electronegativity": 1.88,
+  "radiusCovalent": 1.26,
+  "radiusVDW": 2.0,
+  "boilingPoint": 3143.0,
+  "meltingPoint": 1768.0,
+  "block": "d",
+  "period": 4,
+  "group": 8,
+  "family": "Transition",
+  "configuration": "[Ar] 3d7 4s2",
+  "nameOrigin": "Named after the German word 'Kobold' for 'goblin'.",
+  "discoveryDate": "1737",
+  "discoveryCountry": [
+   "se"
+  ],
+  "discoverers": [
+   "G. Brandt"
+  ],
+  "oxidation": [
+   3,
+   2,
+   0,
+   -1
+  ],
+  "color": [
+   0.44,
+   0.48,
+   0.78
+  ]
+ },
+ {
+  "z": 28,
+  "symbol": "Ni",
+  "name": "Nickel",
+  "mass": 58.6934,
+  "exactMass": 57.9353429,
+  "ionization": 7.6398,
+  "electronAffinity": 1.15716,
+  "electronegativity": 1.91,
+  "radiusCovalent": 1.21,
+  "radiusVDW": 2.0,
+  "boilingPoint": 3005.0,
+  "meltingPoint": 1726.0,
+  "block": "d",
+  "period": 4,
+  "group": 8,
+  "family": "Transition",
+  "configuration": "[Ar] 3d8 4s2",
+  "nameOrigin": "'Nickel' was the name of a mountain goblin.",
+  "discoveryDate": "1751",
+  "discoveryCountry": [
+   "se"
+  ],
+  "discoverers": [
+   "A. F. Cronstedt"
+  ],
+  "oxidation": [
+   3,
+   2,
+   0
+  ],
+  "color": [
+   0.36,
+   0.48,
+   0.76
+  ]
+ },
+ {
+  "z": 29,
+  "symbol": "Cu",
+  "name": "Copper",
+  "mass": 63.546,
+  "exactMass": 62.9295975,
+  "ionization": 7.7264,
+  "electronAffinity": 1.23578,
+  "electronegativity": 1.9,
+  "radiusCovalent": 1.38,
+  "radiusVDW": 2.0,
+  "boilingPoint": 2840.0,
+  "meltingPoint": 1356.6,
+  "block": "d",
+  "period": 4,
+  "group": 1,
+  "family": "Transition",
+  "configuration": "[Ar] 3d10 4s1",
+  "nameOrigin": "Greek 'cuprum' for Cypres.",
+  "discoveryDate": "0",
+  "discoveryCountry": [
+   "ancient"
+  ],
+  "discoverers": [],
+  "oxidation": [
+   2,
+   1
+  ],
+  "color": [
+   1.0,
+   0.48,
+   0.38
+  ]
+ },
+ {
+  "z": 30,
+  "symbol": "Zn",
+  "name": "Zinc",
+  "mass": 65.38,
+  "exactMass": 63.9291422,
+  "ionization": 9.3942,
+  "electronAffinity": 0.0,
+  "electronegativity": 1.65,
+  "radiusCovalent": 1.31,
+  "radiusVDW": 2.1,
+  "boilingPoint": 1180.0,
+  "meltingPoint": 692.73,
+  "block": "d",
+  "period": 4,
+  "group": 2,
+  "family": "Transition",
+  "configuration": "[Ar] 3d10 4s2",
+  "nameOrigin": "German 'zinking' for 'rough', because zinc ore is very rough.",
+  "discoveryDate": "1746",
+  "discoveryCountry": [
+   "de"
+  ],
+  "discoverers": [
+   "Andreas Marggraf"
+  ],
+  "oxidation": [
+   2
+  ],
+  "color": [
+   0.49,
+   0.5,
+   0.69
+  ]
+ },
+ {
+  "z": 31,
+  "symbol": "Ga",
+  "name": "Gallium",
+  "mass": 69.723,
+  "exactMass": 68.9255736,
+  "ionization": 5.9993,
+  "electronAffinity": 0.41,
+  "electronegativity": 1.81,
+  "radiusCovalent": 1.26,
+  "radiusVDW": 2.1,
+  "boilingPoint": 2478.0,
+  "meltingPoint": 302.92,
+  "block": "p",
+  "period": 4,
+  "group": 3,
+  "family": "Other_Metal",
+  "configuration": "[Ar] 3d10 4s2 4p1",
+  "nameOrigin": "'Gallia' is an old name for France.",
+  "discoveryDate": "1875",
+  "discoveryCountry": [
+   "fr"
+  ],
+  "discoverers": [
+   "P. E. Lecoq de Boisbaudran"
+  ],
+  "oxidation": [
+   3
+  ],
+  "color": [
+   0.76,
+   0.56,
+   0.56
+  ]
+ },
+ {
+  "z": 32,
+  "symbol": "Ge",
+  "name": "Germanium",
+  "mass": 72.64,
+  "exactMass": 73.9211778,
+  "ionization": 7.8994,
+  "electronAffinity": 1.232712,
+  "electronegativity": 2.01,
+  "radiusCovalent": 1.22,
+  "radiusVDW": 2.1,
+  "boilingPoint": 3107.0,
+  "meltingPoint": 1211.5,
+  "block": "p",
+  "period": 4,
+  "group": 4,
+  "family": "Metalloids",
+  "configuration": "[Ar] 3d10 4s2 4p2",
+  "nameOrigin": "Latin 'germania' is an old name for Germany.",
+  "discoveryDate": "1886",
+  "discoveryCountry": [
+   "de"
+  ],
+  "discoverers": [
+   "C. A. Winkler"
+  ],
+  "oxidation": [
+   4
+  ],
+  "color": [
+   0.4,
+   0.56,
+   0.56
+  ]
+ },
+ {
+  "z": 33,
+  "symbol": "As",
+  "name": "Arsenic",
+  "mass": 74.9216,
+  "exactMass": 74.9215965,
+  "ionization": 9.7886,
+  "electronAffinity": 0.814,
+  "electronegativity": 2.18,
+  "radiusCovalent": 1.19,
+  "radiusVDW": 2.05,
+  "boilingPoint": 876.0,
+  "meltingPoint": 1090.0,
+  "block": "p",
+  "period": 4,
+  "group": 5,
+  "family": "Metalloids",
+  "configuration": "[Ar] 3d10 4s2 4p3",
+  "nameOrigin": "Greek 'arsenikos' for 'male' or 'bold'.",
+  "discoveryDate": "0",
+  "discoveryCountry": [
+   "ancient"
+  ],
+  "discoverers": [],
+  "oxidation": [
+   5,
+   3,
+   -3
+  ],
+  "color": [
+   0.74,
+   0.5,
+   0.89
+  ]
+ },
+ {
+  "z": 34,
+  "symbol": "Se",
+  "name": "Selenium",
+  "mass": 78.96,
+  "exactMass": 79.9165213,
+  "ionization": 9.7524,
+  "electronAffinity": 2.02067,
+  "electronegativity": 2.55,
+  "radiusCovalent": 1.16,
+  "radiusVDW": 1.9,
+  "boilingPoint": 958.0,
+  "meltingPoint": 494.0,
+  "block": "p",
+  "period": 4,
+  "group": 6,
+  "family": "Non-Metal",
+  "configuration": "[Ar] 3d10 4s2 4p4",
+  "nameOrigin": "Greek 'selena' for 'moon'.",
+  "discoveryDate": "1817",
+  "discoveryCountry": [
+   "se"
+  ],
+  "discoverers": [
+   "J. J. Berzelius"
+  ],
+  "oxidation": [
+   6,
+   4,
+   -2
+  ],
+  "color": [
+   1.0,
+   0.63,
+   0.0
+  ]
+ },
+ {
+  "z": 35,
+  "symbol": "Br",
+  "name": "Bromine",
+  "mass": 79.904,
+  "exactMass": 78.9183371,
+  "ionization": 11.8138,
+  "electronAffinity": 3.363588,
+  "electronegativity": 2.96,
+  "radiusCovalent": 1.14,
+  "radiusVDW": 1.9,
+  "boilingPoint": 331.85,
+  "meltingPoint": 265.95,
+  "block": "p",
+  "period": 4,
+  "group": 7,
+  "family": "Halogen",
+  "configuration": "[Ar] 3d10 4s2 4p5",
+  "nameOrigin": "Greek 'bromos' for 'smells badly'.",
+  "discoveryDate": "1826",
+  "discoveryCountry": [
+   "fr"
+  ],
+  "discoverers": [
+   "A. J. Balard"
+  ],
+  "oxidation": [
+   7,
+   5,
+   3,
+   1,
+   -1
+  ],
+  "color": [
+   0.65,
+   0.16,
+   0.16
+  ]
+ },
+ {
+  "z": 36,
+  "symbol": "Kr",
+  "name": "Krypton",
+  "mass": 83.798,
+  "exactMass": 83.911507,
+  "ionization": 13.9996,
+  "electronAffinity": 0.0,
+  "electronegativity": 3.0,
+  "radiusCovalent": 1.1,
+  "radiusVDW": 2.02,
+  "boilingPoint": 120.85,
+  "meltingPoint": 116.0,
+  "block": "p",
+  "period": 4,
+  "group": 8,
+  "family": "Noblegas",
+  "configuration": "[Ar] 3d10 4s2 4p6",
+  "nameOrigin": "Greek 'kryptos' for 'hidden'.",
+  "discoveryDate": "1898",
+  "discoveryCountry": [
+   "uk"
+  ],
+  "discoverers": [
+   "W. Ramsay",
+   "M. W. Travers"
+  ],
+  "oxidation": [
+   2
+  ],
+  "color": [
+   0.36,
+   0.72,
+   0.82
+  ]
+ },
+ {
+  "z": 37,
+  "symbol": "Rb",
+  "name": "Rubidium",
+  "mass": 85.4678,
+  "exactMass": 84.91178974,
+  "ionization": 4.1771,
+  "electronAffinity": 0.485916,
+  "electronegativity": 0.82,
+  "radiusCovalent": 2.11,
+  "radiusVDW": 2.9,
+  "boilingPoint": 961.0,
+  "meltingPoint": 312.63,
+  "block": "s",
+  "period": 5,
+  "group": 1,
+  "family": "Alkali_Earth",
+  "configuration": "[Kr] 5s1",
+  "nameOrigin": "Latin 'rubidus' for 'dark red'.",
+  "discoveryDate": "1861",
+  "discoveryCountry": [
+   "de"
+  ],
+  "discoverers": [
+   "Robert W. Bunsen",
+   "Gustav R. Kirchhoff"
+  ],
+  "oxidation": [
+   1
+  ],
+  "color": [
+   0.44,
+   0.18,
+   0.69
+  ]
+ },
+ {
+  "z": 38,
+  "symbol": "Sr",
+  "name": "Strontium",
+  "mass": 87.62,
+  "exactMass": 87.9056121,
+  "ionization": 5.6949,
+  "electronAffinity": 0.05206,
+  "electronegativity": 0.95,
+  "radiusCovalent": 1.92,
+  "radiusVDW": 2.55,
+  "boilingPoint": 1655.0,
+  "meltingPoint": 1042.0,
+  "block": "s",
+  "period": 5,
+  "group": 2,
+  "family": "Alkaline_Earth",
+  "configuration": "[Kr] 5s2",
+  "nameOrigin": "Named after the mineral Strontianit.",
+  "discoveryDate": "1790",
+  "discoveryCountry": [
+   "uk"
+  ],
+  "discoverers": [
+   "H. B. Davy"
+  ],
+  "oxidation": [
+   2
+  ],
+  "color": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ {
+  "z": 39,
+  "symbol": "Y",
+  "name": "Yttrium",
+  "mass": 88.90585,
+  "exactMass": 88.9058483,
+  "ionization": 6.2173,
+  "electronAffinity": 0.307,
+  "electronegativity": 1.22,
+  "radiusCovalent": 1.62,
+  "radiusVDW": 2.4,
+  "boilingPoint": 3611.0,
+  "meltingPoint": 1795.0,
+  "block": "d",
+  "period": 5,
+  "group": 3,
+  "family": "Transition",
+  "configuration": "[Kr] 4d1 5s2",
+  "nameOrigin": "Named after the small town of Ytterby near Stockholm in Sweden. Terbium, Ytterbium and Erbium are also named after this town.",
+  "discoveryDate": "1794",
+  "discoveryCountry": [
+   "fi"
+  ],
+  "discoverers": [
+   "Johann Gadolin"
+  ],
+  "oxidation": [
+   3
+  ],
+  "color": [
+   0.58,
+   1.0,
+   1.0
+  ]
+ },
+ {
+  "z": 40,
+  "symbol": "Zr",
+  "name": "Zirconium",
+  "mass": 91.224,
+  "exactMass": 89.9047044,
+  "ionization": 6.6339,
+  "electronAffinity": 0.426,
+  "electronegativity": 1.33,
+  "radiusCovalent": 1.48,
+  "radiusVDW": 2.3,
+  "boilingPoint": 4682.0,
+  "meltingPoint": 2128.0,
+  "block": "d",
+  "period": 5,
+  "group": 4,
+  "family": "Transition",
+  "configuration": "[Kr] 4d2 5s2",
+  "nameOrigin": "Named after the mineral zircon.",
+  "discoveryDate": "1789",
+  "discoveryCountry": [
+   "de"
+  ],
+  "discoverers": [
+   "Martin Heinrich Klaproth"
+  ],
+  "oxidation": [
+   4
+  ],
+  "color": [
+   0.58,
+   0.88,
+   0.88
+  ]
+ },
+ {
+  "z": 41,
+  "symbol": "Nb",
+  "name": "Niobium",
+  "mass": 92.90638,
+  "exactMass": 92.9063781,
+  "ionization": 6.7589,
+  "electronAffinity": 0.893,
+  "electronegativity": 1.6,
+  "radiusCovalent": 1.37,
+  "radiusVDW": 2.15,
+  "boilingPoint": 5015.0,
+  "meltingPoint": 2742.0,
+  "block": "d",
+  "period": 5,
+  "group": 5,
+  "family": "Transition",
+  "configuration": "[Kr] 4d4 5s1",
+  "nameOrigin": "Named after Niobe, the daughter of the Greek god Tantalus.",
+  "discoveryDate": "1801",
+  "discoveryCountry": [
+   "uk"
+  ],
+  "discoverers": [
+   "Ch. Hatchett"
+  ],
+  "oxidation": [
+   5,
+   3
+  ],
+  "color": [
+   0.45,
+   0.76,
+   0.79
+  ]
+ },
+ {
+  "z": 42,
+  "symbol": "Mo",
+  "name": "Molybdenum",
+  "mass": 95.96,
+  "exactMass": 97.9054082,
+  "ionization": 7.0924,
+  "electronAffinity": 0.7472,
+  "electronegativity": 2.16,
+  "radiusCovalent": 1.45,
+  "radiusVDW": 2.1,
+  "boilingPoint": 4912.0,
+  "meltingPoint": 2896.0,
+  "block": "d",
+  "period": 5,
+  "group": 6,
+  "family": "Transition",
+  "configuration": "[Kr] 4d5 5s1",
+  "nameOrigin": "This name has Greek roots. It means 'like Platinum' - it was difficult to distinguish Molybdenum from Platinum.",
+  "discoveryDate": "1778",
+  "discoveryCountry": [
+   "se"
+  ],
+  "discoverers": [
+   "C. W. Scheele"
+  ],
+  "oxidation": [
+   6,
+   5,
+   4,
+   3,
+   2,
+   0
+  ],
+  "color": [
+   0.33,
+   0.71,
+   0.71
+  ]
+ },
+ {
+  "z": 43,
+  "symbol": "Tc",
+  "name": "Technetium",
+  "mass": 98.0,
+  "exactMass": 97.907216,
+  "ionization": 7.28,
+  "electronAffinity": 0.55,
+  "electronegativity": 1.9,
+  "radiusCovalent": 1.56,
+  "radiusVDW": 2.05,
+  "boilingPoint": 4538.0,
+  "meltingPoint": 2477.0,
+  "block": "d",
+  "period": 5,
+  "group": 7,
+  "family": "Transition",
+  "configuration": "[Kr] 4d6 5s1",
+  "nameOrigin": "Greek 'technetos' for artificial.",
+  "discoveryDate": "1937",
+  "discoveryCountry": [
+   "it"
+  ],
+  "discoverers": [
+   "C. Perrier",
+   "E. G. Segre"
+  ],
+  "oxidation": [
+   7
+  ],
+  "color": [
+   0.23,
+   0.62,
+   0.62
+  ]
+ },
+ {
+  "z": 44,
+  "symbol": "Ru",
+  "name": "Ruthenium",
+  "mass": 101.07,
+  "exactMass": 101.9043493,
+  "ionization": 7.3605,
+  "electronAffinity": 1.04638,
+  "electronegativity": 2.2,
+  "radiusCovalent": 1.26,
+  "radiusVDW": 2.05,
+  "boilingPoint": 4425.0,
+  "meltingPoint": 2610.0,
+  "block": "d",
+  "period": 5,
+  "group": 8,
+  "family": "Transition",
+  "configuration": "[Kr] 4d7 5s1",
+  "nameOrigin": "Ruthenia is the old name of Russia.",
+  "discoveryDate": "1844",
+  "discoveryCountry": [
+   "ru"
+  ],
+  "discoverers": [
+   "K. Klaus"
+  ],
+  "oxidation": [
+   8,
+   6,
+   4,
+   3,
+   2,
+   0,
+   -2
+  ],
+  "color": [
+   0.14,
+   0.56,
+   0.56
+  ]
+ },
+ {
+  "z": 45,
+  "symbol": "Rh",
+  "name": "Rhodium",
+  "mass": 102.9055,
+  "exactMass": 102.905504,
+  "ionization": 7.4589,
+  "electronAffinity": 1.14289,
+  "electronegativity": 2.28,
+  "radiusCovalent": 1.35,
+  "radiusVDW": 2.0,
+  "boilingPoint": 3970.0,
+  "meltingPoint": 2236.0,
+  "block": "d",
+  "period": 5,
+  "group": 8,
+  "family": "Transition",
+  "configuration": "[Kr] 4d8 5s1",
+  "nameOrigin": "Greek 'rhodeos' means 'red like a rose'.",
+  "discoveryDate": "1803",
+  "discoveryCountry": [
+   "uk"
+  ],
+  "discoverers": [
+   "W. Wollaston"
+  ],
+  "oxidation": [
+   5,
+   4,
+   3,
+   1,
+   0
+  ],
+  "color": [
+   0.04,
+   0.49,
+   0.55
+  ]
+ },
+ {
+  "z": 46,
+  "symbol": "Pd",
+  "name": "Palladium",
+  "mass": 106.42,
+  "exactMass": 105.903486,
+  "ionization": 8.3369,
+  "electronAffinity": 0.56214,
+  "electronegativity": 2.2,
+  "radiusCovalent": 1.31,
+  "radiusVDW": 2.05,
+  "boilingPoint": 3240.0,
+  "meltingPoint": 1825.0,
+  "block": "d",
+  "period": 5,
+  "group": 8,
+  "family": "Transition",
+  "configuration": "[Kr] 4d10",
+  "nameOrigin": "Named after the asteroid Pallas.",
+  "discoveryDate": "1803",
+  "discoveryCountry": [
+   "uk"
+  ],
+  "discoverers": [],
+  "oxidation": [
+   4,
+   2,
+   0
+  ],
+  "color": [
+   0.0,
+   0.41,
+   0.52
+  ]
+ },
+ {
+  "z": 47,
+  "symbol": "Ag",
+  "name": "Silver",
+  "mass": 107.8682,
+  "exactMass": 106.905097,
+  "ionization": 7.5762,
+  "electronAffinity": 1.30447,
+  "electronegativity": 1.93,
+  "radiusCovalent": 1.53,
+  "radiusVDW": 2.1,
+  "boilingPoint": 2436.0,
+  "meltingPoint": 1235.1,
+  "block": "d",
+  "period": 5,
+  "group": 1,
+  "family": "Transition",
+  "configuration": "[Kr] 4d10 5s1",
+  "nameOrigin": "Latin 'argentum' for silver.",
+  "discoveryDate": "0",
+  "discoveryCountry": [
+   "ancient"
+  ],
+  "discoverers": [],
+  "oxidation": [
+   2,
+   1
+  ],
+  "color": [
+   0.88,
+   0.88,
+   1.0
+  ]
+ },
+ {
+  "z": 48,
+  "symbol": "Cd",
+  "name": "Cadmium",
+  "mass": 112.411,
+  "exactMass": 113.9033585,
+  "ionization": 8.9938,
+  "electronAffinity": 0.0,
+  "electronegativity": 1.69,
+  "radiusCovalent": 1.48,
+  "radiusVDW": 2.2,
+  "boilingPoint": 1040.0,
+  "meltingPoint": 594.26,
+  "block": "d",
+  "period": 5,
+  "group": 2,
+  "family": "Transition",
+  "configuration": "[Kr] 4d10 5s2",
+  "nameOrigin": "Greek 'kadmia' ('Galmei' = Zinc carbonate).",
+  "discoveryDate": "1817",
+  "discoveryCountry": [
+   "de"
+  ],
+  "discoverers": [
+   "F. Stromeyer"
+  ],
+  "oxidation": [
+   2
+  ],
+  "color": [
+   1.0,
+   0.85,
+   0.56
+  ]
+ },
+ {
+  "z": 49,
+  "symbol": "In",
+  "name": "Indium",
+  "mass": 114.818,
+  "exactMass": 114.903878,
+  "ionization": 5.7864,
+  "electronAffinity": 0.404,
+  "electronegativity": 1.78,
+  "radiusCovalent": 1.44,
+  "radiusVDW": 2.2,
+  "boilingPoint": 2350.0,
+  "meltingPoint": 429.78,
+  "block": "p",
+  "period": 5,
+  "group": 3,
+  "family": "Other_Metal",
+  "configuration": "[Kr] 4d10 5s2 5p1",
+  "nameOrigin": "Named after 'Indigo' because of its blue spectrum.",
+  "discoveryDate": "1863",
+  "discoveryCountry": [
+   "de"
+  ],
+  "discoverers": [
+   "F. Reich",
+   "H.T. Richter"
+  ],
+  "oxidation": [
+   3
+  ],
+  "color": [
+   0.65,
+   0.46,
+   0.45
+  ]
+ },
+ {
+  "z": 50,
+  "symbol": "Sn",
+  "name": "Tin",
+  "mass": 118.71,
+  "exactMass": 119.9021947,
+  "ionization": 7.3439,
+  "electronAffinity": 1.112066,
+  "electronegativity": 1.96,
+  "radiusCovalent": 1.41,
+  "radiusVDW": 2.25,
+  "boilingPoint": 2876.0,
+  "meltingPoint": 505.12,
+  "block": "p",
+  "period": 5,
+  "group": 4,
+  "family": "Other_Metal",
+  "configuration": "[Kr] 4d10 5s2 5p2",
+  "nameOrigin": "Latin 'stannum' for tin.",
+  "discoveryDate": "0",
+  "discoveryCountry": [
+   "ancient"
+  ],
+  "discoverers": [],
+  "oxidation": [
+   4,
+   2
+  ],
+  "color": [
+   0.4,
+   0.5,
+   0.5
+  ]
+ },
+ {
+  "z": 51,
+  "symbol": "Sb",
+  "name": "Antimony",
+  "mass": 121.76,
+  "exactMass": 120.9038157,
+  "ionization": 8.6084,
+  "electronAffinity": 1.047401,
+  "electronegativity": 2.05,
+  "radiusCovalent": 1.38,
+  "radiusVDW": 2.2,
+  "boilingPoint": 1860.0,
+  "meltingPoint": 903.91,
+  "block": "p",
+  "period": 5,
+  "group": 5,
+  "family": "Metalloids",
+  "configuration": "[Kr] 4d10 5s2 5p3",
+  "nameOrigin": "Arabic 'anthos ammonos' for 'blossom of the god Ammon'.",
+  "discoveryDate": "0",
+  "discoveryCountry": [
+   "ancient"
+  ],
+  "discoverers": [],
+  "oxidation": [
+   5,
+   3,
+   -3
+  ],
+  "color": [
+   0.62,
+   0.39,
+   0.71
+  ]
+ },
+ {
+  "z": 52,
+  "symbol": "Te",
+  "name": "Tellurium",
+  "mass": 127.6,
+  "exactMass": 129.9062244,
+  "ionization": 9.0096,
+  "electronAffinity": 1.970875,
+  "electronegativity": 2.1,
+  "radiusCovalent": 1.35,
+  "radiusVDW": 2.1,
+  "boilingPoint": 1261.0,
+  "meltingPoint": 722.72,
+  "block": "p",
+  "period": 5,
+  "group": 6,
+  "family": "Metalloids",
+  "configuration": "[Kr] 4d10 5s2 5p4",
+  "nameOrigin": "Latin 'tellus' or 'telluris' for 'Planet Earth'.",
+  "discoveryDate": "1782",
+  "discoveryCountry": [
+   "de"
+  ],
+  "discoverers": [
+   "Franz Joseph Muller von Reichstein"
+  ],
+  "oxidation": [
+   6,
+   4,
+   -2
+  ],
+  "color": [
+   0.83,
+   0.48,
+   0.0
+  ]
+ },
+ {
+  "z": 53,
+  "symbol": "I",
+  "name": "Iodine",
+  "mass": 126.90447,
+  "exactMass": 126.904473,
+  "ionization": 10.4513,
+  "electronAffinity": 3.059038,
+  "electronegativity": 2.66,
+  "radiusCovalent": 1.33,
+  "radiusVDW": 2.1,
+  "boilingPoint": 457.5,
+  "meltingPoint": 386.7,
+  "block": "p",
+  "period": 5,
+  "group": 7,
+  "family": "Halogen",
+  "configuration": "[Kr] 4d10 5s2 5p5",
+  "nameOrigin": "Greek 'ioeides' for 'violet'.",
+  "discoveryDate": "1811",
+  "discoveryCountry": [
+   "fr"
+  ],
+  "discoverers": [
+   "Bernard Courtois"
+  ],
+  "oxidation": [
+   7,
+   5,
+   1,
+   -1
+  ],
+  "color": [
+   0.58,
+   0.0,
+   0.58
+  ]
+ },
+ {
+  "z": 54,
+  "symbol": "Xe",
+  "name": "Xenon",
+  "mass": 131.293,
+  "exactMass": 131.9041535,
+  "ionization": 12.1298,
+  "electronAffinity": 0.0,
+  "electronegativity": 2.6,
+  "radiusCovalent": 1.3,
+  "radiusVDW": 2.16,
+  "boilingPoint": 165.1,
+  "meltingPoint": 161.39,
+  "block": "p",
+  "period": 5,
+  "group": 8,
+  "family": "Noblegas",
+  "configuration": "[Kr] 4d10 5s2 5p6",
+  "nameOrigin": "Greek 'xenos' for 'foreigner'.",
+  "discoveryDate": "1898",
+  "discoveryCountry": [
+   "uk"
+  ],
+  "discoverers": [
+   "W. Ramsay",
+   "M. W. Travers"
+  ],
+  "oxidation": [
+   2,
+   4,
+   6
+  ],
+  "color": [
+   0.26,
+   0.62,
+   0.69
+  ]
+ },
+ {
+  "z": 55,
+  "symbol": "Cs",
+  "name": "Caesium",
+  "mass": 132.9054519,
+  "exactMass": 132.9054519,
+  "ionization": 3.8939,
+  "electronAffinity": 0.471626,
+  "electronegativity": 0.79,
+  "radiusCovalent": 2.25,
+  "radiusVDW": 3.0,
+  "boilingPoint": 944.0,
+  "meltingPoint": 301.54,
+  "block": "s",
+  "period": 6,
+  "group": 1,
+  "family": "Alkali_Earth",
+  "configuration": "[Xe] 6s1",
+  "nameOrigin": "Latin 'caesius' for 'heaven blue'.",
+  "discoveryDate": "1860",
+  "discoveryCountry": [
+   "de"
+  ],
+  "discoverers": [
+   "Robert Wilhelm Bunsen",
+   "Gustav Robert Kirchhoff"
+  ],
+  "oxidation": [],
+  "color": [
+   0.34,
+   0.09,
+   0.56
+  ]
+ },
+ {
+  "z": 56,
+  "symbol": "Ba",
+  "name": "Barium",
+  "mass": 137.327,
+  "exactMass": 137.9052472,
+  "ionization": 5.2117,
+  "electronAffinity": 0.14462,
+  "electronegativity": 0.89,
+  "radiusCovalent": 1.98,
+  "radiusVDW": 2.7,
+  "boilingPoint": 2078.0,
+  "meltingPoint": 1002.0,
+  "block": "s",
+  "period": 6,
+  "group": 2,
+  "family": "Alkaline_Earth",
+  "configuration": "[Xe] 6s2",
+  "nameOrigin": "Greek 'barys' for 'heavy'.",
+  "discoveryDate": "1808",
+  "discoveryCountry": [
+   "uk"
+  ],
+  "discoverers": [
+   "Humphry Bartholomew Davy"
+  ],
+  "oxidation": [],
+  "color": [
+   0.0,
+   0.79,
+   0.0
+  ]
+ },
+ {
+  "z": 57,
+  "symbol": "La",
+  "name": "Lanthanum",
+  "mass": 138.90547,
+  "exactMass": 138.9063533,
+  "ionization": 5.5769,
+  "electronAffinity": 0.47,
+  "electronegativity": 1.1,
+  "radiusCovalent": 1.69,
+  "radiusVDW": 2.5,
+  "boilingPoint": 3737.0,
+  "meltingPoint": 1191.0,
+  "block": "f",
+  "period": 6,
+  "group": 3,
+  "family": "Rare_Earth",
+  "configuration": "[Xe] 5d1 6s2",
+  "nameOrigin": "Greek 'lanthanein' for 'hidden'. The Lanthanoids are also called the 'rare earth' elements.",
+  "discoveryDate": "1839",
+  "discoveryCountry": [
+   "se"
+  ],
+  "discoverers": [
+   "K. G. Mosander"
+  ],
+  "oxidation": [],
+  "color": [
+   0.44,
+   0.83,
+   1.0
+  ]
+ },
+ {
+  "z": 58,
+  "symbol": "Ce",
+  "name": "Cerium",
+  "mass": 140.116,
+  "exactMass": 139.9054387,
+  "ionization": 5.5387,
+  "electronAffinity": 0.5,
+  "electronegativity": 1.12,
+  "radiusCovalent": null,
+  "radiusVDW": 2.48,
+  "boilingPoint": 3715.0,
+  "meltingPoint": 1071.0,
+  "block": "f",
+  "period": 6,
+  "group": 4,
+  "family": "Rare_Earth",
+  "configuration": "[Xe] 4f1 5d1 6s2",
+  "nameOrigin": "Named after the planetoid Ceres.",
+  "discoveryDate": "1803",
+  "discoveryCountry": [],
+  "discoverers": [
+   "J\u00f6ns Jacob Berzelius",
+   "W. Hisinger",
+   "M. Klaproth"
+  ],
+  "oxidation": [],
+  "color": [
+   1.0,
+   1.0,
+   0.78
+  ]
+ },
+ {
+  "z": 59,
+  "symbol": "Pr",
+  "name": "Praseodymium",
+  "mass": 140.90765,
+  "exactMass": 140.9076528,
+  "ionization": 5.473,
+  "electronAffinity": 0.5,
+  "electronegativity": 1.13,
+  "radiusCovalent": null,
+  "radiusVDW": 2.47,
+  "boilingPoint": 3785.0,
+  "meltingPoint": 1204.0,
+  "block": "f",
+  "period": 6,
+  "group": 5,
+  "family": "Rare_Earth",
+  "configuration": "[Xe] 4f3 6s2",
+  "nameOrigin": "Greek 'prasinos didymos' for 'green twin'.",
+  "discoveryDate": "1885",
+  "discoveryCountry": [],
+  "discoverers": [
+   "Carl F. Auer von Welsbach"
+  ],
+  "oxidation": [],
+  "color": [
+   0.85,
+   1.0,
+   0.78
+  ]
+ },
+ {
+  "z": 60,
+  "symbol": "Nd",
+  "name": "Neodymium",
+  "mass": 144.242,
+  "exactMass": 141.9077233,
+  "ionization": 5.525,
+  "electronAffinity": 0.5,
+  "electronegativity": 1.14,
+  "radiusCovalent": null,
+  "radiusVDW": 2.45,
+  "boilingPoint": 3347.0,
+  "meltingPoint": 1294.0,
+  "block": "f",
+  "period": 6,
+  "group": 6,
+  "family": "Rare_Earth",
+  "configuration": "[Xe] 4f4 6s2",
+  "nameOrigin": "Greek 'neos didymos' for 'new twin'.",
+  "discoveryDate": "1885",
+  "discoveryCountry": [],
+  "discoverers": [
+   "Carl F. Auer von Welsbach"
+  ],
+  "oxidation": [],
+  "color": [
+   0.78,
+   1.0,
+   0.78
+  ]
+ },
+ {
+  "z": 61,
+  "symbol": "Pm",
+  "name": "Promethium",
+  "mass": 145.0,
+  "exactMass": 144.912749,
+  "ionization": 5.582,
+  "electronAffinity": 0.5,
+  "electronegativity": null,
+  "radiusCovalent": null,
+  "radiusVDW": 2.43,
+  "boilingPoint": 3273.0,
+  "meltingPoint": 1315.0,
+  "block": "f",
+  "period": 6,
+  "group": 7,
+  "family": "Rare_Earth",
+  "configuration": "[Xe] 4f5 6s2",
+  "nameOrigin": "Named after the Greek Prometheus. Prometheus stole the fire from the gods and gave it to mankind.",
+  "discoveryDate": "1945",
+  "discoveryCountry": [],
+  "discoverers": [
+   "J. A. Marinsky",
+   "C. D. Coryell",
+   "L. E. Glendenin"
+  ],
+  "oxidation": [],
+  "color": [
+   0.64,
+   1.0,
+   0.78
+  ]
+ },
+ {
+  "z": 62,
+  "symbol": "Sm",
+  "name": "Samarium",
+  "mass": 150.36,
+  "exactMass": 151.9197324,
+  "ionization": 5.6437,
+  "electronAffinity": 0.5,
+  "electronegativity": 1.17,
+  "radiusCovalent": null,
+  "radiusVDW": 2.42,
+  "boilingPoint": 2067.0,
+  "meltingPoint": 1347.0,
+  "block": "f",
+  "period": 6,
+  "group": 8,
+  "family": "Rare_Earth",
+  "configuration": "[Xe] 4f6 6s2",
+  "nameOrigin": "Named after the mineral Samarskit.",
+  "discoveryDate": "1879",
+  "discoveryCountry": [],
+  "discoverers": [
+   "P. Lecoq de Boisbaudran"
+  ],
+  "oxidation": [],
+  "color": [
+   0.56,
+   1.0,
+   0.78
+  ]
+ },
+ {
+  "z": 63,
+  "symbol": "Eu",
+  "name": "Europium",
+  "mass": 151.964,
+  "exactMass": 152.9212303,
+  "ionization": 5.6704,
+  "electronAffinity": 0.5,
+  "electronegativity": null,
+  "radiusCovalent": null,
+  "radiusVDW": 2.4,
+  "boilingPoint": 1800.0,
+  "meltingPoint": 1095.0,
+  "block": "f",
+  "period": 6,
+  "group": 8,
+  "family": "Rare_Earth",
+  "configuration": "[Xe] 4f7 6s2",
+  "nameOrigin": "Named after Europe.",
+  "discoveryDate": "1901",
+  "discoveryCountry": [],
+  "discoverers": [
+   "E. A. Demarcay"
+  ],
+  "oxidation": [],
+  "color": [
+   0.38,
+   1.0,
+   0.78
+  ]
+ },
+ {
+  "z": 64,
+  "symbol": "Gd",
+  "name": "Gadolinium",
+  "mass": 157.25,
+  "exactMass": 157.9241039,
+  "ionization": 6.1498,
+  "electronAffinity": 0.5,
+  "electronegativity": 1.2,
+  "radiusCovalent": null,
+  "radiusVDW": 2.38,
+  "boilingPoint": 3545.0,
+  "meltingPoint": 1585.0,
+  "block": "f",
+  "period": 6,
+  "group": 8,
+  "family": "Rare_Earth",
+  "configuration": "[Xe] 4f7 5d1 6s2",
+  "nameOrigin": "Named after the Finnish chemist Johan Gadolin.",
+  "discoveryDate": "1880",
+  "discoveryCountry": [],
+  "discoverers": [
+   "Jean de Marignac"
+  ],
+  "oxidation": [],
+  "color": [
+   0.27,
+   1.0,
+   0.78
+  ]
+ },
+ {
+  "z": 65,
+  "symbol": "Tb",
+  "name": "Terbium",
+  "mass": 158.92535,
+  "exactMass": 158.9253468,
+  "ionization": 5.8638,
+  "electronAffinity": 0.5,
+  "electronegativity": null,
+  "radiusCovalent": null,
+  "radiusVDW": 2.37,
+  "boilingPoint": 3500.0,
+  "meltingPoint": 1629.0,
+  "block": "f",
+  "period": 6,
+  "group": 1,
+  "family": "Rare_Earth",
+  "configuration": "[Xe] 4f9 6s2",
+  "nameOrigin": "Named after the Swedish town of Ytterby and the mineral ytterbite from which Terbium was first refined. Yttrium, Erbium and Ytterbium are also named after this town.",
+  "discoveryDate": "1843",
+  "discoveryCountry": [],
+  "discoverers": [
+   "K. G. Mosander"
+  ],
+  "oxidation": [],
+  "color": [
+   0.19,
+   1.0,
+   0.78
+  ]
+ },
+ {
+  "z": 66,
+  "symbol": "Dy",
+  "name": "Dysprosium",
+  "mass": 162.5,
+  "exactMass": 163.9291748,
+  "ionization": 5.9389,
+  "electronAffinity": 0.5,
+  "electronegativity": 1.22,
+  "radiusCovalent": null,
+  "radiusVDW": 2.35,
+  "boilingPoint": 2840.0,
+  "meltingPoint": 1685.0,
+  "block": "f",
+  "period": 6,
+  "group": 2,
+  "family": "Rare_Earth",
+  "configuration": "[Xe] 4f10 6s2",
+  "nameOrigin": "Greek 'dysprositor' for 'difficult to reach'.",
+  "discoveryDate": "1886",
+  "discoveryCountry": [],
+  "discoverers": [
+   "F. E. Lecoq de Boisbaudran"
+  ],
+  "oxidation": [],
+  "color": [
+   0.12,
+   1.0,
+   0.78
+  ]
+ },
+ {
+  "z": 67,
+  "symbol": "Ho",
+  "name": "Holmium",
+  "mass": 164.93032,
+  "exactMass": 164.9303221,
+  "ionization": 6.0215,
+  "electronAffinity": 0.5,
+  "electronegativity": 1.23,
+  "radiusCovalent": null,
+  "radiusVDW": 2.33,
+  "boilingPoint": 2968.0,
+  "meltingPoint": 1747.0,
+  "block": "f",
+  "period": 6,
+  "group": 3,
+  "family": "Rare_Earth",
+  "configuration": "[Xe] 4f11 6s2",
+  "nameOrigin": "Latin 'holmia' for the old name of Stockholm.",
+  "discoveryDate": "1878",
+  "discoveryCountry": [],
+  "discoverers": [
+   "J. L. Soret",
+   "P.T. Cleve"
+  ],
+  "oxidation": [],
+  "color": [
+   0.0,
+   1.0,
+   0.61
+  ]
+ },
+ {
+  "z": 68,
+  "symbol": "Er",
+  "name": "Erbium",
+  "mass": 167.259,
+  "exactMass": 165.9302931,
+  "ionization": 6.1077,
+  "electronAffinity": 0.5,
+  "electronegativity": 1.24,
+  "radiusCovalent": null,
+  "radiusVDW": 2.32,
+  "boilingPoint": 3140.0,
+  "meltingPoint": 1802.0,
+  "block": "f",
+  "period": 6,
+  "group": 4,
+  "family": "Rare_Earth",
+  "configuration": "[Xe] 4f12 6s2",
+  "nameOrigin": "Named after the Swedish town of Ytterby where the mineral gadolinite (from which Erbium was first refined) was first mined. Yttrium, Terbium and Ytterbium are also named after this town.",
+  "discoveryDate": "1843",
+  "discoveryCountry": [],
+  "discoverers": [
+   "K. G. Mosander"
+  ],
+  "oxidation": [],
+  "color": [
+   0.0,
+   0.9,
+   0.46
+  ]
+ },
+ {
+  "z": 69,
+  "symbol": "Tm",
+  "name": "Thulium",
+  "mass": 168.93421,
+  "exactMass": 168.9342133,
+  "ionization": 6.1843,
+  "electronAffinity": 0.5,
+  "electronegativity": 1.25,
+  "radiusCovalent": null,
+  "radiusVDW": 2.3,
+  "boilingPoint": 2223.0,
+  "meltingPoint": 1818.0,
+  "block": "f",
+  "period": 6,
+  "group": 5,
+  "family": "Rare_Earth",
+  "configuration": "[Xe] 4f13 6s2",
+  "nameOrigin": "Named after the old name of Scandinavia, 'Thule'.",
+  "discoveryDate": "1879",
+  "discoveryCountry": [],
+  "discoverers": [
+   "P. T. Cleve"
+  ],
+  "oxidation": [],
+  "color": [
+   0.0,
+   0.83,
+   0.32
+  ]
+ },
+ {
+  "z": 70,
+  "symbol": "Yb",
+  "name": "Ytterbium",
+  "mass": 173.054,
+  "exactMass": 173.9388621,
+  "ionization": 6.2542,
+  "electronAffinity": 0.5,
+  "electronegativity": null,
+  "radiusCovalent": null,
+  "radiusVDW": 2.28,
+  "boilingPoint": 1469.0,
+  "meltingPoint": 1092.0,
+  "block": "f",
+  "period": 6,
+  "group": 6,
+  "family": "Rare_Earth",
+  "configuration": "[Xe] 4f14 6s2",
+  "nameOrigin": "Like Yttrium, Terbium and Erbium, this is named after the Swedish town of Ytterby.",
+  "discoveryDate": "1878",
+  "discoveryCountry": [],
+  "discoverers": [
+   "J. Ch. Marignac"
+  ],
+  "oxidation": [],
+  "color": [
+   0.0,
+   0.75,
+   0.22
+  ]
+ },
+ {
+  "z": 71,
+  "symbol": "Lu",
+  "name": "Lutetium",
+  "mass": 174.9668,
+  "exactMass": 174.9407718,
+  "ionization": 5.4259,
+  "electronAffinity": 0.5,
+  "electronegativity": 1.27,
+  "radiusCovalent": 1.6,
+  "radiusVDW": 2.27,
+  "boilingPoint": 3668.0,
+  "meltingPoint": 1936.0,
+  "block": "f",
+  "period": 6,
+  "group": 7,
+  "family": "Rare_Earth",
+  "configuration": "[Xe] 4f14 5d1 6s2",
+  "nameOrigin": "Named after the Roman name 'Lutetia' for Paris.",
+  "discoveryDate": "1907",
+  "discoveryCountry": [],
+  "discoverers": [
+   "Carl F. Auer von Welsbach",
+   "G. Urbain"
+  ],
+  "oxidation": [],
+  "color": [
+   0.0,
+   0.67,
+   0.14
+  ]
+ },
+ {
+  "z": 72,
+  "symbol": "Hf",
+  "name": "Hafnium",
+  "mass": 178.49,
+  "exactMass": 179.94655,
+  "ionization": 6.8251,
+  "electronAffinity": 0.0,
+  "electronegativity": 1.3,
+  "radiusCovalent": 1.5,
+  "radiusVDW": 2.25,
+  "boilingPoint": 4875.0,
+  "meltingPoint": 2504.0,
+  "block": "d",
+  "period": 6,
+  "group": 4,
+  "family": "Transition",
+  "configuration": "[Xe] 4f14 5d2 6s2",
+  "nameOrigin": "Niels Bohr originally predicted the properties of this element before discovery, so it was named after his hometown of 'Hafnia' (the old Latin name of Copenhagen, Denmark).",
+  "discoveryDate": "1923",
+  "discoveryCountry": [
+   "dk"
+  ],
+  "discoverers": [
+   "D. Coster",
+   "G. Hevesy"
+  ],
+  "oxidation": [],
+  "color": [
+   0.3,
+   0.76,
+   1.0
+  ]
+ },
+ {
+  "z": 73,
+  "symbol": "Ta",
+  "name": "Tantalum",
+  "mass": 180.94788,
+  "exactMass": 180.9479958,
+  "ionization": 7.5496,
+  "electronAffinity": 0.322,
+  "electronegativity": 1.5,
+  "radiusCovalent": 1.38,
+  "radiusVDW": 2.2,
+  "boilingPoint": 5730.0,
+  "meltingPoint": 3293.0,
+  "block": "d",
+  "period": 6,
+  "group": 5,
+  "family": "Transition",
+  "configuration": "[Xe] 4f14 5d3 6s2",
+  "nameOrigin": "Named after the Greek myth of Tantalos.",
+  "discoveryDate": "1802",
+  "discoveryCountry": [
+   "se"
+  ],
+  "discoverers": [
+   "A. Ekeberg"
+  ],
+  "oxidation": [],
+  "color": [
+   0.3,
+   0.65,
+   1.0
+  ]
+ },
+ {
+  "z": 74,
+  "symbol": "W",
+  "name": "Tungsten",
+  "mass": 183.84,
+  "exactMass": 183.9509312,
+  "ionization": 7.864,
+  "electronAffinity": 0.815,
+  "electronegativity": 2.36,
+  "radiusCovalent": 1.46,
+  "radiusVDW": 2.1,
+  "boilingPoint": 5825.0,
+  "meltingPoint": 3695.0,
+  "block": "d",
+  "period": 6,
+  "group": 6,
+  "family": "Transition",
+  "configuration": "[Xe] 4f14 5d4 6s2",
+  "nameOrigin": "The name comes from the Swedish 'tung sten' which means 'heavy stone'. The symbol comes from the old German name for the element 'wolfram', which described how tungsten interacts with tin 'like a wolf eats a sheep (ram)'.",
+  "discoveryDate": "1783",
+  "discoveryCountry": [
+   "es"
+  ],
+  "discoverers": [
+   "C. W. Scheele"
+  ],
+  "oxidation": [],
+  "color": [
+   0.13,
+   0.58,
+   0.84
+  ]
+ },
+ {
+  "z": 75,
+  "symbol": "Re",
+  "name": "Rhenium",
+  "mass": 186.207,
+  "exactMass": 186.9557531,
+  "ionization": 7.8335,
+  "electronAffinity": 0.15,
+  "electronegativity": 1.9,
+  "radiusCovalent": 1.59,
+  "radiusVDW": 2.05,
+  "boilingPoint": 5870.0,
+  "meltingPoint": 3455.0,
+  "block": "d",
+  "period": 6,
+  "group": 7,
+  "family": "Transition",
+  "configuration": "[Xe] 4f14 5d5 6s2",
+  "nameOrigin": "Named after the German river Rhine (latin 'Rhenium').",
+  "discoveryDate": "1925",
+  "discoveryCountry": [
+   "de"
+  ],
+  "discoverers": [
+   "Walter Noddack",
+   "Ida Tacke-Noddack",
+   "Otto Berg"
+  ],
+  "oxidation": [],
+  "color": [
+   0.15,
+   0.49,
+   0.67
+  ]
+ },
+ {
+  "z": 76,
+  "symbol": "Os",
+  "name": "Osmium",
+  "mass": 190.23,
+  "exactMass": 191.9614807,
+  "ionization": 8.4382,
+  "electronAffinity": 1.0778,
+  "electronegativity": 2.2,
+  "radiusCovalent": 1.28,
+  "radiusVDW": 2.0,
+  "boilingPoint": 5300.0,
+  "meltingPoint": 3300.0,
+  "block": "d",
+  "period": 6,
+  "group": 8,
+  "family": "Transition",
+  "configuration": "[Xe] 4f14 5d6 6s2",
+  "nameOrigin": "Greek for 'smell'. Its oxides smell strongly like radishes.",
+  "discoveryDate": "1804",
+  "discoveryCountry": [
+   "uk"
+  ],
+  "discoverers": [
+   "S. Tennant"
+  ],
+  "oxidation": [],
+  "color": [
+   0.15,
+   0.4,
+   0.59
+  ]
+ },
+ {
+  "z": 77,
+  "symbol": "Ir",
+  "name": "Iridium",
+  "mass": 192.217,
+  "exactMass": 192.9629264,
+  "ionization": 8.967,
+  "electronAffinity": 1.56436,
+  "electronegativity": 2.2,
+  "radiusCovalent": 1.37,
+  "radiusVDW": 2.0,
+  "boilingPoint": 4700.0,
+  "meltingPoint": 2720.0,
+  "block": "d",
+  "period": 6,
+  "group": 8,
+  "family": "Transition",
+  "configuration": "[Xe] 4f14 5d7 6s2",
+  "nameOrigin": "Greek 'iris' for 'rainbow'.",
+  "discoveryDate": "1804",
+  "discoveryCountry": [
+   "uk"
+  ],
+  "discoverers": [
+   "S. Tennant"
+  ],
+  "oxidation": [],
+  "color": [
+   0.09,
+   0.33,
+   0.53
+  ]
+ },
+ {
+  "z": 78,
+  "symbol": "Pt",
+  "name": "Platinum",
+  "mass": 195.084,
+  "exactMass": 194.9647911,
+  "ionization": 8.9588,
+  "electronAffinity": 2.1251,
+  "electronegativity": 2.28,
+  "radiusCovalent": 1.28,
+  "radiusVDW": 2.05,
+  "boilingPoint": 4100.0,
+  "meltingPoint": 2042.1,
+  "block": "d",
+  "period": 6,
+  "group": 8,
+  "family": "Transition",
+  "configuration": "[Xe] 4f14 5d9 6s1",
+  "nameOrigin": "Spanish 'platina' means 'small silver'.",
+  "discoveryDate": "1735",
+  "discoveryCountry": [
+   "uk"
+  ],
+  "discoverers": [
+   "A. de Ulloa"
+  ],
+  "oxidation": [],
+  "color": [
+   0.96,
+   0.93,
+   0.82
+  ]
+ },
+ {
+  "z": 79,
+  "symbol": "Au",
+  "name": "Gold",
+  "mass": 196.966569,
+  "exactMass": 196.9665687,
+  "ionization": 9.2255,
+  "electronAffinity": 2.30861,
+  "electronegativity": 2.54,
+  "radiusCovalent": 1.44,
+  "radiusVDW": 2.1,
+  "boilingPoint": 3130.0,
+  "meltingPoint": 1337.58,
+  "block": "d",
+  "period": 6,
+  "group": 1,
+  "family": "Transition",
+  "configuration": "[Xe] 4f14 5d10 6s1",
+  "nameOrigin": "Latin 'aurum'. Named after Aurora, the goddess of sunrise.",
+  "discoveryDate": "0",
+  "discoveryCountry": [
+   "ancient"
+  ],
+  "discoverers": [],
+  "oxidation": [],
+  "color": [
+   0.8,
+   0.82,
+   0.12
+  ]
+ },
+ {
+  "z": 80,
+  "symbol": "Hg",
+  "name": "Mercury",
+  "mass": 200.59,
+  "exactMass": 201.970643,
+  "ionization": 10.4375,
+  "electronAffinity": 0.0,
+  "electronegativity": 2.0,
+  "radiusCovalent": 1.49,
+  "radiusVDW": 2.05,
+  "boilingPoint": 629.88,
+  "meltingPoint": 234.31,
+  "block": "d",
+  "period": 6,
+  "group": 2,
+  "family": "Transition",
+  "configuration": "[Xe] 4f14 5d10 6s2",
+  "nameOrigin": "Graeco-Latin 'hydrargyrum' for 'liquid silver'.",
+  "discoveryDate": "0",
+  "discoveryCountry": [
+   "ancient"
+  ],
+  "discoverers": [],
+  "oxidation": [],
+  "color": [
+   0.71,
+   0.71,
+   0.76
+  ]
+ },
+ {
+  "z": 81,
+  "symbol": "Tl",
+  "name": "Thallium",
+  "mass": 204.3833,
+  "exactMass": 204.9744275,
+  "ionization": 6.1082,
+  "electronAffinity": 0.377,
+  "electronegativity": 1.62,
+  "radiusCovalent": 1.48,
+  "radiusVDW": 2.2,
+  "boilingPoint": 1746.0,
+  "meltingPoint": 577.0,
+  "block": "p",
+  "period": 6,
+  "group": 3,
+  "family": "Other_Metal",
+  "configuration": "[Xe] 4f14 5d10 6s2 6p1",
+  "nameOrigin": "Greek 'tallos' for 'young twig'.",
+  "discoveryDate": "1861",
+  "discoveryCountry": [
+   "uk"
+  ],
+  "discoverers": [
+   "W. Crookes"
+  ],
+  "oxidation": [],
+  "color": [
+   0.65,
+   0.33,
+   0.3
+  ]
+ },
+ {
+  "z": 82,
+  "symbol": "Pb",
+  "name": "Lead",
+  "mass": 207.2,
+  "exactMass": 207.9766521,
+  "ionization": 7.4167,
+  "electronAffinity": 0.364,
+  "electronegativity": 2.33,
+  "radiusCovalent": 1.47,
+  "radiusVDW": 2.3,
+  "boilingPoint": 2023.0,
+  "meltingPoint": 600.65,
+  "block": "p",
+  "period": 6,
+  "group": 4,
+  "family": "Other_Metal",
+  "configuration": "[Xe] 4f14 5d10 6s2 6p2",
+  "nameOrigin": "Latin 'plumbum' for Lead.",
+  "discoveryDate": "0",
+  "discoveryCountry": [
+   "ancient"
+  ],
+  "discoverers": [],
+  "oxidation": [],
+  "color": [
+   0.34,
+   0.35,
+   0.38
+  ]
+ },
+ {
+  "z": 83,
+  "symbol": "Bi",
+  "name": "Bismuth",
+  "mass": 208.9804,
+  "exactMass": 208.9803987,
+  "ionization": 7.2855,
+  "electronAffinity": 0.942363,
+  "electronegativity": 2.02,
+  "radiusCovalent": 1.46,
+  "radiusVDW": 2.3,
+  "boilingPoint": 1837.0,
+  "meltingPoint": 544.59,
+  "block": "p",
+  "period": 6,
+  "group": 5,
+  "family": "Other_Metal",
+  "configuration": "[Xe] 4f14 5d10 6s2 6p3",
+  "nameOrigin": "The old name of Bismuth is 'Wismut', which stood for 'white mass'.",
+  "discoveryDate": "0",
+  "discoveryCountry": [
+   "ancient"
+  ],
+  "discoverers": [],
+  "oxidation": [],
+  "color": [
+   0.62,
+   0.31,
+   0.71
+  ]
+ },
+ {
+  "z": 84,
+  "symbol": "Po",
+  "name": "Polonium",
+  "mass": 209.0,
+  "exactMass": 208.9824304,
+  "ionization": 8.414,
+  "electronAffinity": 1.9,
+  "electronegativity": 2.0,
+  "radiusCovalent": null,
+  "radiusVDW": 2.0,
+  "boilingPoint": null,
+  "meltingPoint": 527.0,
+  "block": "p",
+  "period": 6,
+  "group": 6,
+  "family": "Metalloids",
+  "configuration": "[Xe] 4f14 5d10 6s2 6p4",
+  "nameOrigin": "Named after Poland to honor Marie Curie.",
+  "discoveryDate": "1898",
+  "discoveryCountry": [
+   "fr"
+  ],
+  "discoverers": [
+   "M. Sklodowska-Curie",
+   "P. Curie"
+  ],
+  "oxidation": [],
+  "color": [
+   0.67,
+   0.36,
+   0.0
+  ]
+ },
+ {
+  "z": 85,
+  "symbol": "At",
+  "name": "Astatine",
+  "mass": 210.0,
+  "exactMass": 209.987148,
+  "ionization": 0.0,
+  "electronAffinity": 2.8,
+  "electronegativity": 2.2,
+  "radiusCovalent": null,
+  "radiusVDW": 2.0,
+  "boilingPoint": 610.0,
+  "meltingPoint": 575.0,
+  "block": "p",
+  "period": 6,
+  "group": 7,
+  "family": "Halogen",
+  "configuration": "[Xe] 4f14 5d10 6s2 6p5",
+  "nameOrigin": "Greek 'astator' for 'changing'.",
+  "discoveryDate": "1940",
+  "discoveryCountry": [
+   "us"
+  ],
+  "discoverers": [
+   "D. R. Corson",
+   "K. R. McKenzie",
+   "E. Segre"
+  ],
+  "oxidation": [],
+  "color": [
+   0.46,
+   0.31,
+   0.27
+  ]
+ },
+ {
+  "z": 86,
+  "symbol": "Rn",
+  "name": "Radon",
+  "mass": 222.0,
+  "exactMass": 222.0175777,
+  "ionization": 10.7485,
+  "electronAffinity": 0.0,
+  "electronegativity": null,
+  "radiusCovalent": 1.45,
+  "radiusVDW": 2.0,
+  "boilingPoint": 211.4,
+  "meltingPoint": 202.0,
+  "block": "p",
+  "period": 6,
+  "group": 8,
+  "family": "Noblegas",
+  "configuration": "[Xe] 4f14 5d10 6s2 6p6",
+  "nameOrigin": "Named after Radium. It ends with 'on' to make it clear that it is a noble gas.",
+  "discoveryDate": "1898",
+  "discoveryCountry": [
+   "de"
+  ],
+  "discoverers": [
+   "E. Dorn"
+  ],
+  "oxidation": [],
+  "color": [
+   0.26,
+   0.51,
+   0.59
+  ]
+ },
+ {
+  "z": 87,
+  "symbol": "Fr",
+  "name": "Francium",
+  "mass": 223.0,
+  "exactMass": 223.0197359,
+  "ionization": 4.0727,
+  "electronAffinity": null,
+  "electronegativity": 0.7,
+  "radiusCovalent": null,
+  "radiusVDW": 2.0,
+  "boilingPoint": 950.0,
+  "meltingPoint": 300.0,
+  "block": "s",
+  "period": 7,
+  "group": 1,
+  "family": "Alkali_Earth",
+  "configuration": "[Rn] 7s1",
+  "nameOrigin": "Named after France to honor Marguerite Perey.",
+  "discoveryDate": "1939",
+  "discoveryCountry": [
+   "fr"
+  ],
+  "discoverers": [
+   "M. Perey"
+  ],
+  "oxidation": [],
+  "color": [
+   0.26,
+   0.0,
+   0.4
+  ]
+ },
+ {
+  "z": 88,
+  "symbol": "Ra",
+  "name": "Radium",
+  "mass": 226.0,
+  "exactMass": 226.0254098,
+  "ionization": 5.2784,
+  "electronAffinity": null,
+  "electronegativity": 0.9,
+  "radiusCovalent": null,
+  "radiusVDW": 2.0,
+  "boilingPoint": 1413.0,
+  "meltingPoint": 973.0,
+  "block": "s",
+  "period": 7,
+  "group": 2,
+  "family": "Alkaline_Earth",
+  "configuration": "[Rn] 7s2",
+  "nameOrigin": "Latin 'radius' for 'beam', as it is radioactive.",
+  "discoveryDate": "1898",
+  "discoveryCountry": [
+   "fr"
+  ],
+  "discoverers": [
+   "M. Sklodowska-Curie",
+   "P. Curie"
+  ],
+  "oxidation": [],
+  "color": [
+   0.0,
+   0.49,
+   0.0
+  ]
+ },
+ {
+  "z": 89,
+  "symbol": "Ac",
+  "name": "Actinium",
+  "mass": 227.0,
+  "exactMass": 227.0277521,
+  "ionization": 5.17,
+  "electronAffinity": null,
+  "electronegativity": 1.1,
+  "radiusCovalent": null,
+  "radiusVDW": 2.0,
+  "boilingPoint": 3470.0,
+  "meltingPoint": 1324.0,
+  "block": "f",
+  "period": 7,
+  "group": 3,
+  "family": "Other_Metal",
+  "configuration": "[Rn] 6d1 7s2",
+  "nameOrigin": "Greek 'aktis' for 'beam' - actinium is radioactive.",
+  "discoveryDate": "1899",
+  "discoveryCountry": [
+   "fr"
+  ],
+  "discoverers": [
+   "A. L. Debierne"
+  ],
+  "oxidation": [],
+  "color": [
+   0.44,
+   0.67,
+   0.98
+  ]
+ },
+ {
+  "z": 90,
+  "symbol": "Th",
+  "name": "Thorium",
+  "mass": 232.03806,
+  "exactMass": 232.0380553,
+  "ionization": 6.3067,
+  "electronAffinity": null,
+  "electronegativity": 1.3,
+  "radiusCovalent": null,
+  "radiusVDW": 2.4,
+  "boilingPoint": 5060.0,
+  "meltingPoint": 2028.0,
+  "block": "f",
+  "period": 7,
+  "group": 4,
+  "family": "Other_Metal",
+  "configuration": "[Rn] 6d2 7s2",
+  "nameOrigin": "Named after the Norse god of thunder: Thor",
+  "discoveryDate": "1828",
+  "discoveryCountry": [],
+  "discoverers": [
+   "J. J. Berzelius"
+  ],
+  "oxidation": [],
+  "color": [
+   0.0,
+   0.73,
+   1.0
+  ]
+ },
+ {
+  "z": 91,
+  "symbol": "Pa",
+  "name": "Protactinium",
+  "mass": 231.03588,
+  "exactMass": 231.035884,
+  "ionization": 5.89,
+  "electronAffinity": null,
+  "electronegativity": 1.5,
+  "radiusCovalent": null,
+  "radiusVDW": 2.0,
+  "boilingPoint": 4300.0,
+  "meltingPoint": 1845.0,
+  "block": "f",
+  "period": 7,
+  "group": 5,
+  "family": "Other_Metal",
+  "configuration": "[Rn] 5f2 6d1 7s2",
+  "nameOrigin": "Greek 'protos' for 'ancester'. Protactinium is named in this way because Actinium is a product of decay radiation of Protactinium.",
+  "discoveryDate": "1917",
+  "discoveryCountry": [],
+  "discoverers": [
+   "O. Hahn",
+   "L. Meitern",
+   "W. Wollaston"
+  ],
+  "oxidation": [],
+  "color": [
+   0.0,
+   0.63,
+   1.0
+  ]
+ },
+ {
+  "z": 92,
+  "symbol": "U",
+  "name": "Uranium",
+  "mass": 238.02891,
+  "exactMass": 238.0507882,
+  "ionization": 6.1941,
+  "electronAffinity": null,
+  "electronegativity": 1.38,
+  "radiusCovalent": null,
+  "radiusVDW": 2.3,
+  "boilingPoint": 4407.0,
+  "meltingPoint": 1408.0,
+  "block": "f",
+  "period": 7,
+  "group": 6,
+  "family": "Other_Metal",
+  "configuration": "[Rn] 5f3 6d1 7s2",
+  "nameOrigin": "Greek 'ouranos' for 'heaven'. Named after the planet Uranus.",
+  "discoveryDate": "1789",
+  "discoveryCountry": [],
+  "discoverers": [
+   "M. M. Klaproth"
+  ],
+  "oxidation": [],
+  "color": [
+   0.0,
+   0.56,
+   1.0
+  ]
+ },
+ {
+  "z": 93,
+  "symbol": "Np",
+  "name": "Neptunium",
+  "mass": 237.0,
+  "exactMass": 237.0481734,
+  "ionization": 6.2657,
+  "electronAffinity": null,
+  "electronegativity": 1.36,
+  "radiusCovalent": null,
+  "radiusVDW": 2.0,
+  "boilingPoint": 4175.0,
+  "meltingPoint": 912.0,
+  "block": "f",
+  "period": 7,
+  "group": 7,
+  "family": "Other_Metal",
+  "configuration": "[Rn] 5f4 6d1 7s2",
+  "nameOrigin": "Named after the planet Neptune.",
+  "discoveryDate": "1940",
+  "discoveryCountry": [],
+  "discoverers": [
+   "E. M. McMillan",
+   "P. Aberson"
+  ],
+  "oxidation": [],
+  "color": [
+   0.0,
+   0.5,
+   1.0
+  ]
+ },
+ {
+  "z": 94,
+  "symbol": "Pu",
+  "name": "Plutonium",
+  "mass": 244.0,
+  "exactMass": 244.064204,
+  "ionization": 6.026,
+  "electronAffinity": null,
+  "electronegativity": 1.28,
+  "radiusCovalent": null,
+  "radiusVDW": 2.0,
+  "boilingPoint": 3505.0,
+  "meltingPoint": 913.0,
+  "block": "f",
+  "period": 7,
+  "group": 8,
+  "family": "Other_Metal",
+  "configuration": "[Rn] 5f6 7s2",
+  "nameOrigin": "Named after the planet Pluto.",
+  "discoveryDate": "1940",
+  "discoveryCountry": [],
+  "discoverers": [
+   "Glenn T. Seaborg",
+   "E. M. McMillan",
+   "J. W. Kennedy",
+   "A.C. Wahl"
+  ],
+  "oxidation": [],
+  "color": [
+   0.0,
+   0.42,
+   1.0
+  ]
+ },
+ {
+  "z": 95,
+  "symbol": "Am",
+  "name": "Americium",
+  "mass": 243.0,
+  "exactMass": 243.0613811,
+  "ionization": 5.9738,
+  "electronAffinity": null,
+  "electronegativity": 1.3,
+  "radiusCovalent": null,
+  "radiusVDW": 2.0,
+  "boilingPoint": 2880.0,
+  "meltingPoint": 1449.0,
+  "block": "f",
+  "period": 7,
+  "group": 8,
+  "family": "Other_Metal",
+  "configuration": "[Rn] 5f7 7s2",
+  "nameOrigin": "Named after America.",
+  "discoveryDate": "1945",
+  "discoveryCountry": [],
+  "discoverers": [
+   "Glenn T. Seaborg",
+   "L. O. Morgan",
+   "R. A. James",
+   "A. Ghiors"
+  ],
+  "oxidation": [],
+  "color": [
+   0.33,
+   0.36,
+   0.95
+  ]
+ },
+ {
+  "z": 96,
+  "symbol": "Cm",
+  "name": "Curium",
+  "mass": 247.0,
+  "exactMass": 247.070354,
+  "ionization": 5.9914,
+  "electronAffinity": null,
+  "electronegativity": 1.3,
+  "radiusCovalent": null,
+  "radiusVDW": 2.0,
+  "boilingPoint": 3383.0,
+  "meltingPoint": 1620.0,
+  "block": "f",
+  "period": 7,
+  "group": 8,
+  "family": "Other_Metal",
+  "configuration": "[Rn] 5f7 6d1 7s2",
+  "nameOrigin": "Named after Marie Curie.",
+  "discoveryDate": "1944",
+  "discoveryCountry": [],
+  "discoverers": [
+   "Glenn T. Seaborg",
+   "R. A. James",
+   "A. Ghiors"
+  ],
+  "oxidation": [],
+  "color": [
+   0.47,
+   0.36,
+   0.89
+  ]
+ },
+ {
+  "z": 97,
+  "symbol": "Bk",
+  "name": "Berkelium",
+  "mass": 247.0,
+  "exactMass": 247.070307,
+  "ionization": 6.1979,
+  "electronAffinity": null,
+  "electronegativity": 1.3,
+  "radiusCovalent": null,
+  "radiusVDW": 2.0,
+  "boilingPoint": 983.0,
+  "meltingPoint": 1258.0,
+  "block": "f",
+  "period": 7,
+  "group": 1,
+  "family": "Other_Metal",
+  "configuration": "[Rn] 5f9 7s2",
+  "nameOrigin": "Named after the town Berkeley where it was discovered.",
+  "discoveryDate": "1949",
+  "discoveryCountry": [],
+  "discoverers": [
+   "Glenn T. Seaborg",
+   "A. Ghiors",
+   "S. G. Thompson"
+  ],
+  "oxidation": [],
+  "color": [
+   0.54,
+   0.31,
+   0.89
+  ]
+ },
+ {
+  "z": 98,
+  "symbol": "Cf",
+  "name": "Californium",
+  "mass": 251.0,
+  "exactMass": 251.079587,
+  "ionization": 6.2817,
+  "electronAffinity": null,
+  "electronegativity": 1.3,
+  "radiusCovalent": null,
+  "radiusVDW": 2.0,
+  "boilingPoint": 1743.0,
+  "meltingPoint": 1172.0,
+  "block": "f",
+  "period": 7,
+  "group": 2,
+  "family": "Other_Metal",
+  "configuration": "[Rn] 5f10 7s2",
+  "nameOrigin": "Named after the US-State of California.",
+  "discoveryDate": "1950",
+  "discoveryCountry": [],
+  "discoverers": [
+   "Glenn T. Seaborg",
+   "A. Ghiors",
+   "S. G. Thompson"
+  ],
+  "oxidation": [],
+  "color": [
+   0.63,
+   0.21,
+   0.83
+  ]
+ },
+ {
+  "z": 99,
+  "symbol": "Es",
+  "name": "Einsteinium",
+  "mass": 252.0,
+  "exactMass": 252.08298,
+  "ionization": 6.42,
+  "electronAffinity": null,
+  "electronegativity": 1.3,
+  "radiusCovalent": null,
+  "radiusVDW": 2.0,
+  "boilingPoint": null,
+  "meltingPoint": 1133.0,
+  "block": "f",
+  "period": 7,
+  "group": 3,
+  "family": "Other_Metal",
+  "configuration": "[Rn] 5f11 7s2",
+  "nameOrigin": "Named after the scientist Albert Einstein.",
+  "discoveryDate": "1952",
+  "discoveryCountry": [],
+  "discoverers": [
+   "Glenn T. Seaborg",
+   "et al."
+  ],
+  "oxidation": [],
+  "color": [
+   0.7,
+   0.12,
+   0.83
+  ]
+ },
+ {
+  "z": 100,
+  "symbol": "Fm",
+  "name": "Fermium",
+  "mass": 257.0,
+  "exactMass": 257.095105,
+  "ionization": 6.5,
+  "electronAffinity": null,
+  "electronegativity": 1.3,
+  "radiusCovalent": null,
+  "radiusVDW": 2.0,
+  "boilingPoint": null,
+  "meltingPoint": 1125.0,
+  "block": "f",
+  "period": 7,
+  "group": 4,
+  "family": "Other_Metal",
+  "configuration": "[Rn] 5f12 7s2",
+  "nameOrigin": "Named after the scientist Enrico Fermi.",
+  "discoveryDate": "1953",
+  "discoveryCountry": [],
+  "discoverers": [
+   "Glenn T. Seaborg",
+   "et al."
+  ],
+  "oxidation": [],
+  "color": [
+   0.7,
+   0.12,
+   0.73
+  ]
+ },
+ {
+  "z": 101,
+  "symbol": "Md",
+  "name": "Mendelevium",
+  "mass": 258.0,
+  "exactMass": 258.098431,
+  "ionization": 6.58,
+  "electronAffinity": null,
+  "electronegativity": 1.3,
+  "radiusCovalent": null,
+  "radiusVDW": 2.0,
+  "boilingPoint": null,
+  "meltingPoint": 1100.0,
+  "block": "f",
+  "period": 7,
+  "group": 5,
+  "family": "Other_Metal",
+  "configuration": "[Rn] 5f13 7s2",
+  "nameOrigin": "Named after the scientist D.I. Mendeleev.",
+  "discoveryDate": "1955",
+  "discoveryCountry": [],
+  "discoverers": [
+   "Glenn T. Seaborg",
+   "Albert Ghiorso",
+   "Bernard Harvey",
+   "Gregory Choppin",
+   "Stanley G. Thompson"
+  ],
+  "oxidation": [],
+  "color": [
+   0.7,
+   0.05,
+   0.65
+  ]
+ },
+ {
+  "z": 102,
+  "symbol": "No",
+  "name": "Nobelium",
+  "mass": 259.0,
+  "exactMass": 259.10103,
+  "ionization": 6.65,
+  "electronAffinity": null,
+  "electronegativity": 1.3,
+  "radiusCovalent": null,
+  "radiusVDW": 2.0,
+  "boilingPoint": null,
+  "meltingPoint": 1100.0,
+  "block": "f",
+  "period": 7,
+  "group": 6,
+  "family": "Other_Metal",
+  "configuration": "[Rn] 5f14 7s2",
+  "nameOrigin": "Named after the scientist Alfred Nobel.",
+  "discoveryDate": "1958",
+  "discoveryCountry": [],
+  "discoverers": [],
+  "oxidation": [],
+  "color": [
+   0.74,
+   0.05,
+   0.53
+  ]
+ },
+ {
+  "z": 103,
+  "symbol": "Lr",
+  "name": "Lawrencium",
+  "mass": 262.0,
+  "exactMass": 262.10963,
+  "ionization": 4.9,
+  "electronAffinity": null,
+  "electronegativity": null,
+  "radiusCovalent": null,
+  "radiusVDW": 2.0,
+  "boilingPoint": null,
+  "meltingPoint": 1900.0,
+  "block": "f",
+  "period": 7,
+  "group": 7,
+  "family": "Other_Metal",
+  "configuration": "[Rn] 5f14 7s2 7p1",
+  "nameOrigin": "Named after the scientist Ernest Orlando Lawrence.",
+  "discoveryDate": "1961",
+  "discoveryCountry": [],
+  "discoverers": [
+   "Albert Ghiorso",
+   "Torbjorn Sikkeland",
+   "Almon Larsh",
+   "Robert M. Latimer"
+  ],
+  "oxidation": [],
+  "color": [
+   0.78,
+   0.0,
+   0.4
+  ]
+ },
+ {
+  "z": 104,
+  "symbol": "Rf",
+  "name": "Rutherfordium",
+  "mass": 265.0,
+  "exactMass": 261.10877,
+  "ionization": 6.0,
+  "electronAffinity": null,
+  "electronegativity": null,
+  "radiusCovalent": null,
+  "radiusVDW": 2.0,
+  "boilingPoint": null,
+  "meltingPoint": null,
+  "block": "d",
+  "period": 7,
+  "group": 4,
+  "family": "Transition",
+  "configuration": "[Rn] 5f14 6d2 7s2",
+  "nameOrigin": "Named after the scientist Ernest Rutherford.",
+  "discoveryDate": "1964",
+  "discoveryCountry": [
+   "ru",
+   "us"
+  ],
+  "discoverers": [],
+  "oxidation": [],
+  "color": [
+   0.8,
+   0.0,
+   0.35
+  ]
+ },
+ {
+  "z": 105,
+  "symbol": "Db",
+  "name": "Dubnium",
+  "mass": 268.0,
+  "exactMass": 262.11408,
+  "ionization": null,
+  "electronAffinity": null,
+  "electronegativity": null,
+  "radiusCovalent": null,
+  "radiusVDW": 2.0,
+  "boilingPoint": null,
+  "meltingPoint": null,
+  "block": "d",
+  "period": 7,
+  "group": 5,
+  "family": "Transition",
+  "configuration": "[Rn] 5f14 6d3 7s2",
+  "nameOrigin": "Named after the science-town Dubna in Russia.",
+  "discoveryDate": "1967",
+  "discoveryCountry": [
+   "ru",
+   "us"
+  ],
+  "discoverers": [],
+  "oxidation": [],
+  "color": [
+   0.82,
+   0.0,
+   0.31
+  ]
+ },
+ {
+  "z": 106,
+  "symbol": "Sg",
+  "name": "Seaborgium",
+  "mass": 271.0,
+  "exactMass": 263.11832,
+  "ionization": null,
+  "electronAffinity": null,
+  "electronegativity": null,
+  "radiusCovalent": null,
+  "radiusVDW": 2.0,
+  "boilingPoint": null,
+  "meltingPoint": null,
+  "block": "d",
+  "period": 7,
+  "group": 6,
+  "family": "Transition",
+  "configuration": "[Rn] 5f14 6d4 7s2",
+  "nameOrigin": "Named after the scientist G. Theodore Seaborg.",
+  "discoveryDate": "1974",
+  "discoveryCountry": [
+   "ru",
+   "us"
+  ],
+  "discoverers": [
+   "Albert Ghiorso",
+   "et al."
+  ],
+  "oxidation": [],
+  "color": [
+   0.85,
+   0.0,
+   0.27
+  ]
+ },
+ {
+  "z": 107,
+  "symbol": "Bh",
+  "name": "Bohrium",
+  "mass": 272.0,
+  "exactMass": 264.1246,
+  "ionization": null,
+  "electronAffinity": null,
+  "electronegativity": null,
+  "radiusCovalent": null,
+  "radiusVDW": 2.0,
+  "boilingPoint": null,
+  "meltingPoint": null,
+  "block": "d",
+  "period": 7,
+  "group": 7,
+  "family": "Transition",
+  "configuration": "[Rn] 5f14 6d5 7s2",
+  "nameOrigin": "Named after the scientist Niels Bohr.",
+  "discoveryDate": "1981",
+  "discoveryCountry": [
+   "ru"
+  ],
+  "discoverers": [
+   "Peter Armbruster",
+   "Gottfried M\u00fcnzenber",
+   "et al."
+  ],
+  "oxidation": [],
+  "color": [
+   0.88,
+   0.0,
+   0.22
+  ]
+ },
+ {
+  "z": 108,
+  "symbol": "Hs",
+  "name": "Hassium",
+  "mass": 270.0,
+  "exactMass": 265.13009,
+  "ionization": null,
+  "electronAffinity": null,
+  "electronegativity": null,
+  "radiusCovalent": null,
+  "radiusVDW": 2.0,
+  "boilingPoint": null,
+  "meltingPoint": null,
+  "block": "d",
+  "period": 7,
+  "group": 8,
+  "family": "Transition",
+  "configuration": "[Rn] 5f14 6d6 7s2",
+  "nameOrigin": "Latin 'hassia' for the German county Hessen. In Hessen a lot elements have been discovered.",
+  "discoveryDate": "1984",
+  "discoveryCountry": [
+   "de"
+  ],
+  "discoverers": [
+   "Peter Armbruster",
+   "Gottfried M\u00fcnzenber",
+   "et al."
+  ],
+  "oxidation": [],
+  "color": [
+   0.9,
+   0.0,
+   0.18
+  ]
+ },
+ {
+  "z": 109,
+  "symbol": "Mt",
+  "name": "Meitnerium",
+  "mass": 276.0,
+  "exactMass": 268.13873,
+  "ionization": null,
+  "electronAffinity": null,
+  "electronegativity": null,
+  "radiusCovalent": null,
+  "radiusVDW": 2.0,
+  "boilingPoint": null,
+  "meltingPoint": null,
+  "block": "d",
+  "period": 7,
+  "group": 8,
+  "family": "Transition",
+  "configuration": "[Rn] 5f14 6d7 7s2",
+  "nameOrigin": "Named after the scientist Lise Meitner.",
+  "discoveryDate": "1982",
+  "discoveryCountry": [
+   "de"
+  ],
+  "discoverers": [
+   "Peter Armbruster",
+   "Gottfried M\u00fcnzenber",
+   "et al."
+  ],
+  "oxidation": [],
+  "color": [
+   0.91,
+   0.0,
+   0.15
+  ]
+ },
+ {
+  "z": 110,
+  "symbol": "Ds",
+  "name": "Darmstadtium",
+  "mass": 281.0,
+  "exactMass": 271.14606,
+  "ionization": null,
+  "electronAffinity": null,
+  "electronegativity": null,
+  "radiusCovalent": null,
+  "radiusVDW": null,
+  "boilingPoint": null,
+  "meltingPoint": null,
+  "block": "d",
+  "period": 7,
+  "group": 8,
+  "family": "Transition",
+  "configuration": "[Rn] 5f14 6d8 7s2",
+  "nameOrigin": "Named after the German city Darmstadt where many elements have been discovered.",
+  "discoveryDate": "1994",
+  "discoveryCountry": [
+   "de"
+  ],
+  "discoverers": [
+   "S. Hofmann",
+   "V. Ninov",
+   "F. P. Hessberger",
+   "P. Armbruster",
+   "H. Folger",
+   "G. M\u00fcnzenberg",
+   "H. J. Sch\u00f6tt",
+   "et al."
+  ],
+  "oxidation": [],
+  "color": [
+   0.92,
+   0.0,
+   0.14
+  ]
+ },
+ {
+  "z": 111,
+  "symbol": "Rg",
+  "name": "Roentgenium",
+  "mass": 280.0,
+  "exactMass": 272.15362,
+  "ionization": null,
+  "electronAffinity": null,
+  "electronegativity": null,
+  "radiusCovalent": null,
+  "radiusVDW": null,
+  "boilingPoint": null,
+  "meltingPoint": null,
+  "block": "d",
+  "period": 7,
+  "group": 1,
+  "family": "Transition",
+  "configuration": "[Rn] 5f14 6d9 7s2",
+  "nameOrigin": "Named after Wilhelm Conrad R\u00f6ntgen.",
+  "discoveryDate": "1994",
+  "discoveryCountry": [
+   "de"
+  ],
+  "discoverers": [
+   "S. Hofmann",
+   "V. Ninov",
+   "F. P. Hessberger",
+   "P. Armbruster",
+   "H. Folger",
+   "G. M\u00fcnzenberg",
+   "et al."
+  ],
+  "oxidation": [],
+  "color": [
+   0.93,
+   0.0,
+   0.13
+  ]
+ },
+ {
+  "z": 112,
+  "symbol": "Cn",
+  "name": "Copernicium",
+  "mass": 285.0,
+  "exactMass": 285.17411,
+  "ionization": null,
+  "electronAffinity": null,
+  "electronegativity": null,
+  "radiusCovalent": null,
+  "radiusVDW": null,
+  "boilingPoint": null,
+  "meltingPoint": null,
+  "block": "d",
+  "period": 7,
+  "group": 2,
+  "family": "Transition",
+  "configuration": "[Rn] 5f14 6d10 7s2",
+  "nameOrigin": "Historically known as eka-mercury. Named after the astronomer Nicolaus Copernicus.",
+  "discoveryDate": "1996",
+  "discoveryCountry": [
+   "de"
+  ],
+  "discoverers": [
+   "First created at the Gesellschaft f\u00fcr Schwerionenforschung"
+  ],
+  "oxidation": [],
+  "color": [
+   0.94,
+   0.0,
+   0.12
+  ]
+ },
+ {
+  "z": 113,
+  "symbol": "Nh",
+  "name": "Nihonium",
+  "mass": 284.0,
+  "exactMass": 284.17808,
+  "ionization": null,
+  "electronAffinity": null,
+  "electronegativity": null,
+  "radiusCovalent": null,
+  "radiusVDW": null,
+  "boilingPoint": null,
+  "meltingPoint": null,
+  "block": "p",
+  "period": 7,
+  "group": 3,
+  "family": "Other_Metal",
+  "configuration": "[Rn] 5f14 6d10 7s2 7p1",
+  "nameOrigin": "Named after 'Nihon', the romanized spelling for 'Japan' in Japanese. The element was the first element discovered in Japan, at the RIKEN Nishina Center for Accelerator-Based Science. Historically known as eka-thallium.",
+  "discoveryDate": "2003",
+  "discoveryCountry": [
+   "jp",
+   "ru",
+   "us"
+  ],
+  "discoverers": [
+   "Kosuke Morita at RIKEN Nishina Center for Accelerator-Based Science in Japan",
+   "confirmed by Russian scientists at Dubna (JINR) and American scientists at the Lawrence Livermore National Laboratory."
+  ],
+  "oxidation": [],
+  "color": [
+   0.95,
+   0.0,
+   0.11
+  ]
+ },
+ {
+  "z": 114,
+  "symbol": "Fl",
+  "name": "Flerovium",
+  "mass": 289.0,
+  "exactMass": 289.18728,
+  "ionization": null,
+  "electronAffinity": null,
+  "electronegativity": null,
+  "radiusCovalent": null,
+  "radiusVDW": null,
+  "boilingPoint": null,
+  "meltingPoint": null,
+  "block": "p",
+  "period": 7,
+  "group": 4,
+  "family": "Other_Metal",
+  "configuration": "[Rn] 5f14 6d10 7s2 7p2",
+  "nameOrigin": "Historically known as eka-lead. Named after Flerov Laboratory of Nuclear Reactions (Dubna, Russia) where superheavy elements are synthesized.",
+  "discoveryDate": "1998",
+  "discoveryCountry": [
+   "ru",
+   "us"
+  ],
+  "discoverers": [
+   "Joint Institute for Nuclear Research"
+  ],
+  "oxidation": [],
+  "color": [
+   0.96,
+   0.0,
+   0.1
+  ]
+ },
+ {
+  "z": 115,
+  "symbol": "Mc",
+  "name": "Moscovium",
+  "mass": 288.0,
+  "exactMass": 288.19249,
+  "ionization": null,
+  "electronAffinity": null,
+  "electronegativity": null,
+  "radiusCovalent": null,
+  "radiusVDW": null,
+  "boilingPoint": null,
+  "meltingPoint": null,
+  "block": "p",
+  "period": 7,
+  "group": 5,
+  "family": "Other_Metal",
+  "configuration": "[Rn] 5f14 6d10 7s2 7p3",
+  "nameOrigin": "Named for the Moscow, Russia, region which is home to the Joint Institute for Nuclear Research that was a co-discoverer of this element. Historically known as eka-bismuth.",
+  "discoveryDate": "2004",
+  "discoveryCountry": [
+   "ru",
+   "us"
+  ],
+  "discoverers": [
+   "Russian scientists at Dubna (JINR)",
+   "American scientists at the Lawrence Livermore National Laboratory, Oak Ridge National Laboratory and Vanderbilt University."
+  ],
+  "oxidation": [],
+  "color": [
+   0.97,
+   0.0,
+   0.09
+  ]
+ },
+ {
+  "z": 116,
+  "symbol": "Lv",
+  "name": "Livermorium",
+  "mass": 293.0,
+  "exactMass": 292.19979,
+  "ionization": null,
+  "electronAffinity": null,
+  "electronegativity": null,
+  "radiusCovalent": null,
+  "radiusVDW": null,
+  "boilingPoint": null,
+  "meltingPoint": null,
+  "block": "p",
+  "period": 7,
+  "group": 6,
+  "family": "Other_Metal",
+  "configuration": "[Rn] 5f14 6d10 7s2 7p4",
+  "nameOrigin": "Historically known as eka-polonium. Named after Livermore National Laboratory (USA).",
+  "discoveryDate": "2000",
+  "discoveryCountry": [
+   "ru"
+  ],
+  "discoverers": [
+   "Joint Institute for Nuclear Research"
+  ],
+  "oxidation": [],
+  "color": [
+   0.98,
+   0.0,
+   0.08
+  ]
+ },
+ {
+  "z": 117,
+  "symbol": "Ts",
+  "name": "Tennessine",
+  "mass": null,
+  "exactMass": null,
+  "ionization": null,
+  "electronAffinity": null,
+  "electronegativity": null,
+  "radiusCovalent": null,
+  "radiusVDW": null,
+  "boilingPoint": null,
+  "meltingPoint": null,
+  "block": "p",
+  "period": 7,
+  "group": 7,
+  "family": "Halogen",
+  "configuration": "[Rn] 5f14 6d10 7s2 7p5",
+  "nameOrigin": "Named for the American state of Tennessee which is home to the Oak Ridge National Laboratory and Vanderbilt University whom were co-discoverers of this element. Historically known as eka-astatine.",
+  "discoveryDate": "2010",
+  "discoveryCountry": [],
+  "discoverers": [
+   "Russian scientists at Dubna (JINR)",
+   "American scientists at the Lawrence Livermore National Laboratory, Oak Ridge National Laboratory and Vanderbilt University."
+  ],
+  "oxidation": [],
+  "color": [
+   0.99,
+   0.0,
+   0.07
+  ]
+ },
+ {
+  "z": 118,
+  "symbol": "Og",
+  "name": "Oganesson",
+  "mass": 294.0,
+  "exactMass": null,
+  "ionization": null,
+  "electronAffinity": null,
+  "electronegativity": null,
+  "radiusCovalent": null,
+  "radiusVDW": null,
+  "boilingPoint": null,
+  "meltingPoint": null,
+  "block": "p",
+  "period": 7,
+  "group": 8,
+  "family": "Noblegas",
+  "configuration": "[Rn] 5f14 6d10 7s2 7p6",
+  "nameOrigin": "Named in honor of Professor Yuri Oganessian's trans-actinide element research. Historically known as eka-radon, eka-emanation before 1960.",
+  "discoveryDate": "2002",
+  "discoveryCountry": [
+   "ru",
+   "us"
+  ],
+  "discoverers": [
+   "Russian scientists at Dubna (JINR)",
+   "American scientists at the Lawrence Livermore National Laboratory."
+  ],
+  "oxidation": [],
+  "color": [
+   1.0,
+   0.0,
+   0.06
+  ]
+ }
+]

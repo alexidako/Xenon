@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Xenon",
+  "version": "1.0.0",
+  "identifier": "app.xenon.chemistry",
+  "build": {
+    "beforeDevCommand": "npm run dev -- --port 5173 --strictPort",
+    "devUrl": "http://localhost:5173",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      { "title": "Xenon", "width": 1360, "height": 860, "minWidth": 900, "minHeight": 600, "center": true }
+    ],
+    "security": {
+      "csp": "default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self'; worker-src 'self' blob:; connect-src 'self' ipc: http://ipc.localhost"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "category": "Education",
+    "shortDescription": "A chemistry reference and learning app",
+    "longDescription": "Periodic table, isotopes, spectra, calculators, an equation solver, quizzes, a molecule editor, 3D molecules and orbitals, valence bond theory and a geometry optimizer.",
+    "copyright": "Built by pupper, 2026. Data and artwork from KDE Kalzium (GPL-2.0-or-later) and the Blue Obelisk project (MIT).",
+    "license": "GPL-2.0-or-later",
+    "licenseFile": "../../LICENSE",
+    "icon": ["icons/32x32.png", "icons/128x128.png", "icons/128x128@2x.png", "icons/icon.icns", "icons/icon.ico"],
+    "linux": { "deb": { "depends": [] } },
+    "windows": { "nsis": { "installMode": "currentUser" } }
+  }
+}

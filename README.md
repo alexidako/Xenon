@@ -1,15 +1,67 @@
-# Xenon
+<p align="center">
+  <img src="docs/logo.png" width="140" alt="Xenon logo: two nitrogen atoms joined by a triple bond">
+</p>
 
-Built by pupper (2026), developed with Claude Code. Based on the data and artwork of KDE Kalzium.
+<h1 align="center">Xenon</h1>
 
-A native macOS (SwiftUI) port of [KDE Kalzium](https://apps.kde.org/kalzium/), built from the Kalzium source data.
+<p align="center">
+  <b>A chemistry reference and learning app</b><br>
+  Periodic table · isotopes · spectra · equation solver · quizzes · molecule editor · 3D molecules &amp; orbitals · valence bond theory
+</p>
+
+<p align="center">
+  <a href="https://github.com/alexidako/Xenon/actions/workflows/desktop.yml"><img alt="Build" src="https://github.com/alexidako/Xenon/actions/workflows/desktop.yml/badge.svg"></a>
+  <img alt="License: GPL v2 or later" src="https://img.shields.io/badge/license-GPL--2.0--or--later-blue">
+  <img alt="Platforms" src="https://img.shields.io/badge/platforms-macOS%20%7C%20Windows%20%7C%20Linux-8A2BE2">
+  <img alt="Swift" src="https://img.shields.io/badge/Swift-SwiftUI-F05138?logo=swift&logoColor=white">
+  <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-three.js%20%7C%20Tauri-3178C6?logo=typescript&logoColor=white">
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/table.png" width="900" alt="The periodic table with the iconic color scheme">
+</p>
+
+A port of [KDE Kalzium](https://apps.kde.org/kalzium/) with a lot added on top: natural-language element search, a spectrum
+matcher, stoichiometry, a molecule editor, 3D orbital views, valence bond theory with resonance structures, and a
+geometry optimizer that finds the most stable 3D shape of a molecule. Built by pupper, 2026, with Claude Code.
+
+## 🎨 A look around
+
+<table>
+  <tr>
+    <td width="50%"><img src="docs/screenshots/molecule-orbitals.png" alt="Ethanol with its sigma bonds and lone pairs drawn as orbital lobes"><br><sub><b>3D molecules</b> with σ, lone-pair and π orbitals</sub></td>
+    <td width="50%"><img src="docs/screenshots/orbitals.png" alt="A pi bond: two p orbitals overlapping side-on, blue and orange for the two phases"><br><sub><b>Orbitals:</b> atomic, hybrid and bonding overlap</sub></td>
+  </tr>
+  <tr>
+    <td><img src="docs/screenshots/isotopes.png" alt="The chart of the nuclides colored by decay type"><br><sub><b>Isotope chart</b> by decay type, half-life or abundance</sub></td>
+    <td><img src="docs/screenshots/resonance.png" alt="The three resonance structures of nitrate"><br><sub><b>Resonance &amp; formal charges</b></sub></td>
+  </tr>
+  <tr>
+    <td><img src="docs/screenshots/spectrum-matcher.png" alt="Matching observed spectral lines to elements"><br><sub><b>Spectrum matcher:</b> which gas is in the tube?</sub></td>
+    <td><img src="docs/screenshots/stoichiometry.png" alt="Limiting reagent and yield with every step shown"><br><sub><b>Stoichiometry</b> with every step shown</sub></td>
+  </tr>
+</table>
+
+<sub>Screenshots are from the macOS version; the Windows, Linux and web version has the same screens.</sub>
+
+## 📥 Get it
+
+| Platform | How |
+| --- | --- |
+| 🪟 Windows, 🐧 Linux, 🍎 macOS | Open the **Actions** tab, pick the latest *Build Xenon desktop apps* run and download the installer under **Artifacts** (`.msi`/`.exe`, `.deb`/`.rpm`/`.AppImage`, `.dmg`). Pushing a tag such as `v1.0.0` attaches them to a draft **Release**. |
+| 🌐 In a browser | `cd web && npm install && npm run dev`, see `web/README.md` |
+| 🍎 Mac, from source | the commands below |
+
+The apps are not code-signed, so Windows SmartScreen and macOS Gatekeeper warn on first launch (details in `web/README.md`).
+
+## 🍎 Build the Mac app from source
 
 ```bash
 swift run                      # run from source
 ./scripts/package-app.sh       # build Xenon.app (release, ad-hoc signed)
 ```
 
-Requires macOS 14+ and the Swift toolchain (Xcode or Command Line Tools).
+Requires macOS 14+ and the Swift toolchain (Xcode or Command Line Tools). Windows, Linux and browser users: see `web/README.md`.
 
 ## Getting around
 

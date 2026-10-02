@@ -6,3 +6,8 @@ export const userMolecules = new Store<{ items: Molecule[]; focus: string | null
 export function addUserMolecule(m: Molecule) {
   userMolecules.set(s => ({ items: [m, ...s.items.filter(x => x.name !== m.name)], focus: m.name }))
 }
+
+/** Removes a molecule you made (by identity, so a custom molecule that shares a name with a built-in one is safe). */
+export function removeUserMolecule(m: Molecule) {
+  userMolecules.set(s => ({ items: s.items.filter(x => x !== m), focus: s.focus === m.name ? null : s.focus }))
+}

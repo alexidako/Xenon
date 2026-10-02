@@ -11,6 +11,11 @@ final class UserMolecules: ObservableObject {
         items.insert(m, at: 0)
         focus = m.id
     }
+
+    func remove(_ id: Molecule.ID) {
+        items.removeAll { $0.id == id }
+        if focus == id { focus = nil }
+    }
 }
 
 final class Navigation: ObservableObject {

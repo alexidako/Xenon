@@ -78,6 +78,19 @@ enum SelfTest {
         MainActor.assumeIsolated { OrbitalSelfTest.run(); OverlayFilterSelfTest.run() }
         // ---- geometry optimizer ----
         MainActor.assumeIsolated { OptimizerSelfTest.run(); AngleOverlaySelfTest.run() }
+        // ---- deleting custom molecules ----
+        MainActor.assumeIsolated {
+            let store = UserMolecules()
+            let a = Molecule(name: "Mine A", atoms: [MolAtom(symbol: "O", x: 0, y: 0, z: 0)], bonds: []), b = Molecule(name: "Mine B", atoms: [MolAtom(symbol: "N", x: 0, y: 0, z: 0)], bonds: [])
+            store.add(a); store.add(b)
+            let builtIn = MoleculeLibrary.bundled.first!
+            store.remove(builtIn.id)
+            check(store.items.count == 2, "delete: removing an id that is not a custom molecule changes nothing")
+            store.remove(b.id)
+            check(store.items.map(\.name) == ["Mine A"] && store.focus == nil, "delete: a custom molecule is removed and its focus cleared", "\(store.items.map(\.name)) \(String(describing: store.focus))")
+            store.remove(a.id); store.remove(a.id)
+            check(store.items.isEmpty, "delete: deleting twice is harmless and the list ends up empty")
+        }
         // ---- molecule editor ----
         MainActor.assumeIsolated { EditorSelfTest.run() }
         // ---- valence bond theory ----

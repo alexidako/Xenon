@@ -20,3 +20,22 @@ describe('editor model', () => {
     expect(distanceToSegment(5, 5, 0, 0, 0, 0)).toBeCloseTo(Math.hypot(5, 5)); m.removeAtom(a); expect(m.sketch.bonds.length).toBe(0)
   })
 })
+
+import { userMolecules, addUserMolecule, removeUserMolecule } from './usermol'
+import { moleculeLibrary } from './molecule'
+describe('deleting custom molecules', () => {
+  it('removes only the molecule you made', () => {
+    userMolecules.set({ items: [], focus: null })
+    const a = { name: 'Mine A', atoms: [{ symbol: 'O', x: 0, y: 0, z: 0 }], bonds: [] }, b = { name: 'Mine B', atoms: [{ symbol: 'N', x: 0, y: 0, z: 0 }], bonds: [] }
+    addUserMolecule(a); addUserMolecule(b)
+    removeUserMolecule(moleculeLibrary[0]); expect(userMolecules.get().items.length).toBe(2)       // a built-in molecule is not in the list: nothing happens
+    removeUserMolecule(b); expect(userMolecules.get().items.map(m => m.name)).toEqual(['Mine A']); expect(userMolecules.get().focus).toBeNull()
+    removeUserMolecule(a); removeUserMolecule(a); expect(userMolecules.get().items).toEqual([])
+  })
+  it('a custom molecule with a built-in name does not take the built-in one with it', () => {
+    userMolecules.set({ items: [], focus: null })
+    const mine = { ...moleculeLibrary.find(m => m.name === 'Ethanol')! }
+    addUserMolecule(mine); removeUserMolecule(mine)
+    expect(userMolecules.get().items).toEqual([]); expect(moleculeLibrary.some(m => m.name === 'Ethanol')).toBe(true)
+  })
+})

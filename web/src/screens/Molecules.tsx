@@ -7,7 +7,7 @@ import { OverlayMode, overlayModes } from '../lib/molorb'
 import { buildMoleculeScene, molStyles, MolStyle } from '../lib/molscene'
 import { optimizeAsync } from '../lib/optimizeAsync'
 import { downloadText } from '../lib/export'
-import { userMolecules } from '../lib/usermol'
+import { userMolecules, removeUserMolecule } from '../lib/usermol'
 import { jump } from '../lib/nav'
 import { useStore } from '../lib/store'
 import { Page, Segmented, Select, Check } from '../ui/kit'
@@ -19,12 +19,15 @@ export function MoleculesScreen() {
   const [sel, setSel] = useState<string>(moleculeLibrary[0]?.name ?? '')
   const [style, setStyle] = useState<MolStyle>('Ball & stick'), [orbitals, setOrbitals] = useState<OverlayMode>('Off'), [angles, setAngles] = useState(false)
   const [shown, setShown] = useState<Set<number>>(new Set()), [reset, setReset] = useState(0), [msg, setMsg] = useState(''), [busy, setBusy] = useState(false)
+  const [confirming, setConfirming] = useState<Molecule | null>(null)
   const file = useRef<HTMLInputElement>(null)
   const all = useMemo(() => [...user.items, ...imported, ...moleculeLibrary], [user.items, imported])
   const names = all.map(m => m.name)
   useEffect(() => { if (user.focus && names.includes(user.focus)) { setSel(user.focus); userMolecules.set(s => ({ ...s, focus: null })) } }, [user.focus])
   useEffect(() => { if (j.molecule && names.includes(j.molecule)) { setSel(j.molecule); jump.set(x => ({ ...x, molecule: null })) } }, [j.molecule])
   const base = all.find(m => m.name === sel) ?? all[0]
+  /** Molecules you made in the editor or opened from a file can be deleted; the bundled ones cannot. */
+  const isCustom = (m?: Molecule) => !!m && (user.items.includes(m) || imported.includes(m))
   const current = base ? optimized[base.name] ?? base : undefined
   useEffect(() => { setShown(new Set()) }, [sel])
 
@@ -46,11 +49,19 @@ export function MoleculesScreen() {
     ;(e.target as HTMLInputElement).value = ''
   }
   const save = async (f: Format) => { if (!current) return; const file = `${current.name.replace(/ /g, '_')}.${f}`; setMsg((await downloadText(file, exportMolecule(current, f))) ? `Saved ${file}` : 'Not saved') }
+  const remove = (m: Molecule) => {
+    const i = all.indexOf(m), neighbour = all[i + 1] ?? all[i - 1]
+    removeUserMolecule(m); setImported(x => x.filter(y => y !== m))
+    // an optimization is stored under the name; drop it unless another molecule still uses that name
+    if (!all.some(o => o !== m && o.name === m.name)) setOptimized(o => { const n = { ...o }; delete n[m.name]; return n })
+    if (neighbour) setSel(neighbour.name)
+    setConfirming(null); setShown(new Set()); setMsg(`Deleted “${m.name}”`)
+  }
   const toggleAtom = (i: number) => { const n = new Set(shown); n.has(i) ? n.delete(i) : n.add(i); setShown(n) }
 
   return <Page title="Molecules">
     <div class="split" style={{ gridTemplateColumns: '220px 1fr' }}>
-      <div class="list" role="listbox" aria-label="Molecules">{all.map(m => <button key={m.name} role="option" aria-selected={m.name === sel} class={m.name === sel ? 'on' : ''} onClick={() => setSel(m.name)}>{m.name}{optimized[m.name] && <span class="dim small">optimized</span>}</button>)}</div>
+      <div class="list" role="listbox" aria-label="Molecules" onKeyDown={e => { if ((e.key === 'Delete' || e.key === 'Backspace') && isCustom(base)) { e.preventDefault(); setConfirming(base) } }}>{all.map((m, i) => <button key={i} role="option" aria-selected={m === base} class={m === base ? 'on' : ''} onClick={() => { setSel(m.name); setConfirming(null) }}>{m.name}{optimized[m.name] && <span class="dim small">optimized</span>}{isCustom(m) && <span class="dim small" title="Made by you" aria-label="made by you" style={{ marginLeft: 'auto' }}>● yours</span>}</button>)}</div>
       <div class="col" style={{ gap: 0, minHeight: 0 }}>
         <div class="toolbar" style={{ flexDirection: 'column', alignItems: 'stretch' }}>
           <div class="row wrap gap16"><Segmented value={style} options={molStyles} onChange={setStyle} label="Style" />
@@ -60,9 +71,13 @@ export function MoleculesScreen() {
             {current && base && optimized[base.name] && <button class="btn" title="Go back to the geometry the file came with" onClick={() => { setOptimized(o => { const n = { ...o }; delete n[base.name]; return n }); setMsg('Original geometry restored') }}>Revert</button>}
             <button class="btn" disabled={busy || !current || current.atoms.length < 2} onClick={optimize}
               title="Rearrange the atoms into the most stable 3D shape: it tries many starting shapes (every rotatable bond, ring puckers) and keeps the lowest-energy one. Uses a simplified force field, not quantum chemistry.">{busy ? 'Optimizing…' : '✦ Optimize geometry'}</button>
+            {isCustom(base) && <button class="btn danger" title="Delete this molecule from the list. Molecules you made yourself can be deleted; the built-in ones cannot." onClick={() => setConfirming(base!)}>🗑 Delete</button>}
             <span class="grow" /><button class="btn" onClick={() => file.current?.click()}>Open file…</button><input ref={file} type="file" accept=".cml,.mol,.sdf,.xyz" hidden onChange={onFile} />
             <select aria-label="Convert" value="" disabled={!current} onChange={e => { const v = (e.target as HTMLSelectElement).value as Format; if (v) save(v) }}><option value="">Convert…</option>{(['cml', 'mol', 'xyz'] as Format[]).map(f => <option key={f} value={f}>Save as .{f}</option>)}</select></div>
         </div>
+        {confirming && <div class="row wrap gap8 banner" role="alertdialog" aria-label={`Delete ${confirming.name}?`} style={{ borderTop: 0, background: 'rgba(229,72,77,.12)' }}>
+          <b>Delete “{confirming.name}”?</b><span class="dim small">It disappears from the Molecules and Valence Bond lists and can't be brought back. Use Convert… first if you want a file copy.</span>
+          <span class="grow" /><button class="btn" autoFocus onClick={() => setConfirming(null)}>Cancel</button><button class="btn danger" onClick={() => remove(confirming)}>Delete</button></div>}
         {(orbitals !== 'Off' || angles) && current && <div class="row wrap gap8 banner" style={{ borderTop: 0 }}><span class="small dim">{orbitals !== 'Off' && angles ? 'Show orbitals and angles of' : angles ? 'Show angles of' : 'Show orbitals of'}</span>
           <button class={'chip' + (shown.size === 0 ? ' on' : '')} onClick={() => setShown(new Set())}>All</button>
           {heavy.map(a => <button key={a.index} class={'chip' + (shown.has(a.index) ? ' on' : '')} onClick={() => toggleAtom(a.index)}>{a.label}</button>)}</div>}

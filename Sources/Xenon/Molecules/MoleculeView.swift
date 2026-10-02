@@ -18,6 +18,10 @@ struct MoleculeView: View {
     @State private var shownAtoms: Set<Int> = []        // empty = every atom
     @State private var orbitals = OrbitalOverlay.Mode(rawValue: ProcessInfo.processInfo.environment["XENON_ORBITALS"] ?? "") ?? .off
     @State private var message = ""
+    @State private var pendingDelete: Molecule?
+
+    /// Molecules you made in the editor or opened from a file can be deleted; the bundled ones cannot.
+    private func isCustom(_ m: Molecule) -> Bool { user.items.contains { $0.id == m.id } || imported.contains { $0.id == m.id } }
 
     private var current: Molecule? {
         molecules.first { $0.id == selection }
@@ -27,8 +31,16 @@ struct MoleculeView: View {
 
     var body: some View {
         HSplitView {
-            List(molecules, selection: $selection) { Text($0.name).tag($0.id) }
-                .frame(minWidth: 190, idealWidth: 220, maxWidth: 300)
+            List(molecules, selection: $selection) { m in
+                HStack {
+                    Text(m.name)
+                    if isCustom(m) { Spacer(); Image(systemName: "person.crop.circle").foregroundStyle(.secondary).help("Made by you") }
+                }
+                .tag(m.id)
+                .contextMenu { if isCustom(m) { Button("Delete “\(m.name)”…", role: .destructive) { pendingDelete = m } } }
+            }
+            .frame(minWidth: 190, idealWidth: 220, maxWidth: 300)
+            .onDeleteCommand { if let m = current, isCustom(m) { pendingDelete = m } }
             VStack(spacing: 0) {
                 VStack(alignment: .leading, spacing: 8) {
                     HStack(spacing: 14) {
@@ -44,6 +56,10 @@ struct MoleculeView: View {
                         Button { resetToken += 1 } label: { Label("Reset view", systemImage: "arrow.counterclockwise") }
                             .help("Drag to rotate · scroll or pinch to zoom · double-click to reset")
                         if let m = current { optimizeControls(m) }
+                        if let m = current, isCustom(m) {
+                            Button(role: .destructive) { pendingDelete = m } label: { Label("Delete", systemImage: "trash") }
+                                .help("Delete this molecule from the list. Molecules you made yourself can be deleted; the built-in ones cannot.")
+                        }
                         Spacer()
                         Button("Open file…") { importing = true }
                         Menu("Convert…") {
@@ -83,9 +99,29 @@ struct MoleculeView: View {
             if let m = MoleculeIO.load(url: url) { imported.append(m); selection = m.id; message = "" }
             else { message = "Could not read \(url.lastPathComponent)" }
         }
+        .confirmationDialog(pendingDelete.map { "Delete “\($0.name)”?" } ?? "Delete molecule?",
+                            isPresented: Binding(get: { pendingDelete != nil }, set: { if !$0 { pendingDelete = nil } }), titleVisibility: .visible) {
+            Button("Delete", role: .destructive) { if let m = pendingDelete { delete(m) }; pendingDelete = nil }
+            Button("Cancel", role: .cancel) { pendingDelete = nil }
+        } message: {
+            Text("It disappears from the Molecules and Valence Bond lists and can't be brought back. Use Convert… first if you want a file copy.")
+        }
         .onAppear { if let f = user.focus { selection = f } }
         .onChange(of: user.focus) { _, f in if let f { selection = f } }
         .navigationTitle("Molecules")
+    }
+
+    /// Removes a custom molecule and moves the selection to its neighbour in the list.
+    private func delete(_ m: Molecule) {
+        guard isCustom(m) else { return }
+        let list = molecules
+        let neighbour = list.firstIndex { $0.id == m.id }.flatMap { i in list.indices.contains(i + 1) ? list[i + 1].id : (i > 0 ? list[i - 1].id : nil) }
+        user.remove(m.id)
+        imported.removeAll { $0.id == m.id }
+        optimized[m.id] = nil
+        if selection == m.id || selection == nil { selection = neighbour }
+        shownAtoms = []
+        message = "Deleted “\(m.name)”"
     }
 
     /// Chips for choosing which atoms show their orbitals.

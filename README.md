@@ -46,11 +46,15 @@ geometry optimizer that finds the most stable 3D shape of a molecule. Built by p
 
 ## 📥 Get it
 
-| Platform | How |
+Go to the **[Releases page](https://github.com/alexidako/Xenon/releases)**, open the newest release and download the file for your system under **Assets**:
+
+| Your system | Download |
 | --- | --- |
-| 🪟 Windows, 🐧 Linux, 🍎 macOS | Open the **Actions** tab, pick the latest *Build Xenon desktop apps* run and download the installer under **Artifacts** (`.msi`/`.exe`, `.deb`/`.rpm`/`.AppImage`, `.dmg`). Pushing a tag such as `v1.0.0` attaches them to a draft **Release**. |
-| 🌐 In a browser | `cd web && npm install && npm run dev`, see `web/README.md` |
-| 🍎 Mac, from source | the commands below |
+| 🪟 **Windows** | `Xenon_…_x64-setup.exe` (installer) or `Xenon_…_x64_en-US.msi` |
+| 🍎 **macOS** (Apple Silicon and Intel) | `Xenon_…_universal.dmg`: open it and drag Xenon to Applications |
+| 🐧 **Linux** | `Xenon_…_amd64.AppImage` (any distribution: make it executable and run it), `.deb` (Debian, Ubuntu) or `.rpm` (Fedora, openSUSE) |
+| 🌐 **In a browser** | run it from source, no install of the app itself: `cd web && npm install && npm run dev` (see `web/README.md`) |
+| 🛠️ **Mac, native SwiftUI version** | build it from source with the commands below |
 
 The apps are not code-signed, so Windows SmartScreen and macOS Gatekeeper warn on first launch (details in `web/README.md`).
 
@@ -65,9 +69,18 @@ Requires macOS 14+ and the Swift toolchain (Xcode or Command Line Tools). Window
 
 ## Getting around
 
-- **⌘K** opens quick lookup: type an element, glossary term, lab tool, molecule or screen name and press Return.
-- **⌘1 … ⌘0** jump to the first ten screens (Go menu). The app reopens on the screen you left.
-- **Settings** (⌘, or the sidebar) choose display units: K / °C / °F, eV / kJ·mol⁻¹ / kcal·mol⁻¹, Å / pm / nm.
+Keyboard shortcuts (Mac uses ⌘; Windows and Linux use Ctrl):
+
+| Action | macOS | Windows / Linux |
+| --- | --- | --- |
+| Quick lookup: type an element, glossary term, lab tool, molecule or screen name, then press Return | ⌘K | Ctrl+K |
+| Jump to the first ten screens (the sidebar shows each number) | ⌘1 … ⌘0 | Ctrl+1 … Ctrl+0 |
+| Settings | ⌘, | Ctrl+, |
+| Undo / redo in the molecule editor | ⌘Z / ⇧⌘Z | Ctrl+Z / Ctrl+Shift+Z |
+| Answer a quiz question | 1 – 4 | 1 – 4 |
+| Reset the 3D view | double-click | double-click |
+
+The app reopens on the screen you left. **Settings** also chooses display units: K / °C / °F, eV / kJ·mol⁻¹ / kcal·mol⁻¹, Å / pm / nm.
 
 ## What is in it
 

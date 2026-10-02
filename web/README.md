@@ -18,7 +18,7 @@ npm run build        # static site in web/dist (host it anywhere)
 Installers have to be built on their own operating system, so the easiest route is the included GitHub Actions workflow
 (`.github/workflows/desktop.yml`): push the repo to GitHub, open **Actions → Build Xenon desktop apps → Run workflow**,
 and download the Windows (`.msi`, `.exe`), Linux (`.deb`, `.rpm`, `.AppImage`) and macOS (`.dmg`) files from the run.
-Push a tag like `v1.0.0` to get them attached to a draft release instead.
+Push a tag like `v1.0.1` to get them attached to a draft release instead (for the maintainer: review it on the Releases page, then press *Publish release* so everyone else can download it).
 
 To build on your own machine you need Node 20+ and a Rust toolchain ([rustup.rs](https://rustup.rs)):
 

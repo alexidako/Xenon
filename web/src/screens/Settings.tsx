@@ -16,7 +16,7 @@ export function SettingsScreen() {
       <div class="small dim">These change how values are shown in the element details and the table legend. Calculators have their own unit menus.</div></div></Card>
     <Card title="Preview: Iron"><div class="kv"><div>Melting point</div><div>{temperatureText(fe.meltingPoint, p)}</div><div>First ionization energy</div><div>{energyText(fe.ionization, p)}</div><div>Covalent radius</div><div>{lengthText(fe.radiusCovalent, p)}</div></div></Card>
     <div><button class="btn" onClick={() => prefs.set(defaultPrefs)}>Restore defaults</button></div>
-    <Card title="About"><div class="col gap4"><b>Xenon 1.0</b><div>A chemistry reference and learning app, built by pupper, 2026. Developed with Claude Code (Anthropic).</div>
+    <Card title="About"><div class="col gap4"><b>Xenon 1.0.1</b><div>A chemistry reference and learning app, built by pupper, 2026. Developed with Claude Code (Anthropic).</div>
       <div class="small dim">Element, isotope and spectrum data: Blue Obelisk project (MIT). Glossary, lab equipment, hazard symbols, molecules, icons and the original application: KDE Kalzium (GPL-2.0-or-later).</div></div></Card>
   </div></Page>
 }

@@ -1,6 +1,6 @@
 [package]
 name = "xenon"
-version = "1.0.0"
+version = "1.0.1"
 description = "Xenon: a chemistry reference and learning app"
 authors = ["pupper"]
 license = "GPL-2.0-or-later"

@@ -1,6 +1,7 @@
 import { Element, elements, familyInfo, gridPosition, isotopesByElement, stateAt, discoveryYear, MatterState } from './element'
 import { formatNumber } from './format'
-import { t } from '../i18n'
+import { t, language } from '../i18n'
+import { normalizeQuery } from '../i18n/queryVocab'
 
 /** Plain-language element search ("liquid at room temperature", "halogens discovered before 1850" …). Rule-based, offline. */
 export interface QueryResult { matches: Element[]; description: string; unsupported?: boolean }
@@ -50,7 +51,7 @@ const cap = (s: string) => s.replace(/\b\w/g, c => c.toUpperCase())
 export const hasStableIsotope = (e: Element) => (isotopesByElement.get(e.z) ?? []).some(i => i.halfLife == null && i.abundance != null)
 
 export function runQuery(raw: string, isStable: ((e: Element) => boolean) | null = hasStableIsotope): QueryResult | null {
-  const scan = new Scan(' ' + raw.toLowerCase().replaceAll('’', "'") + ' ')
+  const scan = new Scan(' ' + normalizeQuery(raw, language.get()).toLowerCase().replaceAll('’', "'") + ' ')
   const filters: [string, (e: Element) => boolean][] = []
   let sort: { prop: Prop; descending: boolean; count: number } | null = null
   let recognised = false
@@ -147,7 +148,7 @@ export function runQuery(raw: string, isStable: ((e: Element) => boolean) | null
   if (g) {
     const who = g[1].trim()
     const code = Object.hasOwn(countries, who) ? countries[who] : undefined
-    if (code) { filters.push([t('discovered in {place}', { place: cap(who) }), e => e.discoveryCountry.includes(code)]); recognised = true }
+    if (code) { filters.push([t('discovered in {place}', { place: t(cap(who)) }), e => e.discoveryCountry.includes(code)]); recognised = true }
     else if (who.length >= 3) { filters.push([t('discovered by {who}', { who: cap(who) }), e => e.discoverers.some(d => d.toLowerCase().includes(who))]); recognised = true }
   }
 

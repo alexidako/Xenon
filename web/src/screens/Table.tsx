@@ -3,7 +3,7 @@ import { Element, elements, gridPosition, discoveryYear, familyInfo } from '../l
 import { runQuery } from '../lib/query'
 import { Numeration, numerations, numerationItems, Overlay, schemeNames, gradientNames, isGradient, overlayRange, overlayColor, overlayLegend, overlayNote,
   overlayDisplay, gradientColor } from '../lib/overlay'
-import { t } from '../i18n'
+import { t, language } from '../i18n'
 import { prefs, temperatureText } from '../lib/prefs'
 import { useStore } from '../lib/store'
 import { jump } from '../lib/nav'
@@ -17,11 +17,11 @@ export function TableScreen() {
   const [numeration, setNumeration] = useState<Numeration>('No numeration')
   const [temp, setTemp] = useState(298), [year, setYear] = useState(2020)
   const [query, setQuery] = useState(''), [legend, setLegend] = useState(true)
-  const j = useStore(jump); useStore(prefs)
+  const j = useStore(jump); useStore(prefs); const lang = useStore(language)
   useEffect(() => { if (j.element != null) { const e = elements.find(x => x.z === j.element); if (e) setSelection(e); jump.set(x => ({ ...x, element: null })) } }, [j.element])
 
   const q = query.trim()
-  const nl = useMemo(() => q.length >= 3 ? runQuery(q) : null, [q])
+  const nl = useMemo(() => q.length >= (lang === 'zh' ? 2 : 3) ? runQuery(q) : null, [q, lang])
   const matchSet = nl ? new Set(nl.matches.map(e => e.z)) : null
   const range = useMemo(() => overlayRange(overlay), [overlay])
   const yearRange = overlayRange('Discovery date')
@@ -85,7 +85,7 @@ function PeriodicTable({ box, selection, select, overlay, temp, range, numeratio
     {[[5, '57–71'], [6, '89–103']].map(([row, label]) => <div key={label} class="fplace" style={{ left: 2 * (cell + gap), top: topInset + (row as number) * (cell + gap), width: cell, height: cell, fontSize: Math.max(8, cell * 0.16) }}>{label}</div>)}
     {elements.map(e => {
       const pos = gridPosition(e.z)
-      const matches = matchSet ? matchSet.has(e.z) : (!q || e.name.toLowerCase().includes(q) || e.symbol.toLowerCase().includes(q) || String(e.z) === q)
+      const matches = matchSet ? matchSet.has(e.z) : (!q || e.name.toLowerCase().includes(q) || t(e.name).toLowerCase().includes(q) || e.symbol.toLowerCase().includes(q) || String(e.z) === q)
         && (yearLimit == null || (discoveryYear(e) ?? 0) <= yearLimit)
       const iconic = overlay === 'Iconic'
       return <button key={e.z} role="gridcell" class={'tile' + (selection === e ? ' sel' : '') + (matches ? '' : ' dim') + (iconic ? ' iconic' : '')}

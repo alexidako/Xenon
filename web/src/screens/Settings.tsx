@@ -11,7 +11,7 @@ export function SettingsScreen() {
   return <Page title={t("Settings")}><div class="scroll pad col" style={{ maxWidth: 640, gap: 16 }}>
     <h1>{t("Settings")}</h1>
     <Card title={t("Language")}><Field label={t("Language")}><select aria-label={t("Language")} value={lang} onChange={e => setLanguage((e.target as HTMLSelectElement).value as Lang)}>{languages.map(l => <option key={l.code} value={l.code}>{l.name}</option>)}</select></Field>
-      <div class="small dim" style={{ marginTop: 8 }}>{t("Element names, the glossary and the lab equipment use the official KDE Kalzium translations. The natural-language search on the periodic table understands English only.")}</div></Card>
+      <div class="small dim" style={{ marginTop: 8 }}>{t("Element names, the glossary and the lab equipment use the official KDE Kalzium translations. You can ask the periodic table search questions in any of these languages.")}</div></Card>
     <Card title={t("Appearance")}><Field label={t("Theme")}><Segmented<Theme> value={p.theme} options={['system', 'light', 'dark']} labels={{ system: 'System', light: 'Light', dark: 'Dark' }} onChange={v => set('theme', v)} /></Field></Card>
     <Card title={t("Units")}><div class="col">
       <Field label={t("Temperature")}><Select value={p.temperature} options={temperatureUnits} onChange={v => set('temperature', v)} /></Field>

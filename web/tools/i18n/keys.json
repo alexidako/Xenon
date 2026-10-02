@@ -89,14 +89,6 @@
    "literal"
   ]
  },
- " unit": {
-  "files": [
-   "kit.tsx"
-  ],
-  "kinds": [
-   "literal"
-  ]
- },
  "(formal charge {charge})": {
   "files": [
    "VBT.tsx"
@@ -410,6 +402,30 @@
    "call"
   ]
  },
+ "{sub} orbital {i}: {n} electrons": {
+  "files": [
+   "Filling.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{sub} orbital {i}: 1 electron": {
+  "files": [
+   "Filling.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{sub} orbitals": {
+  "files": [
+   "Filling.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
  "{symbol} has {n} bonds; at most {max} are allowed.": {
   "files": [
    "sketch.ts"
@@ -437,6 +453,14 @@
  "{symbol} is {name}. {origin}": {
   "files": [
    "quiz.ts"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "{title} unit": {
+  "files": [
+   "kit.tsx"
   ],
   "kinds": [
    "call"
@@ -1641,6 +1665,14 @@
    "literal"
   ]
  },
+ "Decrease {label}": {
+  "files": [
+   "VBT.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
  "Delete": {
   "files": [
    "Molecules.tsx"
@@ -2024,7 +2056,7 @@
    "literal"
   ]
  },
- "Element names, the glossary and the lab equipment use the official KDE Kalzium translations. The natural-language search on the periodic table understands English only.": {
+ "Element names, the glossary and the lab equipment use the official KDE Kalzium translations. You can ask the periodic table search questions in any of these languages.": {
   "files": [
    "Settings.tsx"
   ],
@@ -2133,6 +2165,22 @@
  "Equation": {
   "files": [
    "Solver.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Equation {n} expression": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Equation {n} name": {
+  "files": [
+   "Calculators.tsx"
   ],
   "kinds": [
    "call"
@@ -2708,6 +2756,14 @@
  "In phase, the lobes add up between the nuclei, which is what holds the atoms together.": {
   "files": [
    "Orbitals.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Increase {label}": {
+  "files": [
+   "VBT.tsx"
   ],
   "kinds": [
    "call"
@@ -4040,6 +4096,22 @@
    "call"
   ]
  },
+ "Point {n} x": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
+ "Point {n} y": {
+  "files": [
+   "Calculators.tsx"
+  ],
+  "kinds": [
+   "call"
+  ]
+ },
  "Practise my weak spots": {
   "files": [
    "Quiz.tsx"
@@ -5221,12 +5293,12 @@
    "call"
   ]
  },
- "unknown function ": {
+ "unknown function {f}": {
   "files": [
    "expr.ts"
   ],
   "kinds": [
-   "literal"
+   "call"
   ]
  },
  "up to {year}": {

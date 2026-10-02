@@ -62,7 +62,7 @@ export function TablesScreen() {
   return <Page title={t("Reference Tables")} toolbar={<Segmented value={tab} options={['Greek alphabet', 'Numeric prefixes & Roman numerals'] as const} onChange={setTab} />}>
     <div class="scroll pad">{tab === 'Greek alphabet'
       ? <table class="t" style={{ maxWidth: 520 }}><thead><tr><th>{t("Uppercase")}</th><th>{t("Lowercase")}</th><th>{t("Name")}</th></tr></thead><tbody>{reference.greek.map(g => <tr key={g.name}><td style={{ fontSize: 18 }}>{g.upper}</td><td style={{ fontSize: 18 }}>{g.lower}</td><td>{t(g.name)}</td></tr>)}</tbody></table>
-      : <table class="t" style={{ maxWidth: 520 }}><thead><tr><th>{t("Number")}</th><th>{t("Prefix")}</th><th>{t("Roman numeral")}</th></tr></thead><tbody>{reference.numbers.map((n, i) => <tr key={i}><td>{n.number}</td><td>{n.prefix}</td><td>{n.roman}</td></tr>)}</tbody></table>}</div>
+      : <table class="t" style={{ maxWidth: 520 }}><thead><tr><th>{t("Number")}</th><th>{t("Prefix")}</th><th>{t("Roman numeral")}</th></tr></thead><tbody>{reference.numbers.map((n, i) => <tr key={i}><td>{n.number}</td><td>{t(n.prefix)}</td><td>{n.roman}</td></tr>)}</tbody></table>}</div>
   </Page>
 }
 

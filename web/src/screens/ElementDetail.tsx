@@ -136,7 +136,7 @@ function Misc({ e }: { e: Element }) {
   return <div class="col">
     <Card title={t("Discovery")}><KV rows={[
       ['Year', year == null || Number.isNaN(year) || year === 0 ? t('known since antiquity') : String(year)],
-      ['Discovered by', e.discoverers.length ? e.discoverers.join(', ') : '—'],
+      ['Discovered by', e.discoverers.length ? e.discoverers.map(d => t(d)).join(', ') : '—'],
       ['Country', e.discoveryCountry.length ? e.discoveryCountry.map(c => countries[c.toLowerCase()] ? t(countries[c.toLowerCase()]) : c.toUpperCase()).join(', ') : '—']]} /></Card>
     <Card title={t("Name")}><span style={{ userSelect: 'text' }}>{e.nameOrigin ? t(e.nameOrigin) : '—'}</span></Card>
     {use && <Card title={t("Use")}><Markup text={t(use)} /></Card>}

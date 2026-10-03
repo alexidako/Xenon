@@ -23,10 +23,10 @@ struct TableScreen: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            controls
+            controls.frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
             Divider()
             if let nl = queryResult { QueryBanner(result: nl, select: { selection = $0 }); Divider() }
-            if showLegend { LegendView(overlay: overlay).padding(.horizontal, 12).padding(.vertical, 8); Divider() }
+            if showLegend { LegendView(overlay: overlay).padding(.horizontal, 12).padding(.vertical, 8).frame(minWidth: 0, maxWidth: .infinity, alignment: .leading); Divider() }
             PeriodicTableView(elements: ElementStore.all, overlay: overlay, temperature: temperature,
                               query: query, numeration: numeration, matchSet: queryResult.map { Set($0.matches.map(\.z)) },
                               yearLimit: overlay == .discovery ? year : nil, selection: $selection)

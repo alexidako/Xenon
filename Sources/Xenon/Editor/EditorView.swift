@@ -36,7 +36,15 @@ struct EditorView: View {
     // MARK: toolbar
 
     private var toolbar: some View {
-        HStack(spacing: 14) {
+        // one row when it fits, otherwise wrap (Russian and French labels are wider)
+        ViewThatFits(in: .horizontal) {
+            HStack(spacing: 14) { toolbarItems; Spacer() }
+            FlowLayout(spacing: 10) { toolbarItems }.frame(maxWidth: .infinity, alignment: .leading)
+        }
+        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+    }
+
+    @ViewBuilder private var toolbarItems: some View {
             Picker("Tool", selection: $model.tool) {
                 ForEach(EditorModel.Tool.allCases) { Label(tr($0.rawValue), systemImage: $0.icon).tag($0) }
             }.pickerStyle(.segmented).labelsHidden().frame(width: 230)
@@ -53,8 +61,6 @@ struct EditorView: View {
             Picker("Bond", selection: $model.bondOrder) {
                 Text("—").tag(1); Text("=").tag(2); Text("≡").tag(3)
             }.pickerStyle(.segmented).labelsHidden().frame(width: 100).help("Order of newly drawn bonds. Click an existing bond to cycle it.")
-            Spacer()
-        }
     }
 
     // MARK: inspector

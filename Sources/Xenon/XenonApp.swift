@@ -11,7 +11,7 @@ struct XenonApp: App {
         if let i = CommandLine.arguments.firstIndex(of: "--query"), i + 1 < CommandLine.arguments.count { SelfTest.query(CommandLine.arguments[i + 1]) }
         // Needed when launched via `swift run` (no app bundle).
         NSApplication.shared.setActivationPolicy(.regular)
-        NSApplication.shared.activate(ignoringOtherApps: true)
+        if !Bundle.main.bundlePath.hasSuffix(".app") { NSApplication.shared.activate(ignoringOtherApps: true) }
     }
 
     var body: some Scene {
@@ -114,6 +114,7 @@ struct RootView: View {
             }
             .navigationSplitViewColumnWidth(min: 220, ideal: 255, max: 300)
         } detail: {
+            Group {
             switch section ?? .table {
             case .table: TableScreen()
             case .glossary: GlossaryView()
@@ -134,7 +135,11 @@ struct RootView: View {
             case .export: ExportView()
             case .settings: SettingsView()
             }
+            }
+            // a screen whose own controls are wider than the window must not widen the whole window (and push the sidebar off)
+            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
         }
+
         .sheet(isPresented: $jump.paletteOpen) { PaletteView() }
         .onAppear { if ProcessInfo.processInfo.environment["XENON_PALETTE"] != nil { jump.paletteOpen = true } }
         .onChange(of: nav.target) { _, t in
@@ -151,7 +156,7 @@ struct AppRoot: View {
     var body: some View {
         RootView()
             .id(token)
-            .frame(minWidth: 1020, minHeight: 640)
+            .frame(minWidth: 1100, minHeight: 640)
             .task { if VRT.isActive { await VRT.run { token += 1 } } }
     }
 }

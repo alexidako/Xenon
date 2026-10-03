@@ -36,12 +36,8 @@ struct EditorView: View {
     // MARK: toolbar
 
     private var toolbar: some View {
-        // one row when it fits, otherwise wrap (Russian and French labels are wider)
-        ViewThatFits(in: .horizontal) {
-            HStack(spacing: 14) { toolbarItems; Spacer() }
-            FlowLayout(spacing: 10) { toolbarItems }.frame(maxWidth: .infinity, alignment: .leading)
-        }
-        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+        // wraps when the window is narrow or the labels are long
+        FlowLayout(spacing: 10) { toolbarItems }.frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
     }
 
     @ViewBuilder private var toolbarItems: some View {

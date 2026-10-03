@@ -13,6 +13,7 @@ struct TableScreen: View {
     @State private var query = ProcessInfo.processInfo.environment["XENON_QUERY"] ?? ""
     @State private var showLegend = true
     @ObservedObject private var jump = Jump.shared
+    @State private var showInspector = true
 
     private var queryResult: ElementQuery.Result? {
         let q = query.trimmingCharacters(in: .whitespaces)
@@ -31,7 +32,7 @@ struct TableScreen: View {
                               query: query, numeration: numeration, matchSet: queryResult.map { Set($0.matches.map(\.z)) },
                               yearLimit: overlay == .discovery ? year : nil, selection: $selection)
         }
-        .inspector(isPresented: .constant(true)) {
+        .inspector(isPresented: $showInspector) {
             Group {
                 if let selection { DetailView(element: selection) }
                 else { Text("Select an element").foregroundStyle(.secondary) }
@@ -40,17 +41,21 @@ struct TableScreen: View {
         }
         .onAppear { if let z = jump.element { selection = ElementStore.all.first { $0.z == z }; jump.element = nil } }
         .onChange(of: jump.element) { _, z in if let z { selection = ElementStore.all.first { $0.z == z }; jump.element = nil } }
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button { showInspector.toggle() } label: { Label("Element details", systemImage: "sidebar.right") }
+                    .help("Show or hide the element details")
+            }
+        }
         .searchable(text: $query, prompt: "Search or ask a question")
         .navigationTitle("Periodic Table")
     }
 
     private var controls: some View {
-        // one row when it fits, otherwise the controls wrap (a narrow window or a long translation)
-        ViewThatFits(in: .horizontal) {
-            HStack(spacing: 14) { controlItems; Spacer(); legendToggle }
-            FlowLayout(spacing: 14) { controlItems; legendToggle }.frame(maxWidth: .infinity, alignment: .leading)
-        }
-        .padding(10)
+        // wraps in a narrow window or with long translations; the legend toggle stays at the right when there is room
+        FlowLayout(spacing: 14, trailingLast: true) { controlItems; legendToggle }
+            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+            .padding(10)
     }
 
     private var legendToggle: some View { Toggle("Legend", isOn: $showLegend).toggleStyle(.checkbox).fixedSize() }
@@ -112,25 +117,33 @@ struct LegendView: View {
 /// Minimal wrapping row layout for legend swatches.
 struct FlowLayout: Layout {
     var spacing: CGFloat = 8
+    /// When everything fits on one row, push the last item to the right edge.
+    var trailingLast = false
 
-    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
-        let width = proposal.width ?? .infinity
-        var x: CGFloat = 0, y: CGFloat = 0, rowH: CGFloat = 0, maxX: CGFloat = 0
+    private func rows(_ subviews: Subviews, width: CGFloat) -> (positions: [CGPoint], size: CGSize, oneRow: Bool) {
+        var x: CGFloat = 0, y: CGFloat = 0, rowH: CGFloat = 0, maxX: CGFloat = 0, rowsUsed = 1
+        var pos: [CGPoint] = []
         for v in subviews {
             let s = v.sizeThatFits(.unspecified)
-            if x + s.width > width, x > 0 { x = 0; y += rowH + spacing; rowH = 0 }
-            x += s.width + spacing; rowH = max(rowH, s.height); maxX = max(maxX, x)
+            if x + s.width > width, x > 0 { x = 0; y += rowH + spacing; rowH = 0; rowsUsed += 1 }
+            pos.append(CGPoint(x: x, y: y))
+            x += s.width + spacing; rowH = max(rowH, s.height); maxX = max(maxX, x - spacing)
         }
-        return CGSize(width: maxX, height: y + rowH)
+        return (pos, CGSize(width: maxX, height: y + rowH), rowsUsed == 1)
+    }
+
+    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
+        let r = rows(subviews, width: proposal.width ?? .infinity)
+        return CGSize(width: trailingLast && r.oneRow ? max(r.size.width, proposal.width ?? 0) : r.size.width, height: r.size.height)
     }
 
     func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
-        var x = bounds.minX, y = bounds.minY, rowH: CGFloat = 0
-        for v in subviews {
+        let r = rows(subviews, width: bounds.width)
+        for (i, v) in subviews.enumerated() {
             let s = v.sizeThatFits(.unspecified)
-            if x + s.width > bounds.maxX, x > bounds.minX { x = bounds.minX; y += rowH + spacing; rowH = 0 }
-            v.place(at: CGPoint(x: x, y: y), proposal: ProposedViewSize(s))
-            x += s.width + spacing; rowH = max(rowH, s.height)
+            var p = CGPoint(x: bounds.minX + r.positions[i].x, y: bounds.minY + r.positions[i].y)
+            if trailingLast, r.oneRow, i == subviews.count - 1, subviews.count > 1 { p.x = bounds.maxX - s.width }
+            v.place(at: p, proposal: ProposedViewSize(s))
         }
     }
 }

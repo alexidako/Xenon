@@ -151,7 +151,7 @@ struct AppRoot: View {
     var body: some View {
         RootView()
             .id(token)
-            .frame(minWidth: 900, minHeight: 600)
+            .frame(minWidth: 1020, minHeight: 640)
             .task { if VRT.isActive { await VRT.run { token += 1 } } }
     }
 }

@@ -20,7 +20,7 @@ struct PeriodicTableView: View {
             // Size tiles so all 18 columns and 10 rows fit the available space.
             let byWidth = (geo.size.width - 2 * pad) / 18 - gap
             let byHeight = (geo.size.height - 2 * pad - fGap - topInset) / 10 - gap
-            table(cell: max(28, min(byWidth, byHeight, 72)), viewport: geo.size)
+            table(cell: max(16, min(byWidth, byHeight, 72)), viewport: geo.size)
         }
     }
 

@@ -36,7 +36,7 @@ struct TableScreen: View {
                 if let selection { DetailView(element: selection) }
                 else { Text("Select an element").foregroundStyle(.secondary) }
             }
-            .inspectorColumnWidth(min: 420, ideal: 460, max: 640)
+            .inspectorColumnWidth(min: 340, ideal: 440, max: 640)
         }
         .onAppear { if let z = jump.element { selection = ElementStore.all.first { $0.z == z }; jump.element = nil } }
         .onChange(of: jump.element) { _, z in if let z { selection = ElementStore.all.first { $0.z == z }; jump.element = nil } }
@@ -45,29 +45,35 @@ struct TableScreen: View {
     }
 
     private var controls: some View {
-        HStack(spacing: 14) {
-            Picker("Color by", selection: $overlay) {
-                Section("Color schemes") { ForEach(Overlay.schemes) { Text($0.rawValue).tag($0) } }
-                Section("Gradients") { ForEach(Overlay.gradients) { Text($0.rawValue).tag($0) } }
-                Section("Special") { Text(Overlay.state.rawValue).tag(Overlay.state) }
-            }
-            .frame(maxWidth: 300)
-            Picker("Numeration", selection: $numeration) {
-                ForEach(Numeration.allCases) { Text($0.rawValue).tag($0) }
-            }
-            .frame(maxWidth: 230)
-            if overlay == .state {
-                Slider(value: $temperature, in: 0...6000).frame(maxWidth: 200)
-                Text(Preferences.shared.temperatureText(temperature)).monospacedDigit().frame(width: 60, alignment: .leading)
-            }
-            if overlay == .discovery {
-                Slider(value: $year, in: yearRange).frame(maxWidth: 200)
-                Text("up to \(Int(year))").monospacedDigit().frame(width: 90, alignment: .leading)
-            }
-            Spacer()
-            Toggle("Legend", isOn: $showLegend).toggleStyle(.checkbox)
+        // one row when it fits, otherwise the controls wrap (a narrow window or a long translation)
+        ViewThatFits(in: .horizontal) {
+            HStack(spacing: 14) { controlItems; Spacer(); legendToggle }
+            FlowLayout(spacing: 14) { controlItems; legendToggle }.frame(maxWidth: .infinity, alignment: .leading)
         }
         .padding(10)
+    }
+
+    private var legendToggle: some View { Toggle("Legend", isOn: $showLegend).toggleStyle(.checkbox).fixedSize() }
+
+    @ViewBuilder private var controlItems: some View {
+        Picker("Color by", selection: $overlay) {
+            Section("Color schemes") { ForEach(Overlay.schemes) { Text($0.rawValue).tag($0) } }
+            Section("Gradients") { ForEach(Overlay.gradients) { Text($0.rawValue).tag($0) } }
+            Section("Special") { Text(Overlay.state.rawValue).tag(Overlay.state) }
+        }
+        .fixedSize()
+        Picker("Numeration", selection: $numeration) {
+            ForEach(Numeration.allCases) { Text($0.rawValue).tag($0) }
+        }
+        .fixedSize()
+        if overlay == .state {
+            Slider(value: $temperature, in: 0...6000).frame(width: 200)
+            Text(Preferences.shared.temperatureText(temperature)).monospacedDigit().fixedSize()
+        }
+        if overlay == .discovery {
+            Slider(value: $year, in: yearRange).frame(width: 200)
+            Text(tr("up to {year}", ["year": Int(year)])).monospacedDigit().fixedSize()
+        }
     }
 }
 

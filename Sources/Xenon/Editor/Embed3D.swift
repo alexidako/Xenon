@@ -105,7 +105,11 @@ enum Embed3D {
             }
             if iter % 150 == 149 { step *= 0.7 }
             for i in 0..<n {
-                p[i].x -= step * g[i].x; p[i].y -= step * g[i].y; p[i].z -= step * g[i].z
+                // cap each move so a badly strained drawing relaxes instead of blowing up
+                var dx = step * g[i].x, dy = step * g[i].y, dz = step * g[i].z
+                let len = sqrt(dx * dx + dy * dy + dz * dz)
+                if len > 0.25 { let f = 0.25 / len; dx *= f; dy *= f; dz *= f }
+                p[i].x -= dx; p[i].y -= dy; p[i].z -= dz
             }
         }
 
@@ -180,5 +184,19 @@ enum Embed3D {
             return sqrt(pow(a.x - c.x, 2) + pow(a.y - c.y, 2) + pow(a.z - c.z, 2))
         }
         SelfTest.check(bonds.allSatisfy { $0 > 0.9 && $0 < 1.7 }, "editor 3D: benzene bond lengths are 0.9–1.7 Å", "\(bonds.map { String(format: "%.2f", $0) })")
+
+        // regression: a strained, drawn-by-hand ring system once relaxed to NaN coordinates and showed nothing in 3D
+        var odd = Sketch()
+        func put(_ sym: String, _ x: Double, _ y: Double) -> UUID { let a = SketchAtom(symbol: sym, x: x * 0.5, y: y * 0.5); odd.atoms.append(a); return a.id }
+        func link(_ a: UUID, _ b: UUID, _ o: Int = 1) { odd.bonds.append(SketchBond(a: a, b: b, order: o)) }
+        let o1 = put("O", 583, 476), c1 = put("C", 665, 469), c2 = put("C", 747, 478), f1 = put("F", 632, 327)
+        let c3 = put("C", 985, 399), c4 = put("C", 999, 303), n1 = put("N", 1098, 247), n2 = put("N", 874, 286)
+        let c5 = put("C", 1114, 627), c6 = put("C", 1211, 636), br = put("Br", 1327, 659), n3 = put("N", 1121, 408)
+        let c7 = put("C", 939, 777), c8 = put("C", 927, 849), n4 = put("N", 1031, 883)
+        link(o1, c1); link(c1, c2, 2); link(c1, f1); link(c2, c3); link(c3, c4, 2); link(c4, n1); link(c4, n2)
+        link(c3, c5); link(c5, c6, 2); link(c6, br); link(c6, n3); link(c5, c7); link(c7, c8, 2); link(c8, n4); link(c2, c7); link(o1, c8)
+        let oddMol = Embed3D.embed(odd, name: "odd")
+        SelfTest.check(!oddMol.atoms.isEmpty && oddMol.atoms.allSatisfy { $0.x.isFinite && $0.y.isFinite && $0.z.isFinite }, "editor 3D: a strained drawing still gets finite coordinates",
+                       "\(oddMol.atoms.prefix(3).map { "\($0.x),\($0.y),\($0.z)" })")
     }
 }

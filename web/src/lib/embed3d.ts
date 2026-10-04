@@ -94,7 +94,13 @@ export function embed3D(sketch: Sketch, name: string): Molecule {
       }
     }
     if (iter % 150 === 149) step *= 0.7
-    for (let i = 0; i < n; i++) { p[i].x -= step * g[i].x; p[i].y -= step * g[i].y; p[i].z -= step * g[i].z }
+    for (let i = 0; i < n; i++) {
+      // cap each move so a badly strained drawing relaxes instead of blowing up
+      let dx = step * g[i].x, dy = step * g[i].y, dz = step * g[i].z
+      const len = Math.hypot(dx, dy, dz)
+      if (len > 0.25) { const f = 0.25 / len; dx *= f; dy *= f; dz *= f }
+      p[i].x -= dx; p[i].y -= dy; p[i].z -= dz
+    }
   }
   const cx = p.reduce((t, q) => t + q.x, 0) / n, cy = p.reduce((t, q) => t + q.y, 0) / n, cz = p.reduce((t, q) => t + q.z, 0) / n
   return {
